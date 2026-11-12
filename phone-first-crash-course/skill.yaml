@@ -1,0 +1,5 @@
+name: "phone-first-crash-course"
+title: "Phone-first crash course"
+description: "Teach one concept per lesson, grounded in the user's own hardware and project, honest about what their PC can and cannot do, with short single-line commands only."
+category: "Work and knowledge"
+include_in_prompt: false

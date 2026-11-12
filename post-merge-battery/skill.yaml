@@ -1,0 +1,5 @@
+name: "post-merge-battery"
+title: "Post-merge battery and baseline failure-set comparison"
+description: "Prove a merge clean by comparing full-suite failure sets against baseline, verifying the merge against its source copy, and relaying defects with exact locations."
+category: "Work and knowledge"
+include_in_prompt: true

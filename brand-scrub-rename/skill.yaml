@@ -1,0 +1,5 @@
+name: "brand-scrub-rename"
+title: "Brand scrub rename"
+description: "Remove or replace a name across a whole tree with grep-driven substitution, catch stragglers with a case-insensitive whole-tree grep, migrate user state, and re-run the battery."
+category: "Work and knowledge"
+include_in_prompt: false

@@ -1,0 +1,17 @@
+# GLib-safe desktop entry template.
+# The Exec line must contain NO nested escaped quote: GLib rejects the whole
+# file with "Desktop file didn't specify Exec field" when it sees one.
+# So the launcher is python3 -c with %k as a separate argv token. Field-code
+# expansion keeps a spaced path as one argument, dirname runs in Python, and
+# the install script runs through subprocess with a list. Some launchers
+# expand %k to empty, so the code falls back to the working directory.
+# Replace NAME, COMMENT, and ICON with the project values, and point the
+# subprocess call at the real installer script next to this file.
+[Desktop Entry]
+Type=Application
+Name=NAME
+Comment=COMMENT
+Exec=python3 -c "import os, sys, subprocess; p = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] else os.getcwd(); d = os.path.dirname(p); subprocess.call(['bash', os.path.join(d, 'install.sh')])" %k
+Icon=ICON
+Terminal=false
+Categories=Utility;

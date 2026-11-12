@@ -1,0 +1,5 @@
+name: openai-compatible-provider-wiring
+title: Wire an OpenAI-compatible provider into Forge
+description: Add a new cloud provider to Forge by verifying its base URL and exact model ID from the vendor's own docs, wiring the client on the existing provider pattern, and verifying with fake transports.
+category: Work and knowledge
+include_in_prompt: false

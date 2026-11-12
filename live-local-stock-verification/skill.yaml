@@ -1,0 +1,5 @@
+name: live-local-stock-verification
+title: Live local stock verification
+description: Find a product for same-day pickup without a wasted trip by checking product pages at the exact store, reporting verified items separately from unverified phone leads, and re-verifying later the same day.
+category: Shopping
+include_in_prompt: false

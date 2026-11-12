@@ -1,0 +1,5 @@
+name: "reference-sheet-character-pipeline"
+title: "Reference-sheet character pipeline"
+description: "Build a 3D character from multi-view reference sheets by modeling each piece separately from its own sheet, assembling the approved pieces, and saving the character as a reusable preset."
+category: "Work and knowledge"
+include_in_prompt: false

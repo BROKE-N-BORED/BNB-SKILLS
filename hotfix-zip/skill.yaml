@@ -1,0 +1,5 @@
+name: "hotfix-zip"
+title: "Hotfix zip"
+description: "Patch the exact shipped build the user is running with a one-file fix, prove by diff that only that file moved, and email it with Sent-folder verification."
+category: "Work and knowledge"
+include_in_prompt: false

@@ -1,0 +1,5 @@
+name: living-document-build
+title: Living-document build with multi-pass audits
+description: Build one master document as a single source of truth, updated in place, and keep it correct with consistency, gap, and live-the-guide scenario audits.
+category: Work and knowledge
+include_in_prompt: false

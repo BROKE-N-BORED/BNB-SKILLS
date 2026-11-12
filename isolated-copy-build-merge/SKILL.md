@@ -1,0 +1,52 @@
+# Isolated-copy build and delta-port merge with batteries
+
+## When to use
+
+- Use this skill whenever a feature or fix is built for a project that has a live tree other work may also be touching.
+- Use it for every queued build item, one item at a time, holding each finished item for the merge order.
+- Do not build directly in the live tree while other lines of work are running.
+
+## Build in an isolated copy
+
+- Copy the live tree to an isolated directory and build the feature there, leaving the shared tree untouched.
+- Run the lead battery in the isolated copy: the new test classes plus the neighbouring test sets the change could affect.
+- Check the diff yourself in the isolated copy and confirm it holds exactly the intended changes, nothing more.
+- Re-run the new test classes independently and check the diff and marker counts yourself, never trusting the builder's word alone.
+- Write a port spec naming the copy path, the exact delta, and any base-tree caveats the merge must respect.
+
+## Back up, then port only the delta
+
+- Back up the live tree before you touch it for the merge.
+- Port only the delta from the isolated copy into the live tree, by anchor port of the named paths.
+- Preserve any live-tree work that landed while the build was held, such as inbox items or hotfixes.
+- Check the merged diff and confirm it equals exactly the intended changes.
+
+## Verify the merge before you call it clean
+
+- Verify the merged tree against the source copy with marker counts and byte-identical file comparisons before you call the merge clean.
+- Never trust a patch tool report of already applied on its own, because a patch tool once silently reverted about 1,260 lines across 19 files while reporting exactly that.
+- Run the merged-tree battery: the targeted classes first, then the full suite.
+- Compare the full-suite failure set against the baseline (see post-merge-battery) and reproduce any new failure on the pre-merge backup before you claim anything about it.
+- Run only one suite at a time. When a suite is already running, wait for its window instead of starting a second one.
+- Keep any wait-for-window watchdog in a script file, because a watchdog command line that names the test string matches itself forever.
+
+## Hold, report, and ship
+
+- Hold the merged and verified tree for the user's merge order and push only on their approval.
+- Report the merged tree path, the battery receipts, and the backup path.
+- Close the task with a task receipt (see task-receipt-format) and ship through the ship pipeline (see ship-pipeline).
+
+## Where this comes from
+
+- This is the dominant build pattern across Code Forge DEV, GUIFX, Security, CodeRabbit, Manus, Forge Browser, MIMIK, Pixel Forge, Reblend, Design Shell, Model Research, Groq/Gemini, and Prompts work, and is recorded in the BNB audit as S2.
+
+## Available connectors
+
+- [GitHub](/opt/hatch/connectors/github/CONNECTOR.md) for pushing the merged tree once the user approves.
+- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
+- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+
+## Alternatives for better results
+
+- Offer to run the targeted battery again after a fix lands on the merged tree, instead of trusting the pre-fix receipt.
+- Offer to keep the isolated copy until the user confirms the merge on their own PC, so a revert stays cheap.

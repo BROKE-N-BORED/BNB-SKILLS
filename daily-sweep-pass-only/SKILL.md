@@ -1,0 +1,41 @@
+# Daily sweep with pass-only reporting
+
+## When to use
+
+- Use this skill for a scheduled scan that runs against fixed criteria, such as a daily stocks sweep, a free-services sweep, or a course sweep.
+- Run the scan on its schedule and report only the items that pass, whether the scan is a cron job or a manual run.
+- Update the cron job instructions in place when a rule changes, so the next run follows the new rule.
+
+## Scan against fixed criteria
+
+- Write the criteria down before the first run and keep them fixed between runs, so a pass means the same thing every day.
+- Check every candidate against every criterion, and record the evidence for each pass.
+- Dedupe new finds against the catalogue before reporting, so an item already listed is not reported twice.
+- See references/criteria-template.md for the criteria of the three established variants.
+
+## Report only what passes
+
+- Report only the items that pass, with the evidence that cleared them.
+- When nothing passes, send one short line saying nothing cleared the bar, with no rejects list and no watchlist.
+- Report losses first when a previously passing item stops passing, such as a free tier that is gone or a service that is now phone-gated.
+- Never pad a thin day with near-misses. A pass-only report stays trustworthy only when a pass is rare and real.
+
+## Keep the catalogue honest
+
+- Add each newly verified find to the catalogue and remove each loss, so the catalogue stays the true list of what passes.
+- Record the date and the source of every verification, because free tiers and prices change.
+- Flag anything you could not verify instead of listing it as passing.
+
+## Where this comes from
+
+- This shape runs daily as the stocks and crypto sweep (17:20 cron) and the $0-services sweep (about 10:20 AM cron), and the same discipline was applied to the $0 course catalogue and reused for inbox triage and the Raon Ollama-support watch. It is recorded in the BNB audit as S10.
+
+## Available connectors
+
+- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
+- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+
+## Alternatives for better results
+
+- Offer to tighten the criteria when too many items pass to act on, or loosen one criterion when nothing has passed for a long run.
+- Offer to re-verify a passing item later the same day when its price or stock is known to move fast.

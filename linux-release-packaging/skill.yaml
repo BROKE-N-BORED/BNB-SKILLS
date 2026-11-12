@@ -1,0 +1,5 @@
+name: "linux-release-packaging"
+title: "Linux release packaging"
+description: "Package a project as a real Linux program with an icon, a double-click GUI installer, and a GLib-safe desktop entry."
+category: "Work and knowledge"
+include_in_prompt: true

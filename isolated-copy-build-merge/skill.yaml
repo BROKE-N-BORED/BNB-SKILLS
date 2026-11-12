@@ -1,0 +1,5 @@
+name: "isolated-copy-build-merge"
+title: "Isolated-copy build and delta-port merge with batteries"
+description: "Build a feature in an isolated copy, battery it there, back up the live tree, port only the delta, verify against the source copy, and battery the merged tree."
+category: "Work and knowledge"
+include_in_prompt: true

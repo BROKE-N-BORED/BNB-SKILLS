@@ -1,0 +1,5 @@
+name: "daily-sweep-pass-only"
+title: "Daily sweep with pass-only reporting"
+description: "Run a scheduled scan against fixed criteria and report only the items that pass, or one short line when none do."
+category: "Work and knowledge"
+include_in_prompt: true

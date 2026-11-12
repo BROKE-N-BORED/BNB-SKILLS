@@ -1,0 +1,5 @@
+name: "donate-support-wiring"
+title: "Donate support wiring"
+description: "Wire a verified donation link into a project's README, Linktree, and a non-blocking in-app startup welcome screen with a QR code and a printed-link fallback."
+category: "Work and knowledge"
+include_in_prompt: false

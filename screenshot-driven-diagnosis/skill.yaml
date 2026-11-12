@@ -1,0 +1,5 @@
+name: "screenshot-driven-diagnosis"
+title: "Screenshot-driven diagnosis and fix spec"
+description: "Diagnose a bug from the user's phone screenshot, find the real cause in code, and send an ordered fix spec to the DEV thread."
+category: "Work and knowledge"
+include_in_prompt: true

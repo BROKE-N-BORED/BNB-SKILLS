@@ -1,0 +1,5 @@
+name: "sandbox-first-sim-build"
+title: "Sandbox-first sim build"
+description: "Build a simulation as a standalone sandbox file first with the core sim separate from rendering, and verify it with a screenshot rig, human-style interaction tests, and numeric measurement."
+category: "Work and knowledge"
+include_in_prompt: false

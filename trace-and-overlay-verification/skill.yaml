@@ -1,0 +1,5 @@
+name: "trace-and-overlay-verification"
+title: "Trace-and-overlay verification"
+description: "Verify a 3D model against its reference sheet by measurement, using the sheet as a viewport backdrop and overlaying renders at the same scale, and report residual offsets honestly."
+category: "Work and knowledge"
+include_in_prompt: false

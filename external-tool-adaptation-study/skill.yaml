@@ -1,0 +1,5 @@
+name: "external-tool-adaptation-study"
+title: "External-tool adaptation study into tiered build queue"
+description: "Deep-research an external product, map its features onto the user's project as a tiered list, and build the picked items one at a time."
+category: "Work and knowledge"
+include_in_prompt: true

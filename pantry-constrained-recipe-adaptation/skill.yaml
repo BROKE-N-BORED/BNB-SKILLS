@@ -1,0 +1,5 @@
+name: pantry-constrained-recipe-adaptation
+title: Pantry-constrained recipe adaptation and target-app formatting
+description: Adapt a recipe to what the user actually has and format it to match the target app. Tier 3, weak.
+category: Cooking
+include_in_prompt: false

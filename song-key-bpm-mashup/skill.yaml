@@ -1,0 +1,5 @@
+name: song-key-bpm-mashup
+title: Song key and BPM lookup with mashup compatibility
+description: Look up key and BPM for a list of songs and work out mashup compatibility — shared key families, a BPM anchor with minimal stretches, and semitone shifts for outliers.
+category: Creation
+include_in_prompt: false

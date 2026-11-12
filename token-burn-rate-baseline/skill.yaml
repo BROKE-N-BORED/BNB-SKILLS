@@ -1,0 +1,5 @@
+name: token-burn-rate-baseline
+title: Token burn-rate baseline and scheduled recheck
+description: Measure how long a metered token pool will last by recording a usage baseline, scheduling a one-time recheck days later, and computing tokens per day and remaining-pool lifetime.
+category: Work and knowledge
+include_in_prompt: false

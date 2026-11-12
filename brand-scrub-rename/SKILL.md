@@ -1,0 +1,53 @@
+# Brand scrub rename
+
+Remove or replace a name across a whole tree, catch every straggler, migrate existing user data so it survives the rename, and prove nothing broke. Use this skill whenever a rebrand lands, a name has to go, or a policy scrub removes brand names from a project.
+
+## Substitute grep-driven across the whole tree
+
+- Find every occurrence of the old name with a grep across the whole tree before you change anything, and count what you find.
+
+- Substitute the old name for the new name, or remove it, in docs, code, docstrings, and module and skill names, working through the grep results file by file.
+
+- Keep a substitution count as you go, so the report can say how many substitutions landed and in how many files.
+
+- Change only the name and the lines the rename needs, and leave working code around it alone.
+
+## Catch stragglers with a whole-tree grep
+
+- Run a case-insensitive whole-tree grep for the old name after the substitution pass, and check every hit it returns.
+
+- Fix each straggler the grep finds, including a missed file the first pass never touched, and re-run the grep until it comes back clean.
+
+- Check the name in every form it can appear, such as different capitalizations, hyphenated and unhyphenated forms, and names embedded in longer identifiers.
+
+- Report the final grep as clean, with the command you ran, so the scrub is proven rather than claimed.
+
+## Migrate user state so data survives
+
+- Find every place the old name lives in user state, such as plan keys, toggle keys, and known-skill lists, before the rename ships.
+
+- Add state migrations that carry the old keys to the new keys, so existing user data survives the rename instead of being orphaned.
+
+- Test the migration on a copy of real-shaped state, and say what the test showed.
+
+- Never ship a rename that silently drops user data.
+
+## Re-run the battery and report the receipt
+
+- Re-run the full test battery on the renamed tree, and report the pass counts.
+
+- Fix any failure the battery finds, and re-run until it is green.
+
+- Report the rename as a receipt, with the substitution count, the file count, the clean final grep, the migration, and the battery result.
+
+## Available connectors
+
+- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
+
+- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+
+## Alternatives for better results
+
+- Offer to run the scrub on the docs first and the code second when the tree is large, so each pass can be checked on its own.
+
+- Ask the user to confirm the new name and its exact spelling and capitalization before the substitution starts.

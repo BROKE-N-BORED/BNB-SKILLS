@@ -1,0 +1,5 @@
+name: "species-dossier-simulation-pipeline"
+title: "Species dossier simulation pipeline"
+description: "Turn a real species into a buildable sim entity with a fixed-template dossier, a gap register that never invents missing values, and a pilot build verified numerically and by screenshot."
+category: "Work and knowledge"
+include_in_prompt: false

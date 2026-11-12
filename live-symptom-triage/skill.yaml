@@ -1,0 +1,5 @@
+name: live-symptom-triage
+title: Live symptom triage with timed vitals recheck
+description: Real-time triage for a suspected supplement or drug reaction. Guarded playbook only, escalate, don't diagnose, never a diagnostic tool.
+category: Health
+include_in_prompt: false

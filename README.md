@@ -2,7 +2,7 @@
 
 Reusable agent playbooks distilled from real work in Joshua's chats. Each skill is a folder containing a `SKILL.md` playbook (plus a `skill.yaml` and supporting files where the skill needs them). A skill teaches an agent how to do one kind of task well: when to use it, the procedure, and what to check before calling it done.
 
-Built from `~/workspace/bnb-skills-tools/AUDIT.md` (2026-11-12, all 67 chats read: main chat plus 66 side chats, 73 raw workflow candidates deduped to 52 net-new skills). First delta scan the same evening (scan window ~17:54–19:00 EST) added 7 more skills (S53–S59) and updates to 11 existing skills. S60 (side-quest) was added later the same evening from Joshua's main-chat concept.
+Built from `~/workspace/bnb-skills-tools/AUDIT.md` (2026-11-12, all 67 chats read: main chat plus 66 side chats, 73 raw workflow candidates deduped to 52 net-new skills). First delta scan the same evening (scan window ~17:54–19:00 EST) added 7 more skills (S53–S59) and updates to 11 existing skills. S60 (side-quest) was added later the same evening from Joshua's main-chat concept. S61 (debug-log-layer) was added the same evening from his main-chat order for a debug layer in every project build.
 
 ## How to use a skill
 
@@ -18,7 +18,7 @@ Built from `~/workspace/bnb-skills-tools/AUDIT.md` (2026-11-12, all 67 chats rea
 - **Tier 2 — repeated, solid, project-spanning.** Used more than once, or built to be reused across projects.
 - **Tier 3 — niche / weak / single-use.** Included for completeness, built last. Some carry caveats in the skill itself: S47 is a guarded safety playbook, S50 was stated but never executed in-thread, S51 and S52 are weak.
 
-## All 60 skills
+## All 61 skills
 
 | # | Skill | Description | Tier |
 |---|---|---|---|
@@ -82,6 +82,7 @@ Built from `~/workspace/bnb-skills-tools/AUDIT.md` (2026-11-12, all 67 chats rea
 | S58 | `fake-provider-verification` | Verify against scripted fake Ollama and OpenAI-compatible servers with failure modes and request recording | 2 |
 | S59 | `qt-ui-thread-offload` | Move blocking work off the Qt UI thread into a QThread worker; debounce rapid controls | 2 |
 | S60 | `side-quest` | When the main build hits a wall, build the smallest standalone thing that fills the gap | 1 |
+| S61 | `debug-log-layer` | Every project ships with logging, error handling, and an emailable debug report | 1 |
 
 ## Skills that live outside this repo
 

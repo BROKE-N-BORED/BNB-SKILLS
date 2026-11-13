@@ -13,6 +13,13 @@
 - Name exactly what the report-back must contain, such as file paths, byte sizes, counts, and orientation.
 - Name the held build path and attach the battery receipt when the brief is a merge note, so the receiving thread can delta-port it (see isolated-copy-build-merge).
 - Keep the brief to the one task and leave the next item out until this one is done.
+- Under the no-stalling rule, a handoff to the owning thread carries the ship order with the port spec: port it, merge it, push it — no waiting on a merge order. The receiving thread confirms the queue position back to the sender. In a thread that never touches the shared tree, handing over the port spec plus ship order IS the ship step.
+
+## Broadcast a standing rule
+
+- When the user sets a rule that applies to every thread ("send that to every chat thread"): record it in memory first, then send the same brief to every build thread it applies to — 27 threads for the no-stalling rule and the mandatory gate (2026-11-12). Skip threads it does not apply to (non-build threads: elder report, medical).
+- Each thread records the rule as standing and, for the no-stalling rule, ships anything finished that was sitting unshipped.
+- Report-backs from dispatched work no longer wait for the user's approval before the next item starts — the no-stalling cycle applies to dispatched work too.
 
 ## Report completions with verified facts only
 

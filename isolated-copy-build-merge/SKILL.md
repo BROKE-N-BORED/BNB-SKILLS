@@ -3,7 +3,7 @@
 ## When to use
 
 - Use this skill whenever a feature or fix is built for a project that has a live tree other work may also be touching.
-- Use it for every queued build item, one item at a time, holding each finished item for the merge order.
+- Use it for every queued build item, one item at a time. A finished item no longer waits for a merge order to ship (see "Hold, report, and ship" below); "hold for merge order" only orders parallel held builds, never holds a finished build waiting for a push approval.
 - Do not build directly in the live tree while other lines of work are running.
 
 ## Build in an isolated copy
@@ -13,11 +13,14 @@
 - Check the diff yourself in the isolated copy and confirm it holds exactly the intended changes, nothing more.
 - Re-run the new test classes independently and check the diff and marker counts yourself, never trusting the builder's word alone.
 - Write a port spec naming the copy path, the exact delta, and any base-tree caveats the merge must respect.
+- Name tree-side noise in the port spec: a fresh diff against the current tree shows content merged after the copy was taken. Name that content explicitly as tree-side movement, NOT part of the delta, so the porter ports only the delta.
+- When a later item needs a hook into an earlier item that was not in its base, the follow-up hunk (code plus test) rides in the later item's port spec and is applied when the earlier item has landed.
+- Re-check the live tree before porting a ship order: a ship order can arrive after the item is already merged. Grep the live tree first; if the hooks are in, say so and do not port twice.
 
 ## Back up, then port only the delta
 
-- Back up the live tree before you touch it for the merge.
-- Port only the delta from the isolated copy into the live tree, by anchor port of the named paths.
+- Back up the live tree before you touch it for the merge. Back up with `cp -r`, not `cp -a` (`cp -a` fails on ownership in this environment), and verify the backup by recursive diff outside `__pycache__`.
+- Port only the delta from the isolated copy into the live tree, by anchor port of the named paths. Port by anchor or string match, not by a recorded line number: a line number from a merge note goes stale as other items land.
 - Preserve any live-tree work that landed while the build was held, such as inbox items or hotfixes.
 - Check the merged diff and confirm it equals exactly the intended changes.
 
@@ -30,9 +33,15 @@
 - Run only one suite at a time. When a suite is already running, wait for its window instead of starting a second one.
 - Keep any wait-for-window watchdog in a script file, because a watchdog command line that names the test string matches itself forever.
 
+## Merge several items through one dependency-ordered queue
+
+- When several items land at once, run them through one coordinator in dependency order, anchor-port plus battery each, lead verifies plus full suite before the push.
+- Name the hard dependencies explicitly in the queue: an item that needs another item's code lands after it.
+
 ## Hold, report, and ship
 
-- Hold the merged and verified tree for the user's merge order and push only on their approval.
+- A merged and verified tree ships immediately under the no-stalling rule (see no-stalling-task-list-cycle): push, Release, email, then start the next item. One item at a time still applies (no parallel builds in one tree); only the waiting between items is gone.
+- Run the mandatory gate as a pre-ship check (see pre-delivery-enhancement-gate): if it finds something missing, enhance it, then ship — the gate never stalls shipping.
 - Report the merged tree path, the battery receipts, and the backup path.
 - Close the task with a task receipt (see task-receipt-format) and ship through the ship pipeline (see ship-pipeline).
 

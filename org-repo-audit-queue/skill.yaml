@@ -1,0 +1,5 @@
+name: "org-repo-audit-queue"
+title: "Org repo audit queue"
+description: "Audit every repo in a GitHub account one at a time from a live queue file: fixed report shape, live-only rule, read-only, metadata re-verified at delivery, placeholders named plainly."
+category: "Work and knowledge"
+include_in_prompt: true

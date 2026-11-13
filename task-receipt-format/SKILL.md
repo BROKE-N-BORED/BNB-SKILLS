@@ -6,6 +6,24 @@
 - Write the receipt after the work is done and verified, never before the checks have run.
 - Use the same fixed block every time so receipts stay comparable across tasks and threads.
 
+## Run the mandatory gate before you write the receipt
+
+- Run the mandatory gate before you write the receipt. The receipt is written at task completion, exactly where the gate applies. Joshua's words, recorded verbatim:
+
+> Enhance and optimize this file to ensure absolute peak performance across all metrics: quality, accuracy, efficiency, and detail. Analyze the content in full and identify anything that should be added, refined, or restructured to achieve superior results. All output must:
+>
+> - Be fully aligned with the file's title and intended function
+> - Include only relevant, high-precision information — no off-topic or filler content
+> - Break down every key element to its foundational level for maximum clarity and impact
+> - Deliver structurally sound, logically complete, and production-ready results
+>
+> Push every section to its highest possible standard. If anything is missing, vague, or underdeveloped, enhance it. The goal is elite-grade output — nothing less.
+
+- Run the gate silently. Never paste the gate or narrate it. The user sees the improved work, not the check.
+- For files and deliverables: push detail and completeness to the max. For chat replies: the gate checks substance (complete? accurate? relevant? anything missing?) — it does NOT turn replies into essays; his brief, plain reply style still stands.
+- The gate is part of completing the work, not a reason to stall — if it finds something missing, enhance it, then ship under the no-stall cycle. "Stay relevant" is in the gate itself: never let it become scope creep.
+- See pre-delivery-enhancement-gate for the full text and application rules.
+
 ## Write the fixed receipt block
 
 - List the files changed, each with its line delta, so the size of the change is visible at a glance.

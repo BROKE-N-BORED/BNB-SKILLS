@@ -1,0 +1,5 @@
+name: "qt-ui-thread-offload"
+title: "Qt UI-thread offload (worker thread + debounce)"
+description: "Move blocking work off the Qt UI thread into a QThread worker with stale-signal guards, cap oversized inputs first, and debounce rapid control changes; verify with before/after timings."
+category: "Work and knowledge"
+include_in_prompt: true

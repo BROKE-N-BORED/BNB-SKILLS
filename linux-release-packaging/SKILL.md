@@ -27,6 +27,13 @@
 - Keep an os.getcwd() fallback in the launcher for launchers that expand `%k` to empty.
 - See references/desktop-entry-template.desktop for the working pattern.
 
+## Harden the launcher and installer against three real failures
+
+- Resolve symlinks in CLI wrappers: if the app installs a command as a symlink (e.g. `~/.local/bin/stella` → the app folder), the wrapper must resolve the symlink before locating its own directory. Resolving from `$0` through the symlink points at `~/.local/bin` instead of the app folder and the command dies with `ModuleNotFoundError`. Resolve in the wrapper, in `run.sh`, and in `install.sh`, and add a regression test that invokes the command through its installed symlink.
+- Quote absolute paths in generated `.desktop` files: Exec= and Icon= lines built from the install path must be quoted, so an install path containing spaces still launches.
+- Name the fix for a missing system prerequisite: when the installer needs something like `python3-venv`, check for it and fail with the exact install command (`sudo apt install python3-venv`) instead of failing cryptically downstream.
+- Snapshot pushes cannot carry binary files: keep the icon SVG as the source of truth in the repo with a render script to regenerate the PNGs, and ship the prebuilt PNGs in the Release zip only — do not expect them to survive a push.
+
 ## Verify the package before it ships
 
 - Verify the zip exec bits after repacking (see ship-pipeline) and test-extract the zip before sending it.

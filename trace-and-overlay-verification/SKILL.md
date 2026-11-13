@@ -6,7 +6,9 @@ Verify a 3D model against its reference sheet by measurement, not by eyeballing.
 
 - Load the reference sheet image as a viewport backdrop, so the model is judged against the sheet in the same view instead of from memory.
 
-- Start with the orthographic front view, then the orthographic side view, and align the backdrop size to the model scale before you compare anything.
+- Start with the orthographic front view, then the orthographic side view, and align the backdrops' SCALES before you compare anything. The views agree when they share the same SCALE (centimeters per pixel), NOT the same width: the cells have different content widths (the front cell spans both pouches, the side cell spans one), so equal widths would put them at different scales and the model could never match both. Per cell: pick a feature with a KNOWN size visible in that cell, measure it in pixels, and set scale = known_cm ÷ feature_px, backdrop width = scale × cell_px_width. The widths will differ between views, and that is correct. (Belt numbers: strap 351 px = 42 cm, so 0.12 cm/px; strap height 42 px = 5.0 cm.)
+
+- Check the scales agree before modeling anything: a feature on the shared axis (e.g. strap height, 5.0 cm) MUST read the same in both views. If the two scales differ, one measurement is wrong — re-measure, do not model on a misaligned setup.
 
 - Match a three-quarter view by setting the viewport camera to the same angle as the sheet, estimating the angle from the sheet and refining it by matching landmarks until the view lines up.
 
@@ -31,6 +33,10 @@ Verify a 3D model against its reference sheet by measurement, not by eyeballing.
 - Report the residual offset for each view in real units, such as a vertical offset of about 1 to 2 cm that remains after the rebuild, and say plainly that it remains instead of rounding it to zero.
 
 - Name every other honest gap in the same report, such as a color that reads darker than the sheet, a missing detail like stitching, or a subpart that is a plain solid where the sheet shows more shape.
+
+## When the views disagree
+
+- Front and side share one axis (height), so they can be checked against each other: after scale-matching, the shared feature must read the same in both views. If it does not, work the disagreement in this order: (1) recompute the scales first — most disagreements are scale errors, not sheet errors; re-measure the shared feature in both cells and recompute both widths. (2) If the scales are right and the views still disagree, the sheet itself is inconsistent (the AI drew the feature at two sizes): the view that shows the disputed dimension DIRECTLY wins — front wins width and height, side wins depth and height. For the shared height dimension, where both views are direct, trust the view where the feature's edges are SHARPEST, and use the 3/4 view as the plausibility tiebreaker. (3) A disagreement larger than ~2 cm after scale-matching is a sheet problem, not measurement slop (the belt trace rebuild's registration slop was ±2 cm) — do NOT split the difference (averaging two wrong views gives a third wrong view); pick the winning view and match to it, and record the losing view's error in the report.
 
 ## Give a verdict grounded in the measurements
 

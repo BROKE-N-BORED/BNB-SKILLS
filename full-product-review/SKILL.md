@@ -21,6 +21,18 @@
 - Rank the improvements so the user can pick from the top: group them in tiers or in a P0 to P4 phased plan with a concrete task list, and include an avoid list for ideas that look tempting but would break the hardware limits or the hard $0 rule.
 - Keep every claim tied to something you read, measured, or screenshotted, and flag anything you could not verify instead of dressing it up as a finding.
 
+## Verify before you claim
+
+- GitHub code search returns ZERO results for these repos — never claim a repo-wide count (TODOs, tests, typos) from it. Counts come only from listings and files actually read.
+- Verify a claimed typo byte-for-byte before writing it in a report: quote the file, the line, and the exact bytes. A draft report once falsely claimed a model-tag typo and zero TODOs from the code search — both were struck before delivery.
+- Re-verify descriptions and topics live at delivery time, not from the listing you started from — metadata changes during the day (two repo descriptions changed on 2026-11-12 between the morning listing and the evening audits).
+- A report covers what was actually read; anything not checked goes in a "could not verify" section, never in the findings.
+
+## Audit-series variant
+
+- The same verbatim per-item ask can run as a series across a list: one item at a time, each item getting its own report (features, functions, strengths, weaknesses, gaps, UI flaws, innovation/design suggestions) plus its own prioritized task list, delivered one at a time and rolling to the next item under the no-stalling rule.
+- The ask text: "audit each one one at a time, report features functions, strengths, weaknesses, gaps, ui flaws or innovation time suggestions, design suggestions, anything new or needs improvement or updated or upgraded... make a task list".
+
 ## Report the review and stop
 
 - Deliver the review in chat with the headlines and the ranked list, and write the full report to a file for the record.

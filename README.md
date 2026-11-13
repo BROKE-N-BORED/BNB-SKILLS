@@ -2,7 +2,7 @@
 
 Reusable agent playbooks distilled from real work in Joshua's chats. Each skill is a folder containing a `SKILL.md` playbook (plus a `skill.yaml` and supporting files where the skill needs them). A skill teaches an agent how to do one kind of task well: when to use it, the procedure, and what to check before calling it done.
 
-Built from `~/workspace/bnb-skills-tools/AUDIT.md` (2026-11-12, all 67 chats read: main chat plus 66 side chats, 73 raw workflow candidates deduped to 52 net-new skills).
+Built from `~/workspace/bnb-skills-tools/AUDIT.md` (2026-11-12, all 67 chats read: main chat plus 66 side chats, 73 raw workflow candidates deduped to 52 net-new skills). First delta scan the same evening (scan window ~17:54–19:00 EST) added 7 more skills (S53–S59) and updates to 11 existing skills.
 
 ## How to use a skill
 
@@ -18,7 +18,7 @@ Built from `~/workspace/bnb-skills-tools/AUDIT.md` (2026-11-12, all 67 chats rea
 - **Tier 2 — repeated, solid, project-spanning.** Used more than once, or built to be reused across projects.
 - **Tier 3 — niche / weak / single-use.** Included for completeness, built last. Some carry caveats in the skill itself: S47 is a guarded safety playbook, S50 was stated but never executed in-thread, S51 and S52 are weak.
 
-## All 52 skills
+## All 59 skills
 
 | # | Skill | Description | Tier |
 |---|---|---|---|
@@ -74,6 +74,13 @@ Built from `~/workspace/bnb-skills-tools/AUDIT.md` (2026-11-12, all 67 chats rea
 | S50 | `email-zip-code-intake` | Codebase intake from an emailed source zip, plus dead-button diagnosis; stated but never executed in-thread | 3 |
 | S51 | `pc-spec-review-upgrade` | Spec file to bottlenecks to cheapest compatible parts; weak, shopping overlap | 3 |
 | S52 | `pantry-constrained-recipe-adaptation` | Adapt a recipe to what the user has and format it to match the target app; weak | 3 |
+| S53 | `no-stalling-task-list-cycle` | Verify, push, Release, email, then immediately the next task-list item; repeat until the list is done | 1 |
+| S54 | `pre-delivery-enhancement-gate` | Run the mandatory enhancement gate silently before every reply, delivery, or task completion | 1 |
+| S55 | `dual-model-ai-relay` | Two models side by side with a director layer; blind/aware AI-to-AI relay with turn cap and stop conditions | 2 |
+| S56 | `org-repo-audit-queue` | Audit every repo in a GitHub account one at a time from a live queue file | 2 |
+| S57 | `bnb-repo-manager-delta-scan` | Watermark-based delta scan of all chat threads against the BNB repo baselines | 2 |
+| S58 | `fake-provider-verification` | Verify against scripted fake Ollama and OpenAI-compatible servers with failure modes and request recording | 2 |
+| S59 | `qt-ui-thread-offload` | Move blocking work off the Qt UI thread into a QThread worker; debounce rapid controls | 2 |
 
 ## Skills that live outside this repo
 

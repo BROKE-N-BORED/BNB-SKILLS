@@ -16,6 +16,8 @@ Verify a GitHub repo live before you build against it or push to it, and judge w
 
 - Read the repo's description and README when the question is whether an existing repo is the project the user means.
 
+- Re-check the description and topics live at report time — do not trust a listing from earlier in the day. Repo metadata changes within hours (OpenRealism's and FRIDAY's descriptions both changed on 2026-11-12 between the morning listing and the evening audits). If the live description disagrees with what you planned to write, the live one wins.
+
 - Compare what the repo says it is against what the user described, and name the points that match and the points that do not.
 
 - Put the match to the user as a question, such as whether the repo you found is the project they meant, instead of assuming it is and building on it.

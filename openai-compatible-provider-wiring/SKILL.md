@@ -34,7 +34,7 @@
 
 ## Verify with fake transports
 
-- Verify the wiring with fake transports that stand in for the live API, covering success, error, and bad-key paths.
+- Verify against fake providers, not live ones: the standard method is the fake-provider-verification skill (S58, BNB SKILLS) and the fake-provider-servers tool (T19, BNB TOOLS) — a fake Ollama and a fake OpenAI-compatible server with failure modes (dead, slow, mid-stream RST, bad-key 401 never retried, server-death), request recording, and a key-leak grep over the run files. Proven across OLLAMA-SYSTEM-TEST v3/v4/v5 and DUO v0.1–v0.3.
 
 - Run the existing provider test suite and keep it green; add tests for the new provider on the same pattern.
 

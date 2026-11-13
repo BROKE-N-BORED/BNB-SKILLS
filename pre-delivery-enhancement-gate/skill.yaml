@@ -1,0 +1,5 @@
+name: "pre-delivery-enhancement-gate"
+title: "Pre-delivery enhancement gate: run the peak-performance check before anything ships"
+description: "Run Joshua's mandatory enhancement gate silently before every reply, delivery, or task completion: check completeness, accuracy, and relevance, enhance what is missing or underdeveloped, then ship."
+category: "Work and knowledge"
+include_in_prompt: true

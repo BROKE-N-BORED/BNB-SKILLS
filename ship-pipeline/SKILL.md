@@ -20,6 +20,7 @@
 - Run your own checks in the fresh unzip and look at the screenshots yourself before you call the build verified.
 - Confirm the zip carries the app icon and the double-click installer, because every Release zip must carry both (see linux-release-packaging).
 - Fix any defect the fresh-unzip check finds and rebuild the zip, then verify the rebuilt zip the same way.
+- For a `pip install .` package, the fresh check is a pip fresh-install check: copy to a clean directory, fresh venv, `pip install .`, then run the CLI end to end from the installed package (version, each command, library import, MCP smoke if it has one) — not just unzip plus test suite.
 
 ## Email the zip and read Sent back
 
@@ -30,10 +31,21 @@
 
 ## Push to GitHub and cut the Release
 
-- Push the build to the project repo on GitHub only on the user's approval, then read back the pushed files and confirm the commit is live.
+- Push the build to the project repo on GitHub, then read back the pushed files and confirm the commit is live. For a one-off shipment with no task list, push only on the user's approval. For a task-list item, approval is pre-granted under the no-stall cycle below: do not wait for a go-ahead between items and do not hold a finished, verified build for a push approval.
 - Cut a Release for the push with the zip attached, because every push gets a Release.
 - Download the Release asset back and compare its SHA-256 hash against the local zip, and report the match by hash value.
 - Treat the shipment as complete only when the hash matches, and say plainly which step is still open when it does not.
+- The snapshot push tool cannot delete files: after a rename, stale paths stay on main and must be deleted via the GitHub web UI (each committed directly to main with its exact message, verified by a 404 when revisiting the path) BEFORE the Release zip is built from main — a stale skill directory re-registers the old skill name on a fresh clone. A staging-built zip is clean either way when staging already has the stale paths removed.
+
+## No-stall cycle (task-list work)
+
+- When the project has a task list, the ship pipeline runs as a cycle, not a one-off: verify the item, push it, update the Release, email the zip, then immediately build the next task-list item. Repeat until the task list is complete — then stop. Do not invent new tasks once the list is done.
+- Verification is NOT waived by the cycle: fresh-unzip check, tests green, and the same proof as always still gate every push.
+- The user's real-PC verdict still closes an item, but it does not block starting the next task.
+- A hard gate still stops the cycle: if the next task needs the user's PC, their decision, or an action only they can take, say so and stop — do not guess past it.
+- Never create a GitHub repo unasked: the user creates repos. If the project has no repo yet, the push step waits on that.
+- Apply only the steps that fit: if a step does not exist for this project (no repo, no Release, no email step), skip it — do not force it. A report, not a build, gets pushed with no Release.
+- See no-stalling-task-list-cycle for the full standing rule.
 
 ## Report only what you verified
 

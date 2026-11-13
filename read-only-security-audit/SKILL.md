@@ -19,6 +19,13 @@
 - Name the areas that are genuinely strong too, with the evidence that shows it, because a report that only lists faults hides what is already safe.
 - Re-verify every decisive claim in the code by hand before you report it, and drop any claim the code does not support.
 
+## Post-merge cluster re-audit variant
+
+- Re-audit an already-built cluster against the CURRENT merged tree to prove it survived later merges, not just to find what is wrong with it. Later merges can open new gaps in an old cluster — the re-audit is how those get caught.
+- Pin the findings to a stable tree state by taking file hashes twice during the audit.
+- Prove decisive findings with a live probe before reporting them.
+- Run one cluster at a time with its own prioritized task list.
+
 ## Report the ranked findings and stop
 
 - Deliver the report in chat with the severity counts and the top findings, and write the full report to a file for the record.

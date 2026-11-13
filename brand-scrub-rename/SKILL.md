@@ -22,6 +22,16 @@ Remove or replace a name across a whole tree, catch every straggler, migrate exi
 
 - Report the final grep as clean, with the command you ran, so the scrub is proven rather than claimed.
 
+## Scrub the published surface too
+
+- Scrub the published surface too, not just the code tree: live Release notes, CHANGELOG, and README on main. Verify 0 hits on the live pages, not just in the tree. (2026-11-12: the v2.5-gofish-decisions release notes said "(was Goldfish)" — caught by Joshua, not by the scrub.)
+
+- Never mention the old name even parenthetically — no "(was Goldfish)" anywhere: no notes, no changelogs, no asides. The rule is zero mentions, full stop. Check every public word against the rule before publishing.
+
+- Migration code reading old keys is a deliberate exception, not a miss: 12 lowercase "goldfish" literals were kept in main.py / planning.py because they read the user's old settings and plan keys so his data carries over. Flag them in the report as functional code, and drop them in a later build after his data is confirmed migrated — never in the scrub build itself. When grepping a published zip, expect those hits and treat them as code. If hits are migration code, report the count + locations and wait for his call — do not rebuild unilaterally.
+
+- Before the next push, re-sync publish staging's CHANGELOG from main so a stale staging copy does not clobber the scrub.
+
 ## Migrate user state so data survives
 
 - Find every place the old name lives in user state, such as plan keys, toggle keys, and known-skill lists, before the rename ships.

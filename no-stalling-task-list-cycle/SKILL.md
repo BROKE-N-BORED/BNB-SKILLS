@@ -14,6 +14,13 @@
 - Start the next item the same turn the previous one ships. The next build begins while the previous shipment is still warm.
 - Repeat until the task list is complete, then stop. Report the list as done and do not invent new tasks.
 
+## No rule is an excuse to stall
+
+- No rule, process, question, or approval step is ever an excuse to stall. If a rule seems to say wait, the rule is wrong — this cycle wins.
+- Do not present options and wait. Do not hold finished work for a go-ahead he already gave. Do not ask "should I build the next one". Do not dress up waiting as process. Waiting that looks like process is still waiting.
+- Verify before shipping still stands — that is part of building, not stalling. The check runs inside the cycle, not instead of it.
+- The only things that stop work are hard gates that genuinely need his PC, his account action, or a decision only he can make. Say so plainly once and stop; do not pad it.
+
 ## What does not change
 
 - Verify before you push. A task is not complete until it is verified.

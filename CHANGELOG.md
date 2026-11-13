@@ -4,7 +4,7 @@ All notable changes to BNB-SKILLS. Dates are in EST.
 
 ## Audit-fix release — 2026-11-12
 
-SHA: TBD — filled in at push time
+SHA: 47e9f3e3
 
 Fixes from the repo audit (received 2026-11-12, verified mechanically from a
 fresh clone): all 61 skills unified to the house format with numbered

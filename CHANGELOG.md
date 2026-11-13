@@ -4,7 +4,7 @@ All notable changes to BNB-SKILLS. Dates are in EST.
 
 ## Second delta scan — 2026-11-13
 
-SHA: TBD — filled in at push time
+SHA: 364ca685
 
 Second delta scan of all chat threads (window ~19:13 EST 2026-11-12 →
 ~10:00 EST 2026-11-13, 71 threads read). Five new skills: S62

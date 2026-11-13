@@ -1,4 +1,6 @@
-# Isolated-copy build and delta-port merge with batteries
+# S2 — Isolated-copy build and delta-port merge with batteries
+
+Executable twin in BNB-TOOLS: [T2 delta-port-diff-verify](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/delta-port-diff-verify).
 
 ## When to use
 
@@ -29,7 +31,7 @@
 - Verify the merged tree against the source copy with marker counts and byte-identical file comparisons before you call the merge clean.
 - Never trust a patch tool report of already applied on its own, because a patch tool once silently reverted about 1,260 lines across 19 files while reporting exactly that.
 - Run the merged-tree battery: the targeted classes first, then the full suite.
-- Compare the full-suite failure set against the baseline (see post-merge-battery) and reproduce any new failure on the pre-merge backup before you claim anything about it.
+- Compare the full-suite failure set against the baseline (see [post-merge-battery](../post-merge-battery/SKILL.md)) and reproduce any new failure on the pre-merge backup before you claim anything about it.
 - Run only one suite at a time. When a suite is already running, wait for its window instead of starting a second one.
 - Keep any wait-for-window watchdog in a script file, because a watchdog command line that names the test string matches itself forever.
 
@@ -40,10 +42,10 @@
 
 ## Hold, report, and ship
 
-- A merged and verified tree ships immediately under the no-stalling rule (see no-stalling-task-list-cycle): push, Release, email, then start the next item. One item at a time still applies (no parallel builds in one tree); only the waiting between items is gone.
-- Run the mandatory gate as a pre-ship check (see pre-delivery-enhancement-gate): if it finds something missing, enhance it, then ship — the gate never stalls shipping.
+- A merged and verified tree ships immediately under the no-stalling rule (see [no-stalling-task-list-cycle](../no-stalling-task-list-cycle/SKILL.md)): push, Release, email, then start the next item. One item at a time still applies (no parallel builds in one tree); only the waiting between items is gone.
+- Run the mandatory gate as a pre-ship check (see [pre-delivery-enhancement-gate](../pre-delivery-enhancement-gate/SKILL.md)): if it finds something missing, enhance it, then ship — the gate never stalls shipping.
 - Report the merged tree path, the battery receipts, and the backup path.
-- Close the task with a task receipt (see task-receipt-format) and ship through the ship pipeline (see ship-pipeline).
+- Close the task with a task receipt (see [task-receipt-format](../task-receipt-format/SKILL.md)) and ship through the ship pipeline (see [ship-pipeline](../ship-pipeline/SKILL.md)).
 
 ## Where this comes from
 
@@ -51,9 +53,7 @@
 
 ## Available connectors
 
-- [GitHub](/opt/hatch/connectors/github/CONNECTOR.md) for pushing the merged tree once the user approves.
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- [GitHub](../CONNECTORS.md) for pushing the merged tree once the user approves.
 
 ## Alternatives for better results
 

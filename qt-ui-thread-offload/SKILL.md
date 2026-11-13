@@ -1,10 +1,13 @@
-# Qt UI-thread offload (worker thread + debounce)
+# S59 — Qt UI-thread offload (worker thread + debounce)
 
-Move blocking work off the Qt UI thread so the window never freezes,
-and debounce rapid control changes so one user gesture does one job.
-Use this skill whenever a review or a user report names a UI freeze,
-a lock-up on import/load/generate, or a control that re-runs expensive
-work on every keystroke or slider tick.
+## When to use
+
+- Use this skill whenever a review or a user report names a UI
+  freeze, a lock-up on import/load/generate, or a control that
+  re-runs expensive work on every keystroke or slider tick.
+- Move blocking work off the Qt UI thread so the window never
+  freezes, and debounce rapid control changes so one user gesture
+  does one job.
 
 ## Find the freeze first
 
@@ -77,14 +80,6 @@ work on every keystroke or slider tick.
   review named the same fix for its GUI (worker threads +
   progress/cancel) as a ranked improvement. Recorded as a delta-scan
   finding, 2026-11-12.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and
-  `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP
-  server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md),
-  or build a custom connector.
 
 ## Alternatives for better results
 

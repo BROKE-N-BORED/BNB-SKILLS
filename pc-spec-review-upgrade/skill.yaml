@@ -1,5 +1,7 @@
-name: pc-spec-review-upgrade
-title: PC spec review and compatible upgrade shortlist
-description: Read a PC spec file, name the real bottlenecks, check the exact model's upgrade path, and shortlist the cheapest compatible parts. Tier 3, weak.
-category: Hardware
+name: "pc-spec-review-upgrade"
+title: "PC spec review and compatible upgrade shortlist"
+description: "Read a PC spec file, name the real bottlenecks, check the exact model's upgrade path, and shortlist the cheapest compatible parts. Tier 3, weak."
+category: "Hardware"
 include_in_prompt: false
+number: "S51"
+tier: 3

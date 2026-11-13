@@ -1,6 +1,10 @@
-# Social account setup kit
+# S27 — Social account setup kit
 
-Set up a project's social accounts with a paste-ready kit per platform, walking the user through one platform at a time with exact in-app steps. Use this skill whenever a project launches and needs accounts on TikTok, X, Facebook, YouTube, Instagram, or Linktree.
+Set up a project's social accounts with a paste-ready kit per platform, walking the user through one platform at a time with exact in-app steps.
+
+## When to use
+
+- A project launches and needs accounts on TikTok, X, Facebook, YouTube, Instagram, or Linktree.
 
 ## Verify the download link first
 
@@ -12,7 +16,7 @@ Set up a project's social accounts with a paste-ready kit per platform, walking 
 
 ## Build a paste-ready kit per platform
 
-- Build the kit with the template in `references/setup-kit-template.md`, giving each platform its own section.
+- Build the kit with the [setup kit template](references/setup-kit-template.md), giving each platform its own section.
 
 - Give each platform its name, bio, first posts, and pinned comments, written paste-ready so the user can copy them straight into the app.
 
@@ -32,11 +36,9 @@ Set up a project's social accounts with a paste-ready kit per platform, walking 
 
 - Confirm each platform is set up before moving on, and keep a list of which platforms are done and which are still open.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- From the CODE FORGE SOCIAL MEDIA MGMT thread (1fd34d86) — download link verified live first, paste-ready kit for six platforms, one platform at a time starting with TikTok, with the 1,000-follower Links-field gate and its workaround. Recorded in the BNB audit as S27.
 
 ## Alternatives for better results
 

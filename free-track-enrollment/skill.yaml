@@ -1,5 +1,7 @@
-name: free-track-enrollment
-title: Free-track course enrollment, guardrailed
-description: Enroll in a free course via a browser task with hard guardrails. Free or audit track only, never paid, never payment info.
-category: Education
+name: "free-track-enrollment"
+title: "Free-track course enrollment, guardrailed"
+description: "Enroll in a free course via a browser task with hard guardrails. Free or audit track only, never paid, never payment info."
+category: "Education"
 include_in_prompt: false
+number: "S49"
+tier: 3

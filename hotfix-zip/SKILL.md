@@ -1,6 +1,10 @@
-# Hotfix zip
+# S29 — Hotfix zip
 
-Patch the exact shipped build the user is running with a one-file fix, prove only that file moved, and email it with Sent verification. Use this skill when the user has a stale pre-fix build in their hands and the full re-ship pipeline is still gated.
+Patch the exact shipped build the user is running with a one-file fix, prove only that file moved, and email it with Sent verification.
+
+## When to use
+
+- The user has a stale pre-fix build in their hands and the full re-ship pipeline is still gated.
 
 ## Start from the exact shipped build
 
@@ -34,14 +38,16 @@ Patch the exact shipped build the user is running with a one-file fix, prove onl
 
 - Tell the user the hotfix is sent only after the Sent check passes, with the filename and size in the report.
 
+## Where this comes from
+
+- From the Groq/Gemini thread (be74cb87 — the CODE-FORGE-v2.5-FILTERFIX.zip hotfix, one file swapped, diffed, emailed and Sent-verified), with a related fix-and-refresh for MIMIK v0.1.1. Recorded in the BNB audit as S29.
+
 ## Available connectors
 
-- Use the Gmail connector to send the zip and read the Sent folder back, and read its current doc before running its commands.
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
+- Use the [Gmail connector](../CONNECTORS.md) to send the zip and read the Sent folder back, and read its current doc before running its commands.
 
 ## Alternatives for better results
 
-- Offer the full re-ship pipeline instead when the fix needs more than one file, because a hotfix is only for a one-file patch.
+- Offer the full [re-ship pipeline](../ship-pipeline/SKILL.md) instead when the fix needs more than one file, because a hotfix is only for a one-file patch.
 
 - Ask the user to confirm the fix works on their machine, because their real-PC verdict closes a fix.

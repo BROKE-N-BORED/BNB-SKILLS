@@ -1,6 +1,10 @@
-# Video workflow extraction
+# S25 — Video workflow extraction
 
-Watch a video all the way through, extract the actual workflow or lesson, and give an honest critique of what is real, what is hype, and what fits the user's budget and hardware. Use this skill whenever the user sends a video and asks what it shows, what to take from it, or whether its claims hold up.
+Watch a video all the way through, extract the actual workflow or lesson, and give an honest critique of what is real, what is hype, and what fits the user's budget and hardware.
+
+## When to use
+
+- The user sends a video and asks what it shows, what to take from it, or whether its claims hold up.
 
 ## Watch the whole video, not the caption
 
@@ -38,13 +42,11 @@ Watch a video all the way through, extract the actual workflow or lesson, and gi
 
 - Generalize the scope when the user corrects it, such as taking a games-only pipeline and making it work for any project through profiles, instead of defending the narrower scope.
 
-- Implement the result as a skill and a module under the isolated-copy build discipline, and verify it before it is held for merge.
+- Implement the result as a skill and a module under the [isolated-copy build discipline](../isolated-copy-build-merge/SKILL.md), and verify it before it is held for merge.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- From the Sumiro video in the Implement prompts in Code Forge thread (b026eda9 — the 6-step pipeline extracted and mapped onto Forge), and the four-video batch in the Design Shell thread (d238e3ce — cottage/Seedance trick, Underhollow sprite overhaul, Kimi hype reel, fireball game-feel lesson). Recorded in the BNB audit as S25.
 
 ## Alternatives for better results
 

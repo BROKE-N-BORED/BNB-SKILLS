@@ -1,4 +1,4 @@
-# Screenshot-driven diagnosis and fix spec
+# S9 — Screenshot-driven diagnosis and fix spec
 
 ## When to use
 
@@ -21,18 +21,13 @@
 
 ## Send an ordered fix spec to the DEV thread
 
-- Send the fix spec to the owning thread as a self-contained brief (see cross-thread-dispatch), ordered by what to fix first.
+- Send the fix spec to the owning thread as a self-contained brief (see [cross-thread-dispatch](../cross-thread-dispatch/SKILL.md)), ordered by what to fix first.
 - Include the symptom in the user's words, the real cause with file and line, and the kind of cause, so the DEV thread does not re-diagnose from scratch.
 - Verify the fix with measurements rather than assertions: pixel widths, geometry at multiple window sizes, and renders checked at several sizes.
 
 ## Where this comes from
 
 - This diagnosis shape was used for the Gemini thought-signature error and the EXAONE rate limit, the misleading LOADED MODEL label, the header clip (true minimum width 1094 against a reported 982, checked at five widths), the grey dice (lighting, not the model), the cup (backface culling), and the Hosts and Learn mnemonic bug. It is recorded in the BNB audit as S9.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
 
 ## Alternatives for better results
 

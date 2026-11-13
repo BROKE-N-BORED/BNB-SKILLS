@@ -1,10 +1,10 @@
-# Side quest: when the main build hits a wall, build the smallest standalone thing that fills the gap
+# S60 — Side quest: when the main build hits a wall, build the smallest standalone thing that fills the gap
 
 ## When to use
 
 - The main build needs a capability, tool, program, or algorithm that is missing, does not run on his PC, costs money, or needs hardware or software he does not have.
 - Use it instead of stalling, instead of dropping the feature, and instead of declaring it impossible. His line: there is always a way — inside his PC's specs, build around the limitation rather than declaring it impossible.
-- Do not use it when the gap is a decision only he can make, or needs his PC or his action. That is a hard gate, not a side quest (see no-stalling-task-list-cycle).
+- Do not use it when the gap is a decision only he can make, or needs his PC or his action. That is a hard gate, not a side quest (see [no-stalling-task-list-cycle](../no-stalling-task-list-cycle/SKILL.md)).
 
 ## The trigger
 
@@ -16,7 +16,7 @@ State exactly what capability is missing and what the main build needs it to DO.
 
 ## Step 2 — Check first
 
-Look for an existing $0 answer before building anything: the BNB repos (skills, tools, presets, roles, plugins), the workspace, open source. Use the org repo inventory tool (T20, BNB TOOLS) and the org repo audit queue (S56) to see what already exists under BROKE-N-BORED. If one exists, use it — no new build. The side quest only starts when the check comes back empty.
+Look for an existing $0 answer before building anything: the BNB repos (skills, tools, presets, roles, plugins), the workspace, open source. Use the [org repo inventory tool](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/org-repo-inventory) (T20, BNB TOOLS) and the [org repo audit queue](../org-repo-audit-queue/SKILL.md) (S56) to see what already exists under BROKE-N-BORED. If one exists, use it — no new build. The side quest only starts when the check comes back empty.
 
 ## Step 3 — Build the smallest standalone thing
 
@@ -32,7 +32,7 @@ Look for an existing $0 answer before building anything: the BNB repos (skills, 
 
 ## Step 5 — Log it
 
-The side quest's output becomes a reusable BNB asset — a skill, a tool, or a preset, as fits — documented so the next build hitting the same wall does not start from zero. It goes into the matching BNB repo under the repo-manager's no-stall cycle (see bnb-repo-manager-delta-scan).
+The side quest's output becomes a reusable BNB asset — a skill, a tool, or a preset, as fits — documented so the next build hitting the same wall does not start from zero. It goes into the matching BNB repo under the repo-manager's no-stall cycle (see [bnb-repo-manager-delta-scan](../bnb-repo-manager-delta-scan/SKILL.md)).
 
 ## Step 6 — Return to the main quest
 
@@ -44,7 +44,7 @@ The side quest is done when the main build is unblocked, not when the side tool 
 - It stays small: the smallest thing that fills the gap. Scope creep here stalls the main build twice over.
 - It never costs money and never needs hardware he does not have. A side quest that needs a GPU to fix a missing GPU is not a side quest.
 - If the side quest itself hits a wall, one level deeper is allowed — a side quest inside a side quest — but flag it when it happens. Do not nest forever: two levels is the limit without his word.
-- The mandatory enhancement gate still applies (see pre-delivery-enhancement-gate): run it on the side quest's output before it plugs in, and keep it relevant to the gap.
+- The mandatory enhancement gate still applies (see [pre-delivery-enhancement-gate](../pre-delivery-enhancement-gate/SKILL.md)): run it on the side quest's output before it plugs in, and keep it relevant to the gap.
 - One side quest at a time per build. If the main build has several gaps, queue them; do not run parallel detours.
 
 ## Already done without the name
@@ -62,9 +62,7 @@ The side quest is done when the main build is unblocked, not when the side tool 
 
 ## Available connectors
 
-- [GitHub](/opt/hatch/connectors/github/CONNECTOR.md) for checking what already exists under BROKE-N-BORED before building (with the org-repo-inventory tool, T20).
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- [GitHub](../CONNECTORS.md) for checking what already exists under BROKE-N-BORED before building (with the [org-repo-inventory tool](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/org-repo-inventory), T20).
 
 ## Alternatives for better results
 

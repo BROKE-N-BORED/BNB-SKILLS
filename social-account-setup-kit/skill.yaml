@@ -3,3 +3,5 @@ title: "Social account setup kit"
 description: "Set up a project's social accounts with a paste-ready kit per platform, walking the user through one platform at a time, after verifying the download link is live."
 category: "Work and knowledge"
 include_in_prompt: false
+number: "S27"
+tier: 2

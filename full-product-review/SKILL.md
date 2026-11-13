@@ -1,4 +1,4 @@
-# Full product review
+# S5 — Full product review
 
 ## When to use
 
@@ -12,6 +12,7 @@
 - Open every tab and every screen of the built app and take a screenshot of each one, then look at the screenshots yourself.
 - Time the slow paths with real measurements instead of guessing which part is slow.
 - Probe a suspected defect live, in the running app, rather than guessing from the code alone.
+- Work the [review checklist](references/review-checklist.md) in order; every finding in the report traces to a checked box.
 
 ## Deliver strengths, weaknesses, gaps, and ranked improvements
 
@@ -37,16 +38,11 @@
 
 - Deliver the review in chat with the headlines and the ranked list, and write the full report to a file for the record.
 - Change no code, file no fixes, and start no build item. The user directs the next step from the list.
-- Offer to build the picked items one at a time (see isolated-copy-build-merge) once the user has chosen.
+- Offer to build the picked items one at a time (see [isolated-copy-build-merge](../isolated-copy-build-merge/SKILL.md)) once the user has chosen.
 
 ## Where this comes from
 
 - The same review shape was delivered for OLLAMA System Test, MIMIK, Pixel Forge (24 improvements in 3 tiers plus an avoid list), Yahtzee (P0 to P4 phased plan plus a 25-item task list), WinLinx, Forge Browser, and the repo audit thread, from the same verbatim ask in four threads on 2026-11-12. It is recorded in the BNB audit as S5.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
 
 ## Alternatives for better results
 

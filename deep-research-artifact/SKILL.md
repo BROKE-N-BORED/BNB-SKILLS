@@ -1,4 +1,4 @@
-# Deep research into report and interactive artifact
+# S11 — Deep research into report and interactive artifact
 
 ## When to use
 
@@ -29,11 +29,6 @@
 ## Where this comes from
 
 - This shape was used for Code Forge against 20 competitors with a valuation, 34 free-tier Groq and Gemini models scored, the model sweeps, the Pixel Forge competitive research, Reblend against Blender across 163 capabilities, the 106-record Meridian ground-resources catalog, and the Code Forge logo research with 45 sources. It is recorded in the BNB audit as S11.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
 
 ## Alternatives for better results
 

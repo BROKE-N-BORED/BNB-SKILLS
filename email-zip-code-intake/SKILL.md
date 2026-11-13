@@ -1,4 +1,4 @@
-# Email-a-zip code intake and dead-button diagnosis
+# S50 — Email-a-zip code intake and dead-button diagnosis
 
 **Caveat: stated but NEVER EXECUTED in-thread (the zip never arrived; no fix was done).**
 
@@ -38,13 +38,13 @@
 
 - Triage by symptom first: nothing at all when clicked, starts then stops, or an error popup. Each symptom points at a different break point.
 
+## Where this comes from
+
+- Distilled from the "Fix System Forge Care code" thread (51ec77e5) in the 2026-11-12 audit: the intake was set up (email the zip, exclude `.venv`/`__pycache__`, file check on arrival) and the dead Care button diagnosed by tracing its click target — but the zip never arrived, so no fix was ever done this way. The thread cites the Code Forge zip intake as precedent, unverified from these threads.
+
 ## Available connectors
 
-- [Gmail](/opt/hatch/connectors/gmail/CONNECTOR.md) for pulling the emailed source zip attachment.
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- [Gmail](../CONNECTORS.md) for pulling the emailed source zip attachment.
 
 ## Alternatives for better results
 

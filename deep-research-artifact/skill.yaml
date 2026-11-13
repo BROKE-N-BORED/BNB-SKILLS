@@ -3,3 +3,5 @@ title: "Deep research into report and interactive artifact"
 description: "Research a comparison or catalog question into a sourced report and a probe-verified interactive page, with headlines in chat."
 category: "Work and knowledge"
 include_in_prompt: true
+number: "S11"
+tier: 1

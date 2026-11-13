@@ -1,6 +1,6 @@
-# Pace-adaptive study itinerary
+# S38 — Pace-adaptive study itinerary
 
-## When to use this skill
+## When to use
 
 - Use it for any multi-course or multi-unit study plan where the schedule must stay honest as real pace becomes known.
 
@@ -19,6 +19,8 @@
 ## Measure real pace from logged completions
 
 - Log every unit completion with its date as it happens.
+
+- Log completions in the [pace tracker](templates/pace-tracker.md): seed pace, measured pace, and the completions log.
 
 - Once 2 or more units are logged, compute the real pace from the completions: units completed divided by time taken.
 
@@ -48,6 +50,6 @@
 
 - Show seed-vs-live dates side by side; the comparison is the honest part.
 
-## Source
+## Where this comes from
 
-- Audit S38. Proven in the STUDY DASHBOARD DEV thread (CS50 11-course journey) and reused as the pace-engine concept in the Universal Study Portal.
+- Proven in the STUDY DASHBOARD DEV thread (CS50 11-course journey) and reused as the pace-engine concept in the Universal Study Portal — recorded in the BNB audit as S38.

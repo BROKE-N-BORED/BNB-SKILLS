@@ -1,5 +1,7 @@
-name: vlc-iptv-setup
-title: VLC and IPTV setup from a streaming site
-description: Find the real stream links behind a TV site that will not play in the browser and set them up in VLC on Android.
-category: Media
+name: "vlc-iptv-setup"
+title: "VLC and IPTV setup from a streaming site"
+description: "Find the real stream links behind a TV site that will not play in the browser and set them up in VLC on Android."
+category: "Media"
 include_in_prompt: false
+number: "S48"
+tier: 3

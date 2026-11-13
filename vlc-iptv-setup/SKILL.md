@@ -1,4 +1,4 @@
-# VLC and IPTV setup from a streaming site
+# S48 — VLC and IPTV setup from a streaming site
 
 ## When to use
 
@@ -42,11 +42,9 @@
 
 - Offer the gesture, background-playback, and subtitle options as small extras once the stream plays.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- Distilled from the "Android VLC and Termux help" thread (7d85fa44) in the 2026-11-12 audit: the exact links behind a TV streaming site were pulled via the browser (playlist, guide, direct stream), then set up in VLC on Android with a single-channel test first.
 
 ## Alternatives for better results
 

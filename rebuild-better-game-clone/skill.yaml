@@ -1,5 +1,7 @@
-name: rebuild-better-game-clone
-title: Research to rebuild-better single-file game clone
-description: Research an existing game, then build an improved single-file offline HTML version, verify it by actually playing it headlessly at phone size, and rebuild v2 from the user's real-phone verdict.
-category: Creation
+name: "rebuild-better-game-clone"
+title: "Research to rebuild-better single-file game clone"
+description: "Research an existing game, then build an improved single-file offline HTML version, verify it by actually playing it headlessly at phone size, and rebuild v2 from the user's real-phone verdict."
+category: "Creation"
 include_in_prompt: false
+number: "S36"
+tier: 2

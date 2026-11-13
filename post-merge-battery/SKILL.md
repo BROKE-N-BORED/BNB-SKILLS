@@ -1,4 +1,6 @@
-# Post-merge battery and baseline failure-set comparison
+# S8 — Post-merge battery and baseline failure-set comparison
+
+Executable twin in BNB-TOOLS: [T3 post-merge-battery-runner](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/post-merge-battery-runner).
 
 ## When to use
 
@@ -31,16 +33,11 @@
 
 - Report each defect to the DEV thread with the exact file and line, and re-verify each fix by re-running the affected classes yourself.
 - Report the verdict as a pass or as the exact defects, with the failure diff attached.
-- Close the battery with a task receipt (see task-receipt-format).
+- Close the battery with a task receipt (see [task-receipt-format](../task-receipt-format/SKILL.md)).
 
 ## Where this comes from
 
 - This battery ran on every GUIFX task (failure set byte-identical to baseline on every receipt) and on every Code Forge merge, and twice on the merged Security tree, where the merge verification caught the silent 1,260-line revert. It is recorded in the BNB audit as S8.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
 
 ## Alternatives for better results
 

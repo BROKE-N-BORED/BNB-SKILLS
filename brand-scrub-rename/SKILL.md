@@ -1,6 +1,12 @@
-# Brand scrub rename
+# S30 — Brand scrub rename
 
-Remove or replace a name across a whole tree, catch every straggler, migrate existing user data so it survives the rename, and prove nothing broke. Use this skill whenever a rebrand lands, a name has to go, or a policy scrub removes brand names from a project.
+Remove or replace a name across a whole tree, catch every straggler, migrate existing user data so it survives the rename, and prove nothing broke.
+
+Companion tool: [T9 brand-scrub-rename](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/brand-scrub-rename) — grep-driven whole-tree substitution with straggler catch and migration scaffolding for user state keys.
+
+## When to use
+
+- A rebrand lands, a name has to go, or a policy scrub removes brand names from a project.
 
 ## Substitute grep-driven across the whole tree
 
@@ -50,11 +56,9 @@ Remove or replace a name across a whole tree, catch every straggler, migrate exi
 
 - Report the rename as a receipt, with the substitution count, the file count, the clean final grep, the migration, and the battery result.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- From the CODE FORGE DEV (94792a18) and CODE FORGE GITHUB (7d1ee11c) threads — the no-brands scrub (235 substitutions, 28 files) and the Goldfish→GoFish rename (351 substitutions, 14 files, with state migrations so user data carried over). Recorded in the BNB audit as S30.
 
 ## Alternatives for better results
 

@@ -3,3 +3,5 @@ title: "Name-availability check"
 description: "Check a candidate name against GitHub exact-name repos and the live web before presenting it, and report only verified-clean names."
 category: "Work and knowledge"
 include_in_prompt: true
+number: "S7"
+tier: 1

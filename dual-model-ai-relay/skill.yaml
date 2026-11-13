@@ -1,5 +1,7 @@
 name: "dual-model-ai-relay"
 title: "Dual-model AI-to-AI relay"
 description: "Build and run a dual-model chat interface: two models side by side, a director layer, blind/aware AI-to-AI relay with turn cap and stop conditions, reorder, edit-before-forward, saved pairs, and compare mode."
-category: "Work and knowledge"
-include_in_prompt: true
+category: "Development"
+include_in_prompt: false
+number: "S55"
+tier: 2

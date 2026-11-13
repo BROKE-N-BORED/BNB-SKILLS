@@ -1,5 +1,7 @@
 name: "read-only-security-audit"
 title: "Read-only security audit"
 description: "Audit a frozen read-only codebase scope and deliver severity-ranked findings with verified-strong areas named too, changing nothing."
-category: "Work and knowledge"
+category: "Development"
 include_in_prompt: true
+number: "S16"
+tier: 1

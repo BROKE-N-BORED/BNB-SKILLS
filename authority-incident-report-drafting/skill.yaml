@@ -1,5 +1,7 @@
-name: authority-incident-report-drafting
-title: Authority incident-report drafting
-description: Turn a user's account of an incident into formal per-agency reports from one fact base, with never-guessed blanks, fact separated from belief, anonymization checks, and a SEND version stripped of the private record.
-category: Work and knowledge
+name: "authority-incident-report-drafting"
+title: "Authority incident-report drafting"
+description: "Turn a user's account of an incident into formal per-agency reports from one fact base, with never-guessed blanks, fact separated from belief, anonymization checks, and a SEND version stripped of the private record."
+category: "Work and knowledge"
 include_in_prompt: false
+number: "S43"
+tier: 2

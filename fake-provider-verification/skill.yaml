@@ -1,5 +1,7 @@
 name: "fake-provider-verification"
 title: "Fake-provider verification"
 description: "Verify a chat or benchmark app against scripted fake Ollama and OpenAI-compatible provider servers over real HTTP: canned brains, request recording, failure modes, key-leak checks, and honest gaps."
-category: "Work and knowledge"
-include_in_prompt: true
+category: "Development"
+include_in_prompt: false
+number: "S58"
+tier: 2

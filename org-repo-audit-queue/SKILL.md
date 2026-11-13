@@ -1,4 +1,4 @@
-# Org repo audit queue
+# S56 — Org repo audit queue
 
 ## When to use
 
@@ -6,7 +6,7 @@
   their GitHub account or org — one repo at a time, in an agreed
   order, each with the same fixed report shape.
 - Use it for the queue management around the reviews, not for a
-  single product review (see full-product-review for one codebase
+  single product review (see [full-product-review](../full-product-review/SKILL.md) for one codebase
   reviewed on its own).
 - Audits are read-only. No pushes, no releases, no edits — and
   per-repo fixes only when the user asks about that repo.
@@ -14,7 +14,7 @@
 ## Start from a live listing, never from memory
 
 - List the repos live on GitHub first (see the
-  org-repo-inventory tool). Audit ONLY repos that exist live.
+  [org-repo-inventory tool](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/org-repo-inventory) (T20, BNB TOOLS)). Audit ONLY repos that exist live.
   Never audit a repo from conversation history: a repo named in
   an old conversation may not exist, may have been renamed, or
   may have been deleted — auditing it anyway is the failure this
@@ -96,22 +96,17 @@
 ## Where this comes from
 
 - Run in thread b074e650 on 2026-11-12 for BROKE-N-BORED: 27
-  repos queued oldest-first in
-  `~/workspace/github-audit/queue-2026-11-12.md`, six reports
-  delivered the same day (CODE-FORGE, ChatBridgev1.0,
-  MTAmorphai, K.ai-, FRIDAY, OpenRealism). The live-only rule
+  repos queued oldest-first in the live queue file for
+  2026-11-12, 24 reports delivered the same day by ~22:08
+  (the first six: CODE-FORGE, ChatBridgev1.0, MTAmorphai,
+  K.ai-, FRIDAY, OpenRealism). The live-only rule
   came from Joshua's correction the same day, after a repo from
   conversation history (WinTux) was audited that does not exist
   live.
 
 ## Available connectors
 
-- [GitHub](/opt/hatch/connectors/github/CONNECTOR.md) for the live
-  repo listing and file reads.
-- Use `muse.connector_search` to find other connectors and
-  `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or
-  MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- [GitHub](../CONNECTORS.md) for the live repo listing and file reads.
 
 ## Alternatives for better results
 

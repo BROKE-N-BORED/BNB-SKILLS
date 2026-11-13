@@ -1,6 +1,6 @@
-# Authority incident-report drafting
+# S43 — Authority incident-report drafting
 
-## When to use this skill
+## When to use
 
 - Use it when the user needs to turn their account of neglect, abuse, or another incident into formal reports for authorities.
 
@@ -21,6 +21,8 @@
 - Keep one fact base: the collected facts, the timeline, and the evidence list.
 
 - Draft a separate report per agency from that one fact base, shaped to what each agency needs.
+
+- Draft each report from the [report draft template](templates/report-draft-template.md).
 
 - Never let the drafts drift apart; when a fact changes, update the fact base first and then every draft.
 
@@ -88,6 +90,6 @@
 
 - Keep the user's private record private; nothing in it goes into a report without their say-so.
 
-## Source
+## Where this comes from
 
-- Audit S43. Proven in the Report caregiver neglect thread: separate reports per agency from one fact base, fact/belief separation, anonymization check, SEND version with the private record stripped, statute research before advising, and evidence-preservation guidance. The drafting pattern is the reusable part, not the original case.
+- Proven in the Report caregiver neglect thread: separate reports per agency from one fact base, fact/belief separation, anonymization check, SEND version with the private record stripped, statute research before advising, and evidence-preservation guidance. The drafting pattern is the reusable part, not the original case — recorded in the BNB audit as S43.

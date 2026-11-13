@@ -3,3 +3,5 @@ title: "Cross-thread dispatch and report-back"
 description: "Send work to its owning thread with a self-contained brief and report completions back with verified facts only."
 category: "Work and knowledge"
 include_in_prompt: true
+number: "S3"
+tier: 1

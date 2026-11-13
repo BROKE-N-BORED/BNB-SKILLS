@@ -1,6 +1,6 @@
-# Wire an OpenAI-compatible provider into Forge
+# S32 — Wire an OpenAI-compatible provider into Forge
 
-## When to use this skill
+## When to use
 
 - Use it when a new cloud model provider is approved for Forge and needs to be added as a selectable provider.
 
@@ -34,7 +34,7 @@
 
 ## Verify with fake transports
 
-- Verify against fake providers, not live ones: the standard method is the fake-provider-verification skill (S58, BNB SKILLS) and the fake-provider-servers tool (T19, BNB TOOLS) — a fake Ollama and a fake OpenAI-compatible server with failure modes (dead, slow, mid-stream RST, bad-key 401 never retried, server-death), request recording, and a key-leak grep over the run files. Proven across OLLAMA-SYSTEM-TEST v3/v4/v5 and DUO v0.1–v0.3.
+- Verify against fake providers, not live ones: the standard method is the [fake-provider-verification](../fake-provider-verification/SKILL.md) skill (S58, BNB SKILLS) and the [fake-provider-servers tool (T19, BNB TOOLS)](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/fake-provider-servers) — a fake Ollama and a fake OpenAI-compatible server with failure modes (dead, slow, mid-stream RST, bad-key 401 never retried, server-death), request recording, and a key-leak grep over the run files. Proven across OLLAMA-SYSTEM-TEST v3/v4/v5 and DUO v0.1–v0.3.
 
 - Run the existing provider test suite and keep it green; add tests for the new provider on the same pattern.
 
@@ -56,6 +56,6 @@
 
 - Never claim more than was checked.
 
-## Source
+## Where this comes from
 
-- Audit S32. Proven in the Free AI trials thread (EXAONE provider) and the Gemini Decisions lane, same shape both times.
+- Proven in the Free AI trials thread (EXAONE provider) and the Gemini Decisions lane, same shape both times — recorded in the BNB audit as S32.

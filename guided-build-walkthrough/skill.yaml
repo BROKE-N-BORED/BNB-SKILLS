@@ -1,5 +1,7 @@
 name: "guided-build-walkthrough"
 title: "Guided in-tool build walkthrough"
 description: "Walk the user through a multi-step build one step at a time with pass-fail gates, using short hand-typeable commands."
-category: "Work and knowledge"
+category: "Development"
 include_in_prompt: true
+number: "S14"
+tier: 1

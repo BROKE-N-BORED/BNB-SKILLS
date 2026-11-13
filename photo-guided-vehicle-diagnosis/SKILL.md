@@ -1,6 +1,6 @@
-# Photo-guided vehicle electrical diagnosis
+# S44 — Photo-guided vehicle electrical diagnosis
 
-## When to use this skill
+## When to use
 
 - Use it when a vehicle (or an appliance with a fuse box) has an electrical fault and the user can send photos.
 
@@ -13,6 +13,8 @@
 - Get the vehicle year, make, and model, plus the symptom in the user's words.
 
 - Ask for photos of the fuse box or boxes: the lid map if there is one, and the fuses themselves.
+
+- Open a [diagnosis worksheet](templates/diagnosis-worksheet.md) for the vehicle and fill it in as you go.
 
 - Work from what the photos actually show; do not assume a layout from a different year or trim.
 
@@ -64,6 +66,6 @@
 
 - Hard $0 for the diagnosis; parts are the user's call, and the cheapest test comes first.
 
-## Source
+## Where this comes from
 
-- Audit S44. Proven in the Fix 2004 Chevy Astro headlights thread: fixed via fuse #15 (TBC), diagnosed from fuse-box photos with ordered elimination. Generalises to any vehicle electrical or appliance troubleshooting with photos.
+- Proven in the Fix 2004 Chevy Astro headlights thread: fixed via fuse #15 (TBC), diagnosed from fuse-box photos with ordered elimination. Generalises to any vehicle electrical or appliance troubleshooting with photos — recorded in the BNB audit as S44.

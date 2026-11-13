@@ -1,4 +1,4 @@
-# Cross-thread dispatch and report-back
+# S3 — Cross-thread dispatch and report-back
 
 ## When to use
 
@@ -9,9 +9,10 @@
 ## Write a self-contained brief
 
 - Send a brief the receiving thread can act on without reading your thread: what to do, why it matters, the constraints it must respect, and what to report back.
+- Use the [dispatch brief template](references/brief-template.md) for the brief and the completion report.
 - State the constraints explicitly, including the hardware limits, the hard $0 rule, and any rule the work must not break.
 - Name exactly what the report-back must contain, such as file paths, byte sizes, counts, and orientation.
-- Name the held build path and attach the battery receipt when the brief is a merge note, so the receiving thread can delta-port it (see isolated-copy-build-merge).
+- Name the held build path and attach the battery receipt when the brief is a merge note, so the receiving thread can delta-port it (see [isolated-copy-build-merge](../isolated-copy-build-merge/SKILL.md)).
 - Keep the brief to the one task and leave the next item out until this one is done.
 - Under the no-stalling rule, a handoff to the owning thread carries the ship order with the port spec: port it, merge it, push it — no waiting on a merge order. The receiving thread confirms the queue position back to the sender. In a thread that never touches the shared tree, handing over the port spec plus ship order IS the ship step.
 
@@ -31,11 +32,6 @@
 ## Where this comes from
 
 - This is the constant coordination pattern across the main chat and every DEV thread, used for the MIMIK and Reblend bridge, the Blender MCP wiring, the Raon trial, the Yahtzee die, the Victor reference sheets, and DEV to GITHUB merge notes, and is recorded in the BNB audit as S3.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
 
 ## Alternatives for better results
 

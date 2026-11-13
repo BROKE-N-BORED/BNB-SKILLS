@@ -1,4 +1,4 @@
-# PC spec review and compatible upgrade shortlist
+# S51 — PC spec review and compatible upgrade shortlist
 
 **Status: Tier 3, weak. The lowest-priority skill in this repo. The spec-to-bottleneck analysis is the only new bit here. Product search and comparison already live in the system shopping skill, so use that for the shopping half and keep this skill to the analysis.**
 
@@ -44,11 +44,9 @@
 
 - Do not recommend a part whose compatibility you could not verify.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- Distilled from the "Linux Mint PC specifications" thread (d81cbb00) in the 2026-11-12 audit: a spec review of an HP All-in-One 22-df0xxx (Ryzen 3 3250U, 8 GB single-stick, 1 TB HDD) that named the bottlenecks and shortlisted the cheapest compatible NVMe upgrade for its empty M.2 2280 socket.
 
 ## Alternatives for better results
 

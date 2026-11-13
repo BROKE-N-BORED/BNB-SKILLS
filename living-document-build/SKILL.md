@@ -1,6 +1,6 @@
-# Living-document build with multi-pass audits
+# S33 — Living-document build with multi-pass audits
 
-## When to use this skill
+## When to use
 
 - Use it when a guide, manual, or reference document will live and grow over many sessions and must stay correct as a whole.
 
@@ -30,6 +30,8 @@
 
 - List every contradiction found with the section numbers on both sides, then fix them in the document.
 
+- Use the [audit checklist](templates/audit-checklist.md) for each audit pass.
+
 - Re-read the fixed sections to confirm the fix did not introduce a new contradiction.
 
 ## Audit 2: gap audit
@@ -58,6 +60,10 @@
 
 - The user's real-world verdict closes a fix, not the audit pass.
 
-## Source
+## Where this comes from
 
-- Audit S33. Proven in the Winterize a sealed room thread: a 34-section, 481-line master document, 43 gap findings, 7 research tracks integrated.
+- Proven in the Winterize a sealed room thread: a 34-section, 481-line master document, 43 gap findings, 7 research tracks integrated — recorded in the BNB audit as S33.
+
+## Alternatives for better results
+
+- For a one-off constraint check on a draft, the `check_constraints_before_acting` skill covers that step alone; this skill is the full living-document method with the audit trio.

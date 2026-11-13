@@ -1,6 +1,6 @@
-# Live local stock verification
+# S42 — Live local stock verification
 
-## When to use this skill
+## When to use
 
 - Use it when the user needs a product for same-day pickup and a wasted trip costs them real time and effort.
 
@@ -32,6 +32,8 @@
 
 - Never mix the two lists; a lead presented as verified is how a wasted trip happens.
 
+- Report in the [verification report](templates/verification-report.md) shape: a VERIFIED table and a PHONE LEADS table, each with its check time.
+
 ## Re-verify later the same day
 
 - Stock changes during the day; re-verify a VERIFIED item later the same day before the user leaves.
@@ -62,6 +64,10 @@
 
 - Hard $0: no paid stock-check service, no delivery fee smuggled into a pickup plan.
 
-## Source
+## Where this comes from
 
-- Audit S42. Proven in the Find Rug Doctor antifoam in Lewes thread: two live verifications the same day (3:20 PM and 6:50 PM), brand broadened to any silicone-based defoamer. Overlaps the system `live_page_checks` skill for one-time checks; the multi-store pickup-tonight protocol and the verified-vs-lead labelling are the additional parts.
+- Proven in the Find Rug Doctor antifoam in Lewes thread: two live verifications the same day (3:20 PM and 6:50 PM), brand broadened to any silicone-based defoamer — recorded in the BNB audit as S42.
+
+## Alternatives for better results
+
+- For a one-time price or stock check, the system `live_page_checks` skill covers it; this skill adds the multi-store pickup-tonight protocol and the verified-vs-lead labelling.

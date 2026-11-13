@@ -1,5 +1,7 @@
 name: "full-product-review"
 title: "Full product review"
 description: "Review a whole product end to end and deliver strengths, weaknesses, gaps, and a ranked improvement list, with no code changed."
-category: "Work and knowledge"
+category: "Development"
 include_in_prompt: true
+number: "S5"
+tier: 1

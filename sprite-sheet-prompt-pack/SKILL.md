@@ -1,6 +1,6 @@
-# Sprite-sheet prompt pack
+# S39 — Sprite-sheet prompt pack
 
-## When to use this skill
+## When to use
 
 - Use it when a game needs consistent art of the same character across many actions, poses, or sheets.
 
@@ -23,6 +23,8 @@
 - Keep the action description to the pose and the motion; the lock block already carries the design.
 
 - Cover the full action map the game needs before generating anything, so no action is invented mid-run.
+
+- See the [prompt pack example](examples/prompt-pack-example.md) for the lock-block-plus-action shape.
 
 ## Hold lock, model, and seed constant
 
@@ -48,6 +50,6 @@
 
 - Fix the one named thing when a generation drifts; do not rewrite the whole lock block for one bad strip.
 
-## Source
+## Where this comes from
 
-- Audit S39. Proven in the Free AI trials thread: a Titan-13-style robot prompt pack, plus 10 Civitai/fal.ai prompts built around the user's actual projects.
+- Proven in the Free AI trials thread: a Titan-13-style robot prompt pack, plus 10 Civitai/fal.ai prompts built around the user's actual projects — recorded in the BNB audit as S39.

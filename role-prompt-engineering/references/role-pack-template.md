@@ -1,6 +1,6 @@
 # Master role pack template
 
-Twelve sections, same skeleton for every role, domain swapped. Plain instructions only, no redundant metadata. Verify the final character count exactly (for example with `wc -m`) and report it.
+Twelve sections, same skeleton for every role, domain swapped. Plain instructions only, no redundant metadata. Verify the final character count exactly (for example with `LC_ALL=C.UTF-8 wc -m` — plain `wc -m` in the C locale counts bytes, not characters: "café ✨" is 6 characters / 9 bytes) and report it.
 
 ## 1. Identity
 

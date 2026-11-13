@@ -1,4 +1,6 @@
-# Model sweep and roster audit
+# S13 — Model sweep and roster audit
+
+Executable twin in BNB-TOOLS: [T5 model-sweep-harness](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/model-sweep-harness).
 
 ## When to use
 
@@ -19,22 +21,17 @@
 - Write an incumbent verdict for each seat, naming whether the candidate beats the incumbent, ties it, or loses to it.
 - Produce ranked trials with exact pull tags, a watchlist, a rejects-with-reasons list saved as do-not-re-propose, cloud picks, and an unverified list.
 - Audit the installed roster per seat as well, naming the cheapest wins (such as a Q8_0 to Q4_K_M re-pull) and the dead weight to cut.
-- See references/roster-audit-template.md for the audit layout.
+- See the [roster audit template](references/roster-audit-template.md) for the audit layout.
 
 ## Run the trials in order
 
-- Give the user hand-typeable `ollama pull` commands in trial order, one short single-line command at a time (see guided-build-walkthrough).
+- Give the user hand-typeable `ollama pull` commands in trial order, one short single-line command at a time (see [guided-build-walkthrough](../guided-build-walkthrough/SKILL.md)).
 - Test each trial model on the same task so the results are comparable, and take the pass or fail verdict from the user's screenshot.
 - Record each trial verdict with the evidence, and fold the winner into the roster only after it passes the same-task test.
 
 ## Where this comes from
 
 - This shape graded the roughly 40-model Hugging Face 2B sweep, the Model Research sweeps 1 and 2, the Forge roster audit, and the Stella roster corrections from a fresh `ollama list`. It is recorded in the BNB audit as S13.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
 
 ## Alternatives for better results
 

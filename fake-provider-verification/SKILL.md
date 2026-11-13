@@ -1,4 +1,4 @@
-# Fake-provider verification
+# S58 — Fake-provider verification
 
 ## When to use
 
@@ -16,7 +16,7 @@
 ## Serve scripted fakes over real HTTP
 
 - Run real HTTP servers on localhost (see the
-  fake-provider-servers tool): a fake Ollama (`/api/tags`,
+  [fake-provider-servers tool](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/fake-provider-servers) (T19, BNB TOOLS)): a fake Ollama (`/api/tags`,
   `/api/chat`, `/api/generate`, `/api/show`, `/api/ps`,
   `/api/pull`) and a fake OpenAI-compatible provider
   (`/v1/models`, `/v1/chat/completions` with SSE streaming and
@@ -93,15 +93,8 @@
   checks, fake OpenAI provider with SSE + usage + 401/dead
   modes), and v5 (686 checks, `/api/show` capability screening)
   and DUO v0.1-v0.3 (blind/aware relay drives against a fake
-  Ollama). The working fragments live in
-  `~/workspace/ollama-system-test-v5-verify/fake_ollama.py`.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and
-  `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or
-  MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+  Ollama). The working fragments live in the OLLAMA System Test
+  v5 verification files.
 
 ## Alternatives for better results
 

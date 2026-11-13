@@ -3,3 +3,5 @@ title: "Model sweep and roster audit"
 description: "Grade candidate models against the machine and the incumbent roster seats, rank the trials with exact pull tags, and audit the installed roster."
 category: "Work and knowledge"
 include_in_prompt: true
+number: "S13"
+tier: 1

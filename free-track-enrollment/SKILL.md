@@ -1,4 +1,4 @@
-# Free-track course enrollment, guardrailed
+# S49 — Free-track course enrollment, guardrailed
 
 ## When to use
 
@@ -40,11 +40,9 @@
 
 - Say plainly if anything about the track is unclear instead of calling the enrollment free.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- Distilled from STUDY DASHBOARD DEV (dc0566e7) in the 2026-11-12 audit: the edX CS50x enrollment as SpaceWok, on the free track, with the password through the Secure Vault and a compromised-password rejection handled by asking for a fresh one on a secure card.
 
 ## Alternatives for better results
 

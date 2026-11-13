@@ -1,5 +1,7 @@
-name: email-zip-code-intake
-title: Email-a-zip code intake and dead-button diagnosis
-description: Intake for fixing a user's codebase from an emailed source zip, plus dead-button diagnosis. Stated but never executed in-thread.
-category: Development
+name: "email-zip-code-intake"
+title: "Email-a-zip code intake and dead-button diagnosis"
+description: "Intake for fixing a user's codebase from an emailed source zip, plus dead-button diagnosis. Stated but never executed in-thread."
+category: "Development"
 include_in_prompt: false
+number: "S50"
+tier: 3

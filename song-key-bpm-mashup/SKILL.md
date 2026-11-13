@@ -1,6 +1,8 @@
-# Song key and BPM lookup with mashup compatibility
+# S41 — Song key and BPM lookup with mashup compatibility
 
-## When to use this skill
+> Twin tool: [song-key-bpm-lookup (T17)](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/song-key-bpm-lookup) — key/BPM lookup plus mashup-compatibility math.
+
+## When to use
 
 - Use it when the user wants to know whether a list of songs can be mashed up or mixed together.
 
@@ -56,6 +58,6 @@
 
 - Hard $0: use only free lookup sources.
 
-## Source
+## Where this comes from
 
-- Audit S41. Proven in the Key and BPM for songs thread (Tomorrow, Alive, Plush): 146 BPM anchor, Plush +4 semitones to B minor.
+- Proven in the Key and BPM for songs thread (Tomorrow, Alive, Plush): 146 BPM anchor, Plush +4 semitones to B minor — recorded in the BNB audit as S41.

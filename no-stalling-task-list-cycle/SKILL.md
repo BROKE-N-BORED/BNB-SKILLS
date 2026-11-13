@@ -1,4 +1,4 @@
-# No-stalling task-list cycle: verify, ship, next item, repeat until the list is done
+# S53 — No-stalling task-list cycle: verify, ship, next item, repeat until the list is done
 
 ## When to use
 
@@ -10,7 +10,7 @@
 ## The cycle
 
 - Finish one item, then verify it with the same proof as always: fresh-unzip check, tests green, screenshots eyeballed, battery receipt. The rule removes the waiting, not the checking.
-- Ship it immediately: push it to GitHub, update the Release, email the zip as part of shipping (see ship-pipeline). Do not hold a finished build for a push approval and do not wait for his go-ahead between items.
+- Ship it immediately: push it to GitHub, update the Release, email the zip as part of shipping (see [ship-pipeline](../ship-pipeline/SKILL.md)). Do not hold a finished build for a push approval and do not wait for his go-ahead between items.
 - Start the next item the same turn the previous one ships. The next build begins while the previous shipment is still warm.
 - Repeat until the task list is complete, then stop. Report the list as done and do not invent new tasks.
 
@@ -33,7 +33,7 @@
 
 - When the rule lands in a thread, check first for finished, verified work sitting unshipped and ship it under the rule before starting anything new.
 - Check the live tree before shipping a held item: a held item may already be merged. A ship order that arrives after the merge is stale on its port half; confirm in the tree, do not port twice.
-- In a thread that never touches the shared tree, "ship it" means handing the owning thread the port spec and the ship order together (see cross-thread-dispatch): port it, merge it, push it, no waiting on a merge order. The receiving thread confirms the queue position back.
+- In a thread that never touches the shared tree, "ship it" means handing the owning thread the port spec and the ship order together (see [cross-thread-dispatch](../cross-thread-dispatch/SKILL.md)): port it, merge it, push it, no waiting on a merge order. The receiving thread confirms the queue position back.
 
 ## Relation to one-item-at-a-time
 
@@ -48,10 +48,8 @@
 
 ## Available connectors
 
-- [Gmail](/opt/hatch/connectors/gmail/CONNECTOR.md) for emailing the zip as part of shipping.
-- [GitHub](/opt/hatch/connectors/github/CONNECTOR.md) for pushing the build and updating the Release.
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- [Gmail](../CONNECTORS.md) for emailing the zip as part of shipping.
+- [GitHub](../CONNECTORS.md) for pushing the build and updating the Release.
 
 ## Alternatives for better results
 

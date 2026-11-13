@@ -1,5 +1,7 @@
-name: play-based-game-design-study
-title: Play-based game design study
-description: Build a game-design reference library one game at a time with a ranked queue, a read-the-How-to-Play-first rule, and a fixed itinerary sheet. Protocol only — in-thread play execution failed and is not part of this skill.
-category: Work and knowledge
+name: "play-based-game-design-study"
+title: "Play-based game design study"
+description: "Build a game-design reference library one game at a time with a ranked queue, a read-the-How-to-Play-first rule, and a fixed itinerary sheet. Protocol only — in-thread play execution failed and is not part of this skill."
+category: "Work and knowledge"
 include_in_prompt: false
+number: "S37"
+tier: 2

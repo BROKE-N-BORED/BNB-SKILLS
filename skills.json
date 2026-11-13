@@ -1,0 +1,823 @@
+[
+  {
+    "number": 1,
+    "slug": "ship-pipeline",
+    "title": "Ship pipeline: verify, email, push, Release, hash-match",
+    "description": "Ship a verified build through fresh-unzip verification, emailed zip with Sent read-back, GitHub push, Release, and SHA-256 hash-match.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "references/ship-checklist.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 2,
+    "slug": "isolated-copy-build-merge",
+    "title": "Isolated-copy build and delta-port merge with batteries",
+    "description": "Build a feature in an isolated copy, battery it there, back up the live tree, port only the delta, verify against the source copy, and battery the merged tree.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 3,
+    "slug": "cross-thread-dispatch",
+    "title": "Cross-thread dispatch and report-back",
+    "description": "Send work to its owning thread with a self-contained brief and report completions back with verified facts only.",
+    "tier": 1,
+    "category": "Work and knowledge",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "references/brief-template.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 4,
+    "slug": "task-receipt-format",
+    "title": "Task receipt format",
+    "description": "Close every build task with a fixed proof block of files changed, tests against baseline, verification method, and honest gaps.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "references/receipt-template.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 5,
+    "slug": "full-product-review",
+    "title": "Full product review",
+    "description": "Review a whole product end to end and deliver strengths, weaknesses, gaps, and a ranked improvement list, with no code changed.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "references/review-checklist.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 6,
+    "slug": "linux-release-packaging",
+    "title": "Linux release packaging",
+    "description": "Package a project as a real Linux program with an icon, a double-click GUI installer, and a GLib-safe desktop entry.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "references/desktop-entry-template.desktop",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 7,
+    "slug": "name-availability-check",
+    "title": "Name-availability check",
+    "description": "Check a candidate name against GitHub exact-name repos and the live web before presenting it, and report only verified-clean names.",
+    "tier": 1,
+    "category": "Work and knowledge",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 8,
+    "slug": "post-merge-battery",
+    "title": "Post-merge battery and baseline failure-set comparison",
+    "description": "Prove a merge clean by comparing full-suite failure sets against baseline, verifying the merge against its source copy, and relaying defects with exact locations.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 9,
+    "slug": "screenshot-driven-diagnosis",
+    "title": "Screenshot-driven diagnosis and fix spec",
+    "description": "Diagnose a bug from the user's phone screenshot, find the real cause in code, and send an ordered fix spec to the DEV thread.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 10,
+    "slug": "daily-sweep-pass-only",
+    "title": "Daily sweep with pass-only reporting",
+    "description": "Run a scheduled scan against fixed criteria and report only the items that pass, or one short line when none do.",
+    "tier": 1,
+    "category": "Work and knowledge",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "references/criteria-template.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 11,
+    "slug": "deep-research-artifact",
+    "title": "Deep research into report and interactive artifact",
+    "description": "Research a comparison or catalog question into a sourced report and a probe-verified interactive page, with headlines in chat.",
+    "tier": 1,
+    "category": "Work and knowledge",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 12,
+    "slug": "external-tool-adaptation-study",
+    "title": "External-tool adaptation study into tiered build queue",
+    "description": "Deep-research an external product, map its features onto the user's project as a tiered list, and build the picked items one at a time.",
+    "tier": 1,
+    "category": "Work and knowledge",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 13,
+    "slug": "model-sweep-roster-audit",
+    "title": "Model sweep and roster audit",
+    "description": "Grade candidate models against the machine and the incumbent roster seats, rank the trials with exact pull tags, and audit the installed roster.",
+    "tier": 1,
+    "category": "Work and knowledge",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "references/roster-audit-template.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 14,
+    "slug": "guided-build-walkthrough",
+    "title": "Guided in-tool build walkthrough",
+    "description": "Walk the user through a multi-step build one step at a time with pass-fail gates, using short hand-typeable commands.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 15,
+    "slug": "debug-sweep-repair",
+    "title": "Debug sweep with repair authorized",
+    "description": "Answer a bare debug it with a full inspection, fix the real faults in place, and report what was found, fixed, and checked.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 16,
+    "slug": "read-only-security-audit",
+    "title": "Read-only security audit",
+    "description": "Audit a frozen read-only codebase scope and deliver severity-ranked findings with verified-strong areas named too, changing nothing.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 17,
+    "slug": "reference-sheet-character-pipeline",
+    "title": "Reference-sheet character pipeline",
+    "description": "Build a 3D character from multi-view reference sheets by modeling each piece separately from its own sheet, assembling the approved pieces, and saving the character as a reusable preset.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 18,
+    "slug": "trace-and-overlay-verification",
+    "title": "Trace-and-overlay verification",
+    "description": "Verify a 3D model against its reference sheet by measurement, using the sheet as a viewport backdrop and overlaying renders at the same scale, and report residual offsets honestly.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 19,
+    "slug": "github-repo-creation-walkthrough",
+    "title": "GitHub repo creation walkthrough",
+    "description": "Walk the user through creating an empty GitHub repo from their phone, verify it live, and run the owner versus agent publish gate checklist when the project is ready to go public.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "references/publish-gate-checklist.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 20,
+    "slug": "repo-identity-check",
+    "title": "Repo-identity check",
+    "description": "Verify a GitHub repo exists live, is empty or has expected content, and matches the user's description of a project, before building or pushing.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 21,
+    "slug": "brand-matched-logo-design",
+    "title": "Brand-matched logo design",
+    "description": "Design a brand-matched logo, sigil, or glyph under an anti-slop discipline, with a Brand DNA brief first and a 12-test pass or fail battery for every mark.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "references/brand-dna-brief-template.md",
+      "references/logo-test-battery.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 22,
+    "slug": "role-prompt-engineering",
+    "title": "Role prompt engineering",
+    "description": "Write assistant role instructions as a 12-section master pack under a hard character limit, verified by exact character count, in plain instructions only.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "references/role-pack-template.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 23,
+    "slug": "species-dossier-simulation-pipeline",
+    "title": "Species dossier simulation pipeline",
+    "description": "Turn a real species into a buildable sim entity with a fixed-template dossier, a gap register that never invents missing values, and a pilot build verified numerically and by screenshot.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "references/gap-register-template.md",
+      "references/species-dossier-template.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 24,
+    "slug": "sandbox-first-sim-build",
+    "title": "Sandbox-first sim build",
+    "description": "Build a simulation as a standalone sandbox file first with the core sim separate from rendering, and verify it with a screenshot rig, human-style interaction tests, and numeric measurement.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 25,
+    "slug": "video-workflow-extraction",
+    "title": "Video workflow extraction",
+    "description": "Watch a video all the way through, extract the actual workflow or lesson, and give an honest critique of what is real versus hype and what fits the user's budget and hardware.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 26,
+    "slug": "promo-video-production",
+    "title": "Promo video production",
+    "description": "Produce promo videos from the real product only, cut to the 15-second sellable-ads structure, with real licensed sound, LUFS loudness, and a caption in the user's own words.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "references/fifteen-second-storyboard.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 27,
+    "slug": "social-account-setup-kit",
+    "title": "Social account setup kit",
+    "description": "Set up a project's social accounts with a paste-ready kit per platform, walking the user through one platform at a time, after verifying the download link is live.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "references/setup-kit-template.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 28,
+    "slug": "donate-support-wiring",
+    "title": "Donate support wiring",
+    "description": "Wire a verified donation link into a project's README, Linktree, and a non-blocking in-app startup welcome screen with a QR code and a printed-link fallback.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 29,
+    "slug": "hotfix-zip",
+    "title": "Hotfix zip",
+    "description": "Patch the exact shipped build the user is running with a one-file fix, prove by diff that only that file moved, and email it with Sent-folder verification.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 30,
+    "slug": "brand-scrub-rename",
+    "title": "Brand scrub rename",
+    "description": "Remove or replace a name across a whole tree with grep-driven substitution, catch stragglers with a case-insensitive whole-tree grep, migrate user state, and re-run the battery.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 31,
+    "slug": "phone-first-crash-course",
+    "title": "Phone-first crash course",
+    "description": "Teach one concept per lesson, grounded in the user's own hardware and project, honest about what their PC can and cannot do, with short single-line commands only.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "references/lesson-template.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 32,
+    "slug": "openai-compatible-provider-wiring",
+    "title": "Wire an OpenAI-compatible provider into Forge",
+    "description": "Add a new cloud provider to Forge by verifying its base URL and exact model ID from the vendor's own docs, wiring the client on the existing provider pattern, and verifying with fake transports.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 33,
+    "slug": "living-document-build",
+    "title": "Living-document build with multi-pass audits",
+    "description": "Build one master document as a single source of truth, updated in place, and keep it correct with consistency, gap, and live-the-guide scenario audits.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml",
+      "templates/audit-checklist.md"
+    ]
+  },
+  {
+    "number": 34,
+    "slug": "covert-questionnaire-character-profile",
+    "title": "Covert questionnaire to character profile",
+    "description": "Build a character or persona through a long covert questionnaire, one pinned-down scenario question at a time, logging every answer and building from the whole pattern at the end.",
+    "tier": 2,
+    "category": "Creation",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml",
+      "templates/questionnaire-log.md"
+    ]
+  },
+  {
+    "number": 35,
+    "slug": "ui-direction-mockup-rounds",
+    "title": "UI direction-finding via mockup rounds",
+    "description": "Find a UI direction through rounds of generated mockups — four directions, one-line verdicts, single-variable re-dosing, ratio mixes — then lock the winner as a standing reference.",
+    "tier": 2,
+    "category": "Creation",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 36,
+    "slug": "rebuild-better-game-clone",
+    "title": "Research to rebuild-better single-file game clone",
+    "description": "Research an existing game, then build an improved single-file offline HTML version, verify it by actually playing it headlessly at phone size, and rebuild v2 from the user's real-phone verdict.",
+    "tier": 2,
+    "category": "Creation",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml",
+      "templates/playtest-checklist.md"
+    ]
+  },
+  {
+    "number": 37,
+    "slug": "play-based-game-design-study",
+    "title": "Play-based game design study",
+    "description": "Build a game-design reference library one game at a time with a ranked queue, a read-the-How-to-Play-first rule, and a fixed itinerary sheet. Protocol only — in-thread play execution failed and is not part of this skill.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml",
+      "templates/itinerary-sheet.md"
+    ]
+  },
+  {
+    "number": 38,
+    "slug": "pace-adaptive-study-itinerary",
+    "title": "Pace-adaptive study itinerary",
+    "description": "Build a study schedule from a seed pace, then measure real pace from logged completions and recalculate all projected dates, showing seed and live dates side by side.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml",
+      "templates/pace-tracker.md"
+    ]
+  },
+  {
+    "number": 39,
+    "slug": "sprite-sheet-prompt-pack",
+    "title": "Sprite-sheet prompt pack",
+    "description": "Build a reusable prompt pack for consistent game art with one character-lock block pasted before every per-action prompt, holding lock, model, and seed constant across every sheet.",
+    "tier": 2,
+    "category": "Creation",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "examples/prompt-pack-example.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 40,
+    "slug": "token-burn-rate-baseline",
+    "title": "Token burn-rate baseline and scheduled recheck",
+    "description": "Measure how long a metered token pool will last by recording a usage baseline, scheduling a one-time recheck days later, and computing tokens per day and remaining-pool lifetime.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml",
+      "templates/baseline-record.md"
+    ]
+  },
+  {
+    "number": 41,
+    "slug": "song-key-bpm-mashup",
+    "title": "Song key and BPM lookup with mashup compatibility",
+    "description": "Look up key and BPM for a list of songs and work out mashup compatibility — shared key families, a BPM anchor with minimal stretches, and semitone shifts for outliers.",
+    "tier": 2,
+    "category": "Creation",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 42,
+    "slug": "live-local-stock-verification",
+    "title": "Live local stock verification",
+    "description": "Find a product for same-day pickup without a wasted trip by checking product pages at the exact store, reporting verified items separately from unverified phone leads, and re-verifying later the same day.",
+    "tier": 2,
+    "category": "Shopping",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml",
+      "templates/verification-report.md"
+    ]
+  },
+  {
+    "number": 43,
+    "slug": "authority-incident-report-drafting",
+    "title": "Authority incident-report drafting",
+    "description": "Turn a user's account of an incident into formal per-agency reports from one fact base, with never-guessed blanks, fact separated from belief, anonymization checks, and a SEND version stripped of the private record.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml",
+      "templates/report-draft-template.md"
+    ]
+  },
+  {
+    "number": 44,
+    "slug": "photo-guided-vehicle-diagnosis",
+    "title": "Photo-guided vehicle electrical diagnosis",
+    "description": "Diagnose a vehicle electrical fault from the user's fuse-box photos by reading the fuse map off the photo, naming parts by photo landmarks, and running ordered elimination tests.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml",
+      "templates/diagnosis-worksheet.md"
+    ]
+  },
+  {
+    "number": 45,
+    "slug": "idea-to-newspaper-comic",
+    "title": "Idea to newspaper comic strip",
+    "description": "Turn any idea or concept into a classic 3–4 panel newspaper comic — setup, visual gag, punchline — with the user's words as notes to draw from, never text in the art.",
+    "tier": 2,
+    "category": "Creation",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml",
+      "templates/comic-script.md"
+    ]
+  },
+  {
+    "number": 46,
+    "slug": "verified-reference-image-list",
+    "title": "Verified reference-image list",
+    "description": "Expand a reference-image list for a build, check every URL live, exclude dead or hotlink-blocked candidates, and record honest gaps where no usable photo exists.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml",
+      "templates/reference-images-template.md"
+    ]
+  },
+  {
+    "number": 47,
+    "slug": "live-symptom-triage",
+    "title": "Live symptom triage with timed vitals recheck",
+    "description": "Real-time triage for a suspected supplement or drug reaction. Guarded playbook only, escalate, don't diagnose, never a diagnostic tool.",
+    "tier": 3,
+    "category": "Health",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 48,
+    "slug": "vlc-iptv-setup",
+    "title": "VLC and IPTV setup from a streaming site",
+    "description": "Find the real stream links behind a TV site that will not play in the browser and set them up in VLC on Android.",
+    "tier": 3,
+    "category": "Media",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 49,
+    "slug": "free-track-enrollment",
+    "title": "Free-track course enrollment, guardrailed",
+    "description": "Enroll in a free course via a browser task with hard guardrails. Free or audit track only, never paid, never payment info.",
+    "tier": 3,
+    "category": "Education",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 50,
+    "slug": "email-zip-code-intake",
+    "title": "Email-a-zip code intake and dead-button diagnosis",
+    "description": "Intake for fixing a user's codebase from an emailed source zip, plus dead-button diagnosis. Stated but never executed in-thread.",
+    "tier": 3,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 51,
+    "slug": "pc-spec-review-upgrade",
+    "title": "PC spec review and compatible upgrade shortlist",
+    "description": "Read a PC spec file, name the real bottlenecks, check the exact model's upgrade path, and shortlist the cheapest compatible parts. Tier 3, weak.",
+    "tier": 3,
+    "category": "Hardware",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 52,
+    "slug": "pantry-constrained-recipe-adaptation",
+    "title": "Pantry-constrained recipe adaptation and target-app formatting",
+    "description": "Adapt a recipe to what the user actually has and format it to match the target app. Tier 3, weak.",
+    "tier": 3,
+    "category": "Cooking",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 53,
+    "slug": "no-stalling-task-list-cycle",
+    "title": "No-stalling task-list cycle: verify, ship, next item, repeat until the list is done",
+    "description": "Run a task list without waiting between items: verify each item, push it, update the Release, email the zip, then immediately start the next item until the list is complete.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 54,
+    "slug": "pre-delivery-enhancement-gate",
+    "title": "Pre-delivery enhancement gate: run the peak-performance check before anything ships",
+    "description": "Run Joshua's mandatory enhancement gate silently before every reply, delivery, or task completion: check completeness, accuracy, and relevance, enhance what is missing or underdeveloped, then ship.",
+    "tier": 1,
+    "category": "Work and knowledge",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 55,
+    "slug": "dual-model-ai-relay",
+    "title": "Dual-model AI-to-AI relay",
+    "description": "Build and run a dual-model chat interface: two models side by side, a director layer, blind/aware AI-to-AI relay with turn cap and stop conditions, reorder, edit-before-forward, saved pairs, and compare mode.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 56,
+    "slug": "org-repo-audit-queue",
+    "title": "Org repo audit queue",
+    "description": "Audit every repo in a GitHub account one at a time from a live queue file: fixed report shape, live-only rule, read-only, metadata re-verified at delivery, placeholders named plainly.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 57,
+    "slug": "bnb-repo-manager-delta-scan",
+    "title": "BNB repo manager delta scan",
+    "description": "Run a watermark-based delta scan of all chat threads against the BNB repo baselines: find new workflows, presets, roles, and plugins, propose updates to existing items, and stage additions cleanly for the coordinator.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 58,
+    "slug": "fake-provider-verification",
+    "title": "Fake-provider verification",
+    "description": "Verify a chat or benchmark app against scripted fake Ollama and OpenAI-compatible provider servers over real HTTP: canned brains, request recording, failure modes, key-leak checks, and honest gaps.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 59,
+    "slug": "qt-ui-thread-offload",
+    "title": "Qt UI-thread offload (worker thread + debounce)",
+    "description": "Move blocking work off the Qt UI thread into a QThread worker with stale-signal guards, cap oversized inputs first, and debounce rapid control changes; verify with before/after timings.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 60,
+    "slug": "side-quest",
+    "title": "Side quest: when the main build hits a wall, build the smallest standalone thing that fills the gap",
+    "description": "Unblock a build by spinning off the smallest standalone tool, skill, program, or algorithm that fills the missing capability — verify it alone, plug it in, log it as a BNB asset, return to the main build.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 61,
+    "slug": "debug-log-layer",
+    "title": "Debug log layer: every project ships with error handling, logging, and an emailable debug report",
+    "description": "Standard debug and logging layer for every project build: timestamped rotating logs, last-actions ring buffer, full tracebacks, context snapshot, and a scrubbed debug report on demand and on crash — safe to email for diagnosis.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  }
+]

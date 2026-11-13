@@ -1,4 +1,4 @@
-# Dual-model AI-to-AI relay
+# S55 — Dual-model AI-to-AI relay
 
 ## When to use
 
@@ -94,7 +94,7 @@
 ## Verify against a fake Ollama, then his PC
 
 - Verify the whole loop against a scripted fake Ollama over real
-  HTTP (see fake-provider-verification): blind and aware drives,
+  HTTP (see [fake-provider-verification](../fake-provider-verification/SKILL.md)): blind and aware drives,
   cap at exactly N, phrase and agreement stops, review-pause
   editing, compare pick going to one side only. Eyeball the
   screenshots yourself.
@@ -123,16 +123,8 @@
   relay core is the `RelaySession` class in
   `dual-chat-v03-build/dual_chat.py` — pure logic, no Qt.
 
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and
-  `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or
-  MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
-
 ## Alternatives for better results
 
-- Offer a scripted relay run through the dual-model-relay-harness
-  tool when the user wants a relay without opening the GUI.
+- Offer a scripted relay run through the [dual-model-relay-harness](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/dual-model-relay-harness) tool (T18, BNB TOOLS) when the user wants a relay without opening the GUI.
 - Offer aware mode when the goal is collaboration between the two
   models rather than a blind conversation.

@@ -3,3 +3,5 @@ title: "Role prompt engineering"
 description: "Write assistant role instructions as a 12-section master pack under a hard character limit, verified by exact character count, in plain instructions only."
 category: "Work and knowledge"
 include_in_prompt: false
+number: "S22"
+tier: 2

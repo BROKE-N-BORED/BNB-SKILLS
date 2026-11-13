@@ -1,6 +1,8 @@
-# Token burn-rate baseline and scheduled recheck
+# S40 — Token burn-rate baseline and scheduled recheck
 
-## When to use this skill
+> Twin tool: [token-burn-rate-tracker (T16)](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/token-burn-rate-tracker) — baseline snapshot, scheduled recheck, tokens per day and pool-lifetime estimate.
+
+## When to use
 
 - Use it when the user asks how long a metered pool — tokens, credits, or any capped resource — will last.
 
@@ -13,6 +15,8 @@
 - Record a baseline snapshot: subscription status plus the locally logged token totals on that date.
 
 - Write the baseline down with its date; the baseline is a file entry, not a memory.
+
+- Record the baseline in the [baseline record](templates/baseline-record.md): date, subscription status, logged total, pool size, and remaining.
 
 - Note the pool size the lifetime will be measured against.
 
@@ -48,6 +52,10 @@
 
 - One recheck, one report; do not keep re-running the math without new data.
 
-## Source
+## Where this comes from
 
-- Audit S40. Proven in the How long 1 billion tokens last thread: October 31 baseline to November 3 recheck measured about 13.1M tokens per day, about 77 days of pool at that pace.
+- Proven in the How long 1 billion tokens last thread: October 31 baseline to November 3 recheck measured about 13.1M tokens per day, about 77 days of pool at that pace — recorded in the BNB audit as S40.
+
+## Alternatives for better results
+
+- To check subscription status alone, the system `subscription-status` skill covers that; this skill is the baseline-to-recheck-to-rate workflow around it.

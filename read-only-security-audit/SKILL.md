@@ -1,4 +1,4 @@
-# Read-only security audit
+# S16 — Read-only security audit
 
 ## When to use
 
@@ -31,16 +31,11 @@
 - Deliver the report in chat with the severity counts and the top findings, and write the full report to a file for the record.
 - Keep every finding tied to the code that proves it, and flag anything you could not verify instead of dressing it up as a finding.
 - Change no code, file no fixes, and start no build item. The user directs the next step from the list.
-- Offer to build the picked fixes one at a time (see isolated-copy-build-merge) once the user has chosen.
+- Offer to build the picked fixes one at a time (see [isolated-copy-build-merge](../isolated-copy-build-merge/SKILL.md)) once the user has chosen.
 
 ## Where this comes from
 
 - This shape ran as the Code Forge S1 audit (1 Critical, 9 High, 14 Medium, 9 Low, 12 areas genuinely strong) and the earlier full-codebase audit with four independent review passes and hand re-verification of decisive claims. It is recorded in the BNB audit as S16.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
 
 ## Alternatives for better results
 

@@ -1,6 +1,6 @@
-# Idea to newspaper comic strip
+# S45 — Idea to newspaper comic strip
 
-## When to use this skill
+## When to use
 
 - Use it when the user wants an idea, a feeling, or a headline turned into a classic 3–4 panel newspaper comic.
 
@@ -17,6 +17,8 @@
 - The last panel is the punchline: the payoff lands visually.
 
 - Keep the strip to 3–4 panels; a longer strip is a different format.
+
+- Write the strip up in the [comic script](templates/comic-script.md): the idea, then one visual per panel.
 
 ## The user's words are notes to draw from, never text for the art
 
@@ -58,6 +60,6 @@
 
 - Never claim more than was checked; a script is a plan, and the strip is only proven when the user sees it.
 
-## Source
+## Where this comes from
 
-- Audit S45. Proven in the Create newspaper comic from ideas thread: one strip through several revision rounds, with the hard rules (no text in the art, fresh generation over edits, visual portrayal of abstract concepts) learned in-thread.
+- Proven in the Create newspaper comic from ideas thread: one strip through several revision rounds, with the hard rules (no text in the art, fresh generation over edits, visual portrayal of abstract concepts) learned in-thread — recorded in the BNB audit as S45.

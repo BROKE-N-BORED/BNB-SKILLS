@@ -1,8 +1,8 @@
-# Play-based game design study
+# S37 — Play-based game design study
 
 > CAVEAT, CARRY VERBATIM: protocol only — in-thread play execution FAILED (browser player kept failing to play properly, user said "Just stop dude", study stopped 2026-11-08). The sheet + protocol are the reusable parts, not the play-execution.
 
-## When to use this skill
+## When to use
 
 - Use it to build a reusable game-design reference library by studying real games, one at a time.
 
@@ -42,7 +42,7 @@
 
 - Sections: entry and menus, character design, pixel art and graphics, animation, gameplay, camera, specs box, and the hub-versus-game-inside-it distinction.
 
-- Use the sheet template in `templates/itinerary-sheet.md`.
+- Use the [itinerary sheet template](templates/itinerary-sheet.md).
 
 - Refine the sheet in batches when early games expose holes in it; the sheet improves from use, and the refinement itself is part of the method.
 
@@ -62,6 +62,6 @@
 
 - When the user says stop, stop.
 
-## Source
+## Where this comes from
 
-- Audit S37. From the Study Miniplay game design reference thread: 32 categories, 310 games queued. Play execution failed in-thread and the study was stopped 2026-11-08; the queue method, Step 0 rule, and itinerary sheet are the reusable parts.
+- From the Study Miniplay game design reference thread: 32 categories, 310 games queued. Play execution failed in-thread and the study was stopped 2026-11-08; the queue method, Step 0 rule, and itinerary sheet are the reusable parts — recorded in the BNB audit as S37.

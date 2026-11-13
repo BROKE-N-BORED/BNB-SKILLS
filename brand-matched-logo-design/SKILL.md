@@ -1,12 +1,19 @@
-# Brand-matched logo design
+# S21 — Brand-matched logo design
 
-Design a logo or glyph that matches an already-established product or brand, using one of three methods under one anti-slop discipline. Use this skill whenever a project needs a mark, a sigil, or a glyph, and whenever an existing mark needs to be judged or rebuilt.
+Design a logo or glyph that matches an already-established product or brand, using one of three methods under one anti-slop discipline.
+
+Companion tool: [T8 logo-test-battery](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/logo-test-battery) — runs the 12-test battery: renders the mark at 16/32/48px, silhouette, grayscale, invert, crops, and pasted into a real product screenshot, pass/fail per test.
+
+## When to use
+
+- A project needs a mark, a sigil, or a glyph.
+- An existing mark needs to be judged or rebuilt.
 
 ## Start with the brand, never with the mark
 
 - Audit the product UI first, looking at its real screens, and extract its palette, type, and material as a closed set of tokens before you draw anything.
 
-- Write a one-page Brand DNA brief from that audit, using the template in `references/brand-dna-brief-template.md`, and treat the brief as the gate, so no concept work starts until the brief exists.
+- Write a one-page Brand DNA brief from that audit, using the [Brand DNA brief template](references/brand-dna-brief-template.md), and treat the brief as the gate, so no concept work starts until the brief exists.
 
 - Generate concepts from product-specific ideas only, drawn from what the product actually is and does, and write down the banned generic nouns the concepts must not use, copying them verbatim into the brief.
 
@@ -24,7 +31,7 @@ Design a logo or glyph that matches an already-established product or brand, usi
 
 ## Run every mark through the 12-test battery
 
-- Run every mark through the 12-test pass or fail battery in `references/logo-test-battery.md`, and record a pass or fail per test, with no test skipped.
+- Run every mark through the 12-test pass or fail battery in the [logo test battery](references/logo-test-battery.md), and record a pass or fail per test, with no test skipped.
 
 - Render the mark at 16, 32, and 48 pixels for real, and judge it at each size, because a mark that only works large is not a mark.
 
@@ -44,11 +51,9 @@ Design a logo or glyph that matches an already-established product or brand, usi
 
 - Withhold a round you judge not good enough, and say so, instead of showing work you would not stand behind.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- From the Code Forge logo research (983a94e7 — Brand DNA brief and 12-test battery), the RICH$XPRNC8 sigil thread (527e8c07 — letter-reduction method), the Reblend logo rounds in REBLEND DEV (2a82689c — code-built SVG), and the LA logo merch thread (7580cc0c — rejection data point). Recorded in the BNB audit as S21.
 
 ## Alternatives for better results
 

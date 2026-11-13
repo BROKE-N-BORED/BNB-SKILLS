@@ -1,5 +1,7 @@
 name: "debug-sweep-repair"
 title: "Debug sweep with repair authorized"
 description: "Answer a bare debug it with a full inspection, fix the real faults in place, and report what was found, fixed, and checked."
-category: "Work and knowledge"
+category: "Development"
 include_in_prompt: true
+number: "S15"
+tier: 1

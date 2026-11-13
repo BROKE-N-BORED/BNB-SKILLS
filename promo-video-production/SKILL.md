@@ -1,6 +1,10 @@
-# Promo video production
+# S26 — Promo video production
 
-Produce promo videos from the real product only, cut to the sellable-ads structure, with real licensed sound and a caption in the user's own words. Use this skill whenever a product needs a promo video, a launch cut, or a social video.
+Produce promo videos from the real product only, cut to the sellable-ads structure, with real licensed sound and a caption in the user's own words.
+
+## When to use
+
+- A product needs a promo video, a launch cut, or a social video.
 
 ## Film the real product, nothing else
 
@@ -14,7 +18,7 @@ Produce promo videos from the real product only, cut to the sellable-ads structu
 
 ## Cut to the sellable-ads structure
 
-- Cut the 15-second version to the structure in `references/fifteen-second-storyboard.md`, with the hook in the first 2 seconds and the result in frame 1.
+- Cut the 15-second version to the structure in the [fifteen-second storyboard](references/fifteen-second-storyboard.md), with the hook in the first 2 seconds and the result in frame 1.
 
 - Put 2 to 3 real UI beats in the proof section, from 2 to 10 seconds, so the viewer sees the product working.
 
@@ -46,11 +50,9 @@ Produce promo videos from the real product only, cut to the sellable-ads structu
 
 - When the user says they do not like a cut, stop guessing and ask what specifically is wrong before cutting again.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- From the CODE FORGE VIDEO GENERATION thread (d2fbad7e) — the arc from rejected generated commercials to the real-capture method, the sound saga (synthesized audio rejected three times, real licensed recordings with CC BY credits), and the sellable-ads research behind the 15-second structure. Recorded in the BNB audit as S26.
 
 ## Alternatives for better results
 

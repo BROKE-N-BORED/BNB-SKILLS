@@ -1,6 +1,14 @@
-# Repo-identity check
+# S20 — Repo-identity check
 
-Verify a GitHub repo live before you build against it or push to it, and judge whether an existing repo matches the user's description of a project. Use this skill at the start of any new project, before any push, and whenever the user asks whether a project already exists on GitHub.
+Verify a GitHub repo live before you build against it or push to it, and judge whether an existing repo matches the user's description of a project.
+
+Companion tool: [T10 repo-identity-check](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/repo-identity-check) — checks GitHub existence, empty state, and description for a repo name, and handles the get_file_contents ok plus isError trap.
+
+## When to use
+
+- At the start of any new project.
+- Before any push.
+- Whenever the user asks whether a project already exists on GitHub.
 
 ## Check existence and contents live
 
@@ -32,14 +40,16 @@ Verify a GitHub repo live before you build against it or push to it, and judge w
 
 - Apply the same care to every GitHub read, and report what the call actually returned when a result looks contradictory.
 
+## Where this comes from
+
+- From the Stella repo checks — the Stella crash course thread (8fc2998a), where no repo named Stella/Stellar existed and private StemLab matched the description almost exactly, and STELLA Dev (2d7b2739), where the STELLA repo was verified to exist and be empty — plus the OLLAMA thread (662fb3aa) and the WinLinx repo verification in the main chat. Recorded in the BNB audit as S20.
+
 ## Available connectors
 
-- Use the GitHub connector for repo checks, and read its current doc before running its commands.
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
+- Use the [GitHub connector](../CONNECTORS.md) for repo checks, and read its current doc before running its commands.
 
 ## Alternatives for better results
 
-- Offer to create the repo with the github-repo-creation-walkthrough skill when the check shows it does not exist yet.
+- Offer to create the repo with the [github-repo-creation-walkthrough](../github-repo-creation-walkthrough/SKILL.md) skill when the check shows it does not exist yet.
 
 - Ask the user for the exact repo name or a link when a name search returns several close matches.

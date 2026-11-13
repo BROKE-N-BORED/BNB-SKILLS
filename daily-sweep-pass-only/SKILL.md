@@ -1,4 +1,4 @@
-# Daily sweep with pass-only reporting
+# S10 — Daily sweep with pass-only reporting
 
 ## When to use
 
@@ -11,7 +11,7 @@
 - Write the criteria down before the first run and keep them fixed between runs, so a pass means the same thing every day.
 - Check every candidate against every criterion, and record the evidence for each pass.
 - Dedupe new finds against the catalogue before reporting, so an item already listed is not reported twice.
-- See references/criteria-template.md for the criteria of the three established variants.
+- See the [criteria template](references/criteria-template.md) for the criteria of the three established variants.
 
 ## Report only what passes
 
@@ -29,11 +29,6 @@
 ## Where this comes from
 
 - This shape runs daily as the stocks and crypto sweep (17:20 cron) and the $0-services sweep (about 10:20 AM cron), and the same discipline was applied to the $0 course catalogue and reused for inbox triage and the Raon Ollama-support watch. It is recorded in the BNB audit as S10.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
 
 ## Alternatives for better results
 

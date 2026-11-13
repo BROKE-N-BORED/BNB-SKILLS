@@ -1,5 +1,7 @@
-name: photo-guided-vehicle-diagnosis
-title: Photo-guided vehicle electrical diagnosis
-description: Diagnose a vehicle electrical fault from the user's fuse-box photos by reading the fuse map off the photo, naming parts by photo landmarks, and running ordered elimination tests.
-category: Work and knowledge
+name: "photo-guided-vehicle-diagnosis"
+title: "Photo-guided vehicle electrical diagnosis"
+description: "Diagnose a vehicle electrical fault from the user's fuse-box photos by reading the fuse map off the photo, naming parts by photo landmarks, and running ordered elimination tests."
+category: "Work and knowledge"
 include_in_prompt: false
+number: "S44"
+tier: 2

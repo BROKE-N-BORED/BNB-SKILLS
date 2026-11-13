@@ -1,10 +1,13 @@
-# Ship pipeline: verify, email, push, Release, hash-match
+# S1 — Ship pipeline: verify, email, push, Release, hash-match
+
+Executable twin in BNB-TOOLS: [T1 ship-pipeline-scripts](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/ship-pipeline-scripts).
 
 ## When to use
 
 - Use this skill for every shipment of a built project to the user, whether it is a first version or a fix.
 - Start it only when the build is verified and the version and changelog are settled.
 - Skip the email step only when the user has said that a project ships by push and Release only.
+- Work the gates in order with the [ship checklist](references/ship-checklist.md).
 
 ## Build the zip with correct modes
 
@@ -18,7 +21,7 @@
 
 - Unzip the finished zip to a fresh directory and run the full test suite there, not in the build tree.
 - Run your own checks in the fresh unzip and look at the screenshots yourself before you call the build verified.
-- Confirm the zip carries the app icon and the double-click installer, because every Release zip must carry both (see linux-release-packaging).
+- Confirm the zip carries the app icon and the double-click installer, because every Release zip must carry both (see [linux-release-packaging](../linux-release-packaging/SKILL.md)).
 - Fix any defect the fresh-unzip check finds and rebuild the zip, then verify the rebuilt zip the same way.
 - For a `pip install .` package, the fresh check is a pip fresh-install check: copy to a clean directory, fresh venv, `pip install .`, then run the CLI end to end from the installed package (version, each command, library import, MCP smoke if it has one) — not just unzip plus test suite.
 
@@ -45,12 +48,12 @@
 - A hard gate still stops the cycle: if the next task needs the user's PC, their decision, or an action only they can take, say so and stop — do not guess past it.
 - Never create a GitHub repo unasked: the user creates repos. If the project has no repo yet, the push step waits on that.
 - Apply only the steps that fit: if a step does not exist for this project (no repo, no Release, no email step), skip it — do not force it. A report, not a build, gets pushed with no Release.
-- See no-stalling-task-list-cycle for the full standing rule.
+- See [no-stalling-task-list-cycle](../no-stalling-task-list-cycle/SKILL.md) for the full standing rule.
 
 ## Report only what you verified
 
 - Report the emailed filename and byte size, the pushed commit, the live Release URL, and the hash-match confirmation.
-- Close the shipment with a task receipt (see task-receipt-format).
+- Close the shipment with a task receipt (see [task-receipt-format](../task-receipt-format/SKILL.md)).
 - Name any check that still needs the user's own PC, such as the install run on their machine, instead of describing the shipment as finished.
 - Never call a fix closed until the user has run it on their own PC and confirmed it.
 
@@ -60,10 +63,8 @@
 
 ## Available connectors
 
-- [Gmail](/opt/hatch/connectors/gmail/CONNECTOR.md) for sending the zip and reading the sent message back.
-- [GitHub](/opt/hatch/connectors/github/CONNECTOR.md) for pushing the build and cutting the Release.
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- [Gmail](../CONNECTORS.md) for sending the zip and reading the sent message back.
+- [GitHub](../CONNECTORS.md) for pushing the build and cutting the Release.
 
 ## Alternatives for better results
 

@@ -1,6 +1,6 @@
-# Verified reference-image list
+# S46 — Verified reference-image list
 
-## When to use this skill
+## When to use
 
 - Use it when a build needs reference images and every link in the list must actually open.
 
@@ -44,6 +44,8 @@
 
 - Deliver the list as `REFERENCE_IMAGES.md`: verified-live URLs grouped by coverage area, plus the noted gaps.
 
+- Start from the [reference-images template](templates/reference-images-template.md): verified URLs grouped by coverage area, exclusions noted, gaps recorded.
+
 - Keep the exclusions in the file as a short note, so the list's history is visible.
 
 - Re-check the list live before a later build reuses it; links rot.
@@ -56,6 +58,10 @@
 
 - Verify, do not eyeball; a search result snippet is not a live check.
 
-## Source
+## Where this comes from
 
-- Audit S46. Proven in the White-tailed deer simulation thread: a reference list expanded from 12 to 58 images, 7 candidates excluded as dead or hotlink-blocked, honest gaps recorded where no usable photo existed.
+- Proven in the White-tailed deer simulation thread: a reference list expanded from 12 to 58 images, 7 candidates excluded as dead or hotlink-blocked, honest gaps recorded where no usable photo existed — recorded in the BNB audit as S46.
+
+## Alternatives for better results
+
+- Run as a step inside a larger build skill instead of a standalone pass; the audit notes it could fold into [sandbox-first-sim-build](../sandbox-first-sim-build/SKILL.md) or [species-dossier-simulation-pipeline](../species-dossier-simulation-pipeline/SKILL.md).

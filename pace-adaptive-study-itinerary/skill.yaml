@@ -1,5 +1,7 @@
-name: pace-adaptive-study-itinerary
-title: Pace-adaptive study itinerary
-description: Build a study schedule from a seed pace, then measure real pace from logged completions and recalculate all projected dates, showing seed and live dates side by side.
-category: Work and knowledge
+name: "pace-adaptive-study-itinerary"
+title: "Pace-adaptive study itinerary"
+description: "Build a study schedule from a seed pace, then measure real pace from logged completions and recalculate all projected dates, showing seed and live dates side by side."
+category: "Work and knowledge"
 include_in_prompt: false
+number: "S38"
+tier: 2

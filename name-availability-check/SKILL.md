@@ -1,4 +1,6 @@
-# Name-availability check
+# S7 — Name-availability check
+
+Executable twin in BNB-TOOLS: [T4 name-check](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/name-check).
 
 ## When to use
 
@@ -25,9 +27,7 @@
 
 ## Available connectors
 
-- [GitHub](/opt/hatch/connectors/github/CONNECTOR.md) for checking exact-name repos.
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- [GitHub](../CONNECTORS.md) for checking exact-name repos.
 
 ## Alternatives for better results
 

@@ -1,5 +1,7 @@
-name: sprite-sheet-prompt-pack
-title: Sprite-sheet prompt pack
-description: Build a reusable prompt pack for consistent game art with one character-lock block pasted before every per-action prompt, holding lock, model, and seed constant across every sheet.
-category: Creation
+name: "sprite-sheet-prompt-pack"
+title: "Sprite-sheet prompt pack"
+description: "Build a reusable prompt pack for consistent game art with one character-lock block pasted before every per-action prompt, holding lock, model, and seed constant across every sheet."
+category: "Creation"
 include_in_prompt: false
+number: "S39"
+tier: 2

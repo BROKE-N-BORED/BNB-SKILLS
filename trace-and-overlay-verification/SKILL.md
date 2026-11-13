@@ -1,6 +1,13 @@
-# Trace-and-overlay verification
+# S18 — Trace-and-overlay verification
 
-Verify a 3D model against its reference sheet by measurement, not by eyeballing. Use this skill whenever a sheet-built piece or character needs a verdict, and whenever a previous eyeball check was wrong.
+Verify a 3D model against its reference sheet by measurement, not by eyeballing.
+
+Companion tool: [T7 overlay-match](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/overlay-match) — lays a render over the reference sheet at the same scale, measures silhouette and dimension deltas, and reports residual offsets.
+
+## When to use
+
+- A sheet-built piece or character needs a verdict.
+- A previous eyeball check was wrong.
 
 ## Set the reference image up as a backdrop
 
@@ -48,11 +55,9 @@ Verify a 3D model against its reference sheet by measurement, not by eyeballing.
 
 - Keep the overlay images or renders with the report, so the user can see the comparison instead of taking the verdict on trust.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- From the belt trace rework in the REBLEND DEV thread (2a82689c) — dimensions measured off the sheet, overlays matched rather than eyeballed, 3/4-view backdrop support — and the view-by-view v2 checks in the EVERY MOUSE thread (5bb9ed96). Recorded in the BNB audit as S18.
 
 ## Alternatives for better results
 

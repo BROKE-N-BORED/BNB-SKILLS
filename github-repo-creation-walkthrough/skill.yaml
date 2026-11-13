@@ -1,5 +1,7 @@
 name: "github-repo-creation-walkthrough"
 title: "GitHub repo creation walkthrough"
 description: "Walk the user through creating an empty GitHub repo from their phone, verify it live, and run the owner versus agent publish gate checklist when the project is ready to go public."
-category: "Work and knowledge"
+category: "Development"
 include_in_prompt: false
+number: "S19"
+tier: 2

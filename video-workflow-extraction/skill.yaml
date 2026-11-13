@@ -3,3 +3,5 @@ title: "Video workflow extraction"
 description: "Watch a video all the way through, extract the actual workflow or lesson, and give an honest critique of what is real versus hype and what fits the user's budget and hardware."
 category: "Work and knowledge"
 include_in_prompt: false
+number: "S25"
+tier: 2

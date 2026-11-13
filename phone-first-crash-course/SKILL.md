@@ -1,6 +1,10 @@
-# Phone-first crash course
+# S31 — Phone-first crash course
 
-Teach one concept per lesson, grounded in the user's own hardware and their own project, honest about what their PC can and cannot do, delivered one lesson at a time. Use this skill whenever the user asks for a crash course, a lesson series, or to learn a topic step by step.
+Teach one concept per lesson, grounded in the user's own hardware and their own project, honest about what their PC can and cannot do, delivered one lesson at a time.
+
+## When to use
+
+- The user asks for a crash course, a lesson series, or to learn a topic step by step.
 
 ## Teach one concept per lesson
 
@@ -8,7 +12,7 @@ Teach one concept per lesson, grounded in the user's own hardware and their own 
 
 - Never dump the whole course at once, even when the user is keen, because a wall of lessons teaches nothing.
 
-- Use the lesson template in `references/lesson-template.md` so every lesson has the same shape.
+- Use the [lesson template](references/lesson-template.md) so every lesson has the same shape.
 
 - End each lesson by naming the next lesson, and wait for the user to ask for it before teaching it.
 
@@ -34,11 +38,9 @@ Teach one concept per lesson, grounded in the user's own hardware and their own 
 
 - Prefer the GUI text editor for creating or editing file contents, and reserve the terminal for short commands.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- From the Stella fine-tuning crash course thread (8fc2998a — lesson 1) and STELLA Dev (2d7b2739). Recorded in the BNB audit as S31.
 
 ## Alternatives for better results
 

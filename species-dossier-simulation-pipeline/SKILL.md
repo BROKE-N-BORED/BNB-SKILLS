@@ -1,12 +1,16 @@
-# Species dossier simulation pipeline
+# S23 — Species dossier simulation pipeline
 
-Turn a real species into a buildable simulation entity, starting from research, through a fixed-template dossier and a gap register, to a pilot build verified numerically and visually. Use this skill whenever a species, or a set of species, needs to become a sim entity.
+Turn a real species into a buildable simulation entity, starting from research, through a fixed-template dossier and a gap register, to a pilot build verified numerically and visually.
+
+## When to use
+
+- A species, or a set of species, needs to become a sim entity.
 
 ## Research the species and write the dossier
 
 - Research the species deeply, or work from a research report the user supplies, and keep the research grounded in real sources.
 
-- Write the dossier on the fixed template in `references/species-dossier-template.md`, so every species gets the same sections in the same order.
+- Write the dossier on the fixed [species dossier template](references/species-dossier-template.md), so every species gets the same sections in the same order.
 
 - Fill in the form and 3D spec, the phenology, the habitat rules, the life cycle, the food web, the manipulation responses, and the simulation parameter table.
 
@@ -18,7 +22,7 @@ Turn a real species into a buildable simulation entity, starting from research, 
 
 - Run a gap audit on the finished dossier, asking what is still missing to recreate this animal.
 
-- Sort every gap into the gap register, using the template in `references/gap-register-template.md`, with four buckets, already filled, derivable, needs research, and unknowable.
+- Sort every gap into the gap register, using the [gap register template](references/gap-register-template.md), with four buckets, already filled, derivable, needs research, and unknowable.
 
 - Label a derivable value as *derived*, and never dress a derived number as a measured one.
 
@@ -36,11 +40,9 @@ Turn a real species into a buildable simulation entity, starting from research, 
 
 - Fold a verified pilot back into the main build only after the verification passes, and keep the dossier, the gap register, and the pilot file together as the species record.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- From the Three.js animal and insect simulation thread (215a932b) — the deer dossier with three research rounds, the 27-species berry catalog, and the freshwater valley ecosystem with 14 fish profiles. Recorded in the BNB audit as S23.
 
 ## Alternatives for better results
 

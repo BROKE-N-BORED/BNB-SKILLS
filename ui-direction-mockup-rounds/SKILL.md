@@ -1,6 +1,6 @@
-# UI direction-finding via mockup rounds
+# S35 — UI direction-finding via mockup rounds
 
-## When to use this skill
+## When to use
 
 - Use it when a product needs a visual direction and guessing once is not good enough.
 
@@ -66,6 +66,8 @@
 
 - When the user rejects a round without naming what is wrong, ask what specifically is wrong before changing anything.
 
+- The same one-variable iteration rule appears in the [brand-matched-logo-design](../brand-matched-logo-design/SKILL.md) workflow.
+
 ## Standing rules
 
 - Native Linux desktop window, never a web UI, unless the user explicitly says otherwise.
@@ -74,6 +76,6 @@
 
 - Never claim more than was checked; a mockup is a direction, not a built UI.
 
-## Source
+## Where this comes from
 
-- Audit S35. Proven in the Pixar-inspired Code Forge UI thread; locked direction: Future 3 Dark Glass Minimal, no ring gauges.
+- Proven in the Pixar-inspired Code Forge UI thread; locked direction: Future 3 Dark Glass Minimal, no ring gauges — recorded in the BNB audit as S35.

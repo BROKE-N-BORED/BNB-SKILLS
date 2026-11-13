@@ -1,6 +1,6 @@
-# Research to rebuild-better single-file game clone
+# S36 — Research to rebuild-better single-file game clone
 
-## When to use this skill
+## When to use
 
 - Use it when the user asks for a better version of an existing game.
 
@@ -32,6 +32,8 @@
 
 - Record what was played, at what size, and what passed or failed.
 
+- Record the playtest in the [playtest checklist](templates/playtest-checklist.md): one row per level, played, result, and fail count.
+
 ## Cut levels that fail playtesting twice
 
 - When a level fails playtesting, fix it once and retest.
@@ -58,6 +60,6 @@
 
 - Never claim more than was checked; name the levels played and the ones not yet played.
 
-## Source
+## Where this comes from
 
-- Audit S36. Proven in the Remaster Q thread: Q+ as a single-file offline HTML game, 15 missions plus sandbox plus IQ TEST, with v2 driven by the user's real-phone verdict (all buttons visible at 360×800, rules book, IQ measurement with graded stages and a strengths graph, stats plus downloadable report).
+- Proven in the Remaster Q thread: Q+ as a single-file offline HTML game, 15 missions plus sandbox plus IQ TEST, with v2 driven by the user's real-phone verdict (all buttons visible at 360×800, rules book, IQ measurement with graded stages and a strengths graph, stats plus downloadable report) — recorded in the BNB audit as S36.

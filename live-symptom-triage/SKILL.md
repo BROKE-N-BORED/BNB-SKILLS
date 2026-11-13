@@ -1,4 +1,4 @@
-# Live symptom triage with timed vitals recheck
+# S47 — Live symptom triage with timed vitals recheck
 
 **Caveat: guarded playbook only — escalate, don't diagnose; NEVER a diagnostic tool.**
 
@@ -54,11 +54,9 @@
 
 - Keep the summary to facts the user reported and readings the user took. Do not add a diagnosis.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- Distilled from the "Seek medical help now" thread (0f35b782) in the 2026-11-12 audit: a live yohimbe reaction, handled in real time with a label photo, interaction checks, a 30-second pulse count, and a timed recheck cadence.
 
 ## Alternatives for better results
 

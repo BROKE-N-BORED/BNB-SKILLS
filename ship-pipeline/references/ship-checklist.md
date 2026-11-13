@@ -47,5 +47,5 @@ sha256sum NAME.zip
 - [ ] Pushed commit reported
 - [ ] Live Release URL reported
 - [ ] Hash-match confirmation reported
-- [ ] Task receipt written (see task-receipt-format)
+- [ ] Task receipt written (see [task-receipt-format](../../task-receipt-format/SKILL.md))
 - [ ] Checks still needing the user's own PC named honestly

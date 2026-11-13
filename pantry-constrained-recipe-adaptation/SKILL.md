@@ -1,4 +1,4 @@
-# Pantry-constrained recipe adaptation and target-app formatting
+# S52 — Pantry-constrained recipe adaptation and target-app formatting
 
 **Status: Tier 3, weak. The lowest-priority skill in this repo. The only distinctive bit is formatting to the target app by reading the app's existing content first. The rest is ordinary cooking help.**
 
@@ -46,11 +46,9 @@
 
 - Deliver the adapted recipe in that layout, ready to paste into the app.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- Distilled from two threads in the 2026-11-12 audit: "Old El Paso taco seasoning" (b98324c9) and "Adjust chili recipe for ingredients" (0bfee90a — Chili Mac). Both adapted a recipe to what was on hand and consolidated stacked corrections into one clean copy, formatted to match the target app.
 
 ## Alternatives for better results
 

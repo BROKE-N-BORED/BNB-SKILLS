@@ -1,10 +1,10 @@
-# Debug log layer: every project ships with error handling, logging, and an emailable debug report
+# S61 — Debug log layer: every project ships with error handling, logging, and an emailable debug report
 
 ## When to use
 
 - Every project build ships with a debug log layer. It is part of the build, not an optional extra — add it when the project is built, not after the first bug report.
 - Use it when adding logging and error handling to a new or existing project, and when diagnosing a failure from a debug report he emails.
-- Use the module (T21, BNB TOOLS) to implement it; this skill is the standard the module follows.
+- Use the [module](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/debug-log-layer) (T21, BNB TOOLS) to implement it; this skill is the standard the module follows.
 
 ## The standard
 
@@ -63,7 +63,7 @@ Every project has, from its first shipped version:
 
 ## How to add it to a project
 
-- Drop in the module (T21): one file, standard library only.
+- Drop in the [module](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/debug-log-layer) (T21): one file, standard library only.
 - Create the logger at startup, register the project's services and settings, install the crash handler.
 - Wire the report to a button or a command, and show the path it wrote.
 - Test it by forcing an error: log a fake exception, generate the report, and check the report carries the traceback, the context, and no secrets.
@@ -75,9 +75,7 @@ Every project has, from its first shipped version:
 
 ## Available connectors
 
-- [Gmail](/opt/hatch/connectors/gmail/CONNECTOR.md) for the email flow — the report arrives as an attachment to broke.n.bored.studio@gmail.com.
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- [Gmail](../CONNECTORS.md) for the email flow — the report arrives as an attachment to broke.n.bored.studio@gmail.com.
 
 ## Alternatives for better results
 

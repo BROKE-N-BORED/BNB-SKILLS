@@ -1,4 +1,4 @@
-# Guided in-tool build walkthrough
+# S14 — Guided in-tool build walkthrough
 
 ## When to use
 
@@ -29,11 +29,6 @@
 ## Where this comes from
 
 - The planned form walked the Ember Break build in Code Forge, and the reactive form ran through the whole Design Shell thread (Unreal download, extraction, first launch, Blender setup) and the Whisper error diagnosis. It is recorded in the BNB audit as S14.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
 
 ## Alternatives for better results
 

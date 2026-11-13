@@ -1,10 +1,10 @@
-# Debug sweep with repair authorized
+# S15 — Debug sweep with repair authorized
 
 ## When to use
 
 - Use this skill when the user says a bare debug it, with no symptom named, and repair is expected.
 - Use it when a suite has failures to fix or an app misbehaves and nobody knows why yet.
-- Use the diagnose-only form (see full-product-review) when the user asked for a review or a list, not for fixes.
+- Use the diagnose-only form (see [full-product-review](../full-product-review/SKILL.md)) when the user asked for a review or a list, not for fixes.
 
 ## Inspect the whole thing first
 
@@ -17,23 +17,18 @@
 - Fix each real fault in place, changing only the fault and the lines the fix needs, and leaving working parts around it alone.
 - Re-run the check that found each fault and the tests that cover the changed area, and do not call a fix done until those checks pass.
 - Fix a defect found inside the assigned job then and there instead of filing it as a future item, and present a defect outside the job as its own item before you touch it.
-- Run the full suite at the end and compare the failure set against the baseline (see post-merge-battery).
+- Run the full suite at the end and compare the failure set against the baseline (see [post-merge-battery](../post-merge-battery/SKILL.md)).
 
 ## Report what was found, fixed, and checked
 
 - Report the faults found, the fixes made, and the checks that now pass, with the numbers.
 - Name anything still unchecked or still needing the user's own PC, instead of describing the sweep as finished.
-- Close the sweep with a task receipt (see task-receipt-format).
+- Close the sweep with a task receipt (see [task-receipt-format](../task-receipt-format/SKILL.md)).
 - Never call a fix closed until the user has run it on their own PC and confirmed it.
 
 ## Where this comes from
 
 - A bare debug it on Yahtzee found and fixed a bot soft-lock plus four more faults, and a fix-the-failures order on Code Forge diagnosed six failures and fixed four, taking the suite to 2,435 out of 2,435 green. It is recorded in the BNB audit as S15.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
 
 ## Alternatives for better results
 

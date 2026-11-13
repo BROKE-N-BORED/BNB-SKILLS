@@ -1,5 +1,7 @@
 name: "repo-identity-check"
 title: "Repo-identity check"
 description: "Verify a GitHub repo exists live, is empty or has expected content, and matches the user's description of a project, before building or pushing."
-category: "Work and knowledge"
+category: "Development"
 include_in_prompt: false
+number: "S20"
+tier: 2

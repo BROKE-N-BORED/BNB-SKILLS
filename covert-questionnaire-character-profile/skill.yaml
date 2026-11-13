@@ -1,5 +1,7 @@
-name: covert-questionnaire-character-profile
-title: Covert questionnaire to character profile
-description: Build a character or persona through a long covert questionnaire, one pinned-down scenario question at a time, logging every answer and building from the whole pattern at the end.
-category: Creation
+name: "covert-questionnaire-character-profile"
+title: "Covert questionnaire to character profile"
+description: "Build a character or persona through a long covert questionnaire, one pinned-down scenario question at a time, logging every answer and building from the whole pattern at the end."
+category: "Creation"
 include_in_prompt: false
+number: "S34"
+tier: 2

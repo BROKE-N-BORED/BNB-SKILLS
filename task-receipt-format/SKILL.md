@@ -1,4 +1,4 @@
-# Task receipt format
+# S4 — Task receipt format
 
 ## When to use
 
@@ -22,12 +22,13 @@
 - Run the gate silently. Never paste the gate or narrate it. The user sees the improved work, not the check.
 - For files and deliverables: push detail and completeness to the max. For chat replies: the gate checks substance (complete? accurate? relevant? anything missing?) — it does NOT turn replies into essays; his brief, plain reply style still stands.
 - The gate is part of completing the work, not a reason to stall — if it finds something missing, enhance it, then ship under the no-stall cycle. "Stay relevant" is in the gate itself: never let it become scope creep.
-- See pre-delivery-enhancement-gate for the full text and application rules.
+- See [pre-delivery-enhancement-gate](../pre-delivery-enhancement-gate/SKILL.md) for the full text and application rules.
 
 ## Write the fixed receipt block
 
+- Copy the [task receipt template](references/receipt-template.md) and fill every section.
 - List the files changed, each with its line delta, so the size of the change is visible at a glance.
-- Report the tests in three numbers: the new suite count, the full-suite count, and the failure set compared against the baseline (see post-merge-battery).
+- Report the tests in three numbers: the new suite count, the full-suite count, and the failure set compared against the baseline (see [post-merge-battery](../post-merge-battery/SKILL.md)).
 - Name how the work was verified, such as the diff read, the greps run, the renders eyeballed, or the fresh unzip checked.
 - Name the honest gaps, including what still needs the user's own PC, instead of leaving them out.
 - Never claim more than was checked. A check that did not run is an open gap, not a pass.
@@ -41,11 +42,6 @@
 ## Where this comes from
 
 - Every GUIFX task closed with this receipt, and the same shape was used in Code Forge DEV, Pixel Forge, and MIMIK verification reports. It is recorded in the BNB audit as S4.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
 
 ## Alternatives for better results
 

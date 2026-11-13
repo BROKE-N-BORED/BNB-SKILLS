@@ -1,5 +1,7 @@
 name: "no-stalling-task-list-cycle"
 title: "No-stalling task-list cycle: verify, ship, next item, repeat until the list is done"
 description: "Run a task list without waiting between items: verify each item, push it, update the Release, email the zip, then immediately start the next item until the list is complete."
-category: "Work and knowledge"
+category: "Development"
 include_in_prompt: true
+number: "S53"
+tier: 1

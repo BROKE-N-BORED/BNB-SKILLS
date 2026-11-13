@@ -1,4 +1,4 @@
-# BNB repo manager delta scan
+# S57 — BNB repo manager delta scan
 
 ## When to use
 
@@ -10,7 +10,7 @@
   never as an unsolicited sweep outside the manager thread.
 - This skill covers the scan itself. Building the items it finds
   follows the normal build discipline (see
-  isolated-copy-build-merge and ship-pipeline).
+  [isolated-copy-build-merge](../isolated-copy-build-merge/SKILL.md) and [ship-pipeline](../ship-pipeline/SKILL.md)).
 
 ## Read the baseline before you read any thread
 
@@ -52,6 +52,10 @@
   shipped, or a v1 gap is now provable. Updates are described in
   an UPDATES file (file, what changes, why, evidence) — never
   edited into the live builds in place.
+- Re-check existing skills on every scan: a skill whose workflow
+  no longer exists — the app changed, the feature was removed,
+  the pattern was superseded — gets flagged for refresh or
+  retirement, never silently left stale.
 - Threads checked with nothing new. Record them. "Checked,
   nothing new" is a result, and it stops the next scan from
   re-reading the same turns wondering whether they were covered.
@@ -81,15 +85,8 @@
   for this chat thread is to manage all of these repos, you scan
   every chat thread and find new ones and ways to update and
   upgrade them". The first delta scan ran the same day against
-  the ~17:54 EST audit watermark, with workers staging into
-  `~/workspace/bnb-delta-2026-11-12/worker-A/` (and siblings).
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and
-  `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or
-  MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+  the ~17:54 EST audit watermark, with workers staging into a
+  dated delta directory, one folder per worker.
 
 ## Alternatives for better results
 

@@ -1,6 +1,6 @@
-# Covert questionnaire to character profile
+# S34 — Covert questionnaire to character profile
 
-## When to use this skill
+## When to use
 
 - Use it when a character, persona, brand voice, or user profile has to be built from what the person is actually like, not from what they would pick off a menu.
 
@@ -44,6 +44,8 @@
 
 - Write every answer to a profile file as it arrives, with its question number, before asking the next question.
 
+- Use the [questionnaire log](templates/questionnaire-log.md): one entry per question, answer or PASS, with any loophole found and re-ask noted.
+
 - Keep the log in one file so the whole pattern is visible at the end.
 
 - Never rely on chat history alone; the file is the record.
@@ -72,6 +74,6 @@
 
 - Never claim more than was checked; the profile is only as good as the answers logged.
 
-## Source
+## Where this comes from
 
-- Audit S34. Proven end to end in the Arlo character questionnaire: 45 questions, closed 2026-11-06. Rules file from that run: `QUESTIONNAIRE.md` in the character-profile goal files.
+- Proven end to end in the Arlo character questionnaire: 45 questions, closed 2026-11-06. Rules file from that run: `QUESTIONNAIRE.md` in the character-profile goal files — recorded in the BNB audit as S34.

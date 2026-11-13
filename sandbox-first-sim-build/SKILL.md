@@ -1,6 +1,11 @@
-# Sandbox-first sim build
+# S24 — Sandbox-first sim build
 
-Build a simulation as a standalone sandbox file first, with the core sim separate from the rendering, and verify it with a screenshot rig and numeric measurement before it touches the game file. Use this skill whenever a sim feature needs building, and whenever a visual result needs proving instead of assuming.
+Build a simulation as a standalone sandbox file first, with the core sim separate from the rendering, and verify it with a screenshot rig and numeric measurement before it touches the game file.
+
+## When to use
+
+- A sim feature needs building.
+- A visual result needs proving instead of assuming.
 
 ## Build in a sandbox, game file untouched
 
@@ -40,11 +45,9 @@ Build a simulation as a standalone sandbox file first, with the core sim separat
 
 - Note honest gaps where no usable photo exists, such as a moment nobody has photographed, instead of substituting a wrong image.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- From the Three.js environmental systems thread (c0765ec4 — dirt engine v1–v8), the white-tailed deer sim (e364b6a6), the animal/insect sim (215a932b — leg ground-penetration fix), and Remaster Q (42200820 — Puppeteer playtests). Recorded in the BNB audit as S24.
 
 ## Alternatives for better results
 

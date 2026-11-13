@@ -1,5 +1,7 @@
 name: "bnb-repo-manager-delta-scan"
 title: "BNB repo manager delta scan"
 description: "Run a watermark-based delta scan of all chat threads against the BNB repo baselines: find new workflows, presets, roles, and plugins, propose updates to existing items, and stage additions cleanly for the coordinator."
-category: "Work and knowledge"
-include_in_prompt: true
+category: "Development"
+include_in_prompt: false
+number: "S57"
+tier: 2

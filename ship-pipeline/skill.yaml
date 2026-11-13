@@ -1,5 +1,7 @@
 name: "ship-pipeline"
 title: "Ship pipeline: verify, email, push, Release, hash-match"
 description: "Ship a verified build through fresh-unzip verification, emailed zip with Sent read-back, GitHub push, Release, and SHA-256 hash-match."
-category: "Work and knowledge"
+category: "Development"
 include_in_prompt: true
+number: "S1"
+tier: 1

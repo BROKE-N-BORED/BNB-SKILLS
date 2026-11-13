@@ -1,4 +1,6 @@
-# Linux release packaging
+# S6 — Linux release packaging
+
+Executable twin in BNB-TOOLS: [T6 linux-release-packager](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/linux-release-packager).
 
 ## When to use
 
@@ -25,7 +27,7 @@
 - Write the Exec line as `python3 -c "..."` with the `%k` field code as a separate argument token, and resolve the folder inside Python with dirname and a subprocess list call.
 - Never put a nested escaped quote inside Exec, because the GLib desktop parser rejects the whole file with a missing Exec field error when it sees one.
 - Keep an os.getcwd() fallback in the launcher for launchers that expand `%k` to empty.
-- See references/desktop-entry-template.desktop for the working pattern.
+- See the [desktop entry template](references/desktop-entry-template.desktop) for the working pattern.
 
 ## Harden the launcher and installer against three real failures
 
@@ -36,7 +38,7 @@
 
 ## Verify the package before it ships
 
-- Verify the zip exec bits after repacking (see ship-pipeline) and test-extract the zip before sending it.
+- Verify the zip exec bits after repacking (see [ship-pipeline](../ship-pipeline/SKILL.md)) and test-extract the zip before sending it.
 - Test the installer in a clean environment that does not already have the dependencies, because a venv that already has them hides a missing-deps failure.
 - Select nothing by default in the installer or the app, and let the user choose.
 
@@ -46,9 +48,7 @@
 
 ## Available connectors
 
-- [GitHub](/opt/hatch/connectors/github/CONNECTOR.md) for pushing the packaged project and cutting the Release that carries it.
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- [GitHub](../CONNECTORS.md) for pushing the packaged project and cutting the Release that carries it.
 
 ## Alternatives for better results
 

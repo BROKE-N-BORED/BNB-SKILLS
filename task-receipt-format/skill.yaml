@@ -1,5 +1,7 @@
 name: "task-receipt-format"
 title: "Task receipt format"
 description: "Close every build task with a fixed proof block of files changed, tests against baseline, verification method, and honest gaps."
-category: "Work and knowledge"
+category: "Development"
 include_in_prompt: true
+number: "S4"
+tier: 1

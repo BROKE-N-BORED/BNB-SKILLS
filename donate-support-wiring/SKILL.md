@@ -1,6 +1,10 @@
-# Donate support wiring
+# S28 — Donate support wiring
 
-Wire a donation link into a project, from the payment page through the README and Linktree to an in-app startup welcome screen. Use this skill whenever a project needs a way for people to support it.
+Wire a donation link into a project, from the payment page through the README and Linktree to an in-app startup welcome screen.
+
+## When to use
+
+- A project needs a way for people to support it.
 
 ## Explain the link and verify the payment page
 
@@ -32,11 +36,9 @@ Wire a donation link into a project, from the payment page through the README an
 
 - Verify the screen with targeted tests, the full test suite, and an offscreen screenshot you look at yourself, and report the results.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- From the Add donate button with Cash App thread (20dcff58) — the $XPRNC8 page verified live showing Joshua Lofland and a QR code, then wired into the README, Linktree, and a startup welcome screen, verified 11/11 targeted tests and 1713/1713 full suite plus an offscreen screenshot. Recorded in the BNB audit as S28.
 
 ## Alternatives for better results
 

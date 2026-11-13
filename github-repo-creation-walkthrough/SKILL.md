@@ -1,6 +1,11 @@
-# GitHub repo creation walkthrough
+# S19 — GitHub repo creation walkthrough
 
-Walk the user through creating an empty GitHub repo from their phone, verify it live from the agent side, and run the publish gate when the project is ready to go public. Use this skill whenever a project needs its first repo, or an existing private repo is ready to publish.
+Walk the user through creating an empty GitHub repo from their phone, verify it live from the agent side, and run the publish gate when the project is ready to go public.
+
+## When to use
+
+- A project needs its first repo.
+- An existing private repo is ready to publish.
 
 ## Walk the user through creating an empty repo
 
@@ -34,13 +39,15 @@ Walk the user through creating an empty GitHub repo from their phone, verify it 
 
 - Keep the license pick as a separate owner decision, and ask the user which license they want before adding the LICENSE file, instead of choosing one for them.
 
-- Use the publish gate checklist in `references/publish-gate-checklist.md` so no item is skipped, and report each item as done or still open.
+- Use the [publish gate checklist](references/publish-gate-checklist.md) so no item is skipped, and report each item as done or still open.
+
+## Where this comes from
+
+- From the CODE-FORGE repo creation in the Implement prompts in Code Forge thread (b026eda9); the same create-then-verify dance repeated for PIXEL-FORGE, MIMIK, WinLinx, STELLA, and OLLAMA-SYSTEM-TEST. Recorded in the BNB audit as S19.
 
 ## Available connectors
 
-- Use the GitHub connector for repo checks, pushes, and releases, and read its current doc before running its commands.
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
+- Use the [GitHub connector](../CONNECTORS.md) for repo checks, pushes, and releases, and read its current doc before running its commands.
 
 ## Alternatives for better results
 

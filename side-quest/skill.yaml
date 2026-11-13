@@ -1,5 +1,7 @@
 name: "side-quest"
 title: "Side quest: when the main build hits a wall, build the smallest standalone thing that fills the gap"
 description: "Unblock a build by spinning off the smallest standalone tool, skill, program, or algorithm that fills the missing capability — verify it alone, plug it in, log it as a BNB asset, return to the main build."
-category: "Work and knowledge"
+category: "Development"
 include_in_prompt: true
+number: "S60"
+tier: 1

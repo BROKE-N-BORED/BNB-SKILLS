@@ -1,5 +1,7 @@
 name: "debug-log-layer"
 title: "Debug log layer: every project ships with error handling, logging, and an emailable debug report"
 description: "Standard debug and logging layer for every project build: timestamped rotating logs, last-actions ring buffer, full tracebacks, context snapshot, and a scrubbed debug report on demand and on crash — safe to email for diagnosis."
-category: "Work and knowledge"
+category: "Development"
 include_in_prompt: true
+number: "S61"
+tier: 1

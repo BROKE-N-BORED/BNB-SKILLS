@@ -1,5 +1,7 @@
-name: verified-reference-image-list
-title: Verified reference-image list
-description: Expand a reference-image list for a build, check every URL live, exclude dead or hotlink-blocked candidates, and record honest gaps where no usable photo exists.
-category: Work and knowledge
+name: "verified-reference-image-list"
+title: "Verified reference-image list"
+description: "Expand a reference-image list for a build, check every URL live, exclude dead or hotlink-blocked candidates, and record honest gaps where no usable photo exists."
+category: "Work and knowledge"
 include_in_prompt: false
+number: "S46"
+tier: 2

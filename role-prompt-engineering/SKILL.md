@@ -1,10 +1,15 @@
-# Role prompt engineering
+# S22 — Role prompt engineering
 
-Write assistant role instructions as a 12-section master pack, under a hard character limit, verified by exact count. Use this skill whenever a new Forge role or assistant role needs writing, and whenever an existing role needs rebuilding under a limit.
+Write assistant role instructions as a 12-section master pack, under a hard character limit, verified by exact count.
+
+## When to use
+
+- A new Forge role or assistant role needs writing.
+- An existing role needs rebuilding under a limit.
 
 ## Write the 12-section master pack
 
-- Use the template in `references/role-pack-template.md`, and keep the same skeleton for every role, swapping only the domain.
+- Use the [master role pack template](references/role-pack-template.md), and keep the same skeleton for every role, swapping only the domain.
 
 - Write the identity section first, naming what the role is and what it is for, in plain language.
 
@@ -28,13 +33,13 @@ Write assistant role instructions as a 12-section master pack, under a hard char
 
 - Run a pre-output length audit before you present any draft, and compress during drafting when the draft runs near the limit.
 
-- Verify the final length with an EXACT character count, using a tool such as `wc -m`, and never estimate the count.
+- Verify the final length with an EXACT character count, using `LC_ALL=C.UTF-8 wc -m`, and never estimate the count. Plain `wc -m` in the C locale counts bytes, not characters — "café ✨" is 6 characters but 9 bytes, so the plain count over-reports.
 
 - Report the verified count with the draft, so the user can see the number the tool returned.
 
 - Write plain instructions only, with no redundant metadata, because a pack padded with metadata instead of instructions gets rejected.
 
-- Attach the governing source files as references when the role has them, and save the finished pack to `~/workspace/role-engineering/`.
+- Attach the governing source files as references when the role has them, and save the finished pack to the role-engineering folder.
 
 ## Rebuild on rejection without the bloat
 
@@ -44,11 +49,9 @@ Write assistant role instructions as a 12-section master pack, under a hard char
 
 - Keep the version history, so a v1.0 draft, a v3.0 rebuild, and a v3.1 revision are each named and each counted.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- From the AI Role Engineer thread (f4854c69 — the GUIFX role built v1.0 to v3.1, 7,846 characters verified under the 8,000 limit), and the Three.js role packs in the environmental systems (c0765ec4), white-tailed deer sim (e364b6a6), and animal/insect sim (215a932b) threads. Recorded in the BNB audit as S22.
 
 ## Alternatives for better results
 

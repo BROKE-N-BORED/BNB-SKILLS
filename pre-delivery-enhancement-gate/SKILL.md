@@ -1,10 +1,10 @@
-# Pre-delivery enhancement gate: run the peak-performance check before anything ships
+# S54 — Pre-delivery enhancement gate: run the peak-performance check before anything ships
 
 ## When to use
 
 - Run this gate before EVERY reply, delivery, or completion of a task. It is a standing rule, not a sometimes step.
 - Run it on files and deliverables, and on chat replies. The check differs by kind (below); the gate itself never differs.
-- Run it as part of completing the work. It is never a reason to stall: if the gate finds something missing, enhance it, then ship under the no-stall cycle (see no-stalling-task-list-cycle).
+- Run it as part of completing the work. It is never a reason to stall: if the gate finds something missing, enhance it, then ship under the no-stall cycle (see [no-stalling-task-list-cycle](../no-stalling-task-list-cycle/SKILL.md)).
 
 ## The gate
 
@@ -26,7 +26,7 @@ Joshua's words, recorded verbatim as the standing rule:
 - For chat replies: the gate checks substance only — complete, accurate, relevant, anything missing. It does not turn replies into essays. His brief, plain reply style still stands.
 - "Stay relevant" is in the gate itself: do not let it become scope creep. Enhance what the file or task is for; do not add adjacent work the user did not ask for.
 - When the gate finds a gap you cannot close without the user (his PC, his decision, a file only he has), say so plainly and stop there. Do not guess your way past it.
-- Run the gate before the task receipt (see task-receipt-format) and before any ship-pipeline step that sends something out. Under the no-stall cycle, the gate runs inside the verify step: enhance, verify, ship, next task. It never holds a finished item for approval.
+- Run the gate before the task receipt (see [task-receipt-format](../task-receipt-format/SKILL.md)) and before any ship-pipeline step that sends something out. Under the no-stall cycle, the gate runs inside the verify step: enhance, verify, ship, next task. It never holds a finished item for approval.
 
 ## A gate pass can catch real errors, not just polish
 
@@ -37,11 +37,6 @@ Joshua's words, recorded verbatim as the standing rule:
 
 - Joshua's mandatory gate prompt, set in the main chat 2026-11-12 ~18:20 EST and recorded the same day as a standing rule in every build thread: run it before every reply, delivery, or task completion.
 - Found in the first BNB delta scan (2026-11-12), Code Forge family threads; not in the 17:54 audit because the gate was set after it.
-
-## Available connectors
-
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
 
 ## Alternatives for better results
 

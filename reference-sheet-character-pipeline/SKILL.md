@@ -1,6 +1,10 @@
-# Reference-sheet character pipeline
+# S17 — Reference-sheet character pipeline
 
-Build a 3D character from multi-view reference sheets by making every piece separately, then assembling the pieces and saving the whole character as a reusable preset. Use this skill when the user sends a character reference sheet, or a sheet for one piece of a character, and wants the character modeled.
+Build a 3D character from multi-view reference sheets by making every piece separately, then assembling the pieces and saving the whole character as a reusable preset.
+
+## When to use
+
+- The user sends a character reference sheet, or a sheet for one piece of a character, and wants the character modeled.
 
 ## Itemize the sheet before you model anything
 
@@ -22,7 +26,7 @@ Build a 3D character from multi-view reference sheets by making every piece sepa
 
 - Keep a piece's subparts separate too, such as a belt strap, buckle frame, prong, and pouches as distinct objects, so each can be adjusted without rebuilding the piece.
 
-- Verify each finished piece against its own sheet view by view, using the trace-and-overlay-verification skill, and report the measured result for that piece.
+- Verify each finished piece against its own sheet view by view, using the [trace-and-overlay-verification](../trace-and-overlay-verification/SKILL.md) skill, and report the measured result for that piece.
 
 - Present each finished piece to the user for approval before moving on, because this is the second approval gate, and hold the next piece until the user signs off or says what is wrong.
 
@@ -52,11 +56,9 @@ Build a 3D character from multi-view reference sheets by making every piece sepa
 
 - Say plainly when a piece or the assembly is still waiting on the user's verdict, and do not call it done until the user says so.
 
-## Available connectors
+## Where this comes from
 
-- Use `muse.connector_search` to find other connectors and `muse.skill_search` to find related skills.
-
-- If nothing here fits, look on the web for a maintained API or MCP server and set it up with [Custom Connectors and MCPs](/opt/muse/skills/custom-connector-setup/SKILL.md), or build a custom connector.
+- Built from the Victor character work in the EVERY MOUSE thread (5bb9ed96) and the REBLEND DEV thread (2a82689c): the v2 rebuild from the six-view character sheet, with a dedicated sheet per piece (hoodie, shorts, belt) and the belt-only rule, and the preset direction — Victor saved as a reusable preset, on GitHub and built into Reblend. Recorded in the BNB audit as S17.
 
 ## Alternatives for better results
 

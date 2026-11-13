@@ -19,7 +19,7 @@
 - Report the strengths first, naming what is genuinely good with the evidence that shows it.
 - Report the weaknesses and gaps next, each grounded in the code or the screenshot that shows it, with the file and line where it lives.
 - Name what is missing outright, not just what is weak.
-- Rank the improvements so the user can pick from the top: group them in tiers or in a P0 to P4 phased plan with a concrete task list, and include an avoid list for ideas that look tempting but would break the hardware limits or the hard $0 rule.
+- Rank the improvements so the user can pick from the top: group them in tiers or in a P0 to P4 phased plan with a concrete task list, and include an avoid list for ideas that look tempting but would break the hardware limits or the hard $0 rule. When a LATER audit lands on the same project, fold its findings into this list instead of starting a new one (see [audit-findings-task-list-merge](../audit-findings-task-list-merge/SKILL.md)).
 - Keep every claim tied to something you read, measured, or screenshotted, and flag anything you could not verify instead of dressing it up as a finding.
 
 ## Verify before you claim

@@ -18,6 +18,7 @@
 - Name the system each item integrates into, so nothing is bolted on beside the project instead of built into it.
 - Judge each item against the user's real limits: the hardware it must run on, the hard $0 rule, and the systems that already exist.
 - Suggest a build sequence for the tiered list, with a done-means line for each item so its finish is recognisable.
+- Check the source product's licence before anything is built from the study. When the code is under a non-permissive licence (enterprise/EE, source-available, or any licence that forbids copying), reimplement the IDEA from scratch in the user's own code — never copy, port, or adapt the source's code. Record the licence and the reimplement decision in the study report so a later reader knows the line was drawn deliberately.
 
 ## Let the user pick, then build one at a time
 
@@ -25,9 +26,15 @@
 - Build each picked item one at a time in an isolated copy (see [isolated-copy-build-merge](../isolated-copy-build-merge/SKILL.md)), verified and held for the merge order.
 - Never start the next picked item until the current one is finished, verified, and reported.
 
+## Refresh the study file after the queue ships
+
+- Once the picked items are built and shipped, refresh the study file so it describes what actually happened, not what was planned: current status up front, every feature mapped to the item that implements it, and each item broken down the same way (what was built, the verification numbers, strengths, weaknesses, gaps, UI notes).
+- Add a before/after table of what the project had vs what the study line added, the full ship record, and the open remainders listed plainly instead of hidden.
+- Keep the original study file untouched as a backup, and fix any stale headers in the working files (a "nothing built yet" header on a shipped list is a lie the next reader will trust).
+
 ## Where this comes from
 
-- This shape was used for CodeRabbit (Tier 1 CR1 to CR10, Tier 2 adapt items, skip list), Manus (Tier 1 M1 to M8, Tier 2 M9 to M13), the Forge Browser AI research (22-item improvements document), and the sellable-ads research. It is recorded in the BNB audit as S12.
+- This shape was used for CodeRabbit (Tier 1 CR1 to CR10, Tier 2 adapt items, skip list), Manus (Tier 1 M1 to M8, Tier 2 M9 to M13), the Forge Browser AI research (22-item improvements document), and the sellable-ads research. The OpenWork borrowables (MCP gateway, usage ledger, scheduled tasks, queued 2026-11-13) are the same shape with the licence gate applied: ideas borrowed, EE-licensed code reimplemented, never copied. It is recorded in the BNB audit as S12.
 
 ## Alternatives for better results
 

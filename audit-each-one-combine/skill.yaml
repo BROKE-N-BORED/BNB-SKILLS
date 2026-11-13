@@ -1,0 +1,7 @@
+name: "audit-each-one-combine"
+title: "Audit each one, then combine into one verified list"
+description: "Audit a list of items one at a time with the same report shape each, combine the per-item task lists into one prioritized list, and verify the combine by script before reporting it."
+category: "Work and knowledge"
+include_in_prompt: false
+number: "S64"
+tier: 2

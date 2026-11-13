@@ -18,6 +18,7 @@ Executable twin in BNB-TOOLS: [T2 delta-port-diff-verify](https://github.com/BRO
 - Name tree-side noise in the port spec: a fresh diff against the current tree shows content merged after the copy was taken. Name that content explicitly as tree-side movement, NOT part of the delta, so the porter ports only the delta.
 - When a later item needs a hook into an earlier item that was not in its base, the follow-up hunk (code plus test) rides in the later item's port spec and is applied when the earlier item has landed.
 - Re-check the live tree before porting a ship order: a ship order can arrive after the item is already merged. Grep the live tree first; if the hooks are in, say so and do not port twice.
+- If the source tree must be fetched file-by-file (no clone access — e.g. a private repo pulled through the API), fetch with a resumable script that records progress per file. On a rate limit, STOP — do not hammer — and resume from where it stopped. (STEMLAB: the fetch hit GitHub rate-limiting at 54 of 120 files; the resume script picked up at file 55 and finished 120/120 clean. Most of `src/`, the configs, docs, and tests were still missing at the stop, so the rebuild could not start until the resume finished.)
 
 ## Back up, then port only the delta
 
@@ -42,7 +43,7 @@ Executable twin in BNB-TOOLS: [T2 delta-port-diff-verify](https://github.com/BRO
 
 ## Hold, report, and ship
 
-- A merged and verified tree ships immediately under the no-stalling rule (see [no-stalling-task-list-cycle](../no-stalling-task-list-cycle/SKILL.md)): push, Release, email, then start the next item. One item at a time still applies (no parallel builds in one tree); only the waiting between items is gone.
+- A merged and verified tree ships immediately under the no-stalling rule (see [no-stalling-task-list-cycle](../no-stalling-task-list-cycle/SKILL.md)): push, Release, then start the next item. One item at a time still applies (no parallel builds in one tree); only the waiting between items is gone. No email step — GitHub-only is the standing rule (2026-11-13).
 - Run the mandatory gate as a pre-ship check (see [pre-delivery-enhancement-gate](../pre-delivery-enhancement-gate/SKILL.md)): if it finds something missing, enhance it, then ship — the gate never stalls shipping.
 - Report the merged tree path, the battery receipts, and the backup path.
 - Close the task with a task receipt (see [task-receipt-format](../task-receipt-format/SKILL.md)) and ship through the ship pipeline (see [ship-pipeline](../ship-pipeline/SKILL.md)).

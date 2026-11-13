@@ -11,10 +11,11 @@ list. Standard library only, no dependencies. Also run in CI on every
 push and pull request (see the validate workflow).
 
 Checks:
-  (a) README tier tables match the tree: 61 rows, numbers contiguous
-      S1-S61, slugs match folder names exactly, each row's tier column
-      matches the tier table it sits in, tier counts sum to 61, and the
-      number/tier in each skill.yaml agree with the README row.
+  (a) README tier tables match the tree: one row per skill folder,
+      numbers contiguous S1-S<N> for N skill folders, slugs match
+      folder names exactly, each row's tier column matches the tier
+      table it sits in, tier counts sum to N, and the number/tier in
+      each skill.yaml agree with the README row.
   (b) Every skill.yaml parses with exactly the 7 keys, in order: name,
       title, description, category, include_in_prompt, number, tier.
       Also: name matches the folder slug, include_in_prompt is a
@@ -173,14 +174,16 @@ def check_readme(folders):
                 f"README: S{number} {slug} link target is {target!r}, "
                 f"expected {slug + '/'}")
     total = sum(tier_counts.values())
-    if total != 61:
+    expected = len(folders)
+    if total != expected:
         failures.append(
-            f"README: {total} skill rows, expected 61 "
+            f"README: {total} skill rows, expected {expected} "
             f"(Tier 1: {tier_counts[1]}, Tier 2: {tier_counts[2]}, "
             f"Tier 3: {tier_counts[3]})")
     numbers = sorted(n for n, _, _ in rows.values())
-    if numbers != list(range(1, len(numbers) + 1)) or len(numbers) != 61:
-        failures.append(f"README: numbers are not contiguous S1-S61: {numbers}")
+    if numbers != list(range(1, expected + 1)):
+        failures.append(
+            f"README: numbers are not contiguous S1-S{expected}: {numbers}")
     folder_slugs = {f.name for f in folders}
     missing = folder_slugs - set(rows)
     extra = set(rows) - folder_slugs

@@ -18,6 +18,14 @@
 
 - Work from what the photos actually show; do not assume a layout from a different year or trim.
 
+## Check the trivial physical cause first
+
+- Before ordering elimination tests or prescribing a maintenance procedure, check the 5-second physical causes: is every part seated, plugged in, closed, and latched?
+
+- A half-seated basket, an unplugged lead, or an open lid can throw the same error code as a real fault — and the fix is free and instant.
+
+- Ask the user to reseat / re-plug / close the relevant part and retry before moving to the next test. Only when the trivial check fails does the longer procedure start.
+
 ## Read the fuse map off the photo
 
 - Read the fuse map from the photo of the lid or the owner's diagram the user sends.
@@ -69,3 +77,4 @@
 ## Where this comes from
 
 - Proven in the Fix 2004 Chevy Astro headlights thread: fixed via fuse #15 (TBC), diagnosed from fuse-box photos with ordered elimination. Generalises to any vehicle electrical or appliance troubleshooting with photos — recorded in the BNB audit as S44.
+- Second data point: the 2026-11-13 coffee thread (55e65af1), where an Ec5 error code on a Mr. Coffee was first misdiagnosed as mineral buildup needing a descale — the real cause was the brew basket not seated all the way in. That miss is why the trivial-physical-cause check comes before any maintenance procedure.

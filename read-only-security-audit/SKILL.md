@@ -25,6 +25,13 @@
 - Pin the findings to a stable tree state by taking file hashes twice during the audit.
 - Prove decisive findings with a live probe before reporting them.
 - Run one cluster at a time with its own prioritized task list.
+- Check for coverage rot: a guard written for an earlier tool set may no longer cover later additions. Match every guard, gate, and frame against the CURRENT tool and feature list, not the list it was built for — a gate that matches tool names silently stops covering tools added after it was written.
+
+## Review-gate variant: sign off another build before it merges
+
+- When another thread's build needs a security sign-off before it merges, review the build copy yourself: read the code, re-run its tests, and probe the sharp claims live with exact probes (a probe that reproduces the leak is worth more than a reading of the fix).
+- Give one of three verdicts: approve, approve with required changes (each change named exactly), or hold. A hold names what must change before the merge can proceed.
+- A hold lifts only when the REVIEWER re-verifies the fixes personally with the same probes — never on the builder's word that the fixes are in. Report the re-verification result, not the builder's report of it.
 
 ## Report the ranked findings and stop
 
@@ -35,7 +42,7 @@
 
 ## Where this comes from
 
-- This shape ran as the Code Forge S1 audit (1 Critical, 9 High, 14 Medium, 9 Low, 12 areas genuinely strong) and the earlier full-codebase audit with four independent review passes and hand re-verification of decisive claims. It is recorded in the BNB audit as S16.
+- This shape ran as the Code Forge S1 audit (1 Critical, 9 High, 14 Medium, 9 Low, 12 areas genuinely strong) and the earlier full-codebase audit with four independent review passes and hand re-verification of decisive claims. The S2–S7 cluster re-audit (2026-11-12, each cluster lead-verified against the merged tree) added the coverage-rot finding and the combined 117-task list; the pre-send secret scan review the same evening added the review-gate variant. It is recorded in the BNB audit as S16.
 
 ## Alternatives for better results
 

@@ -2,6 +2,27 @@
 
 All notable changes to BNB-SKILLS. Dates are in EST.
 
+## Second delta scan — 2026-11-13
+
+SHA: TBD — filled in at push time
+
+Second delta scan of all chat threads (window ~19:13 EST 2026-11-12 →
+~10:00 EST 2026-11-13, 71 threads read). Five new skills: S62
+un-stall-sweep, S63 qt-gui-proof-harness, S64 audit-each-one-combine,
+S65 audit-findings-task-list-merge, S66 atomic-file-saves. Updates to
+13 existing skills, headlined by the GitHub-only ship flow (S1 retitled,
+email off by default everywhere; S53, S2), the no-card-pre-prompts rule
+(S53, S1), workflow-file 403 + git blob-SHA read-back + CI billing-lock
+triage (S1), fresh-clone verification (S1), the S55 stop-condition
+corrections, the S56 audit-to-task-list conversion, the S6 GUI installer
+window + python3-venv pkexec self-heal + no-terminal rule, the S12
+licence gate, the S16 coverage-rot check + review-gate variant, the S17
+measurement-vs-look lesson, the S36 low-end hardening section, and the
+S44 trivial-physical-cause check. Secrets-rule fix: a "no secrets in
+code" verification step in the S1 ship checklist, the immutable rule
+referenced in S61, and a secrets section in the repo .gitignore.
+Library now 66 skills (Tier 1: 20, Tier 2: 39, Tier 3: 7).
+
 ## Audit-fix release — 2026-11-12
 
 SHA: 47e9f3e3

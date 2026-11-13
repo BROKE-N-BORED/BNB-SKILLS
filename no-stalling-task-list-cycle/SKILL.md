@@ -10,7 +10,7 @@
 ## The cycle
 
 - Finish one item, then verify it with the same proof as always: fresh-unzip check, tests green, screenshots eyeballed, battery receipt. The rule removes the waiting, not the checking.
-- Ship it immediately: push it to GitHub, update the Release, email the zip as part of shipping (see [ship-pipeline](../ship-pipeline/SKILL.md)). Do not hold a finished build for a push approval and do not wait for his go-ahead between items.
+- Ship it immediately: push it to GitHub, update the Release (see [ship-pipeline](../ship-pipeline/SKILL.md)). No zip email — GitHub-only is the standing rule; email only when he explicitly asks. Do not hold a finished build for a push approval and do not wait for his go-ahead between items.
 - Start the next item the same turn the previous one ships. The next build begins while the previous shipment is still warm.
 - Repeat until the task list is complete, then stop. Report the list as done and do not invent new tasks.
 
@@ -18,6 +18,7 @@
 
 - No rule, process, question, or approval step is ever an excuse to stall. If a rule seems to say wait, the rule is wrong — this cycle wins.
 - Do not present options and wait. Do not hold finished work for a go-ahead he already gave. Do not ask "should I build the next one". Do not dress up waiting as process. Waiting that looks like process is still waiting.
+- Do not pre-warn him about approval cards before they pop. The cards happen automatically; warning him about each one — and the sleep delays used to time the warning — is stalling. Just run the push and let the card appear. (This overrides the earlier habit of saying what each card is for first.)
 - Verify before shipping still stands — that is part of building, not stalling. The check runs inside the cycle, not instead of it.
 - The only things that stop work are hard gates that genuinely need his PC, his account action, or a decision only he can make. Say so plainly once and stop; do not pad it.
 
@@ -45,10 +46,11 @@
 - Joshua's standing rule, set in the main chat 2026-11-12 ~18:13 EST and recorded the same day in every build thread: "NO STALLING. When a task is complete: verify it, push it to GitHub, update the Release, then immediately build the next task. Repeat this cycle until the task list is complete — then you can stop."
 - Proven the same evening: SKRIBE v0.1 was verified, pushed, Released, and emailed with no separate push approval waited for; the CodeRabbit thread built Tier 2 items T2-4, T2-5, and T2-6 each starting the same turn the previous one shipped; the GUIFX thread handed six held items to DEV for porting and started T6 in the same turn; a merge coordinator ran a nine-item dependency-ordered port queue (GUIFX six, then T2-4, T2-5, T2-6) with anchor-port plus battery on each.
 - Found in the first BNB delta scan (2026-11-12), Code Forge family threads; not in the 17:54 audit because the rule was set after it.
+- Corrected 2026-11-13: shipping is GitHub-only (push + Release, no zip email unless he explicitly asks), and approval cards get no pre-warning — they happen automatically and warning about them is stalling (Joshua, BNB repos thread, 2026-11-13 ~09:54).
 
 ## Available connectors
 
-- [Gmail](../CONNECTORS.md) for emailing the zip as part of shipping.
+- [Gmail](../CONNECTORS.md) for emailing the zip as part of shipping — only when he explicitly asks for a zip email.
 - [GitHub](../CONNECTORS.md) for pushing the build and updating the Release.
 
 ## Alternatives for better results

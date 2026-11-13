@@ -50,6 +50,7 @@ Every project has, from its first shipped version:
 - Hard rule: the report scrubs API keys, tokens, passwords, and auth headers. Values are redacted; only which key/setting was present or absent survives.
 - Scrubbing happens at write time, in the logger and in the report builder — not as an afterthought. A secret that reaches the log file is already a failure.
 - Test the scrub: the smoke test logs fake keys and tokens, generates a report, and asserts no secret value appears anywhere in it. Any new secret shape gets a new scrub pattern and a new test.
+- This is the standing immutable rule, not just a logging choice: sensitive information and APIs are NEVER in code — they live only in files covered by .gitignore (.env, local config, providers.json, key files), and every repo must have a .gitignore covering them.
 
 ## Lightweight
 

@@ -46,11 +46,15 @@
   the seed turn is turn 1, so a cap of N means exactly N
   generations before the relay halts. Halt at exactly N, not N+1.
 - Stop phrases: a comma-separated field; a case-insensitive
-  substring match stops the relay, and the status line and pane
-  name the phrase that stopped it.
+  WHOLE-WORD match stops the relay, and the status line and pane
+  name the phrase that stopped it. Substring matching was the v0.2
+  behaviour and it was wrong: "cap" stopped a relay on "capital".
+  Whole words only.
 - Stop on agreement: a fixed phrase list ("i agree", "agreed",
-  "sounds good", "that works"), plain case-insensitive substring
-  matching — no LLM judge, the 2B models are slow enough already.
+  "sounds good", "that works"), negation-aware matching — no LLM
+  judge, the 2B models are slow enough already. A negated phrase
+  must NOT stop the relay: "I disagreed" ended relays until v0.12
+  fixed it, while a real "I agree" still stops one.
 - A phrase or agreement stop is reported before the cap when they
   land on the same turn, because it says more about why the relay
   ended.
@@ -102,17 +106,32 @@
   latency, model load time, and RAM behavior with two real 2B
   models cannot be proven against a fake. Say so in the receipt.
 
-## Approved but not yet built
+## Built after v0.3 (shipped by v0.10, 2026-11-12)
 
-- These were approved by Joshua on 2026-11-12 and are on the plan,
-  but were NOT built or verified as of the v0.3 ship: auto-summarize
-  for long loops (condense as the thread grows; a "History is long"
-  nudge must NEVER auto-trigger a model call), per-turn speed and
-  RAM readout (tok/s from eval_count/eval_duration, time to first
-  token, model RAM from /api/ps — dashes before any turn, "n/a"
-  when timing fields are absent, never invented numbers), files
-  and documents upload, tasks and delegation, transcript
-  save/export. Do not claim any of these as proven until they ship.
+- Everything this section once listed as approved-but-unbuilt has
+  shipped: auto-summarize for long loops (Summarize keeps the last
+  4 turns verbatim, 12,000-char budget nudge — the nudge must
+  NEVER auto-trigger a model call); per-turn speed and RAM readout
+  (tok/s, time to first token, model RAM — dashes before any turn,
+  "n/a" when timing fields are absent, never invented numbers);
+  file attachments (5 x 100 KB, text only, one-shot); tasks and
+  delegation (one-round worker + review/continue/nothing
+  follow-up); transcript save/export (one side, both, or the full
+  interleaved transcript; attachments never pasted in).
+- Per-pane token counts (v0.20): each pane's stats line shows the
+  last turn's token counts, in and out, straight from Ollama's own
+  numbers, plus a session total per side. Clearing a pane resets
+  its stats.
+- Relay presets (v0.21): a preset holds the whole relay setup —
+  which side starts, blind or aware, turn cap, stop phrases,
+  stop-on-agreement, review-each-hop — saved and restored like a
+  model pair. Loading a preset never starts a relay on its own.
+- Multi-round tasks (v0.22): the Rounds control (1–10) next to
+  the follow-up picker. "Continue it" keeps building on the last
+  result each round; "Review it" alternates review and revise.
+  Rounds 1 with a follow-up is exactly the old one-round task
+  flow — the floor matters, because the first cut made Rounds 1 a
+  single generation and would have broken it.
 
 ## Where this comes from
 
@@ -122,6 +141,10 @@
   director controls (v0.3, 81/81 tests, three GUI drives). The
   relay core is the `RelaySession` class in
   `dual-chat-v03-build/dual_chat.py` — pure logic, no Qt.
+- Stop conditions corrected in v0.12 (2026-11-12): whole-word stop
+  phrases, negation-aware agreement stop. The five approved items
+  all shipped by v0.10 the same evening; relay presets (v0.21) and
+  multi-round tasks (v0.22) shipped 2026-11-13.
 
 ## Alternatives for better results
 

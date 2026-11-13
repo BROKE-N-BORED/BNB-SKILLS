@@ -14,6 +14,7 @@ Executable twin in BNB-TOOLS: [T3 post-merge-battery-runner](https://github.com/
 - Run the full suite again on the merged tree, and compare the failure lists, not just the pass counts.
 - Call the change clean only when the failure set is byte-identical to the baseline, or differs only by failures the change was meant to fix.
 - Diagnose any new failure against the pre-merge backup before you claim anything about it.
+- When batch-run failures cluster in port-binding tests (deck or server tests), confirm the port race before calling them failures: re-run each failing class on its own. If every class passes alone, it is the known port race — deck tests stepping on each other in a batch — not a defect in the change. Only a failure that reproduces solo counts against the merge.
 
 ## Hold while the tree is changing
 

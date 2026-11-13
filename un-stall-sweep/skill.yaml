@@ -1,0 +1,7 @@
+name: "un-stall-sweep"
+title: "Un-stall sweep: when the user returns, find the stuck pushes and retry them"
+description: "When the user is back at his phone, sweep every active build thread for verified-but-unshipped builds behind expired approval cards, verify live state first so shipped work is never re-pushed, retry only the genuinely stuck pushes, and report once."
+category: "Development"
+include_in_prompt: false
+number: "S62"
+tier: 2

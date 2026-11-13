@@ -1,0 +1,7 @@
+name: "atomic-file-saves"
+title: "Atomic file saves: temp file first, rename last"
+description: "Save every user-depended file by writing to a temp file in the same directory and atomically renaming it over the target, so a failed save leaves the previous file intact; secret files get 0600 on the temp file before any secret bytes are written."
+category: "Development"
+include_in_prompt: false
+number: "S66"
+tier: 3

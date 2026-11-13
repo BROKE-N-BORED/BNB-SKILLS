@@ -2,8 +2,8 @@
   {
     "number": 1,
     "slug": "ship-pipeline",
-    "title": "Ship pipeline: verify, email, push, Release, hash-match",
-    "description": "Ship a verified build through fresh-unzip verification, emailed zip with Sent read-back, GitHub push, Release, and SHA-256 hash-match.",
+    "title": "Ship pipeline: verify, push, Release, hash-match",
+    "description": "Ship a verified build through fresh-unzip verification, GitHub push, Release, and SHA-256 hash-match. GitHub-only: no zip email unless he explicitly asks.",
     "tier": 1,
     "category": "Development",
     "include_in_prompt": true,
@@ -707,7 +707,7 @@
     "number": 53,
     "slug": "no-stalling-task-list-cycle",
     "title": "No-stalling task-list cycle: verify, ship, next item, repeat until the list is done",
-    "description": "Run a task list without waiting between items: verify each item, push it, update the Release, email the zip, then immediately start the next item until the list is complete.",
+    "description": "Run a task list without waiting between items: verify each item, push it, update the Release, then immediately start the next item until the list is complete. GitHub-only shipping; never pre-warn about approval cards.",
     "tier": 1,
     "category": "Development",
     "include_in_prompt": true,
@@ -815,6 +815,71 @@
     "tier": 1,
     "category": "Development",
     "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 62,
+    "slug": "un-stall-sweep",
+    "title": "Un-stall sweep: when the user returns, find the stuck pushes and retry them",
+    "description": "When the user is back at his phone, sweep every active build thread for verified-but-unshipped builds behind expired approval cards, verify live state first so shipped work is never re-pushed, retry only the genuinely stuck pushes, and report once.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 63,
+    "slug": "qt-gui-proof-harness",
+    "title": "Qt GUI proof harness: drive the real window without hanging",
+    "description": "Write and run Qt GUI proof scripts that cannot hang: a persistent QTimer safety watcher for unexpected modals, real-button dialog drives by role, the app's real theme applied by the harness, absolute paths, wall-clock waits, timeout-bounded runs, and stderr checks even when the suite is green.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 64,
+    "slug": "audit-each-one-combine",
+    "title": "Audit each one, then combine into one verified list",
+    "description": "Audit a list of items one at a time with the same report shape each, combine the per-item task lists into one prioritized list, and verify the combine by script before reporting it.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 65,
+    "slug": "audit-findings-task-list-merge",
+    "title": "Audit-findings task-list merge",
+    "description": "Fold a new audit's or verdict's findings into an existing prioritized task list: overlaps fold into existing tasks, new findings get their own tasks with continued IDs, and a script verifies every finding is covered before the merged list is reported.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 66,
+    "slug": "atomic-file-saves",
+    "title": "Atomic file saves: temp file first, rename last",
+    "description": "Save every user-depended file by writing to a temp file in the same directory and atomically renaming it over the target, so a failed save leaves the previous file intact; secret files get 0600 on the temp file before any secret bytes are written.",
+    "tier": 3,
+    "category": "Development",
+    "include_in_prompt": false,
     "files": [
       "SKILL.md",
       "skill.yaml"

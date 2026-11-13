@@ -32,6 +32,18 @@ Build a 3D character from multi-view reference sheets by making every piece sepa
 
 - When the user rejects a piece, ask what specifically is wrong before reworking it, and rework only the named problem instead of rebuilding the piece from scratch on a guess.
 
+## A measurement MATCH is not the look
+
+- A model can match every measurement and still not look like the character. Victor v2 Phase 2 matched on all six views by the overlay bands — and Joshua's verdict was "Brother this looks fucjing terrible": flat disc eyes, no smile, small ears, blob shoes. The silhouette matched the measurements; the character did not read.
+
+- Build cartoon features to how they READ at phone size, not to scale. The sheet is a cartoon with huge features; building them to scale makes them too small to read on his phone. The Phase 3 fix was ears twice as big, eyes twice as big, smile twice as wide with brighter teeth, wider head — judged by eye at phone size, not by the overlay numbers. Tighten the shots too, so the character fills the frame instead of sitting in the middle of an empty floor.
+
+- Check the PROFILE closeup, not just the front: the Phase 3 profile view caught the eye whites bulging 8 cm proud of the skull like golf balls — invisible from the front, obvious from the side. The whole eye assembly had to be set back into the skull.
+
+- Revert dead geometry instead of keeping it: a brow-tail extension was tried and reverted when a byte-identical render proved the tail points land inside the ear ellipsoid and are invisible.
+
+- His bar, in his words: "Make it look like the picture I gave you or it's not done yet. It's that simple." A piece or assembly the measurements call MATCH is still not done until his eyes say it looks like the picture.
+
 ## Assemble the character and save it as a preset
 
 - Assemble the approved pieces onto the body in the order they layer, such as body, then clothing, then belt, then carried items, checking that each piece sits where the character sheet puts it.
@@ -59,9 +71,14 @@ Build a 3D character from multi-view reference sheets by making every piece sepa
 ## Where this comes from
 
 - Built from the Victor character work in the EVERY MOUSE thread (5bb9ed96) and the REBLEND DEV thread (2a82689c): the v2 rebuild from the six-view character sheet, with a dedicated sheet per piece (hoodie, shorts, belt) and the belt-only rule, and the preset direction — Victor saved as a reusable preset, on GitHub and built into Reblend. Recorded in the BNB audit as S17.
+- The measurement-vs-look lesson and the image-to-3D notes come from Victor v2 Phases 2–3 and the Hi3D round (2026-11-12–13): two measurement-MATCH rounds rejected on sight, the phone-size judging fix, and the free-plan download trap.
 
 ## Alternatives for better results
 
 - Ask the user for one more view of a piece when the sheet leaves a dimension unreadable, instead of inventing the missing dimension.
 
 - Offer to tighten proportions in a finishing pass once all sheets have landed, rather than reworking proportions after every single piece.
+
+- If the user tries an image-to-3D service himself, tell him first: upload ONE clean single-figure image, not the multi-figure sheet — Hi3D made 7 models from a 7-figure sheet, one per figure. And check the download terms BEFORE he generates: Hi3D's free plan is preview-only in the browser, downloads are Pro-only ($19.90/month).
+
+- Test any service link yourself before sending it. An untested hi3d.pro link redirected to a completely different service and wasted his credits.

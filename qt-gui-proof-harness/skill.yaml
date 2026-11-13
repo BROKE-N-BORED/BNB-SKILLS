@@ -1,0 +1,7 @@
+name: "qt-gui-proof-harness"
+title: "Qt GUI proof harness: drive the real window without hanging"
+description: "Write and run Qt GUI proof scripts that cannot hang: a persistent QTimer safety watcher for unexpected modals, real-button dialog drives by role, the app's real theme applied by the harness, absolute paths, wall-clock waits, timeout-bounded runs, and stderr checks even when the suite is green."
+category: "Development"
+include_in_prompt: false
+number: "S63"
+tier: 2

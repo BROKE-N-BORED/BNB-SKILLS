@@ -1,0 +1,7 @@
+name: "audit-findings-task-list-merge"
+title: "Audit-findings task-list merge"
+description: "Fold a new audit's or verdict's findings into an existing prioritized task list: overlaps fold into existing tasks, new findings get their own tasks with continued IDs, and a script verifies every finding is covered before the merged list is reported."
+category: "Development"
+include_in_prompt: false
+number: "S65"
+tier: 2

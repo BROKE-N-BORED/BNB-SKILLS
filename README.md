@@ -2,7 +2,7 @@
 
 Reusable agent playbooks distilled from real work in Joshua's chats. Each skill is a folder containing a `SKILL.md` playbook (plus a `skill.yaml` and supporting files where the skill needs them). A skill teaches an agent how to do one kind of task well: when to use it, the procedure, and what to check before calling it done.
 
-Built from the audit in [docs/AUDIT.md](docs/AUDIT.md) (2026-11-12, all 67 chats read: main chat plus 66 side chats, 73 raw workflow candidates deduped to 52 net-new skills). First delta scan the same evening (scan window ~17:54–19:00 EST) added 7 more skills (S53–S59) and updates to 11 existing skills. S60 (side-quest) was added later the same evening from Joshua's main-chat concept. S61 (debug-log-layer) was added the same evening from his main-chat order for a debug layer in every project build.
+Built from the audit in [docs/AUDIT.md](docs/AUDIT.md) (2026-11-12, all 67 chats read: main chat plus 66 side chats, 73 raw workflow candidates deduped to 52 net-new skills). First delta scan the same evening (scan window ~17:54–19:00 EST) added 7 more skills (S53–S59) and updates to 11 existing skills. S60 (side-quest) was added later the same evening from Joshua's main-chat concept. S61 (debug-log-layer) was added the same evening from his main-chat order for a debug layer in every project build. Second delta scan (2026-11-13, window ~19:13 EST 2026-11-12 → ~10:00 EST) added 5 more skills (S62–S66) and updates to 13 existing skills; its tools (T22–T23) and tool updates live in BNB-TOOLS.
 
 ## Start here
 
@@ -10,7 +10,7 @@ Read these six first, in this order — they are the house operating system ever
 
 1. S53 — [`no-stalling-task-list-cycle`](no-stalling-task-list-cycle/) — verify, ship, next item, repeat until the list is done.
 2. S54 — [`pre-delivery-enhancement-gate`](pre-delivery-enhancement-gate/) — the mandatory enhancement gate before every delivery.
-3. S1 — [`ship-pipeline`](ship-pipeline/) — verify, email, push, Release, SHA-256 hash-match.
+3. S1 — [`ship-pipeline`](ship-pipeline/) — verify, push, Release, SHA-256 hash-match.
 4. S2 — [`isolated-copy-build-merge`](isolated-copy-build-merge/) — build in an isolated copy, delta-port, verify, run the merged-tree battery.
 5. S60 — [`side-quest`](side-quest/) — when the main build hits a wall, build the smallest standalone thing that fills the gap.
 6. S61 — [`debug-log-layer`](debug-log-layer/) — every project ships with logging, error handling, and an emailable debug report.
@@ -28,7 +28,7 @@ Then work by tier: Tier 1 next, Tier 2 as needed, Tier 3 only when its niche com
   - A few skills also carry an `examples/` folder of worked examples.
   - Every supporting file is referenced by filename from its own skill's `SKILL.md`.
 - No skill ships scripts. Skills are playbooks, not code. The executable halves of some skills live in the companion repo, BNB TOOLS. The repo-level `scripts/` folder holds library tooling instead: `generate_catalog.py` (builds `skills.json`) and `check_library.py` (validates the whole library).
-- `skills.json` at the repo root is a machine-readable catalog of all 61 skills, generated from the tree. It is GENERATED — do not hand-edit it. Regenerate with `python3 scripts/generate_catalog.py`.
+- `skills.json` at the repo root is a machine-readable catalog of all 66 skills, generated from the tree. It is GENERATED — do not hand-edit it. Regenerate with `python3 scripts/generate_catalog.py`.
 - Connectors: most skills need none. The skills that touch a live service use the GitHub connector, the Gmail connector, or the custom-connector-setup skill — see [CONNECTORS.md](CONNECTORS.md).
 - Run `python3 scripts/check_library.py` to validate the library (README tables, yamls, titles, supporting-file references, absolute paths, placeholders). It also runs in CI on every push and pull request.
 
@@ -47,13 +47,13 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 - **Tier 2 — repeated, solid, project-spanning.** Used more than once, or built to be reused across projects.
 - **Tier 3 — niche / weak / single-use.** Included for completeness, built last. Some carry caveats in the skill itself: S47 is a guarded safety playbook, S50 was stated but never executed in-thread, S51 and S52 are weak.
 
-## All 61 skills
+## All 66 skills
 
 ### Tier 1 — the house operating system
 
 | # | Skill | Description | Tier |
 |---|---|---|---|
-| S1 | [`ship-pipeline`](ship-pipeline/) | Verify, email, push, Release, SHA-256 hash-match: the one shipping sequence | 1 |
+| S1 | [`ship-pipeline`](ship-pipeline/) | Verify, push, Release, SHA-256 hash-match: the one shipping sequence | 1 |
 | S2 | [`isolated-copy-build-merge`](isolated-copy-build-merge/) | Build in an isolated copy, delta-port the change, verify, run the merged-tree battery | 1 |
 | S3 | [`cross-thread-dispatch`](cross-thread-dispatch/) | Send self-contained briefs to the owning thread and report completions back with verified facts | 1 |
 | S4 | [`task-receipt-format`](task-receipt-format/) | Close every build task with a fixed proof block: files, tests, verification, honest gaps | 1 |
@@ -113,6 +113,10 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 | S57 | [`bnb-repo-manager-delta-scan`](bnb-repo-manager-delta-scan/) | Watermark-based delta scan of all chat threads against the BNB repo baselines | 2 |
 | S58 | [`fake-provider-verification`](fake-provider-verification/) | Verify against scripted fake Ollama and OpenAI-compatible servers with failure modes and request recording | 2 |
 | S59 | [`qt-ui-thread-offload`](qt-ui-thread-offload/) | Move blocking work off the Qt UI thread into a QThread worker; debounce rapid controls | 2 |
+| S62 | [`un-stall-sweep`](un-stall-sweep/) | When the user returns, sweep all build threads for verified-but-unshipped builds behind expired approval cards; verify live state first, retry only the genuinely stuck pushes | 2 |
+| S63 | [`qt-gui-proof-harness`](qt-gui-proof-harness/) | Qt GUI proof scripts that cannot hang: safety watcher, real-button dialog drives, harness-applied theme, timeouts, stderr checks | 2 |
+| S64 | [`audit-each-one-combine`](audit-each-one-combine/) | Audit a list one item at a time with the same report shape, combine into one prioritized list, verify the combine by script | 2 |
+| S65 | [`audit-findings-task-list-merge`](audit-findings-task-list-merge/) | Fold a later audit's findings into an existing task list: overlaps fold in, new findings get continued IDs, coverage verified by script | 2 |
 
 ### Tier 3 — niche / weak / single-use
 
@@ -124,6 +128,7 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 | S50 | [`email-zip-code-intake`](email-zip-code-intake/) | Codebase intake from an emailed source zip, plus dead-button diagnosis; stated but never executed in-thread | 3 |
 | S51 | [`pc-spec-review-upgrade`](pc-spec-review-upgrade/) | Spec file to bottlenecks to cheapest compatible parts; weak, shopping overlap | 3 |
 | S52 | [`pantry-constrained-recipe-adaptation`](pantry-constrained-recipe-adaptation/) | Adapt a recipe to what the user has and format it to match the target app; weak | 3 |
+| S66 | [`atomic-file-saves`](atomic-file-saves/) | Save by writing to a temp file and atomically renaming over the target, so a failed save leaves the previous file intact | 3 |
 
 ## Skills that live outside this repo
 

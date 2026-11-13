@@ -24,6 +24,16 @@
 
 - Keep the file runnable by opening it directly; no build step and no install step.
 
+## Harden the single file for low-end hardware
+
+- Lazy-load a heavy 3D library behind a capability probe, with a 2D fallback: at boot, probe for WebGL first, and only on success load the 3D code (show a "Loading the 3D dice…" line meanwhile). When 3D cannot load, the game still plays with its 2D representation — never a blank screen or a dead page because a library failed.
+
+- Self-host every font and make zero external requests: download the exact font files the page uses (a variable font needs one file per subset to cover its weight range) and serve them locally, so the game plays fully offline with no CDN dependency.
+
+- Update the DOM incrementally instead of rebuilding it: build a scorecard or board once per roster/lineup and update it cell by cell afterwards, so unchanged cells keep their place, focus, and scroll position. A full rebuild happens only when the roster itself changes.
+
+- Verify the SETTLE, not just the animation: a dice roll can tumble correctly and still land wrong — Yahtzee's dice re-rolled each die's orientation with a fresh random spin at settle and snapped it into its slot, up to a 270° jump, in about 3 out of 4 rolls. The fix lands the die with the right face up; never swap the skin/texture to match the rolled number at the end — the user will see the swap and call it a glitch.
+
 ## Verify by actually playing it
 
 - Verify by actually playing the game headlessly at phone size, not by reading the code.
@@ -63,3 +73,4 @@
 ## Where this comes from
 
 - Proven in the Remaster Q thread: Q+ as a single-file offline HTML game, 15 missions plus sandbox plus IQ TEST, with v2 driven by the user's real-phone verdict (all buttons visible at 360×800, rules book, IQ measurement with graded stages and a strengths graph, stats plus downloadable report) — recorded in the BNB audit as S36.
+- The low-end hardening section comes from Yahtzee v0.2–v0.6 (2026-11-12–13): lazy-loaded Three.js behind a WebGL probe with a chips-only fallback, self-hosted fonts, incremental scorecard updates, and the dice-settle fix.

@@ -67,6 +67,32 @@
   deliver the headlines in chat. Reports are NOT pushed to
   GitHub — no repo or release step exists for an audit.
 
+## After delivery: turn the audit into tasks (owning thread only)
+
+- An audit becomes work only when the owner pastes it into the
+  owning thread and asks for tasks. An audit sitting in the audit
+  thread is a report, not a work order — never apply one
+  unprompted.
+- Verify the big claims before writing the list: reproduce the
+  headline bug, or read the code the claim names. The DUO list
+  was written only after the agreement bug was reproduced live
+  ("I disagreed" ending a relay); the OLLAMA list opened with two
+  corrections to its audit (Release v5 did exist; the detail view
+  never showed the model's words); the Pixel Forge list checked
+  `add_sheet` in code before writing the sheet-meta task. A task
+  built on an unverified claim is rework waiting to happen.
+- Top 5 first: the audit's ranked top-5 recommendations become
+  the first tasks, in the audit's order. If the owner says to
+  pull the Top 5 forward, they jump the existing queue — that is
+  a reorder, not a rewrite.
+- Append to the mounting task list in the audit's order, in a new
+  audit section, and state the count: 25 tasks plus 2 ideas
+  (DUO), 14 tasks (OLLAMA), 13 tasks numbered 62–74 (Pixel
+  Forge), 21 tasks (getcompute). Ideas stay separate from tasks.
+- Size each task (Small / Medium) and rank P0/P1 where the thread
+  uses it, so the no-stall cycle can run the list without
+  re-planning it.
+
 ## Verify metadata live at delivery time
 
 - Repo descriptions and topics change during the day. Never trust
@@ -103,6 +129,11 @@
   came from Joshua's correction the same day, after a repo from
   conversation history (WinTux) was audited that does not exist
   live.
+- The audit-to-task-list conversion ran four times the same
+  evening the queue finished (2026-11-12): DUO (25 tasks + 2
+  ideas), OLLAMA-SYSTEM-TEST (14 tasks, built as v6–v9),
+  PIXEL-FORGE (13 tasks, Top 5 pulled forward), getcompute (21
+  tasks). Each list verified the audit's big claims first.
 
 ## Available connectors
 

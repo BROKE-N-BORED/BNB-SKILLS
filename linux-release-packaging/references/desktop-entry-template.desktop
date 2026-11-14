@@ -5,13 +5,16 @@
 # expansion keeps a spaced path as one argument, dirname runs in Python, and
 # the install script runs through subprocess with a list. Some launchers
 # expand %k to empty, so the code falls back to the working directory.
+# When %k is empty the working directory IS the folder holding the
+# installer, so it is used directly — dirname() on it would go one
+# level too high (fixed 2026-11-14: the old template did exactly that).
 # Replace NAME, COMMENT, and ICON with the project values, and point the
 # subprocess call at the real installer script next to this file.
 [Desktop Entry]
 Type=Application
 Name=NAME
 Comment=COMMENT
-Exec=python3 -c "import os, sys, subprocess; p = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] else os.getcwd(); d = os.path.dirname(p); subprocess.call(['bash', os.path.join(d, 'install.sh')])" %k
+Exec=python3 -c "import os, sys, subprocess; a = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] else ''; d = os.path.dirname(a) if a else os.getcwd(); subprocess.call(['bash', os.path.join(d, 'install.sh')])" %k
 Icon=ICON
 Terminal=false
 Categories=Utility;

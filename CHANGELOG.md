@@ -2,6 +2,19 @@
 
 All notable changes to BNB-SKILLS. Dates are in EST.
 
+## S6 template fix — 2026-11-14
+
+SHA: TBD
+
+One-line fix in the S6 desktop-entry template
+(`linux-release-packaging/references/desktop-entry-template.desktop`):
+the empty-`%k` fallback did `dirname(os.getcwd())`, which looks for
+install.sh in the parent folder — one level too high. The fallback
+now uses the working directory directly, the form already proven in
+BNB-TOOLS T26's installer. Found during the T26 build (2026-11-14);
+the same bug was reported in MIMIK's installer `.desktop` and is
+flagged to its thread.
+
 ## Fifth delta scan — 2026-11-13
 
 SHA: 19be266d

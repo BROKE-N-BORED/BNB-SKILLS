@@ -4,7 +4,7 @@ All notable changes to BNB-SKILLS. Dates are in EST.
 
 ## S6 template fix — 2026-11-14
 
-SHA: TBD
+SHA: 41742fee
 
 One-line fix in the S6 desktop-entry template
 (`linux-release-packaging/references/desktop-entry-template.desktop`):

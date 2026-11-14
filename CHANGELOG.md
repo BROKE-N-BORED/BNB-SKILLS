@@ -4,7 +4,7 @@ All notable changes to BNB-SKILLS. Dates are in EST.
 
 ## Fourth delta scan — 2026-11-13
 
-SHA: TBD
+SHA: 42645b98
 
 Fourth delta scan of all chat threads (window ~19:53–20:24 EST
 2026-11-13, 82 threads read). A 30-minute window: no new skills, no

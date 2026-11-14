@@ -10,6 +10,12 @@ tell the user plainly.
 
 - A builder (or auditor, or any long-running worker) was running when a
   runtime restart happened, and the task is now silent.
+- A builder errored out mid-task (coordinator_completion with status
+  errored, not a restart) — the same recovery applies: check what it
+  changed before starting it again. (Forge Browser v0.9, 2026-11-13
+  23:01–23:03: the first builder errored ~10 minutes in with two
+  failed execs and no work done; the copy was untouched, a fresh
+  builder was dispatched, and the user got a plain flag.)
 - A resumed worker has been running but has produced no output for a
   long stretch.
 - A user asks why nothing is happening ("y r u not working?") — that
@@ -78,3 +84,9 @@ tell the user plainly.
 - MIMIK Dev thread (d22a66c0), 2026-11-13 ~10:06 EST: the v0.3 restart
   "didn't take" — a fresh builder was dispatched at item 16, items 1–15
   safe, and the build shipped at 11:35.
+- FORGE BROWSER DEV thread (611e974d), 2026-11-13 23:01–23:03 EST: the
+  v0.9 builder errored ~10 minutes in (two failed execs, no work
+  done, copy untouched) — not a restart. Same recovery: the copy was
+  checked first, a fresh builder was dispatched, and the user got a
+  plain flag ("the first builder died about ten minutes in without
+  doing any work").

@@ -2,6 +2,22 @@
 
 All notable changes to BNB-SKILLS. Dates are in EST.
 
+## Fifth delta scan — 2026-11-13
+
+SHA: TBD
+
+Fifth delta scan of all chat threads (window ~20:24–23:17 EST
+2026-11-13, 83 threads read). No new skills, no new tools, no new
+presets/roles/plugins. Fifteen patches across 8 existing skills,
+headlined by the STEMLAB file-by-file branch fallback + the corrected
+bulk-push 403 diagnosis (S1), the round-2 "measure what round 1 only
+read" section + the verify-the-correction rule + GITDATA provenance
+(S5), the no-PyPI-wheels install rule (S6), "finish the task means
+finish" (S53), audit #9 provenance (S65), the errored-builder
+recovery trigger (S69), the rule repos + apply-the-library sections
+and Drops 3–4 provenance (S70), and the five-chapter confirmation
+(S71). Library still 72 skills (Tier 1: 20, Tier 2: 44, Tier 3: 8).
+
 ## Fourth delta scan — 2026-11-13
 
 SHA: 42645b98

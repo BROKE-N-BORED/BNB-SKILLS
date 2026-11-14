@@ -26,6 +26,8 @@
 
 - GitHub code search returns ZERO results for these repos — never claim a repo-wide count (TODOs, tests, typos) from it. Counts come only from listings and files actually read.
 - Verify a claimed typo byte-for-byte before writing it in a report: quote the file, the line, and the exact bytes. A draft report once falsely claimed a model-tag typo and zero TODOs from the code search — both were struck before delivery.
+- Verify the claimed CORRECTION, not just the typo: a typo claim rests on an assumed-correct spelling, and that spelling may not exist. Check an external identifier (model tag, namespace, API name) against its live authoritative source before writing the finding. (Code Forge deep-audit fix list, 2026-11-13 22:13: three typo tasks — the getcompute P0, a STELLA finding, a BNB-PLUGINS one — all rested on the premise that `maternion` was a typo for `quaternion`; a live check on Ollama showed `maternion` is correct and no `quaternion` namespace exists. Only BNB-PLUGINS' `maternian` was a real misspelling.)
+- Compare visually near-identical spellings character by character in code (`list(word)` in Python), never by eye. (Same incident: the wrong tag went into fix-list item 36 while recording the correction itself, and had to be fixed — the thread's own words: "those two spellings are easy to mix up, which is the whole lesson here".)
 - Re-verify descriptions and topics live at delivery time, not from the listing you started from — metadata changes during the day (two repo descriptions changed on 2026-11-12 between the morning listing and the evening audits).
 - A report covers what was actually read; anything not checked goes in a "could not verify" section, never in the findings.
 
@@ -40,6 +42,40 @@
 - Reuse the audits already done instead of redoing them: the Forge audit reused the S2–S7 security audits and found no unlisted security issue. A prior list is a starting point, not a thing to re-derive.
 - Mark findings already covered by in-flight work so they do not come back as missing: the DATAPACKR audit (2026-11-13 19:51) marks anything v0.2 already covers as covered, not as a gap.
 
+## Round 2: measure what round 1 only read
+
+- When the user follows a first audit with the "anything missing / can
+  this be optimized" ask, run a second round that MEASURES what round 1
+  only read: a real render at his screen size, real latency on a big
+  store, exact counts, memory on a large input, what a crash
+  mid-operation actually leaves behind. Round 2 also re-sweeps the
+  tree for anything missed and rebuilds every task-list solution with
+  the measured numbers.
+- A round-1 finding can be WITHDRAWN when measurement disproves it.
+  GUIFX round 2 (2026-11-13 20:39) withdrew round 1's missing-speed-
+  readout finding — the worker already sends tok/s, elapsed time, and
+  token count to the status bar every 2 seconds while streaming — and
+  measured the real numbers instead: the window really opens 1360x880
+  (Qt does not clamp it), history search costs about 66 ms a keystroke
+  at 500 chats and 105 ms at 2000. It also found 8 new findings the
+  read-only pass missed (the one that mattered most: abandoning a plan
+  has no confirm anywhere, and abandon is irreversible by design),
+  taking the list to 24 findings and 13 builds.
+- Measured results re-rank the list. DATAPACKR round 2 (2026-11-13
+  21:06, 1,464 lines, big claims checked against the saved experiment
+  outputs) found a crash round 1 had only read about — closing the
+  window during a long build hangs it 15 seconds, then the app dies —
+  and that became the top fix, ahead of everything from round 1. The
+  500 MB run proved streaming was needed: 15 minutes to extract, 4.1 GB
+  of RAM, then killed 91% of the way through writing the pack, leaving
+  a 536 MB orphan on disk. The same round measured a 3x extract speedup
+  with byte-identical output from three mechanical refactors, and ended
+  with a ranked 35-item build list for v0.3.
+- Save measurements as you go, in files the report can be rebuilt
+  from. DATAPACKR's round-2 auditor died mid-write and the report was
+  still completed from its surviving draft and saved experiment
+  outputs — a killed auditor must not take its measurements with it.
+
 ## Report the review and stop
 
 - Deliver the review in chat with the headlines and the ranked list, and write the full report to a file for the record.
@@ -48,7 +84,7 @@
 
 ## Where this comes from
 
-- The same review shape was delivered for OLLAMA System Test, MIMIK, Pixel Forge (24 improvements in 3 tiers plus an avoid list), Yahtzee (P0 to P4 phased plan plus a 25-item task list), WinLinx, Forge Browser, and the repo audit thread, from the same verbatim ask in four threads on 2026-11-12. It is recorded in the BNB audit as S5.
+- The same review shape was delivered for OLLAMA System Test, MIMIK, Pixel Forge (24 improvements in 3 tiers plus an avoid list), Yahtzee (P0 to P4 phased plan plus a 25-item task list), WinLinx, Forge Browser, and the repo audit thread, from the same verbatim ask in four threads on 2026-11-12. It is recorded in the BNB audit as S5. The GITDATA review (2026-11-13 20:27–20:30) ran the same shape with every bug reproduced by running the code and performance measured live — 12 reproduced bugs, startup/memory/search timings — and its 35-item task list all shipped as v0.1.2 the same evening (Release live 22:41).
 
 ## Alternatives for better results
 

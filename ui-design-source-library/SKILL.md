@@ -49,7 +49,7 @@
 - Source and date every file, so nothing goes stale silently.
 - Keep the repo organized like an encyclopedia, for fast lookup: one
   entry per file under `entries/`, each self-contained with its own
-  sources and See also cross-references; permanent numbers (001–024
+  sources and See also cross-references; permanent numbers (001–048
   and on) that are never renumbered or reused; an INDEX.md that is
   alphabetical first, then by topic, then by app; a CHANGELOG.md, a
   queue.md for held items and gaps, a verdicts.md for the feedback
@@ -75,6 +75,57 @@
 - The sweep then does gap-filling first and new entries second —
   Drop 3 opened with the audit (five sourceless entries, two
   unattributed roundups, the queue) before researching new entries.
+
+## Rule repos sit alongside the library repo
+
+- The library repo is the source of truth for his rules. Alongside it,
+  three outside repos are rule repos for UI design work (Joshua, main
+  chat, 2026-11-13 23:00): bradtraversy/design-resources-for-developers
+  (67k stars — the master list: graphics, fonts, colors, icons, stock,
+  templates, CSS frameworks, animation and chart libraries, UI
+  components and kits, design systems, tools), VoltAgent/awesome-design-md
+  (127k stars — DESIGN.md files analyzing popular brand design systems
+  by category), and gztchan/awesome-design (17.8k stars — stock, color,
+  icons, typography, toolkits, prototyping, testing, styleguides,
+  tutorials, books). Every UI task pulls from them as outside
+  references; his own rules in the library repo win on any conflict,
+  and brand material is inspiration, never a straight copy.
+- The same pattern holds for the game-design library, which has its
+  own rule repos (magictools for resources and tools,
+  awesome-game-design for learning and design documents — Joshua,
+  main chat, 2026-11-13 22:52 and 22:54). A library's rule repos are
+  set by him, named in its charter and README, and checked first for
+  every resource in their subject.
+
+## Apply the library to a product: audit its UI against the repo
+
+- When the user sends the library link to a product thread with
+  an audit order, audit that product's actual UI code against
+  the repo — the master rules (U1–U39, D1–D3) and the entries —
+  not against a local copy: read the repo fresh, because
+  entries land by the drop and a stale local copy misleads
+  (Syllaport caught its rules copy stale; QWKHND's stale copy
+  flagged a rules inconsistency that did not exist in the repo;
+  Yahtzee's count went 24 → 48 across Drops 3 and 4 in one
+  evening).
+- Map entries to the app and apply the filter in the open:
+  entries that fail it are ruled OUT in the report with the
+  reason (STELLA: 17 of 24 entries in, 7 out — liquid glass
+  costs frames on his PC, pie menus fail the toy test), not
+  silently skipped.
+- Write the findings as redesign tasks, merge them into the
+  product's current task list (see
+  [audit-findings-task-list-merge](../audit-findings-task-list-merge/SKILL.md)),
+  and reorder the full list highest to lowest on his order.
+  Report the entry count as of the audit — the library can grow
+  mid-audit (Drop 3 landed while STELLA's audit #9 was running;
+  the audit covered the 24 entries present when it started and
+  offered a follow-up pass on the new ones).
+- Thirteen product threads ran this same shape the night of
+  2026-11-13 (REBLEND, STELLA, DUO, Pixel Forge, OLLAMA System
+  Test, StemLab, QWKHND, Yahtzee, Syllaport, FYRN, HICKSFIELD,
+  ACR, MIMIK), each from the same order text, each landing its
+  audit and redesign list the same evening.
 
 ## Seed the repo, then diff every upload before adding it
 
@@ -121,8 +172,22 @@
   and the MIT LICENSE, moved the filter to the README alone, and
   retired the old batch files; pushed 20:20 and verified by script
   (all entry bodies verbatim vs the batch sources, all links
-  resolve). Drop 3 opened ~20:22 under the gap-audit-first standing
-  rule.
+  resolve). Drop 3 ("Input, feedback, and forgiveness", entries
+  025–036) landed 21:05 (commit 36f7c94d, 44 files, SHA read-back
+  verified) — it filled all five source gaps first, so no entry in
+  the library is sourceless anymore. Drop 4 ("Seeing, learning, and
+  responding", entries 037–048) landed 22:29, taking the library to
+  48 entries; its gap audit found no sourceless entries, lifted the
+  three thin themes from 2 to 4 entries each, and landed all four
+  Drop 3 holds (coach marks, live presence, sound, diff views). Drop
+  5 opened ~22:57 under the same rule, starting with strengthening
+  the 10 entries that still have only one source each. The same
+  library shape is being applied a second time for game design:
+  Joshua locked that charter in 23:07–23:09 the same night
+  (encyclopedia from day one, gap audit before every sweep,
+  magictools + awesome-game-design as its rule repos) — its repo
+  does not exist yet and Drop 1 is not pushed, so this is a second
+  application of the pattern, not a second proof of it.
 - The source-of-truth order is main chat, 2026-11-13 19:47: "For now
   on all ui reacted design rules and stuff get pulled from this repo".
 

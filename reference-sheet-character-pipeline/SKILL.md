@@ -72,6 +72,7 @@ Build a 3D character from multi-view reference sheets by making every piece sepa
 
 - Built from the Victor character work in the EVERY MOUSE thread (5bb9ed96) and the REBLEND DEV thread (2a82689c): the v2 rebuild from the six-view character sheet, with a dedicated sheet per piece (hoodie, shorts, belt) and the belt-only rule, and the preset direction — Victor saved as a reusable preset, on GitHub and built into Reblend. Recorded in the BNB audit as S17.
 - The measurement-vs-look lesson and the image-to-3D notes come from Victor v2 Phases 2–3 and the Hi3D round (2026-11-12–13): two measurement-MATCH rounds rejected on sight, the phone-size judging fix, and the free-plan download trap.
+- The Tripo limits come from the Tripo3D thread (0ba3db0e, 2026-11-13 ~10:55 EST): the Victor rigged-model spec (5 fingers, separate tools, modeled phone) against Tripo's fused-mesh output and fingerless auto-rig.
 
 ## Alternatives for better results
 
@@ -80,5 +81,9 @@ Build a 3D character from multi-view reference sheets by making every piece sepa
 - Offer to tighten proportions in a finishing pass once all sheets have landed, rather than reworking proportions after every single piece.
 
 - If the user tries an image-to-3D service himself, tell him first: upload ONE clean single-figure image, not the multi-figure sheet — Hi3D made 7 models from a 7-figure sheet, one per figure. And check the download terms BEFORE he generates: Hi3D's free plan is preview-only in the browser, downloads are Pro-only ($19.90/month).
+
+- Tripo (image-to-3D) has hard limits that matter for a character with separate parts: one image in means ONE fused mesh out, and its auto-rig has no finger bones, no face bones, and no IK. It cannot produce 5 separate fingers per hand, real separate tools, or a phone as its own piece — fingers wrapped around a phone mesh into one lump. Its part-splitter can cut a mesh apart, but it cannot invent fingers and tools that were never separate geometry. Tripo is good for a fast base mesh and a basic rig (full chain roughly 70–90 credits, about $1), not for a spec that needs separate parts — that spec stays a piece-by-piece build.
+
+- Tripo's free Studio tier has the same mesh limits, plus two catches for his own mascot: free models are public, and Tripo keeps the rights to free outputs. Do not generate his own character on the free tier.
 
 - Test any service link yourself before sending it. An untested hi3d.pro link redirected to a completely different service and wasted his credits.

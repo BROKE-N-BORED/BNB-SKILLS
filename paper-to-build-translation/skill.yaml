@@ -1,0 +1,7 @@
+name: "paper-to-build-translation"
+title: "Paper-to-build translation"
+description: "Translate a research paper's mechanism into a shipping feature on a machine the paper never considered, keeping the evidence claims honest and the limits stated."
+category: "Development"
+include_in_prompt: false
+number: "S68"
+tier: 2

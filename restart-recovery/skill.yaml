@@ -1,0 +1,7 @@
+name: "restart-recovery"
+title: "Restart recovery"
+description: "Recover a builder killed by a runtime restart — judge liveness by output, never resume twice, dispatch a fresh finisher onto the orphaned artifact, and tell the user plainly."
+category: "Development"
+include_in_prompt: false
+number: "S69"
+tier: 2

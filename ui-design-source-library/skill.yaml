@@ -1,0 +1,7 @@
+name: "ui-design-source-library"
+title: "UI design source library: study live software, write up what works, keep the repo every app pulls its feel from"
+description: "Seed and maintain a design source library repo: charter with the bar, techniques studied from live shipping software written up with exact numbers, sourced and dated files, uploads diffed before adding, master rules file at root as the source of truth."
+category: "Work and knowledge"
+include_in_prompt: false
+number: "S70"
+tier: 2

@@ -26,6 +26,16 @@
 
 - Ask the user to reseat / re-plug / close the relevant part and retry before moving to the next test. Only when the trivial check fails does the longer procedure start.
 
+## For a gas appliance, check for gas before anything else
+
+- Before any relight, inspection, or test on a gas appliance, ask whether
+  the user smells gas. If there is a strong gas smell, STOP — do not light
+  anything, do not flip switches, and do not continue the diagnosis.
+- Only when the user confirms no gas smell does the diagnosis continue
+  (pilot flame in the sight glass, valve positions, control knob setting).
+- The gas check comes before the trivial-physical-cause check: a gas leak
+  is a safety stop, not a fault to narrow.
+
 ## Read the fuse map off the photo
 
 - Read the fuse map from the photo of the lid or the owner's diagram the user sends.
@@ -78,3 +88,4 @@
 
 - Proven in the Fix 2004 Chevy Astro headlights thread: fixed via fuse #15 (TBC), diagnosed from fuse-box photos with ordered elimination. Generalises to any vehicle electrical or appliance troubleshooting with photos — recorded in the BNB audit as S44.
 - Second data point: the 2026-11-13 coffee thread (55e65af1), where an Ec5 error code on a Mr. Coffee was first misdiagnosed as mineral buildup needing a descale — the real cause was the brew basket not seated all the way in. That miss is why the trivial-physical-cause check comes before any maintenance procedure.
+- Third data point: the 2026-11-13 hot-water-heater thread (e117f22b), where the gas-smell check came before any pilot-relight step — no gas smell confirmed, then the sight-glass check, resolved in-thread. That is why the gas check comes before everything else on a gas appliance.

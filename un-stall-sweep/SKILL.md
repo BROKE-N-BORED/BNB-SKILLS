@@ -29,7 +29,11 @@
 - For each candidate stuck push, check the live state first: the
   repo's head commit and the Release page. A push can land between
   the sweep's check and the retry, or the thread's own record can
-  be stale.
+  be stale. When a push has reported a failure, check the true head
+  with `git ls-remote <repo> HEAD refs/heads/main` — the commit
+  list can show a stale head after a false failure (DUO v0.25,
+  2026-11-13 11:36: list_commits showed the old head twice after
+  the ref had already moved).
 - If the commit is live and the Release is up, the item was never
   stalled — close it out, report it as already shipped, and do not
   retry. A false stall in the report costs the user's trust more
@@ -84,3 +88,4 @@
 - Offer to run the sweep as a standing check whenever he returns
   after a long absence, rather than waiting for him to ask — the
   cards expire on their own schedule, not his.
+- A stalled BUILDER is a different stall from a stuck push: a worker killed by a runtime restart leaves no handoff and its resume may never take. See [restart-recovery](../restart-recovery/SKILL.md).

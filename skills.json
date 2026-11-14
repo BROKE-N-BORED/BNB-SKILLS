@@ -884,5 +884,83 @@
       "SKILL.md",
       "skill.yaml"
     ]
+  },
+  {
+    "number": 67,
+    "slug": "low-usage-state-capture",
+    "title": "Low-usage state capture: when the meter is nearly out, get every thread's task list into its own thread",
+    "description": "When usage is nearly out, order every work thread to write its task list in its own thread — highest priority first, done/open/blocked — list only, no new work to produce it, so the next session starts from written state instead of memory.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 68,
+    "slug": "paper-to-build-translation",
+    "title": "Paper-to-build translation",
+    "description": "Translate a research paper's mechanism into a shipping feature on a machine the paper never considered, keeping the evidence claims honest and the limits stated.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 69,
+    "slug": "restart-recovery",
+    "title": "Restart recovery",
+    "description": "Recover a builder killed by a runtime restart — judge liveness by output, never resume twice, dispatch a fresh finisher onto the orphaned artifact, and tell the user plainly.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 70,
+    "slug": "ui-design-source-library",
+    "title": "UI design source library: study live software, write up what works, keep the repo every app pulls its feel from",
+    "description": "Seed and maintain a design source library repo: charter with the bar, techniques studied from live shipping software written up with exact numbers, sourced and dated files, uploads diffed before adding, master rules file at root as the source of truth.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 71,
+    "slug": "roadmap-first-manual",
+    "title": "Roadmap-first manual: table of contents as the roadmap, chapters written one at a time, every number verified before it ships",
+    "description": "Write a long technical manual from a table-of-contents roadmap pushed as a reference document: chapters one at a time, each number verified against sources or by measurement before the chapter is pushed and read back.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 72,
+    "slug": "paid-service-viability-filter",
+    "title": "Paid-service viability filter: which projects survive as paid online services",
+    "description": "Decide which projects can be rebuilt as credited or paid online services by mapping the credit fit, checking what is already free, and cutting everything an existing free product beats — keeping only the survivors, ranked, with a named free killer next to every cut.",
+    "tier": 3,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
   }
 ]

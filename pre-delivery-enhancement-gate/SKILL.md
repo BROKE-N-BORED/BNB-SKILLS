@@ -31,6 +31,7 @@ Joshua's words, recorded verbatim as the standing rule:
 ## A gate pass can catch real errors, not just polish
 
 - Treat the gate as a real review, not a rubber stamp. The first proven catch was in a design document whose alignment method was wrong: the gate pass found that setting all reference backdrops to the same width put the views at different scales (sheet cells have different content widths), and corrected it to per-cell scale-matching before the doc shipped (Reblend reference-backdrop design, 2026-11-12 ~18:30).
+- Check that every visible control does something real before shipping: a field, dropdown, or button that nothing reads and nothing acts on is a defect, not a placeholder — remove it, do not document it. Stella shipped two: a Processor field nothing ever read (removed in v0.3.1) and a MetaMorphAi dropdown that was just a label training ignored (removed in v0.8) — both caught by the user, not the gate, on 2026-11-13. The gate runs before the ship step precisely so it catches these first.
 - When the gate finds a defect that changes the deliverable, fix it in place and re-verify (see fix_defects_in_place), rather than filing it as a future item.
 
 ## Where this comes from

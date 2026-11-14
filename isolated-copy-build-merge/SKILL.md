@@ -11,6 +11,7 @@ Executable twin in BNB-TOOLS: [T2 delta-port-diff-verify](https://github.com/BRO
 ## Build in an isolated copy
 
 - Copy the live tree to an isolated directory and build the feature there, leaving the shared tree untouched.
+- Name the copy the way the tree's own tests expect. When tests key off the directory name, a wrongly-named copy fails spuriously: Code Forge's update-gate tests need the copy named exactly "Linux Forge Agent" (or nested as <dir>/"Linux Forge Agent"), because preview_update_zip strips the zip's top folder only when it equals root_dir.name — a copy named anything else yields zero install entries and six spurious C15UpdateDialogTests failures. (DEV, 2026-11-13 ~19:47; mechanism verified in forge/update.py.)
 - Run the lead battery in the isolated copy: the new test classes plus the neighbouring test sets the change could affect.
 - Check the diff yourself in the isolated copy and confirm it holds exactly the intended changes, nothing more.
 - Re-run the new test classes independently and check the diff and marker counts yourself, never trusting the builder's word alone.

@@ -2,7 +2,7 @@
 
 Reusable agent playbooks distilled from real work in Joshua's chats. Each skill is a folder containing a `SKILL.md` playbook (plus a `skill.yaml` and supporting files where the skill needs them). A skill teaches an agent how to do one kind of task well: when to use it, the procedure, and what to check before calling it done.
 
-Built from the audit in [docs/AUDIT.md](docs/AUDIT.md) (2026-11-12, all 67 chats read: main chat plus 66 side chats, 73 raw workflow candidates deduped to 52 net-new skills). First delta scan the same evening (scan window ~17:54–19:00 EST) added 7 more skills (S53–S59) and updates to 11 existing skills. S60 (side-quest) was added later the same evening from Joshua's main-chat concept. S61 (debug-log-layer) was added the same evening from his main-chat order for a debug layer in every project build. Second delta scan (2026-11-13, window ~19:13 EST 2026-11-12 → ~10:00 EST) added 5 more skills (S62–S66) and updates to 13 existing skills; its tools (T22–T23) and tool updates live in BNB-TOOLS.
+Built from the audit in [docs/AUDIT.md](docs/AUDIT.md) (2026-11-12, all 67 chats read: main chat plus 66 side chats, 73 raw workflow candidates deduped to 52 net-new skills). First delta scan the same evening (scan window ~17:54–19:00 EST) added 7 more skills (S53–S59) and updates to 11 existing skills. S60 (side-quest) was added later the same evening from Joshua's main-chat concept. S61 (debug-log-layer) was added the same evening from his main-chat order for a debug layer in every project build. Second delta scan (2026-11-13, window ~19:13 EST 2026-11-12 → ~10:00 EST) added 5 more skills (S62–S66) and updates to 13 existing skills; its tools (T22–T23) and tool updates live in BNB-TOOLS. Third delta scan the same evening (2026-11-13, window ~10:00–19:53 EST) added 6 more skills (S67–S72) and updates to 19 existing skills; its tools (T24–T25) and tool updates live in BNB-TOOLS.
 
 ## Start here
 
@@ -28,7 +28,7 @@ Then work by tier: Tier 1 next, Tier 2 as needed, Tier 3 only when its niche com
   - A few skills also carry an `examples/` folder of worked examples.
   - Every supporting file is referenced by filename from its own skill's `SKILL.md`.
 - No skill ships scripts. Skills are playbooks, not code. The executable halves of some skills live in the companion repo, BNB TOOLS. The repo-level `scripts/` folder holds library tooling instead: `generate_catalog.py` (builds `skills.json`) and `check_library.py` (validates the whole library).
-- `skills.json` at the repo root is a machine-readable catalog of all 66 skills, generated from the tree. It is GENERATED — do not hand-edit it. Regenerate with `python3 scripts/generate_catalog.py`.
+- `skills.json` at the repo root is a machine-readable catalog of all 72 skills, generated from the tree. It is GENERATED — do not hand-edit it. Regenerate with `python3 scripts/generate_catalog.py`.
 - Connectors: most skills need none. The skills that touch a live service use the GitHub connector, the Gmail connector, or the custom-connector-setup skill — see [CONNECTORS.md](CONNECTORS.md).
 - Run `python3 scripts/check_library.py` to validate the library (README tables, yamls, titles, supporting-file references, absolute paths, placeholders). It also runs in CI on every push and pull request.
 
@@ -47,7 +47,7 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 - **Tier 2 — repeated, solid, project-spanning.** Used more than once, or built to be reused across projects.
 - **Tier 3 — niche / weak / single-use.** Included for completeness, built last. Some carry caveats in the skill itself: S47 is a guarded safety playbook, S50 was stated but never executed in-thread, S51 and S52 are weak.
 
-## All 66 skills
+## All 72 skills
 
 ### Tier 1 — the house operating system
 
@@ -117,6 +117,11 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 | S63 | [`qt-gui-proof-harness`](qt-gui-proof-harness/) | Qt GUI proof scripts that cannot hang: safety watcher, real-button dialog drives, harness-applied theme, timeouts, stderr checks | 2 |
 | S64 | [`audit-each-one-combine`](audit-each-one-combine/) | Audit a list one item at a time with the same report shape, combine into one prioritized list, verify the combine by script | 2 |
 | S65 | [`audit-findings-task-list-merge`](audit-findings-task-list-merge/) | Fold a later audit's findings into an existing task list: overlaps fold in, new findings get continued IDs, coverage verified by script | 2 |
+| S67 | [`low-usage-state-capture`](low-usage-state-capture/) | When usage is nearly out, order every work thread to write its task list in its own thread — list only, no new work — so the next session starts from written state | 2 |
+| S68 | [`paper-to-build-translation`](paper-to-build-translation/) | Translate a research paper's mechanism into a shipping feature on a machine the paper never considered, keeping the evidence claims honest | 2 |
+| S69 | [`restart-recovery`](restart-recovery/) | Recover a builder killed by a runtime restart: judge liveness by output, never resume twice, dispatch a fresh finisher, tell the user plainly | 2 |
+| S70 | [`ui-design-source-library`](ui-design-source-library/) | Seed and maintain a design source library repo: charter with the bar, techniques from live software with exact numbers, uploads diffed before adding | 2 |
+| S71 | [`roadmap-first-manual`](roadmap-first-manual/) | Write a long manual from a table-of-contents roadmap: chapters one at a time, every number verified against sources or by measurement before pushing | 2 |
 
 ### Tier 3 — niche / weak / single-use
 
@@ -129,6 +134,7 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 | S51 | [`pc-spec-review-upgrade`](pc-spec-review-upgrade/) | Spec file to bottlenecks to cheapest compatible parts; weak, shopping overlap | 3 |
 | S52 | [`pantry-constrained-recipe-adaptation`](pantry-constrained-recipe-adaptation/) | Adapt a recipe to what the user has and format it to match the target app; weak | 3 |
 | S66 | [`atomic-file-saves`](atomic-file-saves/) | Save by writing to a temp file and atomically renaming over the target, so a failed save leaves the previous file intact | 3 |
+| S72 | [`paid-service-viability-filter`](paid-service-viability-filter/) | Decide which projects survive as paid online services: map the credit fit, cut everything an existing free product beats, keep the survivors ranked | 3 |
 
 ## Skills that live outside this repo
 

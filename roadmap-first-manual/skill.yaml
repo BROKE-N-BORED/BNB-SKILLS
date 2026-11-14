@@ -1,0 +1,7 @@
+name: "roadmap-first-manual"
+title: "Roadmap-first manual: table of contents as the roadmap, chapters written one at a time, every number verified before it ships"
+description: "Write a long technical manual from a table-of-contents roadmap pushed as a reference document: chapters one at a time, each number verified against sources or by measurement before the chapter is pushed and read back."
+category: "Work and knowledge"
+include_in_prompt: false
+number: "S71"
+tier: 2

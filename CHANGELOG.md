@@ -2,6 +2,26 @@
 
 All notable changes to BNB-SKILLS. Dates are in EST.
 
+## Third delta scan — 2026-11-13
+
+SHA: TBD
+
+Third delta scan of all chat threads (window ~10:00–19:53 EST
+2026-11-13, 82 threads read). Six new skills: S67
+low-usage-state-capture, S68 paper-to-build-translation, S69
+restart-recovery, S70 ui-design-source-library, S71
+roadmap-first-manual, S72 paid-service-viability-filter. Updates to
+19 existing skills, headlined by the settled snapshot-push workflow
+preservation + push-failure ls-remote rule + pre-release flip +
+staging-intact subsection (S1), the Icon-quoting correction +
+absolute-path launchers + installer caps and resume (S6), the
+never-present-unchecked-names rule + 429 hold-the-list + taste rules
+(S7), the disk-space gate + per-module suite split (S8), the
+tracker-stamp credit-grant rule (S10), the real-function-only
+immutable rule (S53), the dead-controls gate check (S54), and the DUO
+v0.23–v0.31 record (S55). Library now 72 skills (Tier 1: 20, Tier 2:
+44, Tier 3: 8).
+
 ## Second delta scan — 2026-11-13
 
 SHA: 364ca685

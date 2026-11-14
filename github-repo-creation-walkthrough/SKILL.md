@@ -23,7 +23,7 @@ Walk the user through creating an empty GitHub repo from their phone, verify it 
 
 - Check the repo exists on GitHub and is readable from the agent side as soon as the user says it is created, and do not proceed on the user's word alone.
 
-- Check whether the repo is empty, and note any discrepancy plainly, such as a repo that is private instead of public, a name with different capitalization than agreed, or a placeholder README that means a checkbox was left on.
+- Check whether the repo is empty, and note any discrepancy plainly, such as a repo that is private instead of public, a name with different capitalization than agreed, or a placeholder README that means a checkbox was left on. A repo name that differs from the agreed name by even one letter is a discrepancy too — ask which spelling is the name before pushing: the repo said qwkhnd-4-linux while the picked name was Qkhnd (QWKHND, 2026-11-13 14:51); he picked Qwkhnd and the build was re-renamed before the push.
 
 - Report the verification result with the evidence, including the repo URL, its visibility, and whether it is empty.
 

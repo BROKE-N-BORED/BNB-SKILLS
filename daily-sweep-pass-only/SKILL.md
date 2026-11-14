@@ -26,9 +26,26 @@
 - Record the date and the source of every verification, because free tiers and prices change.
 - Flag anything you could not verify instead of listing it as passing.
 
+## A tracker stamp never verifies a credit grant
+
+- A third-party tracker's "verified" date — or any aggregator stamp — never
+  counts as verification for a free-credit grant. It may just be re-reading
+  the provider's old announcement, not testing an account.
+- A credit grant counts as verified ONLY from the provider's CURRENT pricing
+  page or a live account check (a real balance read on a real key). An old
+  launch blog post never overrides current pricing.
+- Re-verify a grant claim on the morning of the sweep, from one of those two
+  sources — never publish it from a stored tracker stamp. A sweep built from
+  a stale stamp is stale the minute it goes out.
+- When a grant turns out to be dead: correct the sweep record AND the tracker
+  record the same day, and post the correction where the bad info went out.
+  Report a tracker-only grant as UNVERIFIED, with the gap named, until a
+  live check or current pricing page confirms it.
+
 ## Where this comes from
 
 - This shape runs daily as the stocks and crypto sweep (17:20 cron) and the $0-services sweep (about 10:20 AM cron), and the same discipline was applied to the $0 course catalogue and reused for inbox triage and the Raon Ollama-support watch. It is recorded in the BNB audit as S10.
+- The credit-grant rule comes from the Tripo miss on 2026-11-13: the morning sweep listed 2,000 free Tripo API credits as a verified pass off a tracker "verified Oct 31" stamp; the live balance check (0.0, four times) landed after the sweep was already posted, and the grant turned out to be dead since Tripo's April 2024 launch post. Second repeat of the Replicas lesson.
 
 ## Alternatives for better results
 

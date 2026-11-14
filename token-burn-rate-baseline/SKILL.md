@@ -19,6 +19,7 @@
 - Record the baseline in the [baseline record](templates/baseline-record.md): date, subscription status, logged total, pool size, and remaining.
 
 - Note the pool size the lifetime will be measured against.
+- Use pool numbers only for the rate: a locally logged totals counter may not map to the pool. The November 3 recheck's "local totals" counter (~340M) did not map to the pool at all (the pool was still 0% used then), so the token plan used pool numbers only (main chat, 2026-11-13 17:07).
 
 ## Schedule a one-time recheck
 
@@ -35,6 +36,15 @@
 - Break the usage down per day where the logs allow it, so a single heavy day does not hide as an average.
 
 - Compute the remaining-pool lifetime at the measured pace: remaining pool divided by tokens per day.
+
+## Turn the rate into a rationing plan
+
+- When the pool is finite and the pace would burn it fast, turn the measured rate into a written rationing plan (see the token plan, main chat 2026-11-13 17:03–17:07): a weekly budget from the measured burn, a tier split across the work, slowdown tripwires, and waste rules.
+- Set the weekly budget from the measured pace, not from hope: the first billion went in ~10 days at ~100M/day once the free limit ran out, so the plan set 150M/week (~21M/day), stretching the second billion to ~6.5 weeks.
+- Split the budget by tier: money work 50M, Code Forge 50M, active builds 30M, everything else + scheduled jobs 20M (per week, from the same plan).
+- Set tripwires that tighten as the pool drains: 500M left → one build at a time + sweeps paused; 250M left → money + Forge only; 100M left → chat only.
+- Name the waste rules that do most of the saving: one build at a time (parallel builds were the peak burn, 25–37M/hour); verify once — never re-verify what is already verified, reuse evidence; no unsolicited or giant sweeps.
+- State what is unknown in the plan itself: expiry on additional tokens (none shown — do not assume one), the free weekly allowance size (not shown — do not count on it), exact per-build costs (use measured daily/hourly rates, not per-item costs).
 
 ## Report with the caveat
 
@@ -55,6 +65,7 @@
 ## Where this comes from
 
 - Proven in the How long 1 billion tokens last thread: October 31 baseline to November 3 recheck measured about 13.1M tokens per day, about 77 days of pool at that pace — recorded in the BNB audit as S40.
+- The token rationing plan (2026-11-13) extended the skill from measurement to budgeting: weekly budget, tier split, tripwires, waste rules.
 
 ## Alternatives for better results
 

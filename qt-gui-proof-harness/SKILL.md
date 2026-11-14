@@ -95,6 +95,33 @@
   strip model's `moveRows` (the same operation a drag performs —
   it fires `rowsMoved`, which is what updates the order) and verify
   the strip's drag configuration attributes instead.
+- Motion feel cannot be judged offscreen: how a pulse rhythm, a
+  glow, or an animation actually feels to watch is only judgeable
+  on the user's real PC. Say so plainly in the proof report and
+  leave the verdict to him — do not call the feel verified.
+  (GUIFX 2026-11-13 19:40, brand-spark pulse: "The one thing I
+  can't judge offscreen is how the rhythm actually feels to watch
+  — that's your call when it lands on your PC." He corrected the
+  rhythm to slow breathing at 19:44.)
+
+## Probe this PySide6 build's API before you use it
+
+- Do not trust the printed Qt API surface: this PySide6 build is missing
+  methods the docs promise and segfaults on others. Probe `dir()` on the
+  real object before calling a method you have not used in this build,
+  and verify the behaviour by rendering it, not by the call returning.
+- `QTextEdit` has NEITHER `setOpenExternalLinks` NOR `anchorClicked`
+  (both are QTextBrowser-only). Clickable links in a QTextEdit need a
+  viewport event filter using `anchorAt` + `QDesktopServices.openUrl`.
+- `QTextCharFormat.fontFamily()` SEGFAULTS this build (exit 139, proven
+  by faulthandler — the call is deprecated). Use
+  `fmt.font().family()` instead.
+- After `insertHtml` of a list or code block, the cursor stays inside
+  that structure — a plain "\n" lands in it as a stray empty item and
+  swallows the next message into the list. Close the block with
+  `insertBlock(QTextBlockFormat())`.
+- (DUO v0.24, 2026-11-13 11:14 — Markdown rendering; all four items
+  probed on the real build, not assumed.)
 
 ## Bound every run, and check stderr even when green
 
@@ -142,6 +169,8 @@
   offscreen double-click via `editItem()` (v0.45 proof, 07:34).
   Cut them if the library requires transcript-only evidence.
 - Found in the second BNB delta scan (2026-11-13).
+- Found in the third BNB delta scan (2026-11-13, evening): the offscreen motion-feel limit (GUIFX brand-spark pulse, 19:40–19:44).
+- DUO DEV thread (284b2ad4), 2026-11-13 11:14 (v0.24): the QTextEdit API gaps above, probed on the real PySide6 build — `setOpenExternalLinks` / `anchorClicked` absent, `fontFamily()` segfault, `insertHtml` cursor trap. Failure detail rests on the AGENTS.md entry dated 2026-11-13, with the in-thread v0.24 ship as corroboration.
 
 ## Alternatives for better results
 

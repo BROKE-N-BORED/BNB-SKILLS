@@ -132,6 +132,50 @@
   Rounds 1 with a follow-up is exactly the old one-round task
   flow — the floor matters, because the first cut made Rounds 1 a
   single generation and would have broken it.
+- Per-pane search (v0.23): each pane has a search row under its
+  transcript — type to find text, every match highlighted, Previous
+  and Next stepping between them with wrap — plus conversation
+  import.
+- Markdown rendering (v0.24): model replies render as formatted text
+  (bold, italic, inline code, code blocks, headers, lists,
+  blockquotes, links). While a reply streams it still shows as plain
+  text, and the formatting lands the moment the turn finishes, so
+  partial markup never flickers mid-stream. Links are clickable and
+  open in the browser. The user's own messages stay plain text
+  exactly as typed, and nothing stored changes — history, transcript
+  exports, and saved conversations keep the raw text.
+- Monolith split (v0.25): the one big code file is now ten focused
+  modules. Nothing visible changed — same window, same features,
+  same files — just easier to work on and safer to change.
+- One message structure + MIT (v0.26): one message structure holds
+  each message's role, text, label, and display together instead of
+  three parallel lists; conversations saved by older versions still
+  open. MIT LICENSE in the repo.
+- Bounded transcript log (v0.27): the full-transcript log keeps the
+  most recent 2,000 entries and trims the oldest first, so a long
+  session cannot grow it forever. If anything was trimmed, the
+  exported transcript says so right under the header. Per-pane
+  histories are untouched.
+- Update check (v0.28): DUO checks for a newer Release when it
+  starts, in the background, and stays silent if there is no
+  network. A "Check for updates" button sits in the bottom row. No
+  auto-download or install — it just tells you.
+- Activity lights + machine meter (v0.29): each side has a light and
+  a line of small text under the stats — green "Thinking…" while it
+  generates, amber "Waiting for Ollama…" / "Queued…" / "Waiting for
+  you to review…", red if a turn fails, grey "Idle" when done — plus
+  a live CPU/RAM meter in the bottom-right corner, refreshed every
+  second.
+- Menu bar + How to Use (v0.30): File, Relay, and Help across the
+  top, with shortcuts (Ctrl+S save, Ctrl+O open, Ctrl+Shift+S save
+  full transcript, Ctrl+Q quit); every menu item does exactly what
+  its button does. Help carries a built-in How to Use index covering
+  the whole app. Visible text is em-dash-free throughout.
+- Director toggle + exit-crash fix (v0.31): the Director toggle
+  collapses the controls below the panes so they take the full
+  window, remembers the choice between runs, and never stops
+  anything running. Also fixes a real crash: closing DUO while a
+  background check was running could kill it on exit.
 
 ## Where this comes from
 
@@ -144,7 +188,10 @@
 - Stop conditions corrected in v0.12 (2026-11-12): whole-word stop
   phrases, negation-aware agreement stop. The five approved items
   all shipped by v0.10 the same evening; relay presets (v0.21) and
-  multi-round tasks (v0.22) shipped 2026-11-13.
+  multi-round tasks (v0.22) shipped 2026-11-13, and v0.23–v0.31
+  (search, Markdown, monolith split, one message structure + MIT,
+  bounded transcript, update check, activity lights + meter, menu
+  bar, Director toggle) shipped the same day.
 
 ## Alternatives for better results
 

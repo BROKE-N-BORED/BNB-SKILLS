@@ -13,6 +13,7 @@
 - Ship it immediately: push it to GitHub, update the Release (see [ship-pipeline](../ship-pipeline/SKILL.md)). No zip email — GitHub-only is the standing rule; email only when he explicitly asks. Do not hold a finished build for a push approval and do not wait for his go-ahead between items.
 - Start the next item the same turn the previous one ships. The next build begins while the previous shipment is still warm.
 - Repeat until the task list is complete, then stop. Report the list as done and do not invent new tasks.
+- When he orders a re-rank, rank the remaining items highest-to-lowest as a build order WITHOUT renumbering the list: the numbered list stays untouched and the ranking is a separate view (Pixel Forge, 2026-11-13 14:15: 35 builds ranked P1-first, numbered list untouched; Stella, 2026-11-13 12:29: 168 tasks grouped into 11 areas). Renumbering is a different job, done only when he orders a reorder — see [audit-findings-task-list-merge](../audit-findings-task-list-merge/SKILL.md).
 
 ## No rule is an excuse to stall
 
@@ -25,6 +26,7 @@
 ## What does not change
 
 - Verify before you push. A task is not complete until it is verified.
+- Build only what serves a real function and purpose. No fake demos, no placeholder builds dressed up as real, no features that do nothing — a build must do something real for him or it does not get built (Joshua, RIZA thread, 2026-11-13 19:02, immutable). The cycle builds real items from the list; it never invents filler to look busy.
 - His real-PC verdict still closes an item, but it does not block starting the next task. Ship, start the next item, and let his verdict land when it lands.
 - A hard gate still stops the cycle: if the next task needs his PC, his decision, or an action only he can take, say so and stop. Do not guess your way past it.
 - Do not create GitHub repos unasked. He creates them. If the project has no repo yet, the push step waits on that.
@@ -47,6 +49,7 @@
 - Proven the same evening: SKRIBE v0.1 was verified, pushed, Released, and emailed with no separate push approval waited for; the CodeRabbit thread built Tier 2 items T2-4, T2-5, and T2-6 each starting the same turn the previous one shipped; the GUIFX thread handed six held items to DEV for porting and started T6 in the same turn; a merge coordinator ran a nine-item dependency-ordered port queue (GUIFX six, then T2-4, T2-5, T2-6) with anchor-port plus battery on each.
 - Found in the first BNB delta scan (2026-11-12), Code Forge family threads; not in the 17:54 audit because the rule was set after it.
 - Corrected 2026-11-13: shipping is GitHub-only (push + Release, no zip email unless he explicitly asks), and approval cards get no pre-warning — they happen automatically and warning about them is stalling (Joshua, BNB repos thread, 2026-11-13 ~09:54).
+- Real-function-only rule added 2026-11-13 (RIZA thread 19:02): builds must serve a real function and purpose.
 
 ## Available connectors
 

@@ -1,0 +1,7 @@
+name: "paid-service-viability-filter"
+title: "Paid-service viability filter: which projects survive as paid online services"
+description: "Decide which projects can be rebuilt as credited or paid online services by mapping the credit fit, checking what is already free, and cutting everything an existing free product beats — keeping only the survivors, ranked, with a named free killer next to every cut."
+category: "Work and knowledge"
+include_in_prompt: false
+number: "S72"
+tier: 3

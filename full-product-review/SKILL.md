@@ -34,6 +34,12 @@
 - The same verbatim per-item ask can run as a series across a list: one item at a time, each item getting its own report (features, functions, strengths, weaknesses, gaps, UI flaws, innovation/design suggestions) plus its own prioritized task list, delivered one at a time and rolling to the next item under the no-stalling rule.
 - The ask text: "audit each one one at a time, report features functions, strengths, weaknesses, gaps, ui flaws or innovation time suggestions, design suggestions, anything new or needs improvement or updated or upgraded... make a task list".
 
+## Parallel cluster variant
+
+- For a large codebase, split the audit into clusters (by subsystem), one worker per cluster, read-only, every finding grounded in file:line. Merge the raw findings and dedupe cross-cluster duplicates before reporting: the Code Forge audit (main chat, 2026-11-13 17:03–17:18) ran 7 clusters, 185 raw findings, 3 cross-cluster duplicates merged, 181 unique (2 P0, 51 P1, 128 P2).
+- Reuse the audits already done instead of redoing them: the Forge audit reused the S2–S7 security audits and found no unlisted security issue. A prior list is a starting point, not a thing to re-derive.
+- Mark findings already covered by in-flight work so they do not come back as missing: the DATAPACKR audit (2026-11-13 19:51) marks anything v0.2 already covers as covered, not as a gap.
+
 ## Report the review and stop
 
 - Deliver the review in chat with the headlines and the ranked list, and write the full report to a file for the record.

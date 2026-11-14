@@ -1,0 +1,7 @@
+name: "low-usage-state-capture"
+title: "Low-usage state capture: when the meter is nearly out, get every thread's task list into its own thread"
+description: "When usage is nearly out, order every work thread to write its task list in its own thread — highest priority first, done/open/blocked — list only, no new work to produce it, so the next session starts from written state instead of memory."
+category: "Development"
+include_in_prompt: false
+number: "S67"
+tier: 2

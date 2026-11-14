@@ -4,7 +4,7 @@ All notable changes to BNB-SKILLS. Dates are in EST.
 
 ## Third delta scan — 2026-11-13
 
-SHA: TBD
+SHA: 3c512e5b
 
 Third delta scan of all chat threads (window ~10:00–19:53 EST
 2026-11-13, 82 threads read). Six new skills: S67

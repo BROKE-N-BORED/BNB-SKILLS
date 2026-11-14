@@ -4,7 +4,7 @@ All notable changes to BNB-SKILLS. Dates are in EST.
 
 ## Fifth delta scan — 2026-11-13
 
-SHA: TBD
+SHA: 19be266d
 
 Fifth delta scan of all chat threads (window ~20:24–23:17 EST
 2026-11-13, 83 threads read). No new skills, no new tools, no new

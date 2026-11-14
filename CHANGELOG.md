@@ -2,6 +2,18 @@
 
 All notable changes to BNB-SKILLS. Dates are in EST.
 
+## Fourth delta scan — 2026-11-13
+
+SHA: TBD
+
+Fourth delta scan of all chat threads (window ~19:53–20:24 EST
+2026-11-13, 82 threads read). A 30-minute window: no new skills, no
+new tools, no new presets/roles/plugins. Two skill updates: the
+encyclopedia rebuild of the UI design library + the gap-audit-before-
+every-sweep standing rule (S70), and the three-chapter confirmation of
+the roadmap-first manual shape + one chapter per "Go" (S71). Library
+still 72 skills (Tier 1: 20, Tier 2: 44, Tier 3: 8).
+
 ## Third delta scan — 2026-11-13
 
 SHA: 3c512e5b

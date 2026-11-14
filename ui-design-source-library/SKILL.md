@@ -47,11 +47,34 @@
   feels good, the exact numbers (timings, sizes, easing), which apps
   it fits, and what to watch out for.
 - Source and date every file, so nothing goes stale silently.
-- Keep the repo organized for fast lookup: numbered technique files,
-  a README that says what the library is and how to find things, and
-  the master rules file at the root as the source of truth — from
-  2026-11-13, ALL UI-related design rules and material get pulled from
-  this repo, not from scattered local copies.
+- Keep the repo organized like an encyclopedia, for fast lookup: one
+  entry per file under `entries/`, each self-contained with its own
+  sources and See also cross-references; permanent numbers (001–024
+  and on) that are never renumbered or reused; an INDEX.md that is
+  alphabetical first, then by topic, then by app; a CHANGELOG.md, a
+  queue.md for held items and gaps, a verdicts.md for the feedback
+  loop, and an entry template. The filter lives in one place only,
+  the README. The master rules file stays at the root as the source
+  of truth — from 2026-11-13, ALL UI-related design rules and material
+  get pulled from this repo, not from scattered local copies. Batch
+  files (many techniques in one file) were the seed shape; the
+  encyclopedia layout replaced them once the library passed two
+  batches, because one technique is one readable page on the phone
+  and adding one never touches another file.
+
+## Gap-audit the library before every sweep
+
+- Before each research sweep, check what the library is missing
+  first, so the sweep fills what the library needs as well as
+  finding new material (standing rule from Joshua, 2026-11-13
+  ~20:22).
+- The audit covers: entries with no attributable source, batch-level
+  sources never attributed to an entry, queue.md items (held entries
+  and source gaps), and non-technique entry types the library does
+  not cover yet.
+- The sweep then does gap-filling first and new entries second —
+  Drop 3 opened with the audit (five sourceless entries, two
+  unattributed roundups, the queue) before researching new entries.
 
 ## Seed the repo, then diff every upload before adding it
 
@@ -88,6 +111,18 @@
   reconciled to the new Q4, README updated). The three uploads were
   diffed first: 42 byte-identical to 001, 44 word-for-word inside the
   master, 43 the pre-removal STELLA snapshot that stays out.
+- The library grew past the batch shape the same evening. Drop 2
+  (games, editors, gadgets — 12 more techniques, all sources
+  spot-checked against the live pages) landed ~20:02–20:06, and
+  Joshua then asked for the repo run "like an encyclopedia library
+  on ui design" (~20:08). The rebuild split both batches into 24
+  entries under `entries/` (001–012 Drop 1, 013–024 Drop 2), added
+  INDEX.md, CHANGELOG.md, verdicts.md, queue.md, templates/entry.md,
+  and the MIT LICENSE, moved the filter to the README alone, and
+  retired the old batch files; pushed 20:20 and verified by script
+  (all entry bodies verbatim vs the batch sources, all links
+  resolve). Drop 3 opened ~20:22 under the gap-audit-first standing
+  rule.
 - The source-of-truth order is main chat, 2026-11-13 19:47: "For now
   on all ui reacted design rules and stuff get pulled from this repo".
 

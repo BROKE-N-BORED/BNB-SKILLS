@@ -53,7 +53,7 @@
 
 ## Where this comes from
 
-- RIZA thread, 2026-11-13 18:15–19:49 EST: Joshua ordered "the full
+- RIZA thread, 2026-11-13 18:15–20:20 EST: Joshua ordered "the full
   manual on building this from scratch start with the table of
   contents so we have a real road map" for the better-way-to-compute
   project. The roadmap (7 parts, 34 chapters, appendices A–F) was
@@ -70,9 +70,16 @@
   startup timings re-measured under load came back slower than the
   chapter's table (sandbox load), order and gap hold, chapter
   discloses method + machine.
-- One chapter is done so far. The workflow is complete end-to-end once
-  (roadmap + chapter 1); later chapters will either confirm the shape
-  or refine it.
+- Three chapters are done so far, all in the same shape: chapter 1
+  (19:49), chapter 2, "The core idea" (~20:06, just under 4,700
+  words, all 5 subsections, worked arithmetic re-checked by script),
+  and chapter 3, "Rules and limits for this build" (~20:20, just over
+  3,100 words, all 3 subsections, machine specs matched to his PC).
+  Each was verified by the author (0 em-dashes, all planned
+  subsections, numbers checked) and pushed with a blob SHA read-back.
+  The workflow is confirmed end-to-end three times over, not once.
+- Each chapter starts on the user's go-ahead — a one-word "Go" in the
+  thread — one chapter at a time. Do not chain chapters without it.
 
 ## Alternatives for better results
 

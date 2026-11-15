@@ -25,7 +25,8 @@ new "Verify before you claim" examples; S6 gains the v0.53 installer
 checklist and seamless install; S69 gains 10 new recovery shapes;
 S70 and S71 get their stale counts fixed (library at 72 entries,
 Drops 5–6; RIZA manual through chapter 13, Part 3 underway). Library
-now 83 skills (Tier 1: 22, Tier 2: 51, Tier 3: 10).
+now 83 skills (Tier 1: 22, Tier 2: 51, Tier 3: 10). Pushed as commit
+394470b2.
 
 ## S6 template fix — 2026-11-14
 

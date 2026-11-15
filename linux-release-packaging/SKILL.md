@@ -14,6 +14,7 @@ Executable twin in BNB-TOOLS: [T6 linux-release-packager](https://github.com/BRO
 - Ship the prebuilt PNGs in the zip as well, so the install works even where the renderer is missing.
 - Test the icon at the small sizes the desktop actually shows, and keep it readable at 16, 32, and 48 pixels.
 - Render the PNGs in their own process, not inside the test or zip-build process: a render crash inside the test process fails the suite instead of the render. DATAPACKR v0.1.1 (2026-11-13 19:44): the fresh-clone suite failed 3 tests because the icon render crashed inside the test process; rendering in a subprocess fixed it (106/106 green both suites).
+- The zip builder must be self-contained from a clean clone: render generated assets from source (SVG) at pack time instead of depending on gitignored files. (WINLINX: `build_zip.py` failed without the gitignored PNGs; render from the SVG before packing.)
 
 ## Build the GUI installer
 
@@ -28,8 +29,13 @@ Executable twin in BNB-TOOLS: [T6 linux-release-packager](https://github.com/BRO
 - The installer creates a private `.venv` in the install folder and installs the GUI toolkit into it itself — never `--user`, never `--break-system-packages` (both wrong on Mint 3.12) — and the launcher prefers `.venv/bin/python`. Never hand the user a `pip install` command: it fails on Mint's externally-managed Python (SKULLPT v1.1 printed `pip install PySide6` as the fix for its own missing dependency; the fix did not work and the app had never opened on the target PC).
 - Cap parallel work in the installer to what the machine can hold: a compile or download step that spawns one job per core can fill 8 GB and swap the whole desktop to a freeze (Pixel Forge: 4 C++ compile jobs at once froze Joshua's PC mid-install; v0.51 caps the build to 2 jobs on an 8 GB machine so the desktop stays usable). Size job counts by RAM, not just by cores, and leave headroom for the desktop itself.
 - Make long installer steps resumable: a partial download is detected and resumed instead of restarted, and an interrupted build resumes where it stopped (Pixel Forge v0.51: Joshua's install stuck at 92% and he stopped it to get his computer back — the fix resumes both the download and the engine build). Never make the user re-download or rebuild from zero because an install was interrupted.
+- Installer checklist from Pixel Forge v0.53 (2026-11-14 ~09:38): disk-space check BEFORE the big writes; cheap steps first; progress bar moving INSIDE a long step, not just per-step; cancel mid-step that leaves everything resumable; show apt/pip output on failure.
+- Seamless install: one install gets EVERYTHING, including third-party programs the app depends on (Blender, Ollama + model) — not just the app's own Python deps — and API keys are set up in-app (paste the key, the app checks it works, saves it), never in the terminal, never in code. (SKULLPT v1.8, 2026-11-14–15: "ALL DEPENDENCIES SHOULD BE INSTALLED WHEN INSTALLING SKULLPT I SHOULDN'T HAVE TO USE THE TERMINAL TO PULL OR DOWNLOAD ANYTHING ELSE".)
+- Packaging downloads are pinned to a release and checksum-verified; never fetch unpinned 'latest'. (WINLINX: yabridge was unpinned 'latest' with no checksum — pin the release + SHA-256.)
+- Installer keep/temp dirs must be a sibling of the install dir (same filesystem), never the system temp directory — tmpfs is small and a filled temp dir strands data mid-run. (Android Photo Transfer, 2026-11-14.)
 - Audit every user-facing string in the installer, launcher, app, README, and desktop files for terminal commands — the install/run path must require none. A missing-dependency error points at the installer ("double-click Install SKULLPT"), never at a command. The README documents a terminal route only in a clearly labeled optional subsection for advanced users.
 - Guard the first run in the app itself, not just in the installer: wrap the GUI import so a missing PySide6 shows a plain-language message naming the missing package and pointing at the installer, never a traceback. Put the same guard in `run.sh`. Test it by running the app with the dependency absent — DUO v0.14 proved the guard by running with no PySide6 installed at all.
+- Accept any input format and normalize internally; never reject the user's input for its format. (SHELFLIFE, 2026-11-14: any photo, any size, any file type — HEIC, WebP, and AVIF all converted.)
 
 ## Write a .desktop file that survives GLib parsing
 
@@ -51,10 +57,11 @@ Executable twin in BNB-TOOLS: [T6 linux-release-packager](https://github.com/BRO
 - Quote absolute paths in generated `.desktop` files ONLY on the Exec= line, never on the Icon= line: GLib strips quotes from Exec but takes an Icon value literally, quotes included, so a quoted Icon= points at a path with literal quote characters in it and the icon never shows (STELLA audit #6 W1: the v0.1 quoting fix backfired — the quoted Icon broke the menu icon on every install; a libgio probe showed the resolved path carrying the quotes; fixed by unquoting in v0.3.1). An unquoted Icon= resolves fine, including on a spaced path.
 - Name the fix for a missing system prerequisite — and heal it when you can: when the installer needs something like `python3-venv`, install that one package itself with one pkexec call (a GUI password prompt, no terminal) and retry automatically, instead of printing a command for the user. Only if the user declines the prompt or apt fails, say so in plain language. Never fail cryptically downstream, and never put a terminal command in a user-facing message.
 - Snapshot pushes cannot carry binary files: keep the icon SVG as the source of truth in the repo with a render script to regenerate the PNGs, and ship the prebuilt PNGs in the Release zip only — do not expect them to survive a push.
+- Binary assets (icon PNGs) go in via browser commit, not the code push. (Android Photo Transfer, 2026-11-14: the icon PNGs were committed via browser because they can't travel with the code push.)
 
 ## Verify the package before it ships
 
-- Audit the zip contents before it ships: list every file and confirm each one belongs to the program. No user projects, no user data, and no stray demo or leftover folders — the distribution is the program only. A stray gets removed from the tree (and from main via the web UI when it is already there) before the Release is cut.
+- Audit the zip contents before it ships: list every file and confirm each one belongs to the program. No user projects, no user data, and no stray demo or leftover folders — the distribution is the program only. A stray gets removed from the tree (and from main via the web UI when it is already there) before the Release is updated.
 - Verify the zip exec bits after repacking (see [ship-pipeline](../ship-pipeline/SKILL.md)) and test-extract the zip before sending it.
 - Test the installer in a clean environment that does not already have the dependencies, because a venv that already has them hides a missing-deps failure.
 - Select nothing by default in the installer or the app, and let the user choose.
@@ -67,7 +74,7 @@ Executable twin in BNB-TOOLS: [T6 linux-release-packager](https://github.com/BRO
 
 ## Available connectors
 
-- [GitHub](../CONNECTORS.md) for pushing the packaged project and cutting the Release that carries it.
+- [GitHub](../CONNECTORS.md) for pushing the packaged project and updating the Release that carries it.
 
 ## Alternatives for better results
 

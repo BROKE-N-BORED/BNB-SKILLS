@@ -1,0 +1,374 @@
+# ============================================================================
+# DQI — Design Quality Index, v1.0.0
+#
+# A rubric for scoring the quality of 3D design and results, for use with
+# Reblend and SKULLPT. Built the way FZI (SKRIBE's writing rubric,
+# v3.2.0-ALPHA) is built: weighted dimensions, plain-words score levels,
+# a composite score, bands, hard-fail gates, and an iteration loop.
+#
+# How to read this file:
+#   - Each dimension is scored 0-10 (whole or half points).
+#   - The composite is (sum of weight x score) x 10, capped at 100.
+#   - The bands and gates decide the verdict, not the number alone.
+#   - "Plain words" is deliberate: every level says what it looks like,
+#     not what a textbook calls it.
+#
+# Hardware this rubric is scored against:
+#   Joshua's PC — 8 GB RAM, Ryzen 3, no GPU, spinning hard drive.
+#   Performance is a dimension, not a footnote. A beautiful scene that
+#   will not run on his PC is not a good scene for this project.
+# ============================================================================
+
+name: DQI
+full_name: Design Quality Index
+version: "1.0.0"
+based_on: "FZI v3.2.0-ALPHA (SKRIBE writing rubric) — same structure, 3D criteria"
+date: "2026-11-14"
+applies_to:
+  - reblend
+  - skullpt
+
+# ---------------------------------------------------------------------------
+# Scoring
+# ---------------------------------------------------------------------------
+scoring:
+  scale: "0-10 per dimension (whole or half points allowed)"
+  composite_formula: "(sum of weight x score) x 10, capped at 100, rounded to 2 decimals"
+  note: "Fidelity is adjusted by the Reference Verification Score (RVS) before
+    it enters the composite, the same way FZI adjusts Accuracy by the
+    Evidence Verification Score (EVS). See reference_verification below."
+
+# Weights when the job HAS motion (all 8 dimensions). Sum = 1.00.
+weights:
+  modeling: 0.20
+  fidelity: 0.20
+  materials: 0.15
+  lighting: 0.10
+  composition: 0.10
+  animation: 0.10
+  render_quality: 0.05
+  performance: 0.10
+
+# Weights when the job has NO motion (animation is not scored; its weight is
+# spread across the other seven dimensions in proportion). Sum = 1.00.
+# Use this set for stills, single models, and SKULLPT jobs with no animation
+# deliverable.
+weights_no_animation:
+  modeling: 0.2222
+  fidelity: 0.2222
+  materials: 0.1667
+  lighting: 0.1111
+  composition: 0.1111
+  render_quality: 0.0556
+  performance: 0.1111
+
+# ---------------------------------------------------------------------------
+# Reference Verification Score (RVS) — adjusts Fidelity
+# Mirrors FZI's EVS: a fidelity score is worth more when it was checked
+# against something real, and worth less when there was nothing to check
+# against. adjusted_fidelity = fidelity_score x RVS.
+# ---------------------------------------------------------------------------
+reference_verification:
+  name: RVS
+  full_name: Reference Verification Score
+  applies_to: fidelity
+  formula: "adjusted_fidelity = fidelity_score x RVS"
+  levels:
+    - value: 1.0
+      when: "Checked against a reference image AND the description file or brief"
+    - value: 0.9
+      when: "Checked against the description file or brief only (no reference image)"
+    - value: 0.8
+      when: "No reference and no description — scored on internal consistency only"
+    - value: 0.5
+      when: "The work contradicts the brief or the reference"
+
+# ---------------------------------------------------------------------------
+# Bands — what the composite means (same bands as FZI)
+# ---------------------------------------------------------------------------
+bands:
+  - min: 95
+    max: 100
+    name: "Zenith Excellence"
+    action: "Ship it. Nothing left to fix."
+  - min: 90
+    max: 94
+    name: "Superior Quality"
+    action: "Publish-ready."
+  - min: 80
+    max: 89
+    name: "Strong Performance"
+    action: "Ship with minor fixes."
+  - min: 70
+    max: 79
+    name: "Acceptable Standard"
+    action: "Needs revisions."
+  - min: 0
+    max: 69
+    name: "Rejected"
+    action: "Major revisions required."
+
+# ---------------------------------------------------------------------------
+# Hard-fail gates — any one of these fires and the verdict is Rejected,
+# whatever the composite says. (FZI has the same idea: a gated dimension
+# caps the verdict.)
+# ---------------------------------------------------------------------------
+gates:
+  - dimension: fidelity
+    condition: "score <= 3"
+    reason: "It is the wrong thing, or it contradicts the brief. Polish on the wrong object is not quality."
+  - dimension: modeling
+    condition: "score <= 2"
+    reason: "The mesh is broken — holes, inverted faces, or a shape that does not read. Nothing downstream can fix a broken mesh."
+  - dimension: performance
+    condition: "score <= 2"
+    reason: "It will not run on his PC. A scene he cannot open is not a scene."
+  - dimension: any
+    condition: "score == 0"
+    reason: "A zero on any dimension means that part of the work is missing or broken outright."
+
+# ---------------------------------------------------------------------------
+# Iteration loop — same rules as FZI's loop (skribe loop.py)
+# ---------------------------------------------------------------------------
+loop:
+  target: 90
+  target_note: "The floor of Superior Quality. Stop iterating when you reach it."
+  rules:
+    - "Gain of +1 or less on a round: finalize. You are polishing, not improving."
+    - "Score drops on a round: keep the best version so far and finalize. Do not chase a worse version."
+    - "No change on a round: finalize."
+    - "Max 5 cycles. After the fifth, finalize the best version you have."
+  skullpt_note: "SKULLPT's critic caps vision rounds at 2 by design. That is the
+    tighter implementation limit and it stays — the 5-cycle rule is the outer
+    limit for the rubric, not a reason to change SKULLPT's cap."
+  reblend_note: "Reblend's AI shell uses the full loop: score, fix the lowest
+    dimension first, re-score, stop at 90 or at the loop rules."
+
+# ---------------------------------------------------------------------------
+# Dimensions
+# ---------------------------------------------------------------------------
+dimensions:
+
+  - id: modeling
+    name: "Modeling"
+    weight: 0.20
+    applies_to: [reblend, skullpt]
+    judged_by: "machine + vision"
+    measures: "The shape itself: is the form right, is the mesh clean, and does it hold up when it moves or gets close."
+    pass_at: 5
+    hard_fail_at: 2
+    levels:
+      0: "Broken or missing. The mesh has holes you can see through, faces pointing the wrong way, or the shape is unrecognizable."
+      3: "Rough. The shape is there, but the proportions are off, the silhouette does not read, or the mesh is messy — n-gons on bends, poles on the face, loose parts."
+      5: "Good enough to use. Proportions are right, the silhouette reads, the mesh is clean enough to render and deform. Some sloppy areas remain."
+      8: "Strong. Clean quads where they matter, edge flow follows the form, proportions are right, detail is where the eye goes. Small flaws only."
+      10: "The bar the open movies set. Topology you could hand to another artist, a silhouette that reads in a shadow, proportions that feel right from every angle."
+    checks:
+      - "Triangle count is inside the budget for the object's role (see performance)."
+      - "More than 98% quads on parts that deform; triangles only on flat, non-deforming areas."
+      - "No n-gons on bends or on anything that subdivides."
+      - "No non-manifold edges, no inverted normals, no loose vertices, no interior faces."
+      - "Silhouette test: the object reads from its shadow alone."
+      - "Proportions match the reference or the description."
+      - "Poles (vertices where 3 or 5+ edges meet) sit in flat, non-deforming areas only."
+    evidence:
+      - "Wireframe shot"
+      - "Turntable or multi-angle render"
+      - "stats.json (triangle count)"
+      - "Silhouette render (flat black, no texture)"
+
+  - id: fidelity
+    name: "Fidelity to the brief"
+    weight: 0.20
+    applies_to: [reblend, skullpt]
+    judged_by: "vision + machine (SKULLPT constraint checks)"
+    measures: "Does it match what was asked for — the description file, the brief, the reference image. This is SKULLPT's core job, and it is scored first for a reason: the right thing done plainly beats the wrong thing done beautifully."
+    pass_at: 5
+    hard_fail_at: 3
+    adjusted_by: "RVS (see reference_verification)"
+    levels:
+      0: "Wrong thing entirely, or nothing matches the brief."
+      3: "Some parts match, but major parts are missing or wrong — wrong object, wrong proportions, key parts absent."
+      5: "Recognizably what was asked for. All major parts present, sizes roughly right. Some details off."
+      8: "Matches the brief closely. Parts, sizes, and placement all right. Small deviations only."
+      10: "Exactly what was asked for, down to the details — and the details the brief did not specify are filled in sensibly."
+    checks:
+      - "Every part named in the description file is present."
+      - "Sizes are within tolerance of the description."
+      - "Placement is right (sits_on, inside, attached to — whatever the description says)."
+      - "Matches the reference image, if one was given."
+      - "No invented parts that contradict the brief."
+    evidence:
+      - "Description file"
+      - "Reference image, if given"
+      - "Side-by-side render against the reference"
+
+  - id: materials
+    name: "Materials and textures"
+    weight: 0.15
+    applies_to: [reblend, skullpt]
+    judged_by: "vision + machine"
+    measures: "The surfaces: do they look like what they are supposed to be, and are the textures built right."
+    pass_at: 5
+    hard_fail_at: null
+    levels:
+      0: "No materials at all, or everything is one flat grey — or pink, which means the textures are missing."
+      3: "Materials are present but wrong — metal that looks like plastic, wood with no grain, textures stretched or blurry."
+      5: "Reads as the right material. Some flat spots, some stretch, but the eye accepts it."
+      8: "Believable surfaces. Roughness varies the way the real thing would, metal is metal, UVs are clean, texture resolution fits the object."
+      10: "You could touch it. Every surface has the variation and wear the real thing would have, and the texture work is invisible — nothing stretched, nothing bleeding, nothing blurry."
+    checks:
+      - "PBR maps present (albedo, normal, and roughness at minimum; metalness, occlusion, and displacement where the surface needs them)."
+      - "Metalness is 0 or 1 — almost never in between."
+      - "Albedo is de-lit: no shadows or highlights baked into the color map."
+      - "Roughness varies across the surface; nothing is one flat roughness value."
+      - "UVs: no stretching, no overlapping islands on different parts, even texel density, 2-4 px padding between islands."
+      - "Texture resolution fits the object's role (see performance)."
+    evidence:
+      - "Close-up render of each main material"
+      - "UV layout"
+      - "Texture list with resolutions"
+
+  - id: lighting
+    name: "Lighting"
+    weight: 0.10
+    applies_to: [reblend, skullpt]
+    judged_by: "vision"
+    measures: "The light: does it show the subject, set the mood, and feel like it belongs to the scene."
+    pass_at: 5
+    hard_fail_at: null
+    levels:
+      0: "No light at all (a black render) or so blown out that nothing is visible."
+      3: "Lit, but flat — no direction, no shadows, or the subject is lost in dark or glare."
+      5: "The subject is visible and grounded. One light leads. Some flat or muddy areas."
+      8: "Deliberate light. One dominant source, shadows that ground the subject, color temperature that fits the mood."
+      10: "Light that tells the story. Every shadow earns its place, the subject glows without glare, the mood is unmistakable."
+    checks:
+      - "One dominant light source; the rest support it."
+      - "Shadows are present, soft, and ground the subject (contact shadows where things touch)."
+      - "The subject is separated from the background."
+      - "No crushed blacks or blown highlights that lose the subject."
+      - "Color temperature fits the mood of the scene."
+    evidence:
+      - "Final render"
+      - "Lighting-only pass, if available"
+
+  - id: composition
+    name: "Composition and camera"
+    weight: 0.10
+    applies_to: [reblend, skullpt]
+    judged_by: "vision"
+    measures: "The frame: is the subject clear in the first second, and does the shot feel deliberate."
+    pass_at: 5
+    hard_fail_at: null
+    levels:
+      0: "No subject visible, or the frame is empty or cut off so badly that nothing reads."
+      3: "The subject is there but hard to find — cluttered, badly cropped, or the camera fights the scene."
+      5: "The subject is clear. Framing is sensible. Some dead space or awkward edges."
+      8: "A deliberate frame. The eye lands on the subject first, depth in three layers, nothing important cut off."
+      10: "A shot worth framing. Every element earns its place, the composition guides the eye, the focal length flatters the subject."
+    checks:
+      - "The subject is clear in the first second."
+      - "Rule of thirds, leading lines, or framing used — or deliberately broken."
+      - "Focal length is sensible for the subject (no wide-lens face distortion, no flat long-lens scene unless intended)."
+      - "Nothing important is cut off at the frame edge unless it is cut off on purpose."
+      - "Depth: foreground, middle, and background are all present where the scene calls for them."
+    evidence:
+      - "Final render"
+
+  - id: animation
+    name: "Animation"
+    weight: 0.10
+    applies_to: [reblend, skullpt]
+    conditional: true
+    condition: "The job has motion — keyframes, a simulation, or a video export. If there is no motion, do not score this dimension; use weights_no_animation instead."
+    judged_by: "vision"
+    measures: "The motion: does it move like it has weight, and does it read clearly. Scored against the 12 principles of animation (see research-notes.md, section 4)."
+    pass_at: 5
+    hard_fail_at: null
+    levels:
+      0: "No motion where motion was asked for, or the motion is broken — pops, parts flying off, feet through the floor."
+      3: "It moves, but it is linear and stiff — no easing, timing does not match the weight, or feet slide."
+      5: "Moves believably. Easing is there, timing is roughly right for the weight. Some stiff or floaty moments."
+      8: "Good motion. Easing, anticipation, follow-through, and arcs are all present. Weight reads. Small timing slips only."
+      10: "Motion that feels alive. Every move has weight and intent, the 12 principles are all working, and nothing breaks the spell."
+    checks:
+      - "Easing on all moves — no linear keyframes on anything that is supposed to feel alive."
+      - "Timing matches weight: heavy things move slower and take more frames."
+      - "Anticipation before big moves (crouch before a jump, wind-up before a throw)."
+      - "Follow-through and overlap on loose parts (hair, cloth, tails) — nothing stops all at once."
+      - "Arcs, not straight lines, on living motion."
+      - "No foot-slide, no pops, no intersections."
+    evidence:
+      - "Playblast or video export"
+      - "Motion path view, if available"
+
+  - id: render_quality
+    name: "Render and output quality"
+    weight: 0.05
+    applies_to: [reblend, skullpt]
+    judged_by: "machine + vision"
+    measures: "The output itself: is the finished file clean, complete, and the right quality."
+    pass_at: 5
+    hard_fail_at: null
+    levels:
+      0: "No output, or the file will not open, or it is corrupt."
+      3: "Output exists but is rough — heavy noise, fireflies, compression mush, or missing textures showing as pink or black."
+      5: "Clean enough to use. Some noise or softness, but nothing that distracts from the subject."
+      8: "Clean output. No distracting noise, correct resolution, files valid and complete."
+      10: "Finished to a professional standard. Clean, sharp where it should be sharp, correct format and resolution, nothing missing."
+    checks:
+      - "The output file opens and is valid (PNG, GLB, .blend — whatever the job promised)."
+      - "Correct resolution for the job."
+      - "No fireflies or noise that distract from the subject."
+      - "No missing textures (no pink, no black)."
+      - "No compression artifacts that lose detail."
+    evidence:
+      - "Output file"
+      - "Render log"
+
+  - id: performance
+    name: "Performance on his PC"
+    weight: 0.10
+    applies_to: [reblend, skullpt]
+    judged_by: "machine"
+    measures: "Does it run on his PC — 8 GB RAM, Ryzen 3, no GPU, spinning hard drive. A scene he cannot open is not a scene."
+    pass_at: 5
+    hard_fail_at: 2
+    levels:
+      0: "Will not run at all — crashes, or the machine swaps to a standstill."
+      3: "Runs, but barely — the viewport crawls, the render takes all night, or RAM is over the limit."
+      5: "Usable. Fits in RAM, the viewport is workable, render time is sane for the job. Some sluggish spots."
+      8: "Comfortable. Well inside the budgets, the viewport is smooth, render time is reasonable."
+      10: "Light and fast. Well under every budget with room to spare — and nothing was cut to get there. The quality is in the craft, not the polygon count."
+    checks:
+      - "Triangle count is inside the budget for the object's role."
+      - "Texture sizes are in budget (512-1024 working range; 2K for a hero object only)."
+      - "The whole scene, the app, and the OS fit in 8 GB RAM — no swap."
+      - "The viewport stays interactive."
+      - "Render time is sane for the job."
+    budgets:
+      scene_soft_cap_tris: 100000
+      hero_character_tris: "15000-50000"
+      background_character_tris: "2000-10000"
+      hero_prop_tris: "5000-20000"
+      background_prop_tris: "500-5000"
+      texture_working_range_px: "512-1024"
+      texture_hero_exception_px: 2048
+      ram_limit_gb: 8
+    evidence:
+      - "stats.json"
+      - "Render log"
+      - "Memory reading during load and render"
+
+# ---------------------------------------------------------------------------
+# How to score — the steps, in order
+# ---------------------------------------------------------------------------
+how_to_score:
+  - "1. Decide whether the job has motion. If not, use weights_no_animation and do not score animation."
+  - "2. Score modeling first. If it hard-fails (<= 2), stop — the verdict is Rejected, and the fix is the mesh."
+  - "3. Score fidelity against the description file or brief, then apply the RVS. If adjusted fidelity is <= 3, the verdict is Rejected."
+  - "4. Score the remaining dimensions from the evidence each one names."
+  - "5. Compute the composite. Check the gates. Read the band."
+  - "6. If the verdict is below Superior (90) and the job is being iterated, fix the lowest dimension first, then re-score. Follow the loop rules."
+  - "7. Write down the scores and the evidence. A score without evidence is a guess."

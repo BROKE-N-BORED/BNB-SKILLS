@@ -15,7 +15,7 @@ Walk the user through creating an empty GitHub repo from their phone, verify it 
 
 - Tell the user to leave ALL checkboxes off, with no README, no .gitignore, and no license, because any file the creation step adds will collide with the first push.
 
-- Tell the user what the app-access check is, that the Meta Muse AI app needs access to the new repo, either by adding the repo to the app's access list or by switching the app to All repositories, and wait for the user to confirm that step is done.
+- Tell the user what the app-access check is, that the Meta Muse AI app needs access to the new repo, either by adding the repo to the app's access list or by switching the app to All repositories, and wait for the user to confirm that step is done. The exact path is Settings → Applications → Meta Muse AI → Repository access — the app may need repository access added before any work can start on a new repo (SOLDAR, thread 6b040c11, 2026-11-14).
 
 - Keep each instruction short and single-action, because the user is following the steps on a phone.
 

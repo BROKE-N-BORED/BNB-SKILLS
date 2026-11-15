@@ -85,6 +85,16 @@
   all planned subsections, numbers checked) and pushed with a blob
   SHA read-back. The workflow is confirmed end-to-end five times
   over, not once.
+- Chapters 6–13 all landed in-window, 2026-11-13 ~23:59 through
+  2026-11-14 ~11:48, each ~4,500–5,500 words, parent-read and
+  read-back verified, each starting on his one-word "Go": ch6
+  "Memory without a garbage collector" (2026-11-13 ~23:59), ch7
+  "Functions, flow, and errors", ch8 "The human view", ch9 "The
+  binary format" (first of Part 3), ch10 "The shared middle form",
+  ch11 "The bootstrap compiler", ch12 "The optimizer", ch13 "Self
+  hosting" (2026-11-14 ~11:48). The manual is now through chapter
+  13, Part 3 underway — the workflow is confirmed end-to-end
+  thirteen times over. (RIZA thread 9aa4d5d7.)
 - Each chapter starts on the user's go-ahead — a one-word "Go" in the
   thread — one chapter at a time. Do not chain chapters without it.
 

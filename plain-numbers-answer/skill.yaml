@@ -1,0 +1,7 @@
+name: "plain-numbers-answer"
+title: "Plain-numbers answer: lead with what to do and the concrete numbers"
+description: "When presenting picks or recommendations, lead with what to do and the concrete numbers; analysis comes after, or not at all."
+category: "Work and knowledge"
+include_in_prompt: false
+number: "S83"
+tier: 3

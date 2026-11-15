@@ -962,5 +962,149 @@
       "SKILL.md",
       "skill.yaml"
     ]
+  },
+  {
+    "number": 73,
+    "slug": "no-invented-limits",
+    "title": "No invented limits: never create a cap or rule on your own without asking",
+    "description": "Never bake a cap, limit, or rule into a plan or build unless Joshua set it or you asked first — a convention from a library entry, a reference app, or a standard is not his rule, and the default is no limit.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 74,
+    "slug": "no-bandaids",
+    "title": "No bandaids: fix the root cause, never mask a defect with a workaround",
+    "description": "Fix the root cause, never paper over a defect with a UI workaround, a button, or an extra step — if the fix needs a workaround to be usable at all, the workaround is a bug, not a feature, and it gets removed when the real fix lands.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 75,
+    "slug": "self-test-command",
+    "title": "Self-test command: every shipped app gets a --self-test that proves its live path in one step",
+    "description": "Every shipped app gets a --self-test entry point that exercises its live path end-to-end in one step, not just the unit suite — the thing a user or verifier runs to prove the app actually works after install.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 76,
+    "slug": "ai-code-review-loop",
+    "title": "AI code review loop: set up an AI reviewer, verify its findings, roll it out repo by repo",
+    "description": "Set up an AI reviewer on a repo (config file, test PR, trigger the review, verify each finding against the official schema and docs before fixing, merge), roll it out repo by repo, and use the CLI for repos with no PRs.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 77,
+    "slug": "trim-test-train-cycle",
+    "title": "Trim-test-train cycle: shrink a model on a small PC without losing its one job",
+    "description": "Shrink a model on an 8 GB PC while keeping it good at its one job: define 'good' as a small set of real jobs with pass/fail, agree the no-regression line up front, then run the fixed sequence OST test > results > STELLA trim > OST test > results > STELLA train > OST test > results — OST measures, STELLA acts, and every STELLA step has an OST test with results on both sides.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 78,
+    "slug": "rubric-score-fix-rescore-loop",
+    "title": "Rubric-score-fix-rescore loop: improve scored work until the gains stop",
+    "description": "Score work against a weighted YAML rubric with hard-fail gates, fix the lowest dimension first, re-score with an independent scorer, and continue while each round gains more than a point — stopping when the gains stop. Ships the DQI 3D design rubric as its worked example.",
+    "tier": 2,
+    "category": "Creation",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "examples/rubric.yaml",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 79,
+    "slug": "living-user-test-suite",
+    "title": "Living user test suite: stable IDs, append-only results, and a compare loop",
+    "description": "A definitive, updatable user test suite for a whole app: every test has a stable ID that never gets reused, a machine-readable copy sits alongside the human doc, results save per model per machine in folders that never get overwritten, usage data rolls up into one file, regression pins guard known bugs, and a compare script diffs each later run against the baseline test by test.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 80,
+    "slug": "sweep-recheck-first",
+    "title": "Sweep-recheck-first: re-verify the last sweep before running the next",
+    "description": "Before each sweep or audit pass, re-verify every prior finding against live sources — web, GitHub, version numbers — and strike or update anything filled or partially filled, so stale findings never carry forward into the next round.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 81,
+    "slug": "destructive-action-defaults",
+    "title": "Destructive-action defaults: safe subset by default, dangerous subset needs opt-in",
+    "description": "Destructive operations default to the safe subset; the dangerous subset is named, excluded by default, and requires explicit opt-in plus a second confirmation before it runs.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 82,
+    "slug": "sleep-cycle-consolidation",
+    "title": "Sleep-cycle consolidation: consolidate, dream, replay-check, report",
+    "description": "The nightly sleep cycle per the corrected charter: consolidate only what is new since the last sleep into dated memory, dream synthetic recombinations seeded from real material, replay-check old decisions and rules for degradation, and report what consolidated, what emerged, and what the check caught.",
+    "tier": 3,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 83,
+    "slug": "plain-numbers-answer",
+    "title": "Plain-numbers answer: lead with what to do and the concrete numbers",
+    "description": "When presenting picks or recommendations, lead with what to do and the concrete numbers; analysis comes after, or not at all.",
+    "tier": 3,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
   }
 ]

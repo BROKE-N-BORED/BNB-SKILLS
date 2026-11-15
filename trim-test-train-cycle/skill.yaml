@@ -1,0 +1,7 @@
+name: "trim-test-train-cycle"
+title: "Trim-test-train cycle: shrink a model on a small PC without losing its one job"
+description: "Shrink a model on an 8 GB PC while keeping it good at its one job: define 'good' as a small set of real jobs with pass/fail, agree the no-regression line up front, then run the fixed sequence OST test > results > STELLA trim > OST test > results > STELLA train > OST test > results — OST measures, STELLA acts, and every STELLA step has an OST test with results on both sides."
+category: "Development"
+include_in_prompt: false
+number: "S77"
+tier: 2

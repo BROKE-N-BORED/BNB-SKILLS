@@ -1,0 +1,7 @@
+name: "no-bandaids"
+title: "No bandaids: fix the root cause, never mask a defect with a workaround"
+description: "Fix the root cause, never paper over a defect with a UI workaround, a button, or an extra step — if the fix needs a workaround to be usable at all, the workaround is a bug, not a feature, and it gets removed when the real fix lands."
+category: "Development"
+include_in_prompt: true
+number: "S74"
+tier: 1

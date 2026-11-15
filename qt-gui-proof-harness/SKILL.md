@@ -104,6 +104,14 @@
   — that's your call when it lands on your PC." He corrected the
   rhythm to slow breathing at 19:44.)
 
+## Check windows open at full size at his real resolution
+
+- A proof that a window opens is not enough: check it opens at
+  full size with all text visible at the user's real resolution
+  (1366x768), not just that it opens. (SKULLPT, thread d238e3ce,
+  2026-11-14: the settings window shipped squashed with text
+  running off; v1.8 fixed it with full-screen windows.)
+
 ## Probe this PySide6 build's API before you use it
 
 - Do not trust the printed Qt API surface: this PySide6 build is missing
@@ -123,6 +131,16 @@
 - (DUO v0.24, 2026-11-13 11:14 — Markdown rendering; all four items
   probed on the real build, not assumed.)
 
+## Probe a race before you fix it
+
+- Reproduce a race N/N in a minimal probe BEFORE fixing it: the
+  probe is the proof the fix addresses the real race, not a
+  guess about it. (CODE FORGE DEV, thread 94792a18, 2026-11-15
+  ~10:50 — render-follows race: when the chat re-renders, it pins
+  the scroll to a maximum that is still settling, so a pinned
+  reader ends up ~118px short of the bottom and never self-heals.
+  Proved 5/5 in a probe, then fixed.)
+
 ## Bound every run, and check stderr even when green
 
 - Run long suites under `timeout` (e.g. `timeout 280 ...`) in
@@ -138,6 +156,24 @@
 - After a recursion fix lands, keep a stderr check in the proof:
   zero RecursionError / SystemError / traceback matches in the
   suite log and the proof log.
+- An exit 139 post-verdict Qt teardown segfault counts as green:
+  when the suite has already printed its verdict and the process
+  then segfaults in Qt teardown, the run counts as green — the
+  verdict stands. (CODE FORGE battery runs, thread 94792a18,
+  overnight 2026-11-14.)
+
+## Measure CPU time, not wall time, under contention
+
+- Perf proofs under contention must measure CPU time
+  (`time.process_time()`) alongside wall time: wall time alone
+  fails good code on a loaded shared machine. (REBLEND UI9,
+  thread 2a82689c, 2026-11-15 ~11:49: the particle code's actual
+  CPU time was 25–29 ms a frame against the 41.7 ms budget, while
+  the wall clock read 227–446 ms because the shared machine was
+  loaded.)
+- Gate the run on load before trusting its timings: load1 AND
+  load5 both under 2.5 AND the runnable count low — otherwise the
+  numbers measure the machine, not the code.
 
 ## Where this comes from
 
@@ -171,6 +207,7 @@
 - Found in the second BNB delta scan (2026-11-13).
 - Found in the third BNB delta scan (2026-11-13, evening): the offscreen motion-feel limit (GUIFX brand-spark pulse, 19:40–19:44).
 - DUO DEV thread (284b2ad4), 2026-11-13 11:14 (v0.24): the QTextEdit API gaps above, probed on the real PySide6 build — `setOpenExternalLinks` / `anchorClicked` absent, `fontFamily()` segfault, `insertHtml` cursor trap. Failure detail rests on the AGENTS.md entry dated 2026-11-13, with the in-thread v0.24 ship as corroboration.
+- Found in the sixth BNB delta scan (2026-11-15): the full-size window check at 1366x768 (SKULLPT squashed settings window, thread d238e3ce, 2026-11-14); probe-first for races (CODE FORGE render-follows race, 5/5 probe, thread 94792a18, 2026-11-15 ~10:50); exit 139 post-verdict teardown segfault counts as green (CODE FORGE battery runs, overnight 2026-11-14); CPU time alongside wall time under contention (REBLEND UI9, thread 2a82689c, 2026-11-15 ~11:49).
 
 ## Alternatives for better results
 

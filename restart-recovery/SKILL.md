@@ -60,6 +60,53 @@ tell the user plainly.
   is rarely the only one. (In the 10:03 restart, the Stella v0.3 builder,
   the Stella audit #7 resume, and the MIMIK v0.3 builder all died.)
 
+## More recovery shapes (Delta 6, 2026-11-14–15)
+
+- Validate a watchdog verdict is fresh before trusting it: a verdict
+  must be timestamped after the last restart, not stale from before
+  it. (CODE FORGE battery waiter, thread 94792a18, overnight
+  2026-11-14: the waiter died in a VM restart and its stale verdict
+  was re-read as if fresh.)
+- Builder-hit-limit finisher: when a builder dies mid-task, check the
+  on-disk work first — a near-complete tree gets finished by a
+  finisher, not rebuilt. (HICKSFIELD v0.1, thread c3656ead,
+  2026-11-14 00:37: the builder stopped ~5h in, right near the end;
+  the finisher checked the on-disk work itself, finished it, and
+  verified v0.1 at 01:20.)
+- Recover dead work from the working copy yourself: the copy may hold
+  usable work even with no report. (GUIFX elision fix, thread
+  dfc78d3f, 2026-11-14: the builder "died mid-flight, probably the VM
+  restart, no report. I pulled the work out of the copy myself.")
+- Orphaned-job pickup: re-verify it yourself — checkers + probe +
+  eyeball — do not redo it. (Reblend V4 die, thread 1c1928e9,
+  2026-11-14: "picked up the orphaned job, verified it, and delivered
+  it... No redo needed. I re-ran every checker and the probe myself:
+  zero buried samples out of 282,240, all checks green. And I looked
+  at the renders with my own eyes.")
+- Empty-failure retry: when an attempt fails with nothing changed,
+  retry fresh — the empty failure is the signal, not the work.
+  (ARCHIVEFLIX, thread e5374055, twice; SHELFLIFE, thread 2b9eeac3,
+  twice — in each case the retry worked.)
+- Re-run clean under contention: do not trust a failure set from a
+  run under shared-resource contention. (STELLA, thread 2d7b2739,
+  2026-11-14: the first suite run showed 93 failures, but that was
+  the shared temp space filling up from all the other threads
+  building at once, not the code. Re-ran clean.)
+- Checkpoint per unit of work, so a restart loses at most one unit.
+  (Arlo–OST model testing, thread 5dd38ce4, 2026-11-14: 11 models x
+  108 prompts, each model's results saved before the next starts.)
+- Run a hours-long pass in small restart-resilient chunks. (Code
+  Forge PC test suite, thread 9b47e1cc, 2026-11-15: "a full pass
+  takes hours on CPU and this VM restarts without warning", so
+  live-model batches run in small chunks.)
+- Clean up dead copies left by a failed build: a failed build that
+  leaves an empty copy behind, plus a rebuild's second copy, leaves
+  the user staring at two copies unable to tell which works.
+  (SHELFLIFE, thread 2b9eeac3, 2026-11-14.)
+- Reword and retry after a block, rather than repeating the blocked
+  wording. (ARCHIVEFLIX, thread e5374055, 2026-11-14: "I've sent it
+  through again with the request worded differently.")
+
 ## What this is not
 
 - This is not [un-stall-sweep](../un-stall-sweep/SKILL.md): that skill

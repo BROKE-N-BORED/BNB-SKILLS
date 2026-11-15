@@ -30,6 +30,15 @@
 - Compare visually near-identical spellings character by character in code (`list(word)` in Python), never by eye. (Same incident: the wrong tag went into fix-list item 36 while recording the correction itself, and had to be fixed — the thread's own words: "those two spellings are easy to mix up, which is the whole lesson here".)
 - Re-verify descriptions and topics live at delivery time, not from the listing you started from — metadata changes during the day (two repo descriptions changed on 2026-11-12 between the morning listing and the evening audits).
 - A report covers what was actually read; anything not checked goes in a "could not verify" section, never in the findings.
+- Check a UI/product claim against the upstream source before letting the line ship. (GUIFX Build 8, 2026-11-14–15: the resume claim was "checked against Ollama's own source code myself before letting the line ship".)
+- Verify AI-review findings against the official schema/docs — third-party guides and docs-page labels are not authoritative. (CodeRabbit, 2026-11-14: `reviews.instructions` isn't a real V2 setting; `incremental: true` isn't real, the real key is `auto_incremental_review`.)
+- Check the code before claiming a gap — two checked claims were removed as non-gaps. (Arlo-OST, 2026-11-14: distill already saves each answer as it lands and resumes past answered prompts, and OST already has a Compare tab.)
+- Prove a defect by reproduction, not just by reading. (WINLINX, 2026-11-13–14: the quarantine-id collision was proven — deleting one quarantined file can delete another.)
+- A live probe beats stale state: re-verify against the live thing at check time. (ARCHIVEFLIX, 2026-11-14: the Hide Watched finding rested on stale sandbox state; the live probe proved the filter works.)
+- Verify at real scale, not just small fixtures. (DATAPACKR v0.3, 2026-11-14: the 500 MB file run proved 719 MB peak memory with all 965,840 items found — a small-fixture suite would never have shown the memory behavior.)
+- Check the claim across all versions/trees before starting, not just in one tree. (Reblend-for-Yahtzee, 2026-11-14: "I checked the exporter in all three trees and it still drops textures on the way out to .glb".)
+- Stop-guessing pattern: after repeated wrong answers, stop pattern-matching from memory and run the authoritative external check; when sources disagree, report the split honestly rather than forcing a single answer. (Spider ID, 2026-11-14 ~22:04–22:22: after three wrong IDs, Google Lens split on image 2 — AI Overview said dark fishing spider, top visual match said Nosferatu/false wolf spider — and the split was reported as a split.)
+- Root-cause-from-source: when a failure has a plausible surface cause, read the source first to find the real dependency. (Android Photo Transfer, 2026-11-14: the app uses the WPD COM API and Wine has no WPD stack — Wine bug 44769 — found by reading the source before blaming the cable or connection.)
 
 ## Audit-series variant
 

@@ -2,6 +2,31 @@
 
 All notable changes to BNB-SKILLS. Dates are in EST.
 
+## Sixth delta scan — 2026-11-15
+
+Sixth delta scan of all chat threads (window ~23:17 EST 2026-11-13
+→ ~11:42 EST 2026-11-15). Eleven new skills: S73 no-invented-limits
+(Tier 1), S74 no-bandaids (Tier 1), S75 self-test-command, S76
+ai-code-review-loop, S77 trim-test-train-cycle, S78
+rubric-score-fix-rescore-loop (ships the DQI rubric as its worked
+example), S79 living-user-test-suite, S80 sweep-recheck-first, S81
+destructive-action-defaults, S82 sleep-cycle-consolidation (Tier 3),
+S83 plain-numbers-answer (Tier 3). S77 follows Joshua's exact
+sequence — OST test > results > STELLA trim > OST test > results >
+STELLA train > OST test > results — and is marked as the gist, with
+further detail to land when he gives it.
+
+Twenty-four existing skills updated, headlined by the "cut" wording
+fix: say "update the Release", never "cut" (S1, S6 — Joshua banned
+the word 2026-11-14). S1 also gains parent-verification of delegated
+builds, the zip audit checklist, the checksum file beside the zip,
+user-data scrubbing, and the app-does-its-own-job rule; S5 gains 9
+new "Verify before you claim" examples; S6 gains the v0.53 installer
+checklist and seamless install; S69 gains 10 new recovery shapes;
+S70 and S71 get their stale counts fixed (library at 72 entries,
+Drops 5–6; RIZA manual through chapter 13, Part 3 underway). Library
+now 83 skills (Tier 1: 22, Tier 2: 51, Tier 3: 10).
+
 ## S6 template fix — 2026-11-14
 
 SHA: 41742fee

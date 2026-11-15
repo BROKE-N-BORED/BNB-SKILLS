@@ -1,0 +1,7 @@
+name: "self-test-command"
+title: "Self-test command: every shipped app gets a --self-test that proves its live path in one step"
+description: "Every shipped app gets a --self-test entry point that exercises its live path end-to-end in one step, not just the unit suite — the thing a user or verifier runs to prove the app actually works after install."
+category: "Development"
+include_in_prompt: false
+number: "S75"
+tier: 2

@@ -17,6 +17,8 @@ Build a simulation as a standalone sandbox file first, with the core sim separat
 
 - Keep the sandbox file as the proof of the feature, even after the parts are lifted in.
 
+- Prove with a tiny run first, before committing to the big run: one small real job on a small dataset, peak RAM and time per step measured, and the export path checked end to end. (Arlo–OST model testing, thread 5dd38ce4, 2026-11-14: the probe ran 24 rows, measured peak RAM and time per step, and checked the export path back to Ollama before the 11-model run started.)
+
 ## Verify with a screenshot rig, never blind
 
 - Render the actual sandbox file with a screenshot rig, and look at the screenshots yourself before you deliver anything, because no more blind builds.

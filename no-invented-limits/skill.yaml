@@ -1,0 +1,7 @@
+name: "no-invented-limits"
+title: "No invented limits: never create a cap or rule on your own without asking"
+description: "Never bake a cap, limit, or rule into a plan or build unless Joshua set it or you asked first — a convention from a library entry, a reference app, or a standard is not his rule, and the default is no limit."
+category: "Development"
+include_in_prompt: true
+number: "S73"
+tier: 1

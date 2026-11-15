@@ -46,10 +46,20 @@
 - Write each technique up with the same shape: what it is, why it
   feels good, the exact numbers (timings, sizes, easing), which apps
   it fits, and what to watch out for.
+- A product study can come from a video, not just from live
+  software: study what the video shows the product doing and write
+  it up the same way. (PolyOrganic study, commit 559714c5,
+  2026-11-14 ~12:47, from Joshua's order to study the project and
+  its video for the encyclopedia library.)
+- Feed verdicts back into the library: when a product's verdicts
+  say what worked, record them in verdicts.md so the next audit
+  starts from what is proven. (OST verdicts push, commit 13ef7828,
+  2026-11-14: all 16 entries OST v11–v15 used are now in
+  verdicts.md with what worked.)
 - Source and date every file, so nothing goes stale silently.
 - Keep the repo organized like an encyclopedia, for fast lookup: one
   entry per file under `entries/`, each self-contained with its own
-  sources and See also cross-references; permanent numbers (001–048
+  sources and See also cross-references; permanent numbers (001–072
   and on) that are never renumbered or reused; an INDEX.md that is
   alphabetical first, then by topic, then by app; a CHANGELOG.md, a
   queue.md for held items and gaps, a verdicts.md for the feedback
@@ -90,6 +100,9 @@
   tutorials, books). Every UI task pulls from them as outside
   references; his own rules in the library repo win on any conflict,
   and brand material is inspiration, never a straight copy.
+- The three rule repos are in the README charter as of Drop 6
+  (2026-11-14 ~09:50): the handoff that failed three times with
+  database timeouts in Delta 5 finally landed.
 - The same pattern holds for the game-design library, which has its
   own rule repos (magictools for resources and tools,
   awesome-game-design for learning and design documents — Joshua,
@@ -117,6 +130,11 @@
   product's current task list (see
   [audit-findings-task-list-merge](../audit-findings-task-list-merge/SKILL.md)),
   and reorder the full list highest to lowest on his order.
+- Prove clutter by counting, not by feeling: count the controls
+  per section, so a clutter claim carries a number. (Reblend UI
+  reorganization, thread 2a82689c, 2026-11-15 ~11:15: the Material
+  section alone holds 61 controls in Simple mode, 98 in Advanced —
+  "the clutter is measured, not a feeling.")
   Report the entry count as of the audit — the library can grow
   mid-audit (Drop 3 landed while STELLA's audit #9 was running;
   the audit covered the 24 entries present when it started and
@@ -180,8 +198,12 @@
   48 entries; its gap audit found no sourceless entries, lifted the
   three thin themes from 2 to 4 entries each, and landed all four
   Drop 3 holds (coach marks, live presence, sound, diff views). Drop
-  5 opened ~22:57 under the same rule, starting with strengthening
-  the 10 entries that still have only one source each. The same
+  5 (entries 049–060) pushed 2026-11-14 ~00:05, opening with
+  strengthening the 10 entries that still had only one source each,
+  and Drop 6 ("Structure, comfort, and trust", entries 061–072,
+  commit eb7dff2f) pushed ~10:20 the same day, taking the library to
+  72 entries, with the three rule repos now in the README charter.
+  The same
   library shape is being applied a second time for game design:
   Joshua locked that charter in 23:07–23:09 the same night
   (encyclopedia from day one, gap audit before every sweep,

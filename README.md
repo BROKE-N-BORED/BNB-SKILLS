@@ -2,7 +2,7 @@
 
 Reusable agent playbooks distilled from real work in Joshua's chats. Each skill is a folder containing a `SKILL.md` playbook (plus a `skill.yaml` and supporting files where the skill needs them). A skill teaches an agent how to do one kind of task well: when to use it, the procedure, and what to check before calling it done.
 
-Built from the audit in [docs/AUDIT.md](docs/AUDIT.md) (2026-11-12, all 67 chats read: main chat plus 66 side chats, 73 raw workflow candidates deduped to 52 net-new skills). First delta scan the same evening (scan window ~17:54–19:00 EST) added 7 more skills (S53–S59) and updates to 11 existing skills. S60 (side-quest) was added later the same evening from Joshua's main-chat concept. S61 (debug-log-layer) was added the same evening from his main-chat order for a debug layer in every project build. Second delta scan (2026-11-13, window ~19:13 EST 2026-11-12 → ~10:00 EST) added 5 more skills (S62–S66) and updates to 13 existing skills; its tools (T22–T23) and tool updates live in BNB-TOOLS. Third delta scan the same evening (2026-11-13, window ~10:00–19:53 EST) added 6 more skills (S67–S72) and updates to 19 existing skills; its tools (T24–T25) and tool updates live in BNB-TOOLS. Fourth delta scan the same evening (2026-11-13, window ~19:53–20:24 EST) added no new skills — a 30-minute window — and updated 2 existing skills (S70, S71). Fifth delta scan the same evening (2026-11-13, window ~20:24–23:17 EST) added no new skills and updated 8 existing skills (S1, S5, S6, S53, S65, S69, S70, S71); its tool-definition change and spin-off candidates live in BNB-TOOLS, and a one-word spelling fix in BNB-PLUGINS.
+Built from the audit in [docs/AUDIT.md](docs/AUDIT.md) (2026-11-12, all 67 chats read: main chat plus 66 side chats, 73 raw workflow candidates deduped to 52 net-new skills). First delta scan the same evening (scan window ~17:54–19:00 EST) added 7 more skills (S53–S59) and updates to 11 existing skills. S60 (side-quest) was added later the same evening from Joshua's main-chat concept. S61 (debug-log-layer) was added the same evening from his main-chat order for a debug layer in every project build. Second delta scan (2026-11-13, window ~19:13 EST 2026-11-12 → ~10:00 EST) added 5 more skills (S62–S66) and updates to 13 existing skills; its tools (T22–T23) and tool updates live in BNB-TOOLS. Third delta scan the same evening (2026-11-13, window ~10:00–19:53 EST) added 6 more skills (S67–S72) and updates to 19 existing skills; its tools (T24–T25) and tool updates live in BNB-TOOLS. Fourth delta scan the same evening (2026-11-13, window ~19:53–20:24 EST) added no new skills — a 30-minute window — and updated 2 existing skills (S70, S71). Fifth delta scan the same evening (2026-11-13, window ~20:24–23:17 EST) added no new skills and updated 8 existing skills (S1, S5, S6, S53, S65, S69, S70, S71); its tool-definition change and spin-off candidates live in BNB-TOOLS, and a one-word spelling fix in BNB-PLUGINS. Sixth delta scan (2026-11-15, window ~23:17 EST 2026-11-13 → ~11:42 EST) added 11 more skills (S73–S83) and updates to 24 existing skills; its tools and tool updates live in BNB-TOOLS.
 
 ## Start here
 
@@ -28,7 +28,7 @@ Then work by tier: Tier 1 next, Tier 2 as needed, Tier 3 only when its niche com
   - A few skills also carry an `examples/` folder of worked examples.
   - Every supporting file is referenced by filename from its own skill's `SKILL.md`.
 - No skill ships scripts. Skills are playbooks, not code. The executable halves of some skills live in the companion repo, BNB TOOLS. The repo-level `scripts/` folder holds library tooling instead: `generate_catalog.py` (builds `skills.json`) and `check_library.py` (validates the whole library).
-- `skills.json` at the repo root is a machine-readable catalog of all 72 skills, generated from the tree. It is GENERATED — do not hand-edit it. Regenerate with `python3 scripts/generate_catalog.py`.
+- `skills.json` at the repo root is a machine-readable catalog of all 83 skills, generated from the tree. It is GENERATED — do not hand-edit it. Regenerate with `python3 scripts/generate_catalog.py`.
 - Connectors: most skills need none. The skills that touch a live service use the GitHub connector, the Gmail connector, or the custom-connector-setup skill — see [CONNECTORS.md](CONNECTORS.md).
 - Run `python3 scripts/check_library.py` to validate the library (README tables, yamls, titles, supporting-file references, absolute paths, placeholders). It also runs in CI on every push and pull request.
 
@@ -47,7 +47,7 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 - **Tier 2 — repeated, solid, project-spanning.** Used more than once, or built to be reused across projects.
 - **Tier 3 — niche / weak / single-use.** Included for completeness, built last. Some carry caveats in the skill itself: S47 is a guarded safety playbook, S50 was stated but never executed in-thread, S51 and S52 are weak.
 
-## All 72 skills
+## All 83 skills
 
 ### Tier 1 — the house operating system
 
@@ -73,6 +73,8 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 | S54 | [`pre-delivery-enhancement-gate`](pre-delivery-enhancement-gate/) | Run the mandatory enhancement gate silently before every reply, delivery, or task completion | 1 |
 | S60 | [`side-quest`](side-quest/) | When the main build hits a wall, build the smallest standalone thing that fills the gap | 1 |
 | S61 | [`debug-log-layer`](debug-log-layer/) | Every project ships with logging, error handling, and an emailable debug report | 1 |
+| S73 | [`no-invented-limits`](no-invented-limits/) | Never create a cap or rule on your own without asking — a convention is not his rule, default is no limit | 1 |
+| S74 | [`no-bandaids`](no-bandaids/) | Fix the root cause, never mask a defect with a UI workaround, a button, or an extra step | 1 |
 
 ### Tier 2 — repeated, solid, project-spanning
 
@@ -122,6 +124,13 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 | S69 | [`restart-recovery`](restart-recovery/) | Recover a builder killed by a runtime restart: judge liveness by output, never resume twice, dispatch a fresh finisher, tell the user plainly | 2 |
 | S70 | [`ui-design-source-library`](ui-design-source-library/) | Seed and maintain a design source library repo: charter with the bar, techniques from live software with exact numbers, uploads diffed before adding | 2 |
 | S71 | [`roadmap-first-manual`](roadmap-first-manual/) | Write a long manual from a table-of-contents roadmap: chapters one at a time, every number verified against sources or by measurement before pushing | 2 |
+| S75 | [`self-test-command`](self-test-command/) | Every shipped app gets a --self-test that proves its live path end to end in one step | 2 |
+| S76 | [`ai-code-review-loop`](ai-code-review-loop/) | Set up an AI reviewer on a repo, verify each finding against the official schema, roll out repo by repo | 2 |
+| S77 | [`trim-test-train-cycle`](trim-test-train-cycle/) | Shrink a model on a small PC: OST measures, STELLA trims and trains, results pass between them | 2 |
+| S78 | [`rubric-score-fix-rescore-loop`](rubric-score-fix-rescore-loop/) | Score against a weighted rubric, fix the lowest dimension first, re-score, continue while gaining | 2 |
+| S79 | [`living-user-test-suite`](living-user-test-suite/) | A stable-ID, machine-readable user test suite for a whole app, with a compare loop against baseline | 2 |
+| S80 | [`sweep-recheck-first`](sweep-recheck-first/) | Before each sweep, re-verify every prior finding against live sources — never carry stale findings forward | 2 |
+| S81 | [`destructive-action-defaults`](destructive-action-defaults/) | Destructive operations default to the safe subset; the dangerous subset needs opt-in plus a second confirmation | 2 |
 
 ### Tier 3 — niche / weak / single-use
 
@@ -135,6 +144,8 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 | S52 | [`pantry-constrained-recipe-adaptation`](pantry-constrained-recipe-adaptation/) | Adapt a recipe to what the user has and format it to match the target app; weak | 3 |
 | S66 | [`atomic-file-saves`](atomic-file-saves/) | Save by writing to a temp file and atomically renaming over the target, so a failed save leaves the previous file intact | 3 |
 | S72 | [`paid-service-viability-filter`](paid-service-viability-filter/) | Decide which projects survive as paid online services: map the credit fit, cut everything an existing free product beats, keep the survivors ranked | 3 |
+| S82 | [`sleep-cycle-consolidation`](sleep-cycle-consolidation/) | Nightly cycle: consolidate only what is new, dream from replay, replay-check old rules, report | 3 |
+| S83 | [`plain-numbers-answer`](plain-numbers-answer/) | Lead with what to do and the concrete numbers; analysis comes after, or not at all | 3 |
 
 ## Skills that live outside this repo
 

@@ -11,6 +11,7 @@ Executable twin in BNB-TOOLS: [T2 delta-port-diff-verify](https://github.com/BRO
 ## Build in an isolated copy
 
 - Copy the live tree to an isolated directory and build the feature there, leaving the shared tree untouched.
+- Check for a newer verified tree before building in an old copy, and check byte-identity of the shared parts to know what carries over. (Reblend-for-Yahtzee, 2026-11-14–15: the materials fix was redirected from the old PO2 copy onto the newer verified PO4 tree, and PO5's exporter proved byte-identical to PO4's, so the v5 texture work carried over clean.)
 - Name the copy the way the tree's own tests expect. When tests key off the directory name, a wrongly-named copy fails spuriously: Code Forge's update-gate tests need the copy named exactly "Linux Forge Agent" (or nested as <dir>/"Linux Forge Agent"), because preview_update_zip strips the zip's top folder only when it equals root_dir.name — a copy named anything else yields zero install entries and six spurious C15UpdateDialogTests failures. (DEV, 2026-11-13 ~19:47; mechanism verified in forge/update.py.)
 - Run the lead battery in the isolated copy: the new test classes plus the neighbouring test sets the change could affect.
 - Check the diff yourself in the isolated copy and confirm it holds exactly the intended changes, nothing more.
@@ -25,6 +26,7 @@ Executable twin in BNB-TOOLS: [T2 delta-port-diff-verify](https://github.com/BRO
 
 - Back up the live tree before you touch it for the merge. Back up with `cp -r`, not `cp -a` (`cp -a` fails on ownership in this environment), and verify the backup by recursive diff outside `__pycache__`.
 - Port only the delta from the isolated copy into the live tree, by anchor port of the named paths. Port by anchor or string match, not by a recorded line number: a line number from a merge note goes stale as other items land.
+- When a fix already exists and is proven in a live install, port it — don't rebuild it. (STELLA v0.24.0, 2026-11-15: items marked [FIXED HERE] were "ported straight from the live install where they were proven, not rebuilt".)
 - Preserve any live-tree work that landed while the build was held, such as inbox items or hotfixes.
 - Check the merged diff and confirm it equals exactly the intended changes.
 

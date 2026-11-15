@@ -13,6 +13,7 @@ Executable twin in BNB-TOOLS: [T4 name-check](https://github.com/BROKE-N-BORED/B
 - Search GitHub for a repo with the exact name, and count the exact-name matches.
 - Search the web for a live product, site, or service with that name, and open the top results to see whether the name is actually in use.
 - Treat a same-name product in a different field as a collision worth reporting, and let the user decide whether it matters.
+- When he rejects a whole name family, re-sweep with the rejected roots excluded rather than offering more of the same. (SOLDAR, 2026-11-14–15: "THOSE NAMES SUCK" → second sweep with no knot/forge/flow; top picks Sonl, Sigl, Wyrk, Soldar.)
 - When testing whether a remote file or repo is absent, check the error flag on the result rather than the success flag, because the GitHub file read returns success with an error flag set for missing files.
 
 ## When a check is blocked, hold the list — or show it with the caveat
@@ -21,6 +22,7 @@ Executable twin in BNB-TOOLS: [T4 name-check](https://github.com/BROKE-N-BORED/B
 - Never present an unverified name as clean. The RIZA sweeps left 27 (round 2) and 61 (round 3) names web-clear but GitHub-unverified — none of them was presented as clean.
 - If he demands the list anyway, show the web-clean names WITH the pending-check caveat stated plainly, and run the full check on his pick first: "All 13 are clean on the web. GitHub half still pending, so a couple could still die there. Pick one you like and I'll run the GitHub check on it first." (FYRN, 2026-11-13 18:46).
 - Re-verify the pick before the repo is created when the sweep was rate-limited: the RIZA round-3 shortlist was presented with GitHub counts not re-run (GitHub 429-hot), so the pick needed a fresh check first.
+- Hand-verify the top picks on GitHub even after the batch check — the pick gets a fresh check, not just the sweep's word. (SOLDAR, 2026-11-14–15: "I checked the top two myself on GitHub, both clear".)
 
 ## Present only verified-clean names
 
@@ -36,6 +38,7 @@ Executable twin in BNB-TOOLS: [T4 name-check](https://github.com/BROKE-N-BORED/B
 
 - This check ran for the study portal (24 candidates, 7 clean), WinLinx (three rounds totalling 77 names, with WinLink dead as a ham-radio email system plus 13 repos), EveryMouse, Stella, and the Universal Study Portal. It is recorded in the BNB audit as S7.
 - The 2026-11-13 evening naming rounds (RIZA: 4 rounds, 491 names checked; FYRN; QWKHND; GITDATA; HICKSFIELD) added the rate-limit, taste-rule, taken-globally, and settled-name rules above.
+- The SOLDAR sweep (2026-11-14–15): 30 names web-checked, 16 survivors GitHub-checked, 8 fully clean.
 
 ## Available connectors
 

@@ -1,0 +1,7 @@
+name: "sweep-recheck-first"
+title: "Sweep-recheck-first: re-verify the last sweep before running the next"
+description: "Before each sweep or audit pass, re-verify every prior finding against live sources — web, GitHub, version numbers — and strike or update anything filled or partially filled, so stale findings never carry forward into the next round."
+category: "Work and knowledge"
+include_in_prompt: false
+number: "S80"
+tier: 2

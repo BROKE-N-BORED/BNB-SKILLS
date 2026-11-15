@@ -31,6 +31,8 @@ Companion tool: [T7 overlay-match](https://github.com/BROKE-N-BORED/BNB-TOOLS/tr
 
 - Rebuild a piece from the measured dimensions when the measurements show the current build is wrong, instead of nudging the old build toward the sheet.
 
+- Audit proportions with real numbers pulled from the build, against real-world proportions: a scale mismatch is a measurable defect, not a matter of taste. (Reblend work for Yahtzee, thread 1c1928e9, 2026-11-14: the cup measured 55 cm wide and 55 cm tall against a table 210 by 140 and only about 58 tall — the cup nearly as tall as the whole table and almost 40% of its width, because the scene was sized around 40 cm dice while the table stayed near real-table proportions: "two scales fighting each other".)
+
 ## Overlay the render on the sheet at the same scale
 
 - Render the model from the same view as the sheet, at the same scale, and lay the render over the sheet so the two silhouettes can be compared directly.

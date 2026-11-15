@@ -5,6 +5,7 @@
 - Use this skill whenever work belongs to a thread other than the one you are in, such as a DEV thread, a review thread, or the main chat.
 - Use it to send a build, a review, a trial, or a merge note to its owning thread, and to report a completion back to the thread that asked for it.
 - Keep each thread to its one subject and route off-topic items to their own threads instead of working them where they landed.
+- A thread does not do another project's work in its own thread — the work goes to the thread that owns the project. (REBLEND, 2026-11-14 18:59: "This chat is for REBLEND software development not working on the yahtzee gake I created that own chat thread fornit"; WINLINX, 2026-11-13 23:24: "The task list is for Winlink only. This chat thread is dedicated solely to the development of Winlink program".)
 
 ## Write a self-contained brief
 
@@ -13,6 +14,8 @@
 - State the constraints explicitly, including the hardware limits, the hard $0 rule, and any rule the work must not break.
 - Name exactly what the report-back must contain, such as file paths, byte sizes, counts, and orientation.
 - Name the held build path and attach the battery receipt when the brief is a merge note, so the receiving thread can delta-port it (see [isolated-copy-build-merge](../isolated-copy-build-merge/SKILL.md)).
+- A merge note carries exact scope + code anchors, and the receiving thread verifies the note against its tree before porting. (GUIFX→DEV, 2026-11-14–15: breathing pulse, F1 window fit, elision fix.)
+- When a list spans two owners, split it by owner and deliver each half record-only, no build ordered — the receiving thread decides when to build. (Arlo-OST, 2026-11-15 ~09:06: the combined Stella + OST list split by owner thread, delivered "record only, no build ordered".)
 - Keep the brief to the one task and leave the next item out until this one is done.
 - Under the no-stalling rule, a handoff to the owning thread carries the ship order with the port spec: port it, merge it, push it — no waiting on a merge order. The receiving thread confirms the queue position back to the sender. In a thread that never touches the shared tree, handing over the port spec plus ship order IS the ship step.
 - If the owning thread is paused when the merged tree goes green, the thread holding the merged tree ships it itself (push + Release) rather than letting the build stall behind a paused thread. (DEV 2026-11-13 14:05: "the Manus thread's paused, so I'm shipping this build myself once it's green." Single instance — stated as the standing call, not a proven pattern.)
@@ -30,6 +33,7 @@
 ## Report completions with verified facts only
 
 - Report back only facts you verified yourself, with the file path, size, count, or measurement that proves each one.
+- Before wiring in a cross-thread delivery, verify its files by hash against what the sending thread said it sent. (YAHTZEE V5 die, 2026-11-14 ~22:40: "I checked the files myself — hashes match, drop-in for v4".)
 - When work sits with another thread, say plainly which thread pushes and where the work is. "It's with DEV" with no explanation reads as stalling — the user cannot tell waiting from stuck. (SECURITY thread 2026-11-13 14:12: Joshua — "Push it and uodate the goddammit realeae alrwady why the fuci Atwater you doing yhat?"; the assistant's own admission: "I should've made that clearer instead of just saying 'it's with DEV.'")
 - Say plainly what is still unverified or still needs the user's own PC instead of filling the gap with a guess.
 - Send the completion report to the thread that asked for the work, not to a third thread.

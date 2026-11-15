@@ -37,6 +37,12 @@
 
 - Compute the remaining-pool lifetime at the measured pace: remaining pool divided by tokens per day.
 
+## Where the burn actually comes from (usage audit, 2026-11-14 ~22:26)
+
+- A subagent turn costs about 6x a main-chat turn, because it reloads the full context — and 54% of all processed tokens came from subagents (Oct 28–Nov 14: 12.95B input tokens processed across 98 threads).
+- Usage is concentrated: the top 10 threads are 60% of everything (biggest: CODE FORGE DEV 2.02B, PIXEL FORGE 1.34B, REBLEND 786M). Nov 12–13, the parallel-build days, burned 6.8B of the 12.95B — more than half the total in two days.
+- The levers are subagent volume and the top-10 threads, not main-chat chatter. A rationing plan that squeezes main-chat turns while subagents run in parallel is squeezing the wrong end. (Find AI tasks and token usage thread, a67d37fb, 2026-11-14 ~22:26.)
+
 ## Turn the rate into a rationing plan
 
 - When the pool is finite and the pace would burn it fast, turn the measured rate into a written rationing plan (see the token plan, main chat 2026-11-13 17:03–17:07): a weekly budget from the measured burn, a tier split across the work, slowdown tripwires, and waste rules.

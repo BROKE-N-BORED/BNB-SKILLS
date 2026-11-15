@@ -26,6 +26,10 @@ Companion tool: [T9 brand-scrub-rename](https://github.com/BROKE-N-BORED/BNB-TOO
 
 - Check the name in every form it can appear, such as different capitalizations, hyphenated and unhyphenated forms, and names embedded in longer identifiers.
 
+- A banned-pattern sweep must check inside f-strings too — a count that only looks at plain text misses the pattern where it is built into strings. (GUIFX Build 9 em-dash sweep, thread dfc78d3f, 2026-11-15: 797 em-dashes in the visible text, including 186 inside f-strings the first count missed.)
+
+- The sweep is only finished when a guard test fails the suite if the pattern returns: the guard, not the clean grep, is what keeps the pattern out. (Same Build 9 sweep: "a new guard test fails the suite if one ever comes back.")
+
 - Report the final grep as clean, with the command you ran, so the scrub is proven rather than claimed.
 
 ## Scrub the published surface too

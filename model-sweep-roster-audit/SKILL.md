@@ -14,6 +14,9 @@ Executable twin in BNB-TOOLS: [T5 model-sweep-harness](https://github.com/BROKE-
 - Prefer the best smallest model that runs comfortably on the machine, and count speed as part of the grade.
 - Treat abliteration as preferred, not gating, and treat any cloud option as hard $0 with no card, or not an option at all.
 - Flag vendor benchmarks as unreproduced wherever they are the only evidence, and never present a vendor number as a measured result.
+- Check a model's training constraints and refusal behaviors before picking it for a job — a model trained to refuse the job can't do the job, however good its scores. (SHELFLIFE, 2026-11-15: Fara 7B "was trained to never do signups or submit forms. It literally can't do ShelfLife's job".)
+- Check RAM before loading each model — a load that dies mid-way kills the run. (OST, 2026-11-15: "Ollama dying on load killed Joshua's real-PC runs twice".)
+- Auto-configure from the measurement: measure the machine and pick the config automatically instead of exposing settings. (STELLA, 2026-11-15: "Settings are gone from every screen, Stella measures the PC and picks the recipe itself".)
 
 ## Judge against the incumbent roster seats
 

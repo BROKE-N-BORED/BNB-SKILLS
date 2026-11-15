@@ -1,0 +1,7 @@
+name: "living-user-test-suite"
+title: "Living user test suite: stable IDs, append-only results, and a compare loop"
+description: "A definitive, updatable user test suite for a whole app: every test has a stable ID that never gets reused, a machine-readable copy sits alongside the human doc, results save per model per machine in folders that never get overwritten, usage data rolls up into one file, regression pins guard known bugs, and a compare script diffs each later run against the baseline test by test."
+category: "Development"
+include_in_prompt: false
+number: "S79"
+tier: 2

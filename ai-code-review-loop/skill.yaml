@@ -1,0 +1,7 @@
+name: "ai-code-review-loop"
+title: "AI code review loop: set up an AI reviewer, verify its findings, roll it out repo by repo"
+description: "Set up an AI reviewer on a repo (config file, test PR, trigger the review, verify each finding against the official schema and docs before fixing, merge), roll it out repo by repo, and use the CLI for repos with no PRs."
+category: "Development"
+include_in_prompt: false
+number: "S76"
+tier: 2

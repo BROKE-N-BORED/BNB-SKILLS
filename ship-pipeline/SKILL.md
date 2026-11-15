@@ -23,6 +23,7 @@ Executable twin in BNB-TOOLS: [T1 ship-pipeline-scripts](https://github.com/BROK
 
 - Unzip the finished zip to a fresh directory and run the full test suite there, not in the build tree.
 - Run your own checks in the fresh unzip and look at the screenshots yourself before you call the build verified.
+- When a build was delegated to a subagent or worker, re-verify it yourself the same way before shipping — re-run the suite from a fresh copy, drive the real window, read back pushed blobs by SHA — the builder's report is never taken on trust. (T26–T32 builds, 2026-11-14.)
 - Confirm the zip carries the app icon and the double-click installer, because every Release zip must carry both (see [linux-release-packaging](../linux-release-packaging/SKILL.md)).
 - Fix any defect the fresh-unzip check finds and rebuild the zip, then verify the rebuilt zip the same way.
 - For a `pip install .` package, the fresh check is a pip fresh-install check: copy to a clean directory, fresh venv, `pip install .`, then run the CLI end to end from the installed package (version, each command, library import, MCP smoke if it has one) — not just unzip plus test suite.
@@ -30,6 +31,9 @@ Executable twin in BNB-TOOLS: [T1 ship-pipeline-scripts](https://github.com/BROK
 - A zip-only green suite proves nothing about the repo: MIMIK v0.2 was "324/324 green, verified from a fresh unzip" while the fresh-clone suite was red — 18 errors, all the same FileNotFoundError on `mimik-48.png`, because the icon PNGs were never committed (`icons/` held only `mimik.svg`) — and `install.sh` died at its icon-copy step under `set -e` before writing the menu launcher. No CI existed to flag any of it.
 - Second instance, same lesson: DATAPACKR v0.1.1 (2026-11-13) was green from the fresh unzip while the fresh-clone suite failed 3 tests — the icon render crashed inside the test process. The fix was to render the icons in their own process; both suites went 106/106 green. A crash inside a build step is a fresh-clone failure, not a test failure — fix the step, not the test.
 - If the clone check finds files the zip needs but the repo lacks, fix the cause, not the symptom: either commit the missing files, or make the build regenerate them (ACR v0.8: `build_zip.py` renders the PNGs from the SVG when absent, after the builder caught that `render_icons.py` was never in the zip or the repo).
+- Audit the release zip against the push before shipping: exactly the N pushed paths changed, all scripts executable, icon in, checksum matches. A zip failing any check gets rebuilt, not shipped. (CODE FORGE GITHUB thread, 2026-11-14: DEV's zip failed three checks — the launcher lost its exec bit, the icon was missing, and it carried the changelog — so it was rebuilt.)
+- Scrub the builder's and the user's own use history and personal data out of the release before shipping — the release must not carry it. (ARCHIVEFLIX, 2026-11-14: "the release shouldn't have any of my use history baked into it.")
+- The app does its own job: the deliverable must perform its own function, and assistant workarounds don't count as the app working. (SHELFLIFE, 2026-11-14: "Thats not what the fuck i asked you to do that's what SHELFLIFE IS SUPPOSED TO DO".)
 
 ## Email the zip only on his explicit ask (and read Sent back)
 
@@ -37,27 +41,33 @@ Executable twin in BNB-TOOLS: [T1 ship-pipeline-scripts](https://github.com/BROK
 - Open the message in the Sent folder after sending and read its attachment list yourself.
 - Compare the attachment filename and size in Sent against the filename and size you recorded.
 - Treat a missing attachment, a wrong filename, or a different size as a failed send even when the service reported success, and resend the correct file and check the new sent message the same way.
+- Gigabyte artifacts need a pull path, never email: Gmail caps attachments at 25 MB and each model is a gigabyte or more, so the user pulls them straight into Ollama. (Arlo-OST, 2026-11-14.)
 
-## Push to GitHub and cut the Release
+## Push to GitHub and update the Release
+
+- Say "update the Release", never "cut" — Joshua banned the word (QWKHND thread a7e37553, 2026-11-14 09:23: "Stop telling me your going to cut the release… i dont like the word cut").
 
 - Push the build to the project repo on GitHub, then read back the pushed files and confirm the commit is live. For a one-off shipment with no task list, push only on the user's approval. For a task-list item, approval is pre-granted under the no-stall cycle below: do not wait for a go-ahead between items and do not hold a finished, verified build for a push approval.
 - Read back by git blob SHA, not by eyeballing a fetch: `get_file_contents` returns a download confirmation + blob SHA, NOT the file text — compare that SHA against `git hash-object <local file>` (sha1 of `"blob <len>\0"` + content). It also returns ok:true with `result.isError:true` for missing files: check `isError`, not `ok`, when testing remote absence.
 - The snapshot push 403s (`"Resource not accessible by integration"`) when the tree includes `.github/workflows/*` — the GitHub App lacks the workflows permission. Exclude workflow files from the push manifest and add them via the browser/web UI afterwards, committed directly to main with an exact message, verified by opening the file path live. Settled 2026-11-13: a later snapshot push DOES preserve a browser-added workflow file — both BNB-SKILLS and BNB-ROLES kept theirs intact through the Delta 2 push (BNB repos thread, 2026-11-13 10:34). No re-upload is needed after pushing; still verify the file is live afterwards.
 - Do not pre-warn the user about the push approval card before it pops. The card appears automatically, and warning about it reads as stalling — run the push and let the card appear. A card that pops right after he sends unrelated media can still confuse him; if he asks what it was, say plainly what the push carried (ACR v0.8: he thought the push card was his TikTok being uploaded to GitHub; it was the v0.8 code files).
+- Test fixtures must not be secret-shaped: push secret-scanning rejects them even when fake — build fixtures from parts. (T27, 2026-11-14.)
+- A project repo pulls nothing from another project's origin: each project stands alone on its own origin. (SKULLPT, 2026-11-14: "No its ot sownnfucking program why are you pulling from a different origin that has nothing to do with this".)
 - A push that 403s while read access works usually means the GitHub App is not installed on that repo — not a credential failure. Check that first, and tell the user to add the repo in GitHub settings if it is missing. But a bulk-push 403 is NOT proof the repo is unwritable: the bulk push can 403 while single-file writes to the same repo work (STEMLAB v0.2: the bulk push was refused with a 403 again and again, yet writing file by file to a branch worked and the ship landed). Do not conclude the push is blocked on settings until the file-by-file route below has been tried.
-- File-by-file branch fallback, when the bulk/snapshot push 403s: write the tree to a branch one file at a time with the single-file write tool, then merge the branch into master and verify every file landed before cutting the Release. Prove the write path first with one small file (STEMLAB: LICENSE), then run the rest as a batch script that records progress per file so it resumes where it stopped. (STEMLAB v0.2, 2026-11-13: 114 files to branch `stemlab-v02-ship`, merged to master 21:27, Release v0.2 live 21:29, all 114 files verified.)
+- File-by-file branch fallback, when the bulk/snapshot push 403s: write the tree to a branch one file at a time with the single-file write tool, then merge the branch into master and verify every file landed before updating the Release. Prove the write path first with one small file (STEMLAB: LICENSE), then run the rest as a batch script that records progress per file so it resumes where it stopped. (STEMLAB v0.2, 2026-11-13: 114 files to branch `stemlab-v02-ship`, merged to master 21:27, Release v0.2 live 21:29, all 114 files verified.)
 - Two kinds of file cannot go through the file tool: a file over ~128 KB (the tool takes file content as one argument, and Linux caps a single argument at 128 KB — STEMLAB's uv.lock is 434 KB) and `.github/workflows/*` files. Both go in through the browser web UI instead (STEMLAB: uv.lock + the CI workflow were the last 2 of 114, added by browser before the merge).
 - Heads-up: each file write may pop its own approval card — tell the user that tapping allow-always on one lets the rest flow through.
 - A push failure is not proof the push failed: the push tool can report a failure after the ref already moved (a lost response after a successful update). After ANY push failure, verify the true head with `git ls-remote <repo> HEAD refs/heads/main` (ground truth from git's servers, no auth needed for public repos) and inspect the commit before retrying — never trust the commit list alone (it can show the old head) and never retry blind, or the retry fails "not a fast forward". (DUO v0.25, 2026-11-13 11:36: push-files returned a 500 AND the ref had moved; verified by ls-remote, nothing pushed twice.)
-- Cut a Release for the push with the zip attached, because every push gets a Release.
+- Update the Release for the push with the zip attached, because every push gets a Release.
 - After ANY edit to a Release in the browser — especially swapping an asset — re-check the Latest badge on the live page before reporting it done: the edit can silently mark the release a pre-release and drop Latest. (Code Forge v2.5-security-polish, 2026-11-13 12:18–12:19: the asset swap flipped pre-release on; caught by the check, unchecked the same day, Latest restored and verified on the live page. Check twice after the fix, not once.)
 - When setting repo topics in the browser, GitHub's autocomplete can substitute a near-match: typing "stella" kept selecting the existing topic "stellar" (GITDATA, 2026-11-13 15:05–15:08). Verify the exact chips landed on the repo page after saving; a trailing-space entry adds the exact topic when autocomplete keeps grabbing the wrong one.
 - Download the Release asset back and compare its SHA-256 hash against the local zip, and report the match by hash value.
+- Publish a checksum file alongside the release zip, and verify it by download-back. (CODE FORGE v2.5-context-fixes, 2026-11-14 ~15:22 — the first release with one.)
 - Treat the shipment as complete only when the hash matches, and say plainly which step is still open when it does not.
 - When version trees are cumulative, ship the latest alone: if v9's tree already carries everything v6–v8 built, one push, one Release, one shipment — not four of each. The versions were build groupings, not four things the user needs.
 - CI red-X triage: if the CI run never starts (a few seconds total) and GitHub says the account is locked due to a billing issue, that is an account billing lock, not a checker failure. Verify the checker passes locally, report the lock plainly, and leave the fix to him in GitHub billing settings — Actions is blocked account-wide until it clears.
 - The snapshot push tool cannot delete files: after a rename, stale paths stay on main and must be deleted via the GitHub web UI (each committed directly to main with its exact message, verified by a 404 when revisiting the path) BEFORE the Release zip is built from main — a stale skill directory re-registers the old skill name on a fresh clone. A staging-built zip is clean either way when staging already has the stale paths removed.
-- After pushing, diff the fresh-clone file list against the staging file list and flag anything on main that staging does not carry. A stray (a leftover demo folder, a renamed path's old copy) gets deleted via the web UI before the Release is cut, so the Release describes exactly what staging holds.
+- After pushing, diff the fresh-clone file list against the staging file list and flag anything on main that staging does not carry. A stray (a leftover demo folder, a renamed path's old copy) gets deleted via the web UI before the Release is updated, so the Release describes exactly what staging holds.
 
 ## Keep the publish staging intact
 
@@ -95,7 +105,7 @@ Executable twin in BNB-TOOLS: [T1 ship-pipeline-scripts](https://github.com/BROK
 ## Available connectors
 
 - [Gmail](../CONNECTORS.md) for sending the zip and reading the sent message back — only when he explicitly asks for a zip email.
-- [GitHub](../CONNECTORS.md) for pushing the build and cutting the Release.
+- [GitHub](../CONNECTORS.md) for pushing the build and updating the Release.
 
 ## Alternatives for better results
 

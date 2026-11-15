@@ -1,0 +1,7 @@
+name: "rubric-score-fix-rescore-loop"
+title: "Rubric-score-fix-rescore loop: improve scored work until the gains stop"
+description: "Score work against a weighted YAML rubric with hard-fail gates, fix the lowest dimension first, re-score with an independent scorer, and continue while each round gains more than a point — stopping when the gains stop. Ships the DQI 3D design rubric as its worked example."
+category: "Creation"
+include_in_prompt: false
+number: "S78"
+tier: 2

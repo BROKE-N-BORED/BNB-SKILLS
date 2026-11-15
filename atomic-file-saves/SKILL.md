@@ -25,6 +25,11 @@
 - Keep the save interface unchanged: the caller still calls the
   same save function. Atomicity is inside the write path, not a
   new user-visible step.
+- Validate before commit: the same "commit only on success" idea
+  applies to app state — load first, and mark the keeper only
+  once the load succeeds, so a corrupt candidate cannot leave
+  recorded state disagreeing with what is actually loaded.
+  (Pixel Forge v0.54, thread b2e2291b, 2026-11-14.)
 
 ## Prove it
 

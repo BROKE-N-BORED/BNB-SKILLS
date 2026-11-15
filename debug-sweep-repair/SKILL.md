@@ -15,6 +15,7 @@
 ## Fix the faults in place
 
 - Fix each real fault in place, changing only the fault and the lines the fix needs, and leaving working parts around it alone.
+- Fix the code, not workarounds — that rule now lives in its own skill; see [no-bandaids](../no-bandaids/SKILL.md) (S74).
 - Re-run the check that found each fault and the tests that cover the changed area, and do not call a fix done until those checks pass.
 - Fix a defect found inside the assigned job then and there instead of filing it as a future item, and present a defect outside the job as its own item before you touch it.
 - Run the full suite at the end and compare the failure set against the baseline (see [post-merge-battery](../post-merge-battery/SKILL.md)).

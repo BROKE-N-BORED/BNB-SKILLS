@@ -1,0 +1,7 @@
+name: "sleep-cycle-consolidation"
+title: "Sleep-cycle consolidation: consolidate, dream, replay-check, report"
+description: "The nightly sleep cycle per the corrected charter: consolidate only what is new since the last sleep into dated memory, dream synthetic recombinations seeded from real material, replay-check old decisions and rules for degradation, and report what consolidated, what emerged, and what the check caught."
+category: "Work and knowledge"
+include_in_prompt: false
+number: "S82"
+tier: 3

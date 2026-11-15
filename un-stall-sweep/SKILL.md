@@ -76,6 +76,13 @@
   10:03: v0.17–v0.30 shipped in a chain once the stuck push moved,
   with v0.47/v0.48 already verified and v0.49 building behind
   them — the build chain running ahead of the ship chain.
+- Fresh in-window examples, 2026-11-14: DATAPACKR v0.3 (thread
+  6c8ad11f) verified 359/359 tests from a fresh unzip and 55/55 on
+  the window drive, then sat unpushed after its push approval
+  timed out at 30 minutes; SHELFLIFE (thread 2b9eeac3) had its
+  repo-copy sync built and ready to push, but the approval card
+  sat for about an hour and expired before anyone tapped it, so
+  GitHub still had the old version.
 - Found in the second BNB delta scan (2026-11-13).
 
 ## Available connectors

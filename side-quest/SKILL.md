@@ -18,6 +18,8 @@ State exactly what capability is missing and what the main build needs it to DO.
 
 Look for an existing $0 answer before building anything: the BNB repos (skills, tools, presets, roles, plugins), the workspace, open source. Use the [org repo inventory tool](https://github.com/BROKE-N-BORED/BNB-TOOLS/tree/main/org-repo-inventory) (T20, BNB TOOLS) and the [org repo audit queue](../org-repo-audit-queue/SKILL.md) (S56) to see what already exists under BROKE-N-BORED. If one exists, use it — no new build. The side quest only starts when the check comes back empty.
 
+MIMIK's boundary: MIMIK captures network traffic from running programs only — it cannot capture an add-on that makes zero network calls, so do not waste a MIMIK run on an offline target. (SKULLPT, thread d238e3ce, 2026-11-14 ~12:06: the PolyOrganic add-on makes zero network calls, so MIMIK could not capture it.)
+
 ## Step 3 — Build the smallest standalone thing
 
 - A tool, a skill, a program, or an algorithm — whichever fits the gap.
@@ -54,6 +56,7 @@ The side quest is done when the main build is unblocked, not when the side tool 
 - MIMIK: mimic has no Linux port → port it to Linux.
 - SKULLPT's ZeroGPU mesh step: the mesh step needs an NVIDIA GPU → run it in the cloud instead.
 - Qt test-env library extraction: VM restarts wipe system packages and apt is unreliable → extract the EGL/xcb libraries into the workspace and run tests against them.
+- PolyOrganic: a $29 paid Blender add-on with no repo → build our own $0 version from scratch, task list M1–M14. Third in-window instance of the paid → build-our-own fallback, and Joshua restated the rule: if it costs money or an existing tool or service cannot be used, build it ourselves. (SKULLPT thread d238e3ce and REBLEND thread 2a82689c, 2026-11-14 ~12:03–12:09.)
 
 ## Where this comes from
 

@@ -1,0 +1,7 @@
+name: "destructive-action-defaults"
+title: "Destructive-action defaults: safe subset by default, dangerous subset needs opt-in"
+description: "Destructive operations default to the safe subset; the dangerous subset is named, excluded by default, and requires explicit opt-in plus a second confirmation before it runs."
+category: "Development"
+include_in_prompt: false
+number: "S81"
+tier: 2

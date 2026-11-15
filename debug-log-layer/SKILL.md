@@ -24,6 +24,12 @@ Every project has, from its first shipped version:
 - The last N actions/steps before the error (default 200). What the user pressed, what the app started, what finished.
 - Timestamps on every line, so the order of events is provable.
 
+## The UI must tell the truth
+
+- A broken component must name itself and say why, in plain language, in the UI — never fail silently. (GUIFX Build 10, thread dfc78d3f, 2026-11-15: "a broken skill stops failing silently: the Skills lane names it and says why, in plain language.")
+- Distinguish error from completion: a dropped connection or an error is not completion — never mark work finished on an error signal. (ARCHIVEFLIX, thread e5374055, 2026-11-14: video connections dying mid-file were read as "movie over", so the app marked the title finished, closed the player, and dumped the user back on the main menu.)
+- UI state must reflect real state: never show a success badge for work that never happened, and a thing only counts as done or live when proven. (SHELFLIFE, thread 2b9eeac3, 2026-11-14–15: every site card said "Ready" in green while no real accounts existed; the fix says "No account yet" until the user marks it, and the live-proof rule says a listing counts as live only with proof.)
+
 ## Context
 
 - App name + version/build, OS + version, Python version, RAM total/available, disk total/free.

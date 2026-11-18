@@ -95,6 +95,15 @@
   hosting" (2026-11-14 ~11:48). The manual is now through chapter
   13, Part 3 underway — the workflow is confirmed end-to-end
   thirteen times over. (RIZA thread 9aa4d5d7.)
+- Chapters 14-22 all landed in-window, 2026-11-15 ~23:18 through
+  2026-11-17, each starting on his one-word "Go": ch14 "Build
+  tool and packages" (last of Part 3, 2026-11-15 ~23:18), ch15
+  "Startup and shutdown" (first of Part 4, 2026-11-16 ~00:49),
+  ch16-18 (2026-11-16 daytime), ch19 "Text tools", ch20
+  "Developer tools", ch21 "The shell" (last of Part 5), ch22
+  "Kernel design" (first of Part 6). The manual is now through
+  chapter 22, Part 6 underway - the workflow is confirmed
+  end-to-end twenty-two times over. (RIZA thread 9aa4d5d7.)
 - Each chapter starts on the user's go-ahead — a one-word "Go" in the
   thread — one chapter at a time. Do not chain chapters without it.
 

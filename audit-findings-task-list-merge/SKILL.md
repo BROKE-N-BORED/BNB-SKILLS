@@ -9,6 +9,8 @@ Executable twin in BNB-TOOLS: [T23 task-list-coverage-check](https://github.com/
 - Use this skill when a second (or later) audit, verdict, or review lands on a project that already has a prioritized task list.
 - Use it when the user says "update your task list to fix these weaknesses" or "create its task list and merge it to the existing task list" after a new round of findings.
 - Do not start a fresh list when one already exists — two lists for one project drift, and findings fall between them.
+- Do not ask questions whose answers are already in the record: if the thread, the repo, or an earlier build already answers it, answer it from the record and keep working. Asking him to answer what you already know reads as stalling. (REBLEND ADDON DEV SUITE, 2026-11-17 ~08:11: "You know blender is on my pc we built SKULLPT that uses it, none of this questions need me to answer then you have all those answers you just being difficult to stall. Please continue".)
+- Present the merged list to him in plain text (see [plain-text-task-lists](../plain-text-task-lists/SKILL.md)): numbered, highest to lowest, plain English, no .md file, no metadata. The merge builds the list; S87 governs how he reads it.
 - Do not use it for the first audit of a project; that list is built by [full-product-review](../full-product-review/SKILL.md). This skill starts where that one leaves off.
 - Do not use it to combine several audits into a FIRST list — that is [audit-each-one-combine](../audit-each-one-combine/SKILL.md). The combine skill builds the first list; this skill folds later findings into one that exists.
 

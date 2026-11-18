@@ -1,0 +1,7 @@
+name: "pick-it-up-and-it-works"
+title: "Pick it up and it works: the app sets itself up, finds its own files, and needs no manual steps"
+description: "Apps start their own services, discover their own models and files, and set the best settings for the machine on their own. The user picks the app up and it works, with no start buttons, no hunting, and no manual setup."
+category: "Development"
+include_in_prompt: true
+number: "S85"
+tier: 1

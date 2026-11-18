@@ -60,6 +60,13 @@
   in the harness itself before driving anything.
 - Sample colours on enabled buttons, away from the text: disabled
   buttons render greyed.
+- Drive the proof under BOTH the light and the dark theme: a proof
+  that runs under one theme only can pass while the other is
+  unreadable. Code blocks painted near-white on the assumption of a
+  light screen vanish on his dark Mint. (DUO, 2026-11-15 15:13-15:17:
+  code blocks near-white on white on a dark desktop; v0.51 fixed it
+  by taking code-block background, focus tint, and search highlights
+  from the desktop's own colors.)
 - `setCurrentIndex` only emits `currentChanged` when the index
   actually changes — start a tab-switch probe from a different tab.
 

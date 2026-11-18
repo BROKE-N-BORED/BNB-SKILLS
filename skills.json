@@ -1106,5 +1106,96 @@
       "SKILL.md",
       "skill.yaml"
     ]
+  },
+  {
+    "number": 84,
+    "slug": "silent-update-check",
+    "title": "Silent update check: every app checks on launch, asks before pulling, asks before restarting",
+    "description": "Every runnable app silently checks its GitHub repo for a newer Release on launch, stays quiet when current, asks before pulling an update, verifies the download before installing, and asks before restarting to complete it.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 85,
+    "slug": "pick-it-up-and-it-works",
+    "title": "Pick it up and it works: the app sets itself up, finds its own files, and needs no manual steps",
+    "description": "Apps start their own services, discover their own models and files, and set the best settings for the machine on their own. The user picks the app up and it works, with no start buttons, no hunting, and no manual setup.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 86,
+    "slug": "dogfood-review",
+    "title": "Dogfood review: run the app as a user and report what is actually wrong with it",
+    "description": "Run the built app on your own system as a user, look for errors, flaws, inconvenient or cluttered UI, missing functions, and gaps, and report them as a numbered review with counts. Round-2 re-reviews check the fixes held.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 87,
+    "slug": "plain-text-task-lists",
+    "title": "Plain-text task lists: numbered, highest to lowest, plain English, no file to open",
+    "description": "Task lists go to him as a numbered plain-text list, highest to lowest priority, in plain English with no .md file and no metadata. Each item says what it is, what it is for, and what it fixes or solves, and the status is labeled so the list cannot be misread as done.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 88,
+    "slug": "lean-core-addons",
+    "title": "Lean core, add-ons: the base stays small, extras live as add-ons",
+    "description": "The base program stays lean and does its core job well; everything extra lives as an add-on. Already-planned or already-built add-on material is separated out of the base, and the add-on suite is its own program.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 89,
+    "slug": "thread-scope",
+    "title": "Thread scope: a thread does its own project's job only",
+    "description": "A chat thread does its own project's job only: no unasked cross-project summaries or task lists. The BNB repos thread is the exception, because cross-thread scanning is its ordered job.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 90,
+    "slug": "info-only-answers",
+    "title": "Info-only answers: when he asks for information, give the information only",
+    "description": "When he asks for information, give the information only. Do not pry into his business, his side of a deal, or his setup, and do not advise about his side of it.",
+    "tier": 2,
+    "category": "Work and knowledge",
+    "include_in_prompt": false,
+    "files": [
+      "SKILL.md",
+      "skill.yaml"
+    ]
   }
 ]

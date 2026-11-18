@@ -1,0 +1,7 @@
+name: "lean-core-addons"
+title: "Lean core, add-ons: the base stays small, extras live as add-ons"
+description: "The base program stays lean and does its core job well; everything extra lives as an add-on. Already-planned or already-built add-on material is separated out of the base, and the add-on suite is its own program."
+category: "Development"
+include_in_prompt: false
+number: "S88"
+tier: 2

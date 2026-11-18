@@ -1,0 +1,7 @@
+name: "dogfood-review"
+title: "Dogfood review: run the app as a user and report what is actually wrong with it"
+description: "Run the built app on your own system as a user, look for errors, flaws, inconvenient or cluttered UI, missing functions, and gaps, and report them as a numbered review with counts. Round-2 re-reviews check the fixes held."
+category: "Development"
+include_in_prompt: true
+number: "S86"
+tier: 1

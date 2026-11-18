@@ -1,0 +1,7 @@
+name: "silent-update-check"
+title: "Silent update check: every app checks on launch, asks before pulling, asks before restarting"
+description: "Every runnable app silently checks its GitHub repo for a newer Release on launch, stays quiet when current, asks before pulling an update, verifies the download before installing, and asks before restarting to complete it."
+category: "Development"
+include_in_prompt: true
+number: "S84"
+tier: 1

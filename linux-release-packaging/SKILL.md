@@ -19,6 +19,9 @@ Executable twin in BNB-TOOLS: [T6 linux-release-packager](https://github.com/BRO
 ## Build the GUI installer
 
 - Ship a double-click `.desktop` installer that asks for privilege with pkexec and installs to a fixed location, with no terminal step.
+- The zip alone cannot be trusted to preserve exec bits through his extractor: the installer can be in the zip at root, stored executable, and still arrive without the bit set, so double-click does nothing. The settled ship format is the built zip with exec bits set (see [ship-pipeline](../ship-pipeline/SKILL.md)); a .deb was built and verified as an alternative for Forge Browser v0.10 and then dropped per his order ("just release it as a zip dude"). Do not re-litigate the format per release. (FORGE BROWSER, 2026-11-15 15:55 + 22:29.)
+- The installer detects a failed install and reports it instead of dying silently: an install that dies before launcher creation leaves an empty-square icon and no program, and nothing tells him it failed. The failure shows a plain-language error dialog with the log path. (SKULLPT N55, 2026-11-15 14:59: "the icon didnt load on the executable whej i installed it neither it stayed an empty with square witha gear".)
+- Cold-start timeouts are generous on a slow PC: a 10-second plugin timeout was a real failure on a cold start, and 30 seconds was the fix. (SOLDAR Phase 2, 2026-11-15.)
 - Make the installer back up an existing install before it upgrades, and ship an uninstaller alongside it.
 - Run install scripts with bash explicitly, never with sh, because the scripts use bash arrays and `set -euo pipefail`, and sh dies on them under dash.
 - Put every dependency the app needs in the core dependencies, never in optional extras, because an optional GUI toolkit once shipped a menu icon that died silently on a missing import while the terminal stayed hidden.
@@ -62,6 +65,10 @@ Executable twin in BNB-TOOLS: [T6 linux-release-packager](https://github.com/BRO
 ## Verify the package before it ships
 
 - Audit the zip contents before it ships: list every file and confirm each one belongs to the program. No user projects, no user data, and no stray demo or leftover folders — the distribution is the program only. A stray gets removed from the tree (and from main via the web UI when it is already there) before the Release is updated.
+- The executable install launcher is in EVERY release, and its presence is verified before shipping. A release without it is a failed ship. (DUO, 2026-11-15 15:04: "Whybdoesnt the updated releae have the eccutabkenintall launcher man why the fuck do you keep doing this every ducking project has the same shit".)
+- A web game ships a standalone HTML file in the release that opens in any browser, alongside the zip. (YAHTZEE, 2026-11-17 16:46: "Push and uodate the release make sure there is an active html file as well that opens it in any browser".)
+- Each version ships under a new filename: the same filename across versions serves the cached old one. (COLOR PALLETS, 2026-11-15 - proven twice, the video incident and the palette cards; see [ship-pipeline](../ship-pipeline/SKILL.md).)
+- Test the installer in a fake-HOME scratch copy, in two phases: dependencies present, then dependencies hidden. Each phase runs end to end on its own. (SOLDAR Phase 2, 2026-11-15: installer Phase A and Phase B each passed end to end in a scratch copy.)
 - Verify the zip exec bits after repacking (see [ship-pipeline](../ship-pipeline/SKILL.md)) and test-extract the zip before sending it.
 - Test the installer in a clean environment that does not already have the dependencies, because a venv that already has them hides a missing-deps failure.
 - Select nothing by default in the installer or the app, and let the user choose.

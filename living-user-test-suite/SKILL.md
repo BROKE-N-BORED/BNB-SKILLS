@@ -15,7 +15,9 @@ that diffs a later run against the baseline test by test.
   on.
 - Do NOT use this for a one-off drive of the app — a single pass
   with no stable IDs and no saved baseline is a check, not a
-  suite. Do NOT reuse a retired test's ID: results stay comparable
+  suite. A one-off drive as a user is a different method: the
+  dogfood review (see [dogfood-review](../dogfood-review/SKILL.md)).
+  Do NOT reuse a retired test's ID: results stay comparable
   over time only because an ID always means the same test.
 
 ## Every test has a stable ID that never gets reused
@@ -39,8 +41,27 @@ that diffs a later run against the baseline test by test.
 - Save each run's results in its own folder, per model per machine,
   and never overwrite an earlier run. Old results are the baseline
   — overwriting them destroys the comparison.
-- Use the same fixed prompts every run, so a later run differs from
-  the baseline only in the model or the app, not in the test.
+- Use the same fixed test IDs and subjects every run, with content
+  generated fresh from templates each run: the subjects stay the
+  same, the content changes, so a retest measures learning instead
+  of memorization. (v1.1.0, 2026-11-15: fresh-content templates
+  prevent test contamination - see
+  [trim-test-train-cycle](../trim-test-train-cycle/SKILL.md) for
+  why fresh content matters across trim and train rounds.)
+- Every test gets a real score: no "no scoring" cop-outs. Speed,
+  like every other subject, gets a score of its own. (OST,
+  2026-11-15 11:54-11:58: "Also why does it say no scoring for
+  speed thats ricukousb" - "Give speed a real score too".)
+- Run a test several times as one run and take the average with
+  the spread, instead of scoring from a single run: one run is a
+  sample, three runs are a score. (v1.1.0: repeat 3x, average +
+  spread.)
+- Resume an interrupted run where it left off; never restart a
+  failed or interrupted test from scratch. The resume rule is
+  Joshua's order, 2026-11-15 12:26: "Also there needs to be a way
+  to resume the testing for ones that fill where it left off that
+  is extremely important and helpful so im notneadting time
+  starting fiskedntestsnover again !!!"
 - Gather usage data on every run and roll it up into one file:
   decode speed, load time, time to first token, RAM, and tool calls
   made and dropped. Speed and resource use are part of the result,
@@ -68,17 +89,43 @@ that diffs a later run against the baseline test by test.
   what broke, and the append-only history shows when it last
   passed. Fix the regression, re-run, and compare again.
 
+## Test together: the VM and his real PC, side by side
+
+- Joint testing runs the same version, the same models, the same
+  everything, on the VM and on his real PC at the same time, both
+  testing as users together. Same version on both sides is the
+  rule: a compare across different versions proves nothing.
+  (Joshua-ordered, 2026-11-16 13:49: "Ok you can start whenever
+  maybe we should use the exact same processes together you use
+  the latest version of code forge and ill use the same version
+  we both use the same models same everything so we can work this
+  out together and test everything as a user..."; joint thread
+  created 13:52.)
+- The joint run's baseline is the built-in suite on both trees:
+  B01 on the new tree, 2026-11-16 20:01, ran 2,983 tests with
+  2,972 passing (99.63%), 11 real failures, all reproducing solo.
+  The joint numbers are the baseline the live-model batches are
+  judged against.
+
 ## Worked example
 
-- Code Forge got a definitive user test suite in one session: 151
-  tests in 16 groups, every test with a stable ID that never gets
+- Code Forge got a definitive user test suite in one session: v1.1.0,
+  152 tests in 16 groups, every test with a stable ID that never gets
   reused, a machine-readable copy alongside the human doc, and 14
   regression pins for known bugs (twelve from the live-model test
   run the same day, two from earlier ruptures). Results save per
   model per machine in folders that never get overwritten, usage
   data rolls up into one file, and the compare script diffs a
   fine-tune run against the baseline test by test — improved,
-  regressed, or unchanged, with speed and RAM deltas.
+  regressed, or unchanged, with speed and RAM deltas. v1.1.0 added
+  fresh-content templates (same subjects, fresh content each run),
+  repeat-3x scoring with average + spread, the resume rule, and
+  the A12 installer-launcher test. Agent testing and a
+  missing-subjects review were folded in the same day as
+  confirmation the suite is a real full suite. (OST, 2026-11-15
+  13:19-13:20: "You need to add agent testing toobman there is a
+  lot of stuff missing" - "Please gonovwr what subjects are
+  missing to test for".)
 - The suite systematizes the live-model test that came before it:
   one of the user's own models driven through every function of
   Code Forge for real, 42 checks, 20 fails found — including the
@@ -96,6 +143,13 @@ that diffs a later run against the baseline test by test.
   machine-readable copy, per-model per-machine append-only result
   folders, the compare script, per-run usage data rolled up into
   one file, and 14 regression pins.
+- The suite went to v1.1.0 the same day (2026-11-15 ~12:41), 152
+  tests: fresh-content templates to prevent test contamination,
+  repeat 3x with average + spread, the resume rule (Joshua's
+  12:26 order), and the A12 installer-launcher test. The joint
+  testing protocol (same version, same models, same everything,
+  VM and his real PC side by side) came 2026-11-16 13:49, with
+  the joint thread created 13:52.
 - MAIN CHAT thread (c6ee49a6, 2026-11-14 ~20:16 EST): Joshua
   ordered the live-model test this suite systematizes — "You need
   to use one good model to test every function of code forge to

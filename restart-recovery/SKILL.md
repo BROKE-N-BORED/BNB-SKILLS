@@ -107,6 +107,46 @@ tell the user plainly.
   wording. (ARCHIVEFLIX, thread e5374055, 2026-11-14: "I've sent it
   through again with the request worded differently.")
 
+## More recovery shapes (Delta 7, 2026-11-15-17)
+
+- Coordinators die in VM restarts, in every shape: the Reblend
+  Uahztee v6 coordinator died before writing its final reports,
+  and its replacement died the same way 13 minutes later
+  (thread 1c1928e9, 2026-11-16 ~19:33-20:50); the Code Forge PC
+  test suite lost 2 full runs of about 2 hours each with no
+  summary (thread 9b47e1cc); the SOLDAR helper route failed twice
+  on startup (thread 6b040c11); the Android updater worker died
+  partway through (thread 8d9a5654); the QWKHND first builder was
+  lost before it started (thread a7e37553); the CODE FORGE DEV
+  suite driver died in a restart at about 20:00 on 2026-11-16
+  (thread 94792a18). All of these were runtime failures, not
+  build failures.
+- The pattern that works is parent-picks-up-and-finishes: when
+  the coordinator is dead, the parent checks the on-disk work,
+  finishes what is left, verifies it, and delivers it - instead
+  of dispatching another coordinator into the same restart.
+  (Reblend v6: "V6 is done, verified, and delivered to the
+  Yahtzee thread", 2026-11-16 ~20:50.)
+- Work must be resumable from saved state, not from a dead
+  worker's memory: a builder that dies with its progress only in
+  its own head leaves nothing to pick up. Save progress to disk
+  as the work goes - chunks banked, results written, artifacts
+  in place - so a fresh finisher can start from the last saved
+  state. (Code Forge PC test suite: 27 small chunks, 18 of 26
+  survived a restart, 701 tests banked - the chunked run is what
+  survived where two full runs died.)
+- Writes can be blocked without a restart: the machine can stop
+  letting programs write files, and the block can clear on its
+  own hours later. A write failure is not proof the work is
+  wrong - check whether writes are blocked, wait for the
+  recovery, and resume. (OST, thread 662fb3aa, 2026-11-15 ~22:22:
+  "The machine I build on has stopped letting programs write
+  files"; recovery caught at 06:12 on 2026-11-16.)
+- Resume, do not restart: when a build is interrupted, restart
+  from where it got to instead of starting over. (DUO launcher
+  build glitch, 2026-11-16; PIXEL FORGE v0.75 builder, 2026-11-15:
+  restarted from where it left off after a mid-suite hiccup.)
+
 ## What this is not
 
 - This is not [un-stall-sweep](../un-stall-sweep/SKILL.md): that skill

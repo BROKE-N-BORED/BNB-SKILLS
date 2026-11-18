@@ -25,7 +25,9 @@
 - Set the bar a technique must pass before it goes in, in the user's
   own terms: the toy test (a child could pick it up and use it), it
   runs on his 8 GB no-GPU Mint PC (cheap motion only), it does
-  something real, and it fits the design rules. The identity question
+  something real, and it fits the design rules. The toy test is the
+  same bar as [pick-it-up-and-it-works](../pick-it-up-and-it-works/SKILL.md):
+  the user picks the app up and it works, with no manual steps. The identity question
   is "Does it make the app feel like itself?" — decoration that gives
   an app its identity is fine; what fails is motion or styling that
   fights readability or costs frames.
@@ -144,6 +146,33 @@
   Test, StemLab, QWKHND, Yahtzee, Syllaport, FYRN, HICKSFIELD,
   ACR, MIMIK), each from the same order text, each landing its
   audit and redesign list the same evening.
+
+## Rules proven in the field (Delta 7, 2026-11-15-17)
+
+- Dark theme: never assume a light screen. Derive colors from the
+  desktop theme, and prove the UI under both light and dark (see
+  [qt-gui-proof-harness](../qt-gui-proof-harness/SKILL.md)). DUO
+  painted code blocks near-white assuming a light screen; his
+  Mint is dark, and light text vanished on white. v0.51 fixed it
+  by taking the code-block background, focus tint, and search
+  highlights from the desktop's own colors. (DUO, 2026-11-15
+  15:13-15:17.)
+- Empty states must say what to do: an empty screen that only
+  names itself confuses him. "Set up your game to start" told
+  him nothing about what to do next. An empty state says the
+  next step, in plain words. (YAHTZEE, 2026-11-16 14:23-14:24.)
+- Labels in plain words: a label that needs decoding is a
+  defect. "Needs tools" read as a demand to build tools; it
+  meant the model needed tool support. Say what the thing means,
+  not what the code calls it. (OST, 2026-11-15 11:53.)
+- The radial wheel and dial is a recurring UI pattern across the
+  family: the Pixel Forge redesign block, the REBLEND R2 wheel,
+  the SKULLPT dial. When a pattern recurs in three apps, it is a
+  library entry, not three separate choices.
+- No arbitrary caps: do not impose a limit the user did not ask
+  for. A 100 MB cap on generated files was too small, and the
+  answer was no cap at all. (QWKHND, 2026-11-15 18:31-21:39:
+  "No cap at all".)
 
 ## Seed the repo, then diff every upload before adding it
 

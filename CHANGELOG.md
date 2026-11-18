@@ -2,6 +2,51 @@
 
 All notable changes to BNB-SKILLS. Dates are in EST.
 
+## Seventh delta scan — 2026-11-17
+
+Seventh delta scan of all chat threads (window ~11:42 EST 2026-11-15
+→ ~18:47 EST 2026-11-17). Seven new skills: S84 silent-update-check
+(Tier 1), S85 pick-it-up-and-it-works (Tier 1), S86 dogfood-review
+(Tier 1), S87 plain-text-task-lists, S88 lean-core-addons, S89
+thread-scope, S90 info-only-answers. S84 carries the standing order
+from the main chat (2026-11-17 ~15:53-15:56): every app silently
+checks its GitHub repo for a newer Release on launch, stays quiet
+when current, asks before pulling, verifies the download before
+installing, and asks before restarting to complete the update.
+
+Thirteen existing skills updated, headlined by S1 (14 patches):
+the phantom completion handoff (a builder handoff can fabricate a
+completion summary with hashes while the builder is still running),
+releases published in ascending version order with the Latest badge
+verified after multi-release days, explicit push state in status
+reports, precise browser-failure reporting with a retry plan, the
+disk-full check when a suite vanishes silently, the settled built-zip
+ship format, push-first on his order, no diagnostic-photo asks,
+one version source of truth, plain semver everywhere with no
+batch-suffix tags, push-plus-Release confirmation, a new filename
+per version (proven twice), sound-alike provider names (Groq is not
+Grok; EXAONE is LG), and the no-zip rule extended to OST. S5 gains
+7 new "Verify before you claim" examples, including the second
+verify-the-claimed-CORRECTION instance and the fake-verification-UI
+pattern; S6 gains the exec-bit extractor lesson, installer failure
+detection, the standalone-HTML rule for web games, the
+every-release launcher check, the new-filename rule, the two-phase
+installer test pattern, and generous cold-start timeouts; S53 gains
+browser-down is not a stall excuse; S63 gains the both-themes proof
+rule; S65 gains no questions whose answers are in the record; S69
+gains the Delta 7 restart-recovery shapes (parent-picks-up-and-
+finishes, resumable-from-saved-state, writes-blocked, resume-not-
+restart); S70 gains five field-proven design rules (dark theme,
+empty states, plain-words labels, the radial wheel/dial pattern, no
+arbitrary caps); S71 tracks RIZA through chapter 22, Part 6 underway;
+S72 gains the full-chain rule for free-service verification; S74
+gains the root-cause-first reinforcement; S77 gains the fresh-content
+rationale, the OST v21 score break, the analyzer role (pending),
+and the Fara-cycle note (Delta 6 near-miss, pre-window); S79 gains
+the joint testing protocol, real scores for every test, the resume
+rule with its source, and the v1.1.0 / 152-test stale fix. Library
+now 90 skills (Tier 1: 25, Tier 2: 55, Tier 3: 10).
+
 ## Sixth delta scan — 2026-11-15
 
 Sixth delta scan of all chat threads (window ~23:17 EST 2026-11-13

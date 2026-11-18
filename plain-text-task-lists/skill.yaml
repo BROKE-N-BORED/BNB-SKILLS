@@ -1,0 +1,7 @@
+name: "plain-text-task-lists"
+title: "Plain-text task lists: numbered, highest to lowest, plain English, no file to open"
+description: "Task lists go to him as a numbered plain-text list, highest to lowest priority, in plain English with no .md file and no metadata. Each item says what it is, what it is for, and what it fixes or solves, and the status is labeled so the list cannot be misread as done."
+category: "Work and knowledge"
+include_in_prompt: false
+number: "S87"
+tier: 2

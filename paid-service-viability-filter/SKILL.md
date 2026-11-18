@@ -47,6 +47,24 @@ already beats, and keeping only the survivors.
   two passes give different answers, and answering the wrong one wastes a
   round.
 
+## Verify a free offer through the whole chain
+
+- Passing the hard filters on the headline offer is NOT enough: check
+  the whole chain before calling a service free.
+- What the free credit covers AND what it excludes: a free tier that
+  covers the headline feature but excludes the one he needs is not
+  free for his use.
+- Whether everything else the service needs is itself free under the
+  same filters: a free service that needs a paid account, a paid
+  model, or a paid tool to work is not free.
+- Exact technical compatibility, not a generic label: "OpenAI-compatible"
+  is a claim, not a proof. Check the actual endpoints, the actual
+  models, and the actual limits against what the project needs.
+- The full-chain rule comes from the free-services sweep (task context,
+  added 2026-11-11 after the Replicas miss): a service that passed the
+  headline filters failed the chain, and the sweep learned to check
+  the chain every time after that.
+
 ## Keep only the survivors, ranked
 
 - What survives is a project with NO better free version anywhere: a combo

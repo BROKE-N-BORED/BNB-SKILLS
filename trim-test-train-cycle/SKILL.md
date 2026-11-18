@@ -33,6 +33,13 @@ a results step passing between them every time.
   between: the test before shows the starting point, the test after
   shows what the action did. No STELLA step runs without results
   on both sides.
+- The analyzer role sits between OST results and STELLA actions:
+  the OST report-card analyzer reviews the report cards OST
+  produces and configures exactly what needs trimming and
+  training, and what data packs or data STELLA needs to do that
+  with. Joshua defined the role 2026-11-16 ~18:21; the lock-in
+  as a standing job was unconfirmed at the Delta 7 close, so it
+  is noted here as pending, not as settled.
 - The cycle repeats — the user named it with "repeat" at the end —
   each round running the same sequence above.
 - This sequence is the gist for now. More detail lands when Joshua
@@ -56,6 +63,49 @@ a results step passing between them every time.
   a fresh set. Same items on both sides is what makes "no worse" a
   provable claim instead of a feeling. If a run regresses past the
   agreed line, the action is rejected, not shipped.
+
+## Fresh content per round, same items within a round
+
+- Same items on both sides of ONE action; fresh content when the
+  cycle repeats to the next round. The two rules serve different
+  ends and both stand: same items make "no worse" provable for
+  one action, and fresh content per round keeps the cycle honest
+  across rounds.
+- The reason, stated explicitly: if the same test content is
+  reused across trim and train rounds, the model can learn to
+  answer or complete those tasks by mimicking instead of
+  actually learning - it gets desensitized to the tests instead
+  of learning the job. Fresh content every run is what keeps a
+  retest measuring learning instead of memorization. (OST,
+  2026-11-15 12:23, Joshua's question: "if I am testing a model
+  right and then I trim it or train it on something and then test
+  it aga8n couldn't potentially just learn how to answer or
+  complete those tasks by mimik8ng instead of actually whatbinmean
+  is whoudthey ve dessentised to the tests instead of actually
+  learning etc etc". The design answers it with fresh-content
+  templates in the suite - see
+  [living-user-test-suite](../living-user-test-suite/SKILL.md).)
+- Scores are only comparable within one grader version: OST v21
+  fixed 13 grader bugs, so pre-v21 scores are NOT comparable with
+  v21 scores. Empty answers now fail instead of being excluded,
+  and planning scores partial credit. The v21 re-grade of five
+  stored result sets came out lower than the detector-corrected
+  numbers by design: qwen3-vl 87.2, bonsai-uncensored 85.0,
+  qwen-coder 80.5, lfm3 78.2, bonsai-2:4b 75.7. Never compare a
+  pre-v21 score against a v21 score as if they measured the same
+  thing.
+
+## The Fara loop is not this cycle
+
+- Do not confuse the Fara loop with the OST/STELLA sequence
+  above. In the Fara loop, the trim step is a quant download -
+  bartowski already ships every quant - not STELLA compute. The
+  Fara loop downloads a smaller ready-made quant; this cycle has
+  OST measure and STELLA act, with results passing between them.
+  (Delta 6 near-miss, pre-window: the Fara Phase 1 completion
+  report and the "Test > Trim > Test > Train > repeat" wording
+  landed 2026-11-15 ~10:47-11:38, inside Delta 6's window but
+  after Delta 6's scan ran, so Delta 6 never recorded them.)
 
 ## Prefer the smaller model that is already close
 

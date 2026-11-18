@@ -27,6 +27,13 @@ not a feature.
 - A workaround instruction ("close the browser and start over") is not a
   fix. Telling the user to do extra steps to get around broken code is
   the same failure as adding a masking button.
+- Root cause first, always: when something is broken, do the research,
+  find the solution, and build the real fix - do not create a
+  workaround or a bandaid. (PIXEL FORGE, 2026-11-17 07:38: "Figure it
+  out, do some research find the solution do not create work around or
+  bandaid, really get to the root and build the solution if necessary".
+  The grid bug's root cause was the tile path being relative; v0.81
+  fixed it for real.)
 - When the root fix lands, remove the workaround. A button that masked a
   bug does not become a feature once the bug is fixed — it gets deleted,
   and the ship note says so.
@@ -66,5 +73,11 @@ not a feature.
 - PIXEL FORGE DEVELOPMENT thread (b2e2291b, Sat 2026-11-14 ~22:00 EST):
   v0.72 made the sheet command stop lying about files (exit-code
   honesty) — same rule, applied to what the tool reports.
+- PIXEL FORGE DEVELOPMENT thread (b2e2291b, 2026-11-17 07:38 EST):
+  root-cause-first restated as the rule itself - "Figure it out, do
+  some research find the solution do not create work around or
+  bandaid, really get to the root and build the solution if
+  necessary" - and the grid bug was fixed for real in v0.81 (root
+  cause: the tile path was relative).
 - Found in the sixth BNB delta scan (2026-11-15). One in-window instance
   plus three supporting instances of the same failure mode.

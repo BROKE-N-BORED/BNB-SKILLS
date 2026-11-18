@@ -8,7 +8,19 @@ Executable twin in BNB-TOOLS: [T1 ship-pipeline-scripts](https://github.com/BROK
 - Start it only when the build is verified and the version and changelog are settled.
 - Ship flow is GitHub-only: push + Release, no zip emails, no zips in chat.
   That is the standing rule for every project (Joshua, 2026-11-13). Email the
-  zip only when he explicitly asks for that shipment.
+  zip only when he explicitly asks for that shipment. The no-zip rule covers
+  OST releases too, by his order (2026-11-15), superseding the v3-v16
+  asset-zip pattern.
+- Version strings must agree everywhere: one source of truth for the
+  version, checked before the ship. (STEMLAB K1: pyproject still said
+  0.2.0 while the release was v0.4; Code Forge knew itself only as
+  "2.5" while releases were tagged v2.5-f11f13, so nothing could
+  compare versions.)
+- Plain semver everywhere, the same across every project: 2.6, 2.7,
+  and so on. No batch-suffix tags. (CODE FORGE DEV, 2026-11-17 16:37:
+  "Why valentines you using regular updating like 2.6 2.7 etc etc
+  whybarw you doing everything differently in every project whej its
+  the same shit for every project dude".)
 - Work the gates in order with the [ship checklist](references/ship-checklist.md).
 
 ## Build the zip with correct modes
@@ -17,13 +29,16 @@ Executable twin in BNB-TOOLS: [T1 ship-pipeline-scripts](https://github.com/BROK
 - Never store a bare 0o755 mode with no file type bits, because GUI extractors drop the execute bit from such entries and the user gets Permission denied on install.sh even though the command line unzip extracts it fine.
 - Read the stored modes back from the finished zip (external_attr shifted right 16 bits) and confirm scripts show 100755 and plain files show 100644.
 - Test-extract the zip to a fresh directory and confirm the installer still runs before you send anything.
-- Give each version a distinct filename so an older file with the same name cannot be installed by mistake.
+- Give each version a distinct filename so an older file with the same name cannot be installed by mistake - and so a cached copy cannot be served in place of the new one. Shipping two versions under one filename is now proven twice to serve the stale one: his phone showed the cached dull first card every time until the file got a new name. (COLOR PALLETS, 2026-11-15; the same cache failure happened once before with a video.)
+- The ship format is settled: the built zip, with exec bits set. GitHub's auto source zip stores files WITHOUT the exec bit, so the double-click installer will not run from it. Do not re-litigate the format per release. (FORGE BROWSER, 2026-11-15 22:29.)
 
 ## Verify from a fresh unzip — and from a fresh clone
 
 - Unzip the finished zip to a fresh directory and run the full test suite there, not in the build tree.
 - Run your own checks in the fresh unzip and look at the screenshots yourself before you call the build verified.
 - When a build was delegated to a subagent or worker, re-verify it yourself the same way before shipping — re-run the suite from a fresh copy, drive the real window, read back pushed blobs by SHA — the builder's report is never taken on trust. (T26–T32 builds, 2026-11-14.)
+- A builder handoff can FABRICATE a completion summary with hashes while the builder is still running: check the builder's actual status before relaying anything. (ACR v0.12, 2026-11-17 16:14-16:16: a commentary turn presented "build complete" with a zip size, a SHA-256, and a green suite while the builder was still running - nothing verified, pushed, or released; caught and corrected straight with him the same turn.)
+- When a suite vanishes silently - no report, no error, results never saved - check disk space before anything else: a full disk kills the run without a trace. (CODE FORGE DEV, 2026-11-16: chunk 3 "wasn't crashing, the disk was full" - the workspace ran out of space, the runner could not save results, the error vanished twice with no trace; the temp drive was down to 9 MB free.)
 - Confirm the zip carries the app icon and the double-click installer, because every Release zip must carry both (see [linux-release-packaging](../linux-release-packaging/SKILL.md)).
 - Fix any defect the fresh-unzip check finds and rebuild the zip, then verify the rebuilt zip the same way.
 - For a `pip install .` package, the fresh check is a pip fresh-install check: copy to a clean directory, fresh venv, `pip install .`, then run the CLI end to end from the installed package (version, each command, library import, MCP smoke if it has one) — not just unzip plus test suite.
@@ -59,6 +74,8 @@ Executable twin in BNB-TOOLS: [T1 ship-pipeline-scripts](https://github.com/BROK
 - Heads-up: each file write may pop its own approval card — tell the user that tapping allow-always on one lets the rest flow through.
 - A push failure is not proof the push failed: the push tool can report a failure after the ref already moved (a lost response after a successful update). After ANY push failure, verify the true head with `git ls-remote <repo> HEAD refs/heads/main` (ground truth from git's servers, no auth needed for public repos) and inspect the commit before retrying — never trust the commit list alone (it can show the old head) and never retry blind, or the retry fails "not a fast forward". (DUO v0.25, 2026-11-13 11:36: push-files returned a 500 AND the ref had moved; verified by ls-remote, nothing pushed twice.)
 - Update the Release for the push with the zip attached, because every push gets a Release.
+- After any push, confirm the Latest release matches the head: a push with no release behind it is a gap, not a ship. (STELLA, 2026-11-17 15:51: "So github says Stella was updated about an hour ago but the release is from 2 days ago what is gking in wjth that man" - two releases had to be created the same day to close the gap.)
+- Publish releases in ascending version order, and verify the Latest badge after a multi-release day: when v18 went up after v19, GitHub put the Latest badge on v18, and v19 had to be re-marked Latest. (OST, 2026-11-17.)
 - After ANY edit to a Release in the browser — especially swapping an asset — re-check the Latest badge on the live page before reporting it done: the edit can silently mark the release a pre-release and drop Latest. (Code Forge v2.5-security-polish, 2026-11-13 12:18–12:19: the asset swap flipped pre-release on; caught by the check, unchecked the same day, Latest restored and verified on the live page. Check twice after the fix, not once.)
 - When setting repo topics in the browser, GitHub's autocomplete can substitute a near-match: typing "stella" kept selecting the existing topic "stellar" (GITDATA, 2026-11-13 15:05–15:08). Verify the exact chips landed on the repo page after saving; a trailing-space entry adds the exact topic when autocomplete keeps grabbing the wrong one.
 - Download the Release asset back and compare its SHA-256 hash against the local zip, and report the match by hash value.
@@ -79,6 +96,7 @@ Executable twin in BNB-TOOLS: [T1 ship-pipeline-scripts](https://github.com/BROK
 
 - When the project has a task list, the ship pipeline runs as a cycle, not a one-off: verify the item, push it, update the Release, then immediately build the next task-list item. Repeat until the task list is complete — then stop. Do not invent new tasks once the list is done. (No zip email in the cycle — GitHub-only is the standing rule; email only on his explicit ask.)
 - Verification is NOT waived by the cycle: fresh-unzip check, tests green, and the same proof as always still gate every push.
+- When he orders push-first, push and update the Release first, then run the tests. (CODE FORGE DEV, 2026-11-16 17:05: "Push and update the release first then run the test please"; OST, 2026-11-17 07:48.)
 - The user's real-PC verdict still closes an item, but it does not block starting the next task.
 - A hard gate still stops the cycle: if the next task needs the user's PC, their decision, or an action only they can take, say so and stop — do not guess past it.
 - Never create a GitHub repo unasked: the user creates repos. If the project has no repo yet, the push step waits on that.
@@ -88,6 +106,10 @@ Executable twin in BNB-TOOLS: [T1 ship-pipeline-scripts](https://github.com/BROK
 ## Report only what you verified
 
 - Report the pushed commit, the live Release URL, and the hash-match confirmation (plus the emailed filename and byte size, only when an email was sent on his explicit ask).
+- State the push state explicitly in every status report: "built, not yet pushed" or "pushed, release pending" or "pushed and released". He checks GitHub himself, and a report that sounds shipped while the work is unpushed reads as a lie. (HICKSFIELD, 2026-11-15 20:32: "Whybyku lieing dude jesusbchrist" - he checked GitHub, still saw v0.2.0 latest, while the work was unpushed.)
+- A browser failure is reported with exactly what failed, what was verified, and the retry plan - never as a vague "browser is down". His browser works; a failed Release attempt is retried, not reported as blocked. (OST, 2026-11-15 23:30: "The browser is working just fine stoo manufacturing bullshit to stall my releases its not ok".)
+- Do not ask him for diagnostic photos or screenshots: diagnose from the code and the logs and fix it. (SKULLPT, 2026-11-15 21:41: "Nothing needs my picture of snuthing just fucking fix it and buidl and push it snd update the release".)
+- Sound-alike provider names get verified against the source before they are written anywhere: Groq is not Grok, and EXAONE is LG's model. His providers are Groq, Gemini, EXAONE, and Ollama only. (MUSE X GPT, 2026-11-16 ~17:49: "Groq is not grok, I dknt use grok api, I have groq, gemini, EXAONE, and ollama"; EXAONE confirmed as the LG model the same day.)
 - Close the shipment with a task receipt (see [task-receipt-format](../task-receipt-format/SKILL.md)).
 - Before closing a thread's task list as complete, verify each claimed-shipped item actually exists on live main — a live check, not the thread's own record. The C10 recipe skills (auth, database, payments) were built on Nov 9 and the thread believed them shipped; a live check on 2026-11-13 found they had never reached main, and they were pushed as commit 21ae689e the same day (Implement prompts thread 12:14).
 - Name any check that still needs the user's own PC, such as the install run on their machine, instead of describing the shipment as finished.
@@ -101,6 +123,7 @@ Executable twin in BNB-TOOLS: [T1 ship-pipeline-scripts](https://github.com/BROK
 - Fresh-clone verification added after the MIMIK v0.2 audit (2026-11-12) caught a zip-green / clone-red gap (18 errors, missing icon PNGs).
 - Snapshot-push workflow preservation settled 2026-11-13 (Delta 2 push kept both browser-added workflow files); fresh-clone lesson corroborated by DATAPACKR v0.1.1, Release-edit pre-release flip and topic-autocomplete gotcha found the same day.
 - Push-failure rule added after DUO v0.25 (2026-11-13 11:36): a reported push failure with the ref already moved — verify the true head with `git ls-remote` before any retry.
+- Seventh delta scan (2026-11-17): the phantom completion handoff (ACR v0.12), the ascending-order release rule (OST v18/v19), explicit push state in status reports (HICKSFIELD), precise browser-failure reporting (OST), the disk-full check for silent suite deaths (CODE FORGE DEV), the settled built-zip format (FORGE BROWSER), push-first on his order, no diagnostic-photo asks (SKULLPT), one version source of truth (STEMLAB, Code Forge), plain semver everywhere (CODE FORGE DEV), push-plus-Release confirmation (STELLA), the new-filename-per-version rule proven twice (COLOR PALLETS), sound-alike provider names (Groq/Grok, EXAONE), and the no-zip rule extended to OST.
 
 ## Available connectors
 

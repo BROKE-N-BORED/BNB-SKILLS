@@ -2,7 +2,7 @@
 
 Reusable agent playbooks distilled from real work in Joshua's chats. Each skill is a folder containing a `SKILL.md` playbook (plus a `skill.yaml` and supporting files where the skill needs them). A skill teaches an agent how to do one kind of task well: when to use it, the procedure, and what to check before calling it done.
 
-Built from the audit in [docs/AUDIT.md](docs/AUDIT.md) (2026-11-12, all 67 chats read: main chat plus 66 side chats, 73 raw workflow candidates deduped to 52 net-new skills). First delta scan the same evening (scan window ~17:54–19:00 EST) added 7 more skills (S53–S59) and updates to 11 existing skills. S60 (side-quest) was added later the same evening from Joshua's main-chat concept. S61 (debug-log-layer) was added the same evening from his main-chat order for a debug layer in every project build. Second delta scan (2026-11-13, window ~19:13 EST 2026-11-12 → ~10:00 EST) added 5 more skills (S62–S66) and updates to 13 existing skills; its tools (T22–T23) and tool updates live in BNB-TOOLS. Third delta scan the same evening (2026-11-13, window ~10:00–19:53 EST) added 6 more skills (S67–S72) and updates to 19 existing skills; its tools (T24–T25) and tool updates live in BNB-TOOLS. Fourth delta scan the same evening (2026-11-13, window ~19:53–20:24 EST) added no new skills — a 30-minute window — and updated 2 existing skills (S70, S71). Fifth delta scan the same evening (2026-11-13, window ~20:24–23:17 EST) added no new skills and updated 8 existing skills (S1, S5, S6, S53, S65, S69, S70, S71); its tool-definition change and spin-off candidates live in BNB-TOOLS, and a one-word spelling fix in BNB-PLUGINS. Sixth delta scan (2026-11-15, window ~23:17 EST 2026-11-13 → ~11:42 EST) added 11 more skills (S73–S83) and updates to 24 existing skills; its tools and tool updates live in BNB-TOOLS.
+Built from the audit in [docs/AUDIT.md](docs/AUDIT.md) (2026-11-12, all 67 chats read: main chat plus 66 side chats, 73 raw workflow candidates deduped to 52 net-new skills). First delta scan the same evening (scan window ~17:54–19:00 EST) added 7 more skills (S53–S59) and updates to 11 existing skills. S60 (side-quest) was added later the same evening from Joshua's main-chat concept. S61 (debug-log-layer) was added the same evening from his main-chat order for a debug layer in every project build. Second delta scan (2026-11-13, window ~19:13 EST 2026-11-12 → ~10:00 EST) added 5 more skills (S62–S66) and updates to 13 existing skills; its tools (T22–T23) and tool updates live in BNB-TOOLS. Third delta scan the same evening (2026-11-13, window ~10:00–19:53 EST) added 6 more skills (S67–S72) and updates to 19 existing skills; its tools (T24–T25) and tool updates live in BNB-TOOLS. Fourth delta scan the same evening (2026-11-13, window ~19:53–20:24 EST) added no new skills — a 30-minute window — and updated 2 existing skills (S70, S71). Fifth delta scan the same evening (2026-11-13, window ~20:24–23:17 EST) added no new skills and updated 8 existing skills (S1, S5, S6, S53, S65, S69, S70, S71); its tool-definition change and spin-off candidates live in BNB-TOOLS, and a one-word spelling fix in BNB-PLUGINS. Sixth delta scan (2026-11-15, window ~23:17 EST 2026-11-13 → ~11:42 EST) added 11 more skills (S73–S83) and updates to 24 existing skills; its tools and tool updates live in BNB-TOOLS. Seventh delta scan (2026-11-17, window ~11:42 EST 2026-11-15 → ~18:47 EST) added 7 more skills (S84–S90) and updates to 13 existing skills; its tools (T36–T38) and tool updates live in BNB-TOOLS.
 
 ## Start here
 
@@ -47,7 +47,7 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 - **Tier 2 — repeated, solid, project-spanning.** Used more than once, or built to be reused across projects.
 - **Tier 3 — niche / weak / single-use.** Included for completeness, built last. Some carry caveats in the skill itself: S47 is a guarded safety playbook, S50 was stated but never executed in-thread, S51 and S52 are weak.
 
-## All 83 skills
+## All 90 skills
 
 ### Tier 1 — the house operating system
 
@@ -75,6 +75,9 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 | S61 | [`debug-log-layer`](debug-log-layer/) | Every project ships with logging, error handling, and an emailable debug report | 1 |
 | S73 | [`no-invented-limits`](no-invented-limits/) | Never create a cap or rule on your own without asking — a convention is not his rule, default is no limit | 1 |
 | S74 | [`no-bandaids`](no-bandaids/) | Fix the root cause, never mask a defect with a UI workaround, a button, or an extra step | 1 |
+| S84 | [`silent-update-check`](silent-update-check/) | Silent launch check vs GitHub Latest Release; asks before pulling, verifies before installing, asks before restarting | 1 |
+| S85 | [`pick-it-up-and-it-works`](pick-it-up-and-it-works/) | Apps start their own services, discover their own models and files, set the best settings for the machine on their own | 1 |
+| S86 | [`dogfood-review`](dogfood-review/) | Run the built app as a user, report errors, flaws, cluttered UI, missing functions, and gaps as a numbered review with counts | 1 |
 
 ### Tier 2 — repeated, solid, project-spanning
 
@@ -131,6 +134,10 @@ No loader in the workspace reads this key today (checked 2026-11-12 across the c
 | S79 | [`living-user-test-suite`](living-user-test-suite/) | A stable-ID, machine-readable user test suite for a whole app, with a compare loop against baseline | 2 |
 | S80 | [`sweep-recheck-first`](sweep-recheck-first/) | Before each sweep, re-verify every prior finding against live sources — never carry stale findings forward | 2 |
 | S81 | [`destructive-action-defaults`](destructive-action-defaults/) | Destructive operations default to the safe subset; the dangerous subset needs opt-in plus a second confirmation | 2 |
+| S87 | [`plain-text-task-lists`](plain-text-task-lists/) | Task lists as numbered plain text, highest to lowest, plain English, no .md file, no metadata, status labeled | 2 |
+| S88 | [`lean-core-addons`](lean-core-addons/) | The base program stays lean; extras live as add-ons, exactly like Blender | 2 |
+| S89 | [`thread-scope`](thread-scope/) | A thread does its own project's job only; no unasked cross-project summaries or task lists | 2 |
+| S90 | [`info-only-answers`](info-only-answers/) | When he asks for information, give the information only; do not pry into his business or advise about his side | 2 |
 
 ### Tier 3 — niche / weak / single-use
 

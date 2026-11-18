@@ -1,0 +1,7 @@
+name: "thread-scope"
+title: "Thread scope: a thread does its own project's job only"
+description: "A chat thread does its own project's job only: no unasked cross-project summaries or task lists. The BNB repos thread is the exception, because cross-thread scanning is its ordered job."
+category: "Work and knowledge"
+include_in_prompt: false
+number: "S89"
+tier: 2

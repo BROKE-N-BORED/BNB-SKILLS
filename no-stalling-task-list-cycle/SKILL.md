@@ -24,6 +24,7 @@
 - Do not present options and wait. Do not hold finished work for a go-ahead he already gave. Do not ask "should I build the next one". Do not dress up waiting as process. Waiting that looks like process is still waiting.
 - Do not pre-warn him about approval cards before they pop. The cards happen automatically; warning him about each one — and the sleep delays used to time the warning — is stalling. Just run the push and let the card appear. (This overrides the earlier habit of saying what each card is for first.)
 - Verify before shipping still stands — that is part of building, not stalling. The check runs inside the cycle, not instead of it.
+- A browser failure is not a stall excuse: retry, or schedule the retry, and keep the work moving. A Release that failed to publish because the browser could not open a tab gets retried until it publishes; it does not sit as "blocked". (OST, PIXEL FORGE v0.75, YAHTZEE v0.9.1, FORGE BROWSER v0.12 - all four hit the browser outage of 2026-11-15-17 and all four shipped on retry.)
 - The only things that stop work are hard gates that genuinely need his PC, his account action, or a decision only he can make. Say so plainly once and stop; do not pad it.
 
 ## What does not change

@@ -4,6 +4,8 @@ All notable changes to BNB-SKILLS. Dates are in EST.
 
 ## Seventh delta scan — 2026-11-17
 
+SHA: 3a18f4fe
+
 Seventh delta scan of all chat threads (window ~11:42 EST 2026-11-15
 → ~18:47 EST 2026-11-17). Seven new skills: S84 silent-update-check
 (Tier 1), S85 pick-it-up-and-it-works (Tier 1), S86 dogfood-review

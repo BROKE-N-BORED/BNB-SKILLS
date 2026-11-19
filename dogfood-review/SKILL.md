@@ -44,6 +44,41 @@ app by a real user, not a read of the code and not a test suite.
   first review found the phone gap late because the drive ran at
   desktop width only.
 
+## The comparison step is mandatory
+
+- A dogfood review must include, as a mandatory step, a
+  comparison against (a) the stated reference or competitor for
+  a clone or replacement project, and (b) the plan's full
+  promised scope for any project. The comparison lists what is
+  missing, not only what is broken.
+- A review that only checks what shipped will catch symptoms and
+  miss the gap list. The SOLDAR user audit checked what shipped
+  but never compared against n8n, so it missed the full gap list.
+  Joshua: "I asked tou to run it like a user and you sod you did
+  amd I sont grt how yku didnt flag almthose gaps".
+- Name the exact failure mode: scoping missing features out of
+  the audit is the defect. The earlier SOLDAR audits explicitly
+  classed triggers, credentials, and AI as "not yet due - not
+  findings". A missing feature is a finding, whatever the plan
+  says about when it is due.
+- The full SOLDAR n8n audit (2026-11-18): 54 gaps, P0 6, P1 22,
+  P2 13, P3 13 (audit 502 lines, task list 543 lines, in the
+  soldar-review folder in the workspace). Top 10: Schedule
+  Trigger plus scheduler; Webhook Trigger plus routes; Respond to
+  Webhook; working Active; webhook auth; missed-schedule
+  behaviour ("PC was off at 9am"); encrypted credentials store
+  plus UI (keys today sit in workflow JSON and run history);
+  OAuth2; HTTP node using stored credentials; Switch node.
+
+## Check against his own stated ease bar
+
+- The review checks function against the ease bar he stated for
+  the project, not only against whether the function works. The
+  STELLA profile-window usability failures (the child-easy test:
+  "easy enough for [a] child to use") were never caught by the
+  thread's own verification, because the review checked function,
+  not the ease bar.
+
 ## Report it as Review N, with counts
 
 - Number the review: Review 1, Review 2, and so on, per project.
@@ -58,6 +93,36 @@ app by a real user, not a read of the code and not a test suite.
   (see [audit-findings-task-list-merge](../audit-findings-task-list-merge/SKILL.md)
   and [plain-text-task-lists](../plain-text-task-lists/SKILL.md)),
   and let him direct the fixes from the list.
+
+## What a good audit looks like: FYRN v0.5
+
+- The FYRN v0.5 audit (2026-11-18) is the exemplar: 8 phases
+  driven as a user, 84 screenshots, 18 findings (0 blockers,
+  9 flaws, 6 inconveniences, 1 gap, 2 improvements), each with
+  what-was-done, what-happened, what-should-happen, evidence,
+  and likely cause, plus 6 non-findings each debunked with a
+  minimal test. The shipped tree was never modified.
+- The audit worker died after phase 1 and the audit was
+  restarted from where it stopped, not from scratch: resume,
+  do not redo.
+
+## A graceful failure message is not a fix for a core function
+
+- Do not ship a nicer error as the answer when the function
+  itself is broken. FYRN v0.6 shipped LFM3 "failing plainly
+  instead of blaming the file"; Joshua ordered the real fix
+  instead: "Fix it the model shkuld load dude thats nkt
+  something t just glaze over". The real fix was the engine
+  bump to 0.3.37, built from source.
+
+## A greyed-out button with no explanation reads as dead
+
+- When a control is disabled by background state, the screen
+  must say why. A greyed-out button with no explanation reads
+  as a dead button. FYRN instance: the Unload button did
+  nothing with no reason given. Fix in v0.7: the Models tab
+  says a reply is in progress, and Unload tells you to wait
+  instead of silently doing nothing.
 
 ## Round 2: check the fixes held
 
@@ -97,3 +162,8 @@ app by a real user, not a read of the code and not a test suite.
   from the start (desktop passed 12 of 20, phone all but one).
 - Found in the seventh BNB delta scan (2026-11-17). The most
   repeated order of the delta after the update check.
+- Eighth BNB delta scan (2026-11-18): the mandatory comparison
+  step and the SOLDAR n8n audit (54 gaps), the ease-bar check
+  (STELLA), the FYRN v0.5 audit as exemplar, the graceful
+  failure message rule (FYRN LFM3), and the greyed-out button
+  rule (FYRN Unload).

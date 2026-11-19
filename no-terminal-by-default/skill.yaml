@@ -1,0 +1,7 @@
+name: "no-terminal-by-default"
+title: "No-terminal-by-default: Joshua never uses the terminal unless the work absolutely requires it"
+description: "Default for every project is no terminal for Joshua: no terminal to build, install, run, or check anything. Everything he has to do is doable by clicking or GUI, and any flow that hands him a terminal command is a defect."
+category: "Development"
+include_in_prompt: true
+number: "S91"
+tier: 1

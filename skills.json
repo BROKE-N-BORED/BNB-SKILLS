@@ -1197,5 +1197,33 @@
       "SKILL.md",
       "skill.yaml"
     ]
+  },
+  {
+    "number": 91,
+    "slug": "no-terminal-by-default",
+    "title": "No-terminal-by-default: Joshua never uses the terminal unless the work absolutely requires it",
+    "description": "Default for every project is no terminal for Joshua: no terminal to build, install, run, or check anything. Everything he has to do is doable by clicking or GUI, and any flow that hands him a terminal command is a defect.",
+    "tier": 1,
+    "category": "Development",
+    "include_in_prompt": true,
+    "files": [
+      "BUILD_REPORT.md",
+      "SKILL.md",
+      "skill.yaml"
+    ]
+  },
+  {
+    "number": 92,
+    "slug": "how-to-manual",
+    "title": "How-to-manual: a verified A4 PDF manual in plain words, with the source beside it",
+    "description": "When Joshua orders a how-to manual, build it as an A4 PDF from a verified source doc: write MANUAL.md in plain words, verify every claim against the real tree, render via headless Chromium, check no em-dashes, and deliver the PDF plus its source, naming anything unverified.",
+    "tier": 2,
+    "category": "Development",
+    "include_in_prompt": false,
+    "files": [
+      "BUILD_REPORT.md",
+      "SKILL.md",
+      "skill.yaml"
+    ]
   }
 ]

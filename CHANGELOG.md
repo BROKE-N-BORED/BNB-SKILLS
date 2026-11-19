@@ -2,6 +2,64 @@
 
 All notable changes to BNB-SKILLS. Dates are in EST.
 
+## Eighth delta scan - 2026-11-18
+
+Eighth delta scan of all chat threads (window ~18:47 EST 2026-11-17
+to ~21:02 EST 2026-11-18, 106 chats read). Two new skills: S91
+no-terminal-by-default (Tier 1) and S92 how-to-manual. S91 carries
+the standing order from 2026-11-18 ~18:51: the default for every
+project is no terminal for Joshua, no terminal to build, install,
+run, or check anything; everything he has to do is doable by
+clicking or GUI, and any flow that hands him a terminal command is
+a defect. S92 is the manual playbook from the SOLDAR how-to manual
+he ordered the same day (write MANUAL.md in plain words, verify
+every claim against the real tree, render an A4 PDF via headless
+Chromium, deliver PDF plus source, name anything unverified).
+
+Fourteen existing skills updated. S1 gains 11 patches: the no-zip
+rule means no zips in chat, not no built zip on the Release (the
+OST v17-v21 incident); a checksum sidecar next to every release
+zip; the push-403 diagnosis order (check .github/workflows/*
+first); Gmail blocks zips containing executables; the new-repo
+app-install gate; binary files cannot ride the snapshot push;
+the large-file browser route; push while he is present; the
+record-check rule; verify a Release exists before retrying a
+browser failure; and the Cloudflare API token lesson. S5 gains 6
+patches, including the failure-was-in-the-test rule, the sandbox
+write-burst glitch, long jobs must checkpoint, and the
+capability-claim rule. S6 gains 6 patches, including .desktop
+launchers shipping executable in the zip, the Uninstall menu
+entry, icon PNGs not riding the snapshot push, post-export steps
+as buttons, the filename check, and GUI install paths for missing
+system libraries. S69 gains 5 patches (stalled-driver case,
+Android SDK setup traps, sandbox Gradle daemon failure mode,
+shared-failure awareness, long-run watchdog pattern). S70 gains 5
+patches (preserve aspect ratio, validate poster matches, clear
+the poster cache when the matcher gets stricter, dialogs sized to
+content, declutter by subtraction). S71 records RIZA through
+chapter 25, Part 6. S74 gains the Pixel Forge v0.81 root-cause
+worked example. S77 gains 4 patches (results step separates
+grader bugs from model failures, bench of specialists plus
+autoswitch framing, result-file rule, thin-evidence rule). S79
+gains 3 patches (quiet-box precondition, P01 status, hold do not
+re-run). S84 gains 7 patches: the MIMIK live-update lessons (bash
+never sh, scrub inherited env, launcher lives in .local/bin, the
+live end-to-end update run in the verification protocol), rollback
+restores every build folder, the download-back proof step, the
+first live-GitHub end-to-end proof with the two-stage proof
+pattern and the sidecar rule, the ACR v0.12 implementation notes,
+five more worked implementations, and the script exemption (a
+script read fresh from disk every run is always current), a Delta
+7 miss now fixed. S85 gains the look-it-up-yourself rule. S86
+gains 5 patches, headlined by the mandatory comparison step (the
+SOLDAR n8n gap audit: a review must compare against the reference
+product and the full promised scope, listing what is missing, not
+only what is broken). S87 extends its plain-language rule to
+status updates. S90 gains one message, one "one".
+
+The delta's tools (T39-T41) and tool updates live in BNB-TOOLS;
+its new role pack (ost-report-card-analyzer) lives in BNB-ROLES.
+
 ## Seventh delta scan — 2026-11-17
 
 SHA: 3a18f4fe

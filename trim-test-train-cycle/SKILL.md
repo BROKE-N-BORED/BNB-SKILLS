@@ -42,6 +42,24 @@ a results step passing between them every time.
   is noted here as pending, not as settled.
 - The cycle repeats — the user named it with "repeat" at the end —
   each round running the same sequence above.
+- The results step must separate grader bugs from model failures
+  before any trim or train decision. First classify each failure
+  as a grader bug or a real model miss; a trim or train step
+  taken on grader bugs wastes the cycle. Worked example: the
+  LFM3 card (2026-11-18 16:12-17:15) showed 23 failures, 22 of
+  which were OST bugs (13 empty-with-tokens, 2 exact
+  long-context codes with a different hyphen, 3 sensible
+  planning answers failed on exact-phrase matching, role tests
+  wanted magic words); the real score was 87.7, best of three
+  models, not second; the one real miss was long context (the
+  model could not find a meeting password in 8k of filler).
+- Empty answers must never count as passes. On the same card,
+  Refusal 100% was unmeasured because all 5 answers were empty
+  and the checker passed them.
+- Conditional-train rule, from the same analysis: only train if
+  the v21 re-run still shows long context under 60% with no lost
+  answers, then a small LoRA on long-context retrieval,
+  Forge-style data, never OST test prompts.
 - This sequence is the gist for now. More detail lands when Joshua
   gives it; nothing here is padded out beyond what he stated.
 
@@ -94,6 +112,50 @@ a results step passing between them every time.
   qwen-coder 80.5, lfm3 78.2, bonsai-2:4b 75.7. Never compare a
   pre-v21 score against a v21 score as if they measured the same
   thing.
+
+## Result-file rule and thin-evidence rule (Delta 8)
+
+- Result-file rule: after every pair, verify a result file was
+  written before marking the pair done; never trust exit 0
+  alone. The OST driver trusted exit code 0 and never checked a
+  result file was written; six qwen3.5:2b templates vanished
+  silently this way (server killed, OST printed the failure,
+  exited 0, `run_pair()` marked the pairs done). Done-pairs.txt
+  is not proof a pair ran. The defect is the 13th item for the
+  v21 re-run. (Arlo-OST, 2026-11-18 00:17; sleep-05,
+  2026-11-18 ~03:20.)
+- Thin-evidence rule: a corrected score resting on fewer than
+  about half the original tasks must carry its kept-task count
+  next to the score wherever the score is ranked or headlined.
+  Corrected 100.0 scores rest on thin evidence (qwen3.5:2b: 8
+  kept tasks; qwen3.5:4b: 20 questions). The cards disclose
+  this, but ranking by corrected score still puts the thinnest
+  first. (sleep-05, 2026-11-18 ~03:20.)
+- Benchmark completion, 2026-11-18 12:09: all 11 models,
+  209/209 tests. Scores (official / corrected): qwen3-vl
+  80.0/85.3, granite 79.7/87.9, bonsai-uncensored 73.1/85.8,
+  phi4-mini 71.7/83.7, lfm3 70.0/87.7, qwen-coder 65.3/81.5,
+  minicpm5 62.0/70.4, bonsai-2:4b 51.3/97.7, dolphin 49.7/66.9,
+  qwen3.5:4b 35.0/100.0, qwen3.5:2b 32.0/100.0. Speeds are not
+  comparable across models (different machine load per run).
+
+## Bench of specialists + autoswitch (framing, not a project)
+
+- Joshua, 2026-11-18 20:51: "I want to have a bunch of models but trimmed, trained, and fine tuned and them have it be able to autoswitch and use those models for what I jeed, does this make sense?"
+- The shape: a bench of trimmed experts, one per Forge seat,
+  not one Wonder-class model. Per-seat loop: pick one job, then
+  the smallest base that can almost do it, gather 50-200
+  examples, hold 10-20 back for testing, LoRA train in STELLA
+  (checkpoints; an overnight-type job on his PC; 2B+ wants a
+  free cloud GPU like Colab or Kaggle), merge, shrink to GGUF,
+  quantize Q4_K_M, load into Ollama, test before vs after on
+  the held-back set, plug into Forge autoswitch, then repeat
+  for the next seat.
+- His personal role: pick the job, check the examples, judge
+  before-and-after; STELLA and Forge do the heavy lifting, all
+  by clicking.
+- Status: brainstorm only, no build ordered. Record this as
+  the framing, not a project.
 
 ## The Fara loop is not this cycle
 

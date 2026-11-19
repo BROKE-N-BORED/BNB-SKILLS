@@ -37,6 +37,13 @@ not a feature.
 - When the root fix lands, remove the workaround. A button that masked a
   bug does not become a feature once the bug is fixed — it gets deleted,
   and the ship note says so.
+- Worked example, root cause first: Pixel Forge v0.81 (2026-11-17
+  ~15:00). The bug was a relative tile path that Qt resolves against
+  the working directory; the fix was an absolute path plus a
+  stylesheet rule. One line explained every failed experiment. This
+  is a pre-window near-miss from the Delta 7 window, not in the
+  Delta 7 report, the same class as the Fara-cycle note in
+  [trim-test-train-cycle](../trim-test-train-cycle/SKILL.md).
 
 ## The test: would the workaround survive the fix?
 
@@ -79,5 +86,10 @@ not a feature.
   bandaid, really get to the root and build the solution if
   necessary" - and the grid bug was fixed for real in v0.81 (root
   cause: the tile path was relative).
+- PIXEL FORGE DEVELOPMENT thread (b2e2291b, 2026-11-17 ~15:00 EST):
+  the v0.81 root cause in full - a relative tile path Qt resolves
+  against the working directory; the fix was an absolute path plus
+  a stylesheet rule, and one line explained every failed
+  experiment. A Delta 7 window near-miss, recorded in Delta 8.
 - Found in the sixth BNB delta scan (2026-11-15). One in-window instance
   plus three supporting instances of the same failure mode.

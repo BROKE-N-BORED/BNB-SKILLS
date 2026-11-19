@@ -147,6 +147,50 @@ tell the user plainly.
   build glitch, 2026-11-16; PIXEL FORGE v0.75 builder, 2026-11-15:
   restarted from where it left off after a mid-suite hiccup.)
 
+## More recovery shapes (Delta 8, 2026-11-17-18)
+
+- Stalled-driver case (CODE FORGE DEV, 2026-11-18 13:12 + 15:10). The
+  suite driver died in VM restarts twice in-window: once sat stalled
+  ~19 hours before relaunch, once the last chunk was killed and
+  relaunched clean. A long run that dies in a restart must be detected
+  and relaunched promptly, not left sitting; a 19-hour silent stall is
+  itself the defect.
+- Android SDK setup traps (MUSE X GPT, 2026-11-18 02:56; documented in
+  the ENV.md in the workspace's android-sdk folder). (a) A download log
+  saying `SDK_DL_OK` does not prove the file downloaded -
+  cmdtools.zip was never actually downloaded despite the log; verify
+  the file exists and has size. (b) The newest sdkmanager is a native
+  shim that ignores proxy vars - use the older Java-based 13114758.
+  (c) Java networking in the sandbox needed
+  `-Djava.net.preferIPv6Addresses=true` + the sandbox MITM CA imported
+  into JDK cacerts. (d) A pre-existing JDK can be corrupt
+  (`lib/modules` missing) - verify, do not assume; replace fresh if
+  broken. Working env: JDK OpenJDK 17.0.21 Temurin in the jdk folder
+  in the workspace (319 MB); SDK 1.3 GB in the workspace's android-sdk
+  folder with platform-tools 37.0.1, platforms android-34 rev 3 +
+  android-35 rev 2, build-tools 34.0.0 + 35.0.0; licenses accepted.
+- Sandbox Gradle daemon failure mode (MUSE X GPT, 2026-11-18 ~14:30).
+  Gradle builds in the sandbox can fail environmentally in two ways
+  that look like code failures but are not: (1) low memory kills the
+  helper process - retry leaner, no daemon, smaller memory cap; (2)
+  the daemon/helper's local self-connection gets garbled by the
+  sandbox - nothing to fix in the code, the first real compile happens
+  on his PC (or via GitHub Actions / Simple APK). Diagnose the
+  environment before touching the code. (NEO's code never compiled in
+  the sandbox.)
+- Shared-failure awareness (sleep-05, 2026-11-18 ~03:20). One browser
+  outage hit four threads at once (Yahtzee v0.9.1 Release attempts,
+  HicksField v0.5.0 Release, wrangler OAuth deploy, SOLDAR GPG keyring
+  approval). When a shared dependency (browser, VM, network) fails,
+  note every thread it touches rather than treating each symptom as
+  its own problem.
+- Long-run watchdog pattern (Arlo-OST, overnight 2026-11-17 to 18).
+  The ost-benchmark-watch shape, proven twice overnight plus the
+  low-memory Fara kill: server-down detection, orphaned restart via
+  starter scripts, checkpoint resume (SKIP lines, no re-pulls, no lost
+  results). Packaged as an S69 pattern, not a tool (the tool form was
+  considered and held - the shape is hook-shaped, not program-shaped).
+
 ## What this is not
 
 - This is not [un-stall-sweep](../un-stall-sweep/SKILL.md): that skill

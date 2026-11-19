@@ -48,6 +48,12 @@ is his; the information is the job.
   moment it crosses into his business, it has gone past the
   question he asked.
 
+- One message, one "one": never use the word "one" to mean two
+  or three different things in a single message. Name each
+  thing instead of pointing at it with "one". If a message has
+  more than one candidate for "this one" or "that one", rewrite
+  it with names before sending.
+
 ## Where this comes from
 
 - Bitcoin buying and profits thread (3fb0c5ae, 2026-11-15
@@ -62,3 +68,7 @@ is his; the information is the job.
 - Found in the seventh BNB delta scan (2026-11-17). One
   in-window instance, Joshua-ordered, and a boundary, not a
   preference: the anger in the correction is the signal.
+- SOLDAR thread (2026-11-18 20:57 EST), for the one-"one" rule:
+  Joshua: "1 my fkr what?!" The message he answered had used
+  "one" to point at more than one thing, and he could not tell
+  which thing was meant.

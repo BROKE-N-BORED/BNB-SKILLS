@@ -55,6 +55,16 @@ done or not started.
   list of work done. The two are opposites, and the label is the
   only thing separating them.
 
+## Status updates are plain English too
+
+- The plain-language rule extends from task lists to status
+  updates: a status update must be readable in plain English,
+  no jargon, no unexplained numbers.
+- Joshua asked for the OST v21 update in plain English; the
+  re-sent plain-English version earned a 🙏. The version with
+  jargon and unexplained numbers did not land; the plain one
+  did.
+
 ## Where this comes from
 
 - HICKSFIELD thread (c3656ead, 2026-11-16 14:39 EST): "Give me a
@@ -84,3 +94,6 @@ done or not started.
   is x whatbits for ajd wht it fixes or solves".
 - Found in the seventh BNB delta scan (2026-11-17). Six
   in-window instances across six threads, in the same words.
+- Sleep-05 report (2026-11-18 ~03:20 EST), for the status-update
+  extension: Joshua asked for the OST v21 update in plain
+  English, and the re-sent version earned a 🙏.

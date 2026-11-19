@@ -74,6 +74,35 @@ that diffs a later run against the baseline test by test.
 - Keep setup work out of the timings: model pulls and other setup
   run between batches, never inside a timed run, so pulls never
   skew the numbers.
+- Quiet-box precondition for live-model batches: before starting
+  a live-model batch, confirm the box is quiet (low load, no
+  benchmark contending); a run attempted under load produces box
+  artifacts, not model results. The numbers: decode collapsed
+  to 0.40 tok/s (the smoke test failed twice, box load 19-25 all
+  day 2026-11-17) and 1.3 tok/s vs 8.13 tok/s on a quiet box
+  2026-11-15; E12 hit Forge's 30-minute timeout with nothing
+  generated purely because decode was 0.57 tok/s with the
+  benchmark contending. T34 battery-waiter is the existing
+  answer; D06 was held for a quiet window rather than run dirty.
+  (Code Forge test suite, 2026-11-18 ~02:44 and ~13:59-14:00.)
+
+## Held tests and known stops (Delta 8)
+
+- P01 status, with a two-turn reproduction: Code mode offers
+  zero tools at 8K context. Forge estimated the tool surface at
+  8,752 tokens vs the 8,192 limit and fired the budget stop
+  before generation; it reproduced on the second turn at 8,768.
+  The same failure as 2026-11-15; still open on v2.5-f7f10 (E01
+  FAIL; lfm3 called `run_command` anyway, Forge dropped it,
+  hello.py was never created). (Joint testing, 2026-11-18
+  02:44 to ~05:00.)
+- Hold, do not re-run: E03-E11, E13, and E14 are HELD. All are
+  Code-mode, all hit the same deterministic stop, and none can
+  pass until DEV fixes P01. Re-running them burns runs without
+  new information.
+- Distinguish box slowness from product failure: E12's timeout
+  was environmental, not a Forge failure (see the quiet-box
+  precondition above).
 
 ## Compare every later run against the baseline, test by test
 

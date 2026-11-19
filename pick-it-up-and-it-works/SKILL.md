@@ -96,6 +96,28 @@ disturbing the performance or the purpose of the program.
   describe everything up front because it could not be bothered
   to look.
 
+## Look it up yourself
+
+- If the program can derive what it needs from data it already
+  has, it must do so, and never hand the user a box to type it in
+  or a role to assign by hand. The Hugging Face repo for a known
+  model, and what the model is good at and not good at, are data
+  the program can look up; the user must never be asked to type
+  them in or assign them.
+- STELLA v0.30.0 is the worked example: one-tap Hugging Face
+  pull. The root cause it fixed was that picking a model from
+  Ollama stored the Ollama name as the base, and the download
+  button hit a wall instead of looking up the model's Hugging
+  Face home, even though the lookup already existed in Stella.
+  v0.31.0 simplified the profile window the same way: name, what
+  it can do, good and not good at in plain words, one
+  training-file button.
+- Unresolved tension, recorded 2026-11-18 ~19:00 EST: Joshua
+  repeated the order ("I shouldn't have to do anything") and was
+  still given a manual repo name to type
+  (`ibm-granite/granite-4.1-3b-base`). The rule stands; the
+  instance is not yet fixed.
+
 ## Where this comes from
 
 - OLLAMA SYSTEM TEST thread (662fb3aa, 2026-11-15 11:57-12:08
@@ -152,3 +174,10 @@ disturbing the performance or the purpose of the program.
 - Found in the seventh BNB delta scan (2026-11-17). Five
   in-window instances across four threads, two of them repeat
   complaints (third and sixth time).
+- STELLA thread (2026-11-18 ~15:00-17:00 EST), his order twice in
+  one day, for the "look it up yourself" rule: "This shit shoukd
+  pull from huggingface automatically, I dont know what this
+  is"; "I shouldn't need to do that dude... it shoukd be able to
+  get the accurate weights and know what the model is good at
+  and what it isnt good at". HF pull must be automatic, no typing
+  repo names, no hand-assigned roles, child-easy.

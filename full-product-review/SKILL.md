@@ -22,6 +22,7 @@
 - Name demo or simulated paths as gaps, not features: everything must work as designed, with no demo or simulated anything. (STEMLAB, 2026-11-17 07:47: "There shouldn't be any demo or simulated anything wverything shkukd work like its designed for dude".)
 - Rank the improvements so the user can pick from the top: group them in tiers or in a P0 to P4 phased plan with a concrete task list, and include an avoid list for ideas that look tempting but would break the hardware limits or the hard $0 rule. When a LATER audit lands on the same project, fold its findings into this list instead of starting a new one (see [audit-findings-task-list-merge](../audit-findings-task-list-merge/SKILL.md)).
 - Keep every claim tied to something you read, measured, or screenshotted, and flag anything you could not verify instead of dressing it up as a finding.
+- Real progress counts + cancellable long runs (Pixel Forge v0.82, 2026-11-18 ~13:16). A status bar or progress display shows real counts (files done, files left), never fake or indeterminate progress for a countable job; any long-running operation gets a Cancel control that stops it mid-run. A review checks progress displays and long operations against this bar and names a fake progress display or a missing Cancel as a finding.
 
 ## Verify before you claim
 
@@ -46,6 +47,10 @@
 - Check the claim across all versions/trees before starting, not just in one tree. (Reblend-for-Yahtzee, 2026-11-14: "I checked the exporter in all three trees and it still drops textures on the way out to .glb".)
 - Stop-guessing pattern: after repeated wrong answers, stop pattern-matching from memory and run the authoritative external check; when sources disagree, report the split honestly rather than forcing a single answer. (Spider ID, 2026-11-14 ~22:04–22:22: after three wrong IDs, Google Lens split on image 2 — AI Overview said dark fishing spider, top visual match said Nosferatu/false wolf spider — and the split was reported as a split.)
 - Root-cause-from-source: when a failure has a plausible surface cause, read the source first to find the real dependency. (Android Photo Transfer, 2026-11-14: the app uses the WPD COM API and Wine has no WPD stack — Wine bug 44769 — found by reading the source before blaming the cable or connection.)
+- The failure was in the test, not the app (ACR v0.12, 2026-11-17 20:02-20:09 - the drive came back 47/47 clean only after the parent fixed a progress-bar timing quirk in his own test script; the suite's one error 495/496 was a load timeout, proved by running the scenario by hand; Forge Browser v0.13, 2026-11-18 19:39 - suite 1080/1082, both failures known non-defects confirmed by hand: the stamp test reads the old count from CI-STATUS until the check script rewrites it, and a time-of-day flake that only fails in the first hour after midnight and fails on the untouched tree too). When a verification drive fails, check the test harness before blaming the build. Record known non-defects explicitly and confirm each by hand; never ship or block on an unexplained failure either way.
+- Sandbox write-burst glitch (Forge Browser, 2026-11-18 20:20). File writes in the sandbox can get blocked for minutes at a time in bursts (same family as the Nov 15 disk-full / EPERM incidents). When tests that need a temp folder fail together, prove it with a trace before blaming the build; queue the run to re-try when writes clear. The suite passing clean an hour earlier is evidence the build is fine.
+- A summary or front page must be re-checked against the detail (OST qwen3.5:2b card, 2026-11-18 00:17 - front page lists Refusal 100% as a strength while page 4 discloses all 5 Refusal answers were empty; Stella, ~15:00 - a Granite profile showed the wrong model's HF repo `LiquidAI/LFM3-1.7B`, user told not to save it). Nothing the detail discloses as empty or missing may appear on the front page as a strength; a summary or profile page must not present data belonging to a different item - cross-check the displayed identity against the selected item before showing it.
+- Capability-claim rule (FYRN CHAT DEV, 2026-11-18). The dolphin model's 5/5 vision/tool claims in Fyrn Chat Test were made up - no image input or tools in that setup (corrected in-window, with the nuance that the Qwen3.5 family can see images with its projector file and call tools in a wired-up setup). A claim that a model did something must be checked against what the test setup actually supports; a setup with no image input cannot produce a vision result.
 
 ## Audit-series variant
 
@@ -91,6 +96,14 @@
   from. DATAPACKR's round-2 auditor died mid-write and the report was
   still completed from its surviving draft and saved experiment
   outputs — a killed auditor must not take its measurements with it.
+- Long jobs must checkpoint so a restart resumes, not redoes
+  (WinLinx v0.4 review, 2026-11-18 13:14 - ran overnight, drivers and
+  screenshots saved, machine restart killed it before it wrote the
+  report; restarted from where it stopped; SKULLPT v1.15, 2026-11-17
+  19:26 - worker died on a database timeout, parent checked the saved
+  work himself and restarted from it). Long jobs save progress as they
+  go so a restart or worker death costs the tail, not the whole run;
+  on restart, verify the saved work first, then resume from it.
 
 ## Report the review and stop
 

@@ -1,0 +1,7 @@
+name: "how-to-manual"
+title: "How-to-manual: a verified A4 PDF manual in plain words, with the source beside it"
+description: "When Joshua orders a how-to manual, build it as an A4 PDF from a verified source doc: write MANUAL.md in plain words, verify every claim against the real tree, render via headless Chromium, check no em-dashes, and deliver the PDF plus its source, naming anything unverified."
+category: "Development"
+include_in_prompt: false
+number: "S92"
+tier: 2

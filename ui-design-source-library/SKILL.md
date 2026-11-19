@@ -174,6 +174,41 @@
   answer was no cap at all. (QWKHND, 2026-11-15 18:31-21:39:
   "No cap at all".)
 
+## Rules proven in the field (Delta 8, 2026-11-17-18)
+
+- Preserve an image's own aspect ratio; letterbox landscapes,
+  never force-crop into a fixed 2:3 frame. Every card forced a
+  tall 2:3 frame with object-fit cover, so wide Archive
+  thumbnails got sliced to a thin strip (the details poster
+  rendered as a thin horizontal strip in a tall grey box).
+  (ARCHIVE FLIX poster research, 2026-11-17 ~19:15-19:39.)
+- Validate a poster match before using it. The OMDb poster layer
+  never validated: it took the first result with any poster and
+  ran first, outranking correct layers. A match is checked
+  before it is used, not after a wrong poster ships.
+  (ARCHIVE FLIX poster research, 2026-11-17 ~19:15-19:39.)
+- Clear the poster cache when the matcher gets stricter, or
+  stale wrong posters keep serving (for example a COVID poster
+  on The General). A stricter matcher does not fix posters the
+  cache already stored wrong. (ARCHIVE FLIX poster research,
+  2026-11-17 ~19:15-19:39.)
+- A dialog that opens smaller than its content is a
+  ship-blocking flaw. Settings opened 560x220 against 527 px of
+  content: every label clipped, Save and Cancel cut to 9 px
+  slivers until resized. The same failure class hit the Pull
+  window (buttons squash to unreadable slivers, labels overlap
+  when the queue lists appear). Size dialogs to content; test
+  at the user's real screen size. (FYRN v0.5 audit, 2026-11-18
+  ~13:50.)
+- Declutter by subtraction. Remove buttons the menu already has
+  (send-row save and open), add a scroll area so nothing runs
+  off the bottom of a 768 px screen, and guarantee pane
+  minimums so transcripts keep their room. Do not re-skin;
+  subtract. (DUO, 2026-11-17 ~19:15. Diagnosis verified in a
+  drive: the send row holds 10 buttons in one line, 4 labels
+  clip at 900 px; the director is a cockpit, 9+ widgets in the
+  relay row alone.)
+
 ## Seed the repo, then diff every upload before adding it
 
 - Seed with the charter README plus the first technique file, push,

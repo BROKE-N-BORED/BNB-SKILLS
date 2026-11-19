@@ -19,6 +19,10 @@ about the update happens without his tap.
   on load: it does not need it. Note the exemption in the thread and
   move on. (YAHTZEE is a web game and is exempt on exactly this
   ground.)
+- Do NOT build this for a script that is read fresh from disk every
+  time it runs: it is always current, like a web app, so no updater
+  is needed. Note the exemption in the thread and move on. (The
+  storage-cleanup tool is exempt on exactly this ground.)
 - Do NOT build this as a silent auto-install: every step that
   changes his install asks first. Silent applies to the check only.
 
@@ -58,6 +62,59 @@ about the update happens without his tap.
 - The pending-update record survives a restart of the machine, not
   just of the app: the staged files and the record of what is
   staged live on disk until the update completes.
+
+## Live-update test lessons: unit tests did not catch these
+
+- A live end-to-end update run is part of the verification protocol
+  for this skill: install a test version, pull the update, restart,
+  verify. Unit tests alone caught none of the three bugs below;
+  only install, pull, restart, verify did. (MIMIK v0.7 live-update
+  test, 2026-11-18.)
+- Invoke install.sh with `bash`, never `sh`: install.sh uses
+  `set -euo pipefail`, which dies at line 6 under dash.
+- Scrub the inherited environment before running the installer:
+  a stray `PYTHONPATH` inherited from the GUI made venv pip import
+  system pip and crash.
+- The relaunch/launcher detector must look for the launcher where
+  it actually lives: `.local/bin`, not venv bin.
+
+## Rollback restores every build folder
+
+- A failed update must roll back cleanly: rollback restores EVERY
+  build folder. The failure mode is a safe rollback, never a
+  broken install. (SOLDAR: a failed update left the engine
+  half-upgraded and the app unable to start; rollback now restores
+  every build folder.)
+- Known limitation: an update does not remove files a newer
+  version deleted. Record it where the update is described, so
+  nobody assumes the install is cleaned up by the update.
+
+## Prove it against real GitHub, not just a fake server
+
+- Two-stage proof: prove the loop against a fake server first
+  (the Yes/No/up-to-date paths), then prove it against live
+  GitHub after publish. The first real publish is the moment of
+  truth. (Android Photo Transfer v0.1.1, 2026-11-18, was the
+  first live-GitHub end-to-end proof: 0.1.0 offered 0.1.1, and
+  0.1.1 reports current.)
+- Download-back proof step: after publishing a release, download
+  the release zip back from GitHub and verify its hash. This
+  doubles as proof the in-app updater's download path works
+  against real GitHub, not just that the file exists. (GITDATA
+  v0.1.5.)
+- Sidecar rule: a release published without the `.sha256` sidecar
+  is never offered, so the publish checklist must include
+  uploading the sidecar.
+
+## Implementation notes from ACR v0.12
+
+- The launcher applies staged updates AFTER the single-instance
+  lock check. The ordering is deliberate.
+- The updater keeps the existing .venv; it does not rebuild it.
+- A version with no updater must be installed once from the
+  Release before the update path works: the first updater version
+  is always a manual install. (ACR v0.11 had no updater; v0.12
+  was the first updater version.)
 
 ## Build only what is missing
 
@@ -101,6 +158,11 @@ about the update happens without his tap.
   v0.3.0, REBLEND ADDON DEV SUITE (update check verified
   2026-11-17 ~18:16), GITDATA v0.1.5, Android Photo Transfer
   v0.1.1.
+- More worked implementations, same shape: Reblend v0.2-upd (the
+  first Reblend release carrying a checksum sidecar), DUO v0.55
+  (the first DUO Release with a checksum sidecar), ARCHIVE FLIX
+  v1.6.2 (full S84 flow on the Linux desktop launcher; the web
+  app stays exempt as always-current).
 - Verify the update flow the way he will use it: launch the app,
   let it check, tap through the popup, let it pull and verify,
   answer the restart question both ways. A flow verified only by
@@ -145,3 +207,10 @@ about the update happens without his tap.
 - Found in the seventh BNB delta scan (2026-11-17). The biggest
   finding of the delta: one order, broadcast to 26 threads, with
   17 in-window implementations.
+- Eighth BNB delta scan (2026-11-18): the live-update test
+  lessons (MIMIK v0.7), rollback-every-folder (SOLDAR),
+  download-back proof (GITDATA v0.1.5), first live-GitHub
+  end-to-end proof plus two-stage proof and the sidecar rule
+  (Android Photo Transfer v0.1.1), ACR v0.12 implementation
+  notes, and the script exemption (storage-cleanup tool, a
+  Delta 7 miss fixed).

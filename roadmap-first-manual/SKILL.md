@@ -101,9 +101,22 @@
   "Startup and shutdown" (first of Part 4, 2026-11-16 ~00:49),
   ch16-18 (2026-11-16 daytime), ch19 "Text tools", ch20
   "Developer tools", ch21 "The shell" (last of Part 5), ch22
-  "Kernel design" (first of Part 6). The manual is now through
-  chapter 22, Part 6 underway - the workflow is confirmed
+  "Kernel design" (first of Part 6). The manual was then through
+  chapter 22, Part 6 underway - the workflow was confirmed
   end-to-end twenty-two times over. (RIZA thread 9aa4d5d7.)
+- Chapters 23-25 all landed in-window, 2026-11-17 18:48:51
+  through 2026-11-18 ~20:50, each starting on his one-word
+  "Go": ch23 "Boot: from power on to prompt" (live 2026-11-18
+  ~13:13, just under 5,500 words, 27 steps power-on to prompt),
+  ch24 "Processes and scheduling" ("Go" 2026-11-18 14:06, live
+  the same day, just over 5,400 words; fixes the naming ch22
+  left open: PIDs from 1, the shell is 1, 0 means no program,
+  4 bytes, ~136 years at one start per second), and ch25
+  "Memory in the kernel" ("Go" 2026-11-18 20:50, live the same
+  evening, just under 5,500 words, 21 bytes per run, hello loop
+  12 to 16 entries). The manual is now through chapter 25,
+  Part 6 - the workflow is confirmed end-to-end twenty-five
+  times over. (RIZA thread 9aa4d5d7.)
 - Each chapter starts on the user's go-ahead — a one-word "Go" in the
   thread — one chapter at a time. Do not chain chapters without it.
 

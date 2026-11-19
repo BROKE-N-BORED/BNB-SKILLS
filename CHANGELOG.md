@@ -4,6 +4,8 @@ All notable changes to BNB-SKILLS. Dates are in EST.
 
 ## Eighth delta scan - 2026-11-18
 
+SHA: f0271677
+
 Eighth delta scan of all chat threads (window ~18:47 EST 2026-11-17
 to ~21:02 EST 2026-11-18, 106 chats read). Two new skills: S91
 no-terminal-by-default (Tier 1) and S92 how-to-manual. S91 carries
